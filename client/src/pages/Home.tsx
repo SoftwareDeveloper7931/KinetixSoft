@@ -14,7 +14,7 @@ export default function Home() {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-4 md:px-6 max-w-7xl mx-auto">
+      <section className="relative pt-20 pb-20 md:pt-24 md:pb-32 px-4 md:px-6 max-w-7xl mx-auto">
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
