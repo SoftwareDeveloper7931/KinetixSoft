@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { BackgroundElements } from "@/components/BackgroundElements";
-import { Smartphone, Zap, Shield, Code2, Rocket, Layout, CheckCircle, Globe, Cpu } from "lucide-react";
+import { Smartphone, Zap, Shield, Code2, Rocket, Layout, CheckCircle, Globe, Cpu, Lock } from "lucide-react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 
@@ -104,6 +104,65 @@ export default function FlutterFlowDev() {
                 </p>
               </motion.div>
             ))}
+          </div>
+        </div>
+
+        <div className="mb-24">
+          <h2 className="text-3xl font-bold text-white text-center mb-12">Advanced Security Implementation</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="glass-card p-8 border border-white/10 rounded-2xl"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-full bg-red-500/10 flex items-center justify-center text-red-400">
+                  <Shield className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl font-bold text-white">Firestore Security Rules</h3>
+              </div>
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                We implement granular security rules to ensure data is only accessible to authorized users. Our approach prevents unauthorized reads, writes, and deletions at the database level.
+              </p>
+              <div className="bg-black/40 rounded-xl p-4 font-mono text-sm text-green-400/80 border border-white/5">
+                <div className="text-white/40 mb-2">// Sample Security Rule</div>
+                <div>allow <span className="text-purple-400">read, write</span>: <span className="text-purple-400">if</span> {'{'}</div>
+                <div className="pl-4">request.auth != <span className="text-blue-400">null</span> &&</div>
+                <div className="pl-4">request.auth.uid == resource.data.ownerId;</div>
+                <div>{'}'}</div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="glass-card p-8 border border-white/10 rounded-2xl"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400">
+                  <Lock className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl font-bold text-white">Advanced Protection</h3>
+              </div>
+              <ul className="space-y-4">
+                {[
+                  { title: "Row Level Security (RLS)", desc: "Deep integration with Supabase for bulletproof backend security." },
+                  { title: "API Authentication", desc: "Secure endpoint communication with JWT and Bearer tokens." },
+                  { title: "Data Masking", desc: "Protecting sensitive user information during transit and display." },
+                  { title: "Role-Based Access", desc: "Complex permission systems based on user roles and permissions." }
+                ].map((item, i) => (
+                  <li key={i} className="flex gap-4">
+                    <CheckCircle className="w-5 h-5 text-cyan-400 shrink-0 mt-1" />
+                    <div>
+                      <div className="text-white font-medium">{item.title}</div>
+                      <div className="text-muted-foreground text-sm">{item.desc}</div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
           </div>
         </div>
 
