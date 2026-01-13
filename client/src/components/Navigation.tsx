@@ -1,0 +1,73 @@
+import { Link, useLocation } from "wouter";
+import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+
+const links = [
+  { href: "/", label: "Home" },
+  { href: "/services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact", cta: true },
+];
+
+export function Navigation() {
+  const [location] = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-4 md:px-6">
+      <div className="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-4 flex items-center justify-between">
+        <Link href="/" className="text-2xl font-bold tracking-tighter font-display z-50 relative">
+          <span className="text-white">NOV</span>
+          <span className="text-cyan-400">A</span>
+        </Link>
+
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-8">
+          {links.map((link) => (
+            link.cta ? (
+              <Link key={link.href} href={link.href}>
+                <Button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white border-0 shadow-lg shadow-cyan-500/25">
+                  {link.label}
+                </Button>
+              </Link>
+            ) : (
+              <Link key={link.href} href={link.href} className={`text-sm font-medium transition-colors hover:text-cyan-400 ${location === link.href ? "text-cyan-400" : "text-white/70"}`}>
+                {link.label}
+              </Link>
+            )
+          ))}
+        </div>
+
+        {/* Mobile Toggle */}
+        <button 
+          className="md:hidden z-50 relative text-white"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          {isOpen ? <X /> : <Menu />}
+        </button>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="absolute inset-x-0 top-0 pt-24 pb-8 px-6 bg-[#0B0F19]/95 backdrop-blur-xl border-b border-white/10 md:hidden flex flex-col gap-4 rounded-b-2xl"
+          >
+            {links.map((link) => (
+              <Link 
+                key={link.href} 
+                href={link.href}
+                className="text-lg font-medium text-white/90 py-2 border-b border-white/5"
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </div>
+    </nav>
+  );
+}
