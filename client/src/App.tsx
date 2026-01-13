@@ -15,6 +15,7 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import Careers from "@/pages/Careers";
 import Blog from "@/pages/Blog";
+import BlogPost from "@/pages/BlogPost";
 import CustomApiIntegration from "@/pages/CustomApiIntegration";
 
 function Router() {
@@ -32,6 +33,7 @@ function Router() {
       <Route path="/terms" component={TermsOfService} />
       <Route path="/careers" component={Careers} />
       <Route path="/blog" component={Blog} />
+      <Route path="/blog/:slug" component={BlogPost} />
       <Route component={NotFound} />
     </Switch>
   );

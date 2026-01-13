@@ -7,8 +7,20 @@ import { Link } from "wouter";
 
 export default function Blog() {
   const posts = [
-    { title: "The Future of Low-Code", date: "Jan 12, 2026", author: "Nova Team", excerpt: "How platforms like FlutterFlow and Retool are changing development forever." },
-    { title: "Automating Your CRM with Podio", date: "Jan 10, 2026", author: "Solutions Dept", excerpt: "5 ways Globiflow can save you 10+ hours a week." },
+    { 
+      slug: "future-of-low-code",
+      title: "The Future of Low-Code", 
+      date: "Jan 12, 2026", 
+      author: "Nova Team", 
+      excerpt: "How platforms like FlutterFlow and Retool are changing development forever." 
+    },
+    { 
+      slug: "automating-crm-podio",
+      title: "Automating Your CRM with Podio", 
+      date: "Jan 10, 2026", 
+      author: "Solutions Dept", 
+      excerpt: "5 ways Globiflow can save you 10+ hours a week." 
+    },
   ];
 
   return (
@@ -42,7 +54,7 @@ export default function Blog() {
               </div>
               <h2 className="text-2xl font-bold text-white mb-4">{post.title}</h2>
               <p className="text-muted-foreground mb-6 flex-1">{post.excerpt}</p>
-              <Link href="#" className="text-cyan-400 font-bold flex items-center gap-2 hover:translate-x-1 transition-transform">
+              <Link href={`/blog/${post.slug}`} className="text-cyan-400 font-bold flex items-center gap-2 hover:translate-x-1 transition-transform">
                 Read More <ArrowRight size={16} />
               </Link>
             </motion.div>
