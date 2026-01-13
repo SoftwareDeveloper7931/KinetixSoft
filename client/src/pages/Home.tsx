@@ -20,71 +20,67 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="glass-card-extreme border border-white/10 rounded-3xl shadow-2xl relative overflow-hidden"
+          className="glass-card-extreme border border-white/10 rounded-3xl shadow-2xl relative overflow-hidden min-h-[600px] flex items-center"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2">
-            <div className="p-12 md:p-24 relative z-10 flex flex-col items-start text-left max-w-4xl mx-auto">
-              {/* Subtle background glows */}
-              <div className="absolute -top-24 -left-24 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
+          {/* Background Image with Dark Wash */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src={heroImage} 
+              alt="Software Agency Background" 
+              className="h-full w-full object-cover"
+            />
+            {/* Dark "Wash" Gradient for Readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40 z-10" />
+            <div className="absolute inset-0 bg-black/40 z-10" />
+          </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <span className="inline-block px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-sm font-medium mb-6 backdrop-blur-sm">
-                  ✨ Redefining Digital Excellence
-                </span>
-              </motion.div>
-              
-              <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1]"
-              >
-                Building the Future of <br />
-                <span className="text-gradient">Digital Architecture</span>
-              </motion.h1>
-              
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl"
-              >
-                We specialize in crafting high-performance applications using Podio, FlutterFlow, and Retool. Elevate your business efficiency with our custom-tailored digital tools.
-              </motion.p>
-              
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto"
-              >
-                <Link href="/contact">
-                  <Button size="lg" className="bg-white text-black hover:bg-white/90 border-0 h-14 px-10 text-base font-semibold rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.15)] transition-all hover:scale-[1.02] active:scale-[0.98]">
-                    Start a Project
-                  </Button>
-                </Link>
-                <Link href="/services">
-                  <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/5 h-14 px-10 text-base font-semibold rounded-full backdrop-blur-md transition-all hover:scale-[1.02] active:scale-[0.98]">
-                    View Services
-                  </Button>
-                </Link>
-              </motion.div>
-            </div>
-
-            {/* Hero Image Section */}
-            <div className="relative hidden lg:block overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent z-10" />
-              <img 
-                src={heroImage} 
-                alt="Modern software agency office" 
-                className="h-full w-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-primary/10 mix-blend-overlay" />
-            </div>
+          <div className="p-12 md:p-24 relative z-20 flex flex-col items-start text-left max-w-4xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="inline-block px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 text-cyan-400 text-sm font-medium mb-6 backdrop-blur-sm">
+                ✨ Redefining Digital Excellence
+              </span>
+            </motion.div>
+            
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1] text-white"
+            >
+              Building the Future of <br />
+              <span className="text-gradient">Digital Architecture</span>
+            </motion.h1>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl"
+            >
+              We specialize in crafting high-performance applications using Podio, FlutterFlow, and Retool. Elevate your business efficiency with our custom-tailored digital tools.
+            </motion.p>
+            
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto"
+            >
+              <Link href="/contact">
+                <Button size="lg" className="bg-white text-black hover:bg-white/90 border-0 h-14 px-10 text-base font-semibold rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.15)] transition-all hover:scale-[1.02] active:scale-[0.98]">
+                  Start a Project
+                </Button>
+              </Link>
+              <Link href="/services">
+                <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 h-14 px-10 text-base font-semibold rounded-full backdrop-blur-md transition-all hover:scale-[1.02] active:scale-[0.98]">
+                  View Services
+                </Button>
+              </Link>
+            </motion.div>
           </div>
         </motion.div>
       </section>
