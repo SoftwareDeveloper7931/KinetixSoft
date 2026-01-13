@@ -41,16 +41,16 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-white mb-6">Connect</h4>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
+              <a href="https://github.com/login" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
                 <Github size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
+              <a href="https://twitter.com/login" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
                 <Twitter size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
+              <a href="https://www.linkedin.com/login" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
                 <Linkedin size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
+              <a href="mailto:contact@novaagency.com" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
                 <Mail size={18} />
               </a>
             </div>
