@@ -79,24 +79,33 @@ export default function Home() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <ServiceCard 
-              title="Podio Solutions"
-              description="Streamline your workflows with custom Podio architecture. We build automated CRM and project management systems that fit your exact business logic."
-              icon={<Database size={24} />}
-              delay={0.1}
-            />
-            <ServiceCard 
-              title="FlutterFlow Apps"
-              description="Launch beautiful, native mobile applications faster. We design and develop cross-platform apps that feel premium and perform flawlessly."
-              icon={<Smartphone size={24} />}
-              delay={0.2}
-            />
-            <ServiceCard 
-              title="Retool Development"
-              description="Empower your team with custom internal tools. We build robust dashboards, admin panels, and data interfaces that connect to any database."
-              icon={<Code2 size={24} />}
-              delay={0.3}
-            />
+            <Link href="/services/podio">
+              <ServiceCard 
+                title="Podio Solutions"
+                description="Streamline your workflows with custom Podio architecture. We build automated CRM and project management systems."
+                icon={<Database size={24} />}
+                delay={0.1}
+                className="cursor-pointer"
+              />
+            </Link>
+            <Link href="/services/flutterflow">
+              <ServiceCard 
+                title="FlutterFlow Apps"
+                description="Launch beautiful, native mobile applications faster. We design and develop cross-platform apps."
+                icon={<Smartphone size={24} />}
+                delay={0.2}
+                className="cursor-pointer"
+              />
+            </Link>
+            <Link href="/services/retool">
+              <ServiceCard 
+                title="Retool Development"
+                description="Empower your team with custom internal tools. We build robust dashboards and admin panels."
+                icon={<Code2 size={24} />}
+                delay={0.3}
+                className="cursor-pointer"
+              />
+            </Link>
           </div>
         </div>
       </section>

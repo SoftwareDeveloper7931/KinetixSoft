@@ -81,9 +81,14 @@ export default function Services() {
                     </div>
                   ))}
                 </div>
+                <Link href={`/services/${service.id}`}>
+                  <Button className="glass-panel hover:bg-white/10 border-white/10 text-white mr-4">
+                    Learn More
+                  </Button>
+                </Link>
                 <Link href="/contact">
-                  <Button className="glass-panel hover:bg-white/10 border-white/10 text-white">
-                    Get Started with {service.title}
+                  <Button variant="ghost" className="text-cyan-400 hover:text-cyan-300">
+                    Get Started
                   </Button>
                 </Link>
               </div>
