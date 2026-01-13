@@ -13,6 +13,9 @@ import FlutterFlowDev from "@/pages/FlutterFlowDev";
 import RetoolDev from "@/pages/RetoolDev";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
+import Careers from "@/pages/Careers";
+import Blog from "@/pages/Blog";
+import CustomApiIntegration from "@/pages/CustomApiIntegration";
 
 function Router() {
   return (
@@ -22,10 +25,13 @@ function Router() {
       <Route path="/services/podio" component={PodioSolutions} />
       <Route path="/services/flutterflow" component={FlutterFlowDev} />
       <Route path="/services/retool" component={RetoolDev} />
+      <Route path="/services/custom-api" component={CustomApiIntegration} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
       <Route path="/privacy" component={PrivacyPolicy} />
       <Route path="/terms" component={TermsOfService} />
+      <Route path="/careers" component={Careers} />
+      <Route path="/blog" component={Blog} />
       <Route component={NotFound} />
     </Switch>
   );

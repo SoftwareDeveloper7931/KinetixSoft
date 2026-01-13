@@ -28,6 +28,13 @@ export default function Services() {
       icon: <Code2 className="w-8 h-8" />,
       description: "Build internal tools 10x faster. We create custom admin panels, dashboards, and operational tools that connect directly to your databases and APIs.",
       features: ["Admin Dashboards", "CRUD Interfaces", "Data Visualization", "SQL & REST API Integration"]
+    },
+    {
+      id: "custom-api",
+      title: "Custom API Integration",
+      icon: <Layers className="w-8 h-8" />,
+      description: "We bridge the gap between your systems. From REST and GraphQL to complex webhook architectures, we ensure your data flows seamlessly.",
+      features: ["Third-party API Sync", "Custom Middleware", "OAuth Implementation", "Webhooks Management"]
     }
   ];
 

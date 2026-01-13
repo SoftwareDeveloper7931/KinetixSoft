@@ -21,10 +21,10 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-white mb-6">Services</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link href="/services" className="hover:text-cyan-400 transition-colors">Podio Solutions</Link></li>
-              <li><Link href="/services" className="hover:text-cyan-400 transition-colors">FlutterFlow Apps</Link></li>
-              <li><Link href="/services" className="hover:text-cyan-400 transition-colors">Retool Development</Link></li>
-              <li><Link href="/services" className="hover:text-cyan-400 transition-colors">Custom API Integration</Link></li>
+              <li><Link href="/services/podio" className="hover:text-cyan-400 transition-colors">Podio Solutions</Link></li>
+              <li><Link href="/services/flutterflow" className="hover:text-cyan-400 transition-colors">FlutterFlow Apps</Link></li>
+              <li><Link href="/services/retool" className="hover:text-cyan-400 transition-colors">Retool Development</Link></li>
+              <li><Link href="/services/custom-api" className="hover:text-cyan-400 transition-colors">Custom API Integration</Link></li>
             </ul>
           </div>
           
