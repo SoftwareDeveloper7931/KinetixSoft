@@ -59,15 +59,15 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+              className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto"
             >
               <Link href="/contact">
-                <Button size="lg" className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white border-0 h-12 px-8 text-base shadow-lg shadow-cyan-500/25">
+                <Button size="lg" className="bg-white text-black hover:bg-white/90 border-0 h-14 px-10 text-base font-semibold rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.15)] transition-all hover:scale-[1.02] active:scale-[0.98]">
                   Start a Project
                 </Button>
               </Link>
               <Link href="/services">
-                <Button size="lg" variant="outline" className="border-white/10 text-white hover:bg-white/5 hover:text-white h-12 px-8 text-base backdrop-blur-sm">
+                <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/5 h-14 px-10 text-base font-semibold rounded-full backdrop-blur-md transition-all hover:scale-[1.02] active:scale-[0.98]">
                   View Services
                 </Button>
               </Link>
