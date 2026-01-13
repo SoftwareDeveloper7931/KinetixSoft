@@ -11,6 +11,8 @@ import Contact from "@/pages/Contact";
 import PodioSolutions from "@/pages/PodioSolutions";
 import FlutterFlowDev from "@/pages/FlutterFlowDev";
 import RetoolDev from "@/pages/RetoolDev";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsOfService from "@/pages/TermsOfService";
 
 function Router() {
   return (
@@ -22,6 +24,8 @@ function Router() {
       <Route path="/services/retool" component={RetoolDev} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
+      <Route path="/privacy" component={PrivacyPolicy} />
+      <Route path="/terms" component={TermsOfService} />
       <Route component={NotFound} />
     </Switch>
   );
