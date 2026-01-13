@@ -20,7 +20,7 @@ export default function Home() {
           <img 
             src={heroImage} 
             alt="Software Agency Background" 
-            className="h-full w-full object-cover"
+            className="h-full w-full object-contain object-center scale-[1.1]"
           />
           {/* Dark "Wash" Gradient for Readability */}
           <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/40 to-background/80 z-10" />
@@ -46,7 +46,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
-                className="text-6xl md:text-9xl font-bold tracking-tight mb-8 leading-[1] text-white"
+                className="text-4xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1] text-white"
               >
                 Building the Future of <br />
                 <span className="text-gradient">Digital Architecture</span>
@@ -56,7 +56,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-xl md:text-3xl text-white/90 mb-12 max-w-4xl font-light"
+                className="text-lg md:text-xl text-white/90 mb-10 max-w-3xl font-light"
               >
                 We specialize in crafting high-performance applications using Podio, FlutterFlow, and Retool. Elevate your business efficiency with our custom-tailored digital tools.
               </motion.p>
@@ -68,12 +68,12 @@ export default function Home() {
                 className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto justify-center"
               >
                 <Link href="/contact">
-                  <Button size="lg" className="bg-white text-black hover:bg-white/90 border-0 h-16 px-12 text-xl font-semibold rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.2)] transition-all hover:scale-[1.05] active:scale-[0.95]">
+                  <Button size="lg" className="bg-white text-black hover:bg-white/90 border-0 h-14 px-10 text-base font-semibold rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.2)] transition-all hover:scale-[1.02] active:scale-[0.98]">
                     Start a Project
                   </Button>
                 </Link>
                 <Link href="/services">
-                  <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 h-16 px-12 text-xl font-semibold rounded-full backdrop-blur-md transition-all hover:scale-[1.05] active:scale-[0.95]">
+                  <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 h-14 px-10 text-base font-semibold rounded-full backdrop-blur-md transition-all hover:scale-[1.02] active:scale-[0.98]">
                     View Services
                   </Button>
                 </Link>
