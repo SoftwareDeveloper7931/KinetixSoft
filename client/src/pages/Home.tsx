@@ -6,7 +6,7 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { BackgroundElements } from "@/components/BackgroundElements";
-import heroImage from "@assets/stock_images/modern_minimalist_so_a8208d2d.jpg";
+import heroImage from "@assets/stock_images/modern_glass_office__4445611b.jpg";
 
 export default function Home() {
   return (
@@ -30,11 +30,11 @@ export default function Home() {
               className="h-full w-full object-cover"
             />
             {/* Dark "Wash" Gradient for Readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40 z-10" />
-            <div className="absolute inset-0 bg-black/40 z-10" />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/60 to-background/90 z-10" />
+            <div className="absolute inset-0 bg-black/60 z-10" />
           </div>
 
-          <div className="p-12 md:p-24 relative z-20 flex flex-col items-start text-left max-w-4xl">
+          <div className="p-12 md:p-24 relative z-20 flex flex-col items-center text-center w-full">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -49,7 +49,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-[1.1] text-white"
+              className="text-5xl md:text-8xl font-bold tracking-tight mb-8 leading-[1.1] text-white"
             >
               Building the Future of <br />
               <span className="text-gradient">Digital Architecture</span>
@@ -59,7 +59,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl"
+              className="text-lg md:text-2xl text-white/90 mb-10 max-w-3xl"
             >
               We specialize in crafting high-performance applications using Podio, FlutterFlow, and Retool. Elevate your business efficiency with our custom-tailored digital tools.
             </motion.p>
@@ -68,15 +68,15 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto"
+              className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto justify-center"
             >
               <Link href="/contact">
-                <Button size="lg" className="bg-white text-black hover:bg-white/90 border-0 h-14 px-10 text-base font-semibold rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.15)] transition-all hover:scale-[1.02] active:scale-[0.98]">
+                <Button size="lg" className="bg-white text-black hover:bg-white/90 border-0 h-16 px-12 text-lg font-semibold rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.2)] transition-all hover:scale-[1.05] active:scale-[0.95]">
                   Start a Project
                 </Button>
               </Link>
               <Link href="/services">
-                <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 h-14 px-10 text-base font-semibold rounded-full backdrop-blur-md transition-all hover:scale-[1.02] active:scale-[0.98]">
+                <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 h-16 px-12 text-lg font-semibold rounded-full backdrop-blur-md transition-all hover:scale-[1.05] active:scale-[0.95]">
                   View Services
                 </Button>
               </Link>
