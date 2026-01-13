@@ -1,0 +1,316 @@
+# Software Agency Website - Complete Development Prompt
+
+Create a modern, glassmorphism-themed software agency website with the following specifications:
+
+## Design Requirements
+
+### Visual Style
+- **Primary Theme**: Pure glassmorphism design with frosted glass effects
+- **Color Palette**: 
+  - Soft gradients (blues, purples, teals, pinks)
+  - Semi-transparent backgrounds with blur effects
+  - White/light text on glass panels
+  - Subtle neon accent colors for CTAs
+- **Effects**:
+  - Frosted glass cards with backdrop-filter blur
+  - Soft shadows and glows
+  - Smooth animations and transitions
+  - Floating elements with subtle movements
+  - Gradient borders on glass panels
+
+### Layout Structure
+- Responsive design (mobile, tablet, desktop)
+- Smooth scrolling navigation
+- Modern, spacious layout with breathing room
+- Interactive hover effects throughout
+
+## Pages & Sections
+
+### 1. Homepage
+- **Hero Section**:
+  - Animated gradient background
+  - Glass-effect hero card with agency tagline
+  - CTA buttons: "Get Started" and "View Services"
+  - Floating decorative elements
+
+- **Services Overview**:
+  - Three glass cards for: Podio, FlutterFlow, Retool
+  - Brief description and icon for each
+  - "Learn More" button linking to detail pages
+
+- **Why Choose Us Section**:
+  - 4-6 benefit cards in glass style
+  - Icons and short descriptions
+
+- **CTA Section**:
+  - Large glass panel with contact invitation
+  - Button to contact form
+
+### 2. Service Detail Pages (3 separate pages)
+
+#### Page A: Podio Solutions
+**Content Structure**:
+- Hero section with service name and tagline
+- **Overview Section**: What is Podio and why use it
+- **How It Works Diagram**: 
+  - Create an interactive flowchart showing:
+    - Workflow automation
+    - Custom app creation
+    - Team collaboration features
+    - Integration capabilities
+  - Use SVG or canvas-based diagram with glass-styled nodes
+- **Key Features** (glass cards):
+  - Custom workflows
+  - Project management
+  - CRM capabilities
+  - Reporting & analytics
+  - Mobile access
+  - Integrations
+- **Use Cases**: Industry-specific examples
+- **Our Process**: 
+  - Consultation → Planning → Implementation → Training → Support
+  - Timeline visualization
+- **Case Study/Example** (if applicable)
+- **Pricing Tiers** (glass pricing cards)
+- **CTA**: Contact us for Podio consultation
+
+#### Page B: FlutterFlow Development
+**Content Structure**:
+- Hero section with service name and tagline
+- **Overview Section**: What is FlutterFlow and benefits
+- **How It Works Diagram**:
+  - Visual representation showing:
+    - Design in FlutterFlow
+    - Backend integration
+    - Testing phase
+    - Deployment to iOS/Android/Web
+  - Flowchart with glass-styled components
+- **Key Features** (glass cards):
+  - Visual development
+  - Cross-platform apps
+  - Firebase integration
+  - Custom code support
+  - Real-time preview
+  - Fast deployment
+- **App Types We Build**:
+  - Business apps
+  - E-commerce
+  - Social platforms
+  - Booking systems
+- **Development Process**:
+  - Discovery → Design → Development → Testing → Launch
+  - Visual timeline
+- **Portfolio Examples** (gallery of app screenshots)
+- **Pricing Tiers** (glass pricing cards)
+- **CTA**: Start your app project
+
+#### Page C: Retool Development
+**Content Structure**:
+- Hero section with service name and tagline
+- **Overview Section**: What is Retool and ideal use cases
+- **How It Works Diagram**:
+  - Architecture diagram showing:
+    - Connect data sources (databases, APIs)
+    - Build UI components
+    - Add business logic
+    - Deploy internal tools
+  - Glass-styled component diagram
+- **Key Features** (glass cards):
+  - Rapid development
+  - Database connectivity
+  - Pre-built components
+  - Custom JavaScript
+  - Access controls
+  - API integrations
+- **Tools We Build**:
+  - Admin panels
+  - Dashboards
+  - Internal tools
+  - Customer support tools
+  - Data management interfaces
+- **Development Approach**:
+  - Requirements → Design → Build → Deploy → Iterate
+  - Process visualization
+- **Before/After Examples** (showing time saved)
+- **Pricing Tiers** (glass pricing cards)
+- **CTA**: Request a demo
+
+### 3. About Us Page
+- Company story in glass panels
+- Team section (optional)
+- Values and mission
+- Technologies we work with
+
+### 4. Contact Us Page
+
+**Contact Form with Brevo & Podio Integration**:
+
+Form Fields:
+- Full Name (required)
+- Email (required)
+- Phone Number (optional)
+- Company Name (optional)
+- **Service Interested In** (required dropdown):
+  - Podio Solutions
+  - FlutterFlow Development
+  - Retool Development
+  - Multiple Services
+  - Not Sure Yet
+- **Budget Range** (required dropdown):
+  - $5,000 - $10,000
+  - $10,000 - $25,000
+  - $25,000 - $50,000
+  - $50,000 - $100,000
+  - $100,000+
+  - Need Consultation
+- Project Description (required textarea)
+- Preferred Contact Method (Email/Phone)
+- Submit button
+
+**Integration Requirements**:
+1. **Brevo Integration**:
+   - Send confirmation email to user
+   - Send notification email to agency team
+   - Add contact to mailing list
+   - Include all form data in email
+
+2. **Podio Integration**:
+   - Create new lead item in Podio
+   - Map form fields to Podio fields
+   - Include service selection and budget
+   - Trigger automation for follow-up tasks
+
+**Form Styling**:
+- Glass-effect form container
+- Floating labels
+- Smooth validation animations
+- Success/error states with glass modals
+- Loading animation during submission
+
+### Additional Sections
+
+**Footer** (all pages):
+- Quick links
+- Social media icons
+- Contact information
+- Newsletter signup (Brevo integration)
+- Copyright info
+- Glass-styled with gradient border
+
+**Navigation Bar**:
+- Sticky glass navbar
+- Logo on left
+- Menu items: Home, Services (dropdown), About, Contact
+- CTA button
+- Mobile hamburger menu
+
+## Technical Requirements
+
+### Frontend
+- HTML5, CSS3, JavaScript
+- Use CSS variables for theme colors
+- Tailwind CSS or custom CSS for styling
+- Smooth scroll library (e.g., locomotive-scroll)
+- AOS (Animate On Scroll) library
+- Intersection Observer for animations
+
+### Glassmorphism CSS Guidelines
+```css
+/* Example glass card styling */
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+```
+
+### Backend Integration
+
+**Brevo API Integration**:
+- API endpoint for sending transactional emails
+- Contact list management
+- Email templates for confirmation and notifications
+
+**Podio API Integration**:
+- OAuth 2.0 authentication
+- Create items in specific app
+- Field mapping for all form data
+- Error handling and retry logic
+
+### Form Handling
+- Client-side validation
+- Server-side validation
+- AJAX submission (no page reload)
+- Rate limiting for spam prevention
+- reCAPTCHA v3 integration
+- Success/error notifications
+
+### Performance
+- Lazy loading images
+- Optimized assets
+- Minified CSS/JS
+- Fast page load times
+- Smooth animations (60fps)
+
+### Diagrams for Service Pages
+Use one of these approaches:
+- **SVG-based diagrams**: Custom SVG with animated paths
+- **Mermaid.js**: For flowcharts and architecture diagrams
+- **Canvas-based**: Custom drawn diagrams with glassmorphism styling
+- Include hover interactions to show additional information
+
+## Additional Features
+
+- Smooth page transitions
+- Parallax effects on hero sections
+- Floating animation for decorative elements
+- Interactive service comparison tool
+- Live chat widget (optional)
+- Blog section for SEO (optional)
+- Client testimonials section
+- Portfolio/case studies gallery
+- FAQ section with accordion
+- Privacy policy and terms pages
+
+## SEO Requirements
+- Semantic HTML structure
+- Meta tags for all pages
+- Open Graph tags
+- Schema markup for business
+- Alt text for all images
+- Fast loading speed
+- Mobile-friendly
+
+## Deliverables
+1. Fully functional website with all pages
+2. Integrated contact form with Brevo and Podio
+3. Responsive design across all devices
+4. Interactive service diagrams
+5. Working API integrations
+6. Documentation for maintaining integrations
+7. Admin instructions for updating content
+
+## Environment Variables Needed
+```
+BREVO_API_KEY=your_brevo_api_key
+PODIO_CLIENT_ID=your_podio_client_id
+PODIO_CLIENT_SECRET=your_podio_client_secret
+PODIO_APP_ID=your_podio_app_id
+PODIO_APP_TOKEN=your_podio_app_token
+RECAPTCHA_SITE_KEY=your_recaptcha_site_key
+RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key
+```
+
+## Notes for Replit
+- Set up a Node.js backend for handling API integrations
+- Use Express.js for server routes
+- Store sensitive API keys in Replit Secrets
+- Set up CORS properly for form submissions
+- Test both Brevo and Podio integrations thoroughly
+- Provide clear error messages for debugging
+
+---
+
+**Priority**: Focus on creating a visually stunning glassmorphism design that feels fresh, modern, and professional. The glass effects should be prominent but not overwhelming. All interactive elements should have smooth transitions and feedback.
