@@ -28,12 +28,12 @@ export function Navigation() {
           {links.map((link) => (
             link.cta ? (
               <Link key={link.href} href={link.href}>
-                <Button className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white border-0 shadow-lg shadow-cyan-500/25">
+                <Button className="bg-white text-black hover:bg-white/90 border-0 shadow-lg shadow-white/10 rounded-full px-6">
                   {link.label}
                 </Button>
               </Link>
             ) : (
-              <Link key={link.href} href={link.href} className={`text-sm font-medium transition-colors hover:text-cyan-400 ${location === link.href ? "text-cyan-400" : "text-white/70"}`}>
+              <Link key={link.href} href={link.href} className={`text-sm font-semibold transition-colors hover:text-cyan-400 ${location === link.href ? "text-cyan-400" : "text-white/90"}`}>
                 {link.label}
               </Link>
             )

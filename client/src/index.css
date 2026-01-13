@@ -56,7 +56,11 @@
   }
   
   .glass-panel {
-    @apply bg-black/20 backdrop-blur-xl border border-white/5;
+    @apply bg-white/10 backdrop-blur-xl border border-white/20;
+  }
+
+  .glass-nav {
+    @apply bg-white/10 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/20;
   }
 
   .text-gradient {
