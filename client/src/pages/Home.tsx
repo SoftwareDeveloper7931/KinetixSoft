@@ -19,11 +19,29 @@ export default function Home() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="glass-card border border-white/20 p-8 md:p-16 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.3)] relative overflow-hidden"
+          className="glass-card-extreme border border-white/20 p-8 md:p-24 rounded-[4rem] shadow-[0_0_100px_rgba(0,0,0,0.6)] relative overflow-hidden group"
         >
-          {/* Decorative glow inside hero box */}
-          <div className="absolute -top-24 -left-24 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px]" />
-          <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-purple-500/10 rounded-full blur-[80px]" />
+          {/* Animated floating blobs */}
+          <motion.div 
+            animate={{ 
+              scale: [1, 1.2, 1],
+              rotate: [0, 90, 0],
+              x: [0, 50, 0],
+              y: [0, 30, 0]
+            }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute -top-32 -left-32 w-96 h-96 bg-cyan-500/20 rounded-full blur-[120px]" 
+          />
+          <motion.div 
+            animate={{ 
+              scale: [1.2, 1, 1.2],
+              rotate: [0, -90, 0],
+              x: [0, -50, 0],
+              y: [0, -30, 0]
+            }}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            className="absolute -bottom-32 -right-32 w-96 h-96 bg-purple-500/20 rounded-full blur-[120px]" 
+          />
 
           <div className="flex flex-col items-center text-center max-w-4xl mx-auto z-10 relative">
             <motion.div
@@ -40,10 +58,10 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.1]"
+              className="text-5xl md:text-8xl font-black tracking-tighter mb-8 leading-[0.9] uppercase italic"
             >
-              Build Future-Ready <br />
-              <span className="text-gradient">Software Solutions</span>
+              Future <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 animate-gradient-x">Software</span>
             </motion.h1>
             
             <motion.p 
