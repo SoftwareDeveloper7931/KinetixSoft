@@ -9,8 +9,6 @@ import { BackgroundElements } from "@/components/BackgroundElements";
 import heroImage from "@assets/software-house-offices-gliwice-1-700x467_1768334823016.jpg";
 import { ContactForm } from "@/components/ContactForm";
 
-import whyPartnerImage from "@assets/stock_images/modern_office_teamwo_1dc58337.jpg";
-
 export default function Home() {
   return (
     <div className="min-h-screen relative bg-[#0B0F19]">
@@ -169,30 +167,22 @@ export default function Home() {
             </div>
             
             <div className="relative">
-              <div className="glass-panel rounded-2xl overflow-hidden border border-white/10 relative z-10">
-                <img 
-                  src={whyPartnerImage} 
-                  alt="Team collaboration" 
-                  className="w-full h-64 object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent z-20" />
-                <div className="p-8 relative z-30 -mt-20">
-                  <div className="flex flex-col gap-6">
-                    <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                      <div className="w-32 h-2 bg-white/10 rounded-full" />
-                      <div className="w-8 h-8 rounded-full bg-cyan-500/20" />
+              <div className="glass-panel rounded-2xl p-8 border border-white/10 relative z-10">
+                <div className="flex flex-col gap-6">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                    <div className="w-32 h-2 bg-white/10 rounded-full" />
+                    <div className="w-8 h-8 rounded-full bg-cyan-500/20" />
+                  </div>
+                  <div className="space-y-3">
+                    <div className="w-full h-20 bg-white/5 rounded-lg" />
+                    <div className="flex gap-4">
+                      <div className="w-1/2 h-20 bg-white/5 rounded-lg" />
+                      <div className="w-1/2 h-20 bg-white/5 rounded-lg" />
                     </div>
-                    <div className="space-y-3">
-                      <div className="w-full h-12 bg-white/5 rounded-lg" />
-                      <div className="flex gap-4">
-                        <div className="w-1/2 h-12 bg-white/5 rounded-lg" />
-                        <div className="w-1/2 h-12 bg-white/5 rounded-lg" />
-                      </div>
-                    </div>
-                    <div className="flex justify-between items-center pt-4">
-                      <div className="px-4 py-2 bg-cyan-500/20 rounded-lg text-cyan-400 text-sm font-mono">Status: Optimized</div>
-                      <div className="w-24 h-2 bg-green-500/50 rounded-full" />
-                    </div>
+                  </div>
+                  <div className="flex justify-between items-center pt-4">
+                    <div className="px-4 py-2 bg-cyan-500/20 rounded-lg text-cyan-400 text-sm font-mono">Status: Optimized</div>
+                    <div className="w-24 h-2 bg-green-500/50 rounded-full" />
                   </div>
                 </div>
               </div>
