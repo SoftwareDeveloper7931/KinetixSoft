@@ -15,9 +15,9 @@ export default function About() {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold mb-6"
+            className="text-4xl md:text-6xl font-bold mb-6 text-white"
           >
-            Who We <span className="text-gradient">Are</span>
+            Who <span className="text-gradient">Low Code Era</span> Is
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}

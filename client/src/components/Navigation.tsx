@@ -4,6 +4,8 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
+import logoImg from "@assets/ChatGPT_Image_Sep_14,_2025,_05_33_41_PM_1770836779259.png";
+
 const links = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
@@ -18,9 +20,11 @@ export function Navigation() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-4 md:px-6">
       <div className="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold tracking-tighter font-display z-50 relative">
-          <span className="text-white">NOV</span>
-          <span className="text-cyan-400">A</span>
+        <Link href="/" className="flex items-center gap-3 z-50 relative group">
+          <img src={logoImg} alt="Low Code Era Logo" className="w-10 h-10 object-contain brightness-200" />
+          <span className="text-xl font-bold tracking-tighter font-display text-white">
+            Low Code Era
+          </span>
         </Link>
 
         {/* Desktop Nav */}

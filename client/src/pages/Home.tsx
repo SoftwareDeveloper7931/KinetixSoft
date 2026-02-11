@@ -45,15 +45,15 @@ export default function Home() {
                 </span>
               </motion.div>
               
-              <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                className="text-3xl md:text-5xl font-bold tracking-tight mb-6 leading-[1.2] text-white"
-              >
-                Building the Future of <br />
-                <span className="text-gradient">Digital Architecture</span>
-              </motion.h1>
+                <motion.h1 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.1 }}
+                  className="text-3xl md:text-5xl font-bold tracking-tight mb-6 leading-[1.2] text-white"
+                >
+                  The <span className="text-gradient">Low Code Era</span> is Here <br />
+                  Building the Future Together
+                </motion.h1>
               
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}

@@ -11,7 +11,7 @@ export default function Blog() {
       slug: "future-of-low-code",
       title: "The Future of Low-Code", 
       date: "Jan 12, 2026", 
-      author: "Nova Team", 
+      author: "Low Code Era Team", 
       excerpt: "How platforms like FlutterFlow and Retool are changing development forever." 
     },
     { 
@@ -32,9 +32,9 @@ export default function Blog() {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold mb-6"
+            className="text-4xl md:text-6xl font-bold mb-6 text-white"
           >
-            Our <span className="text-gradient">Insights</span>
+            Low Code <span className="text-gradient">Insights</span>
           </motion.h1>
         </div>
 
