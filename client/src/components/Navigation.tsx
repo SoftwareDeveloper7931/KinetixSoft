@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
-import logoImg from "@assets/ChatGPT_Image_Sep_14,_2025,_05_33_41_PM_1770836779259.png";
+import logoImg from "@assets/ChatGPT_Image_Sep_14__2025__05_33_41_PM-removebg-preview_1770837558605.png";
 
 const links = [
   { href: "/", label: "Home" },
@@ -25,7 +25,7 @@ export function Navigation() {
             <img 
               src={logoImg} 
               alt="Low Code Era Logo" 
-              className="w-full h-full object-contain logo-gradient scale-110" 
+              className="w-full h-full object-contain scale-110" 
             />
           </div>
           <span className="text-xl font-bold tracking-tighter font-display text-white">
