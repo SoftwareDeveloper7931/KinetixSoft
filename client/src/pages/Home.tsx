@@ -99,8 +99,7 @@ export default function Home() {
             </Link>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Link href="/services/podio">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <ServiceCard 
                 title="Podio Solutions"
                 description="Streamline your workflows with custom Podio architecture. We build automated CRM and project management systems."
@@ -108,8 +107,6 @@ export default function Home() {
                 delay={0.1}
                 className="cursor-pointer"
               />
-            </Link>
-            <Link href="/services/flutterflow">
               <ServiceCard 
                 title="FlutterFlow Apps"
                 description="Launch beautiful, native mobile applications faster. We design and develop cross-platform apps."
@@ -117,8 +114,6 @@ export default function Home() {
                 delay={0.2}
                 className="cursor-pointer"
               />
-            </Link>
-            <Link href="/services/retool">
               <ServiceCard 
                 title="Retool Development"
                 description="Empower your team with custom internal tools. We build robust dashboards and admin panels."
@@ -126,8 +121,7 @@ export default function Home() {
                 delay={0.3}
                 className="cursor-pointer"
               />
-            </Link>
-          </div>
+            </div>
         </div>
       </section>
 

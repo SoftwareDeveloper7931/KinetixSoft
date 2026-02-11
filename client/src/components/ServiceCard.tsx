@@ -29,12 +29,6 @@ export function ServiceCard({ title, description, icon, delay = 0 }: ServiceCard
         <p className="text-muted-foreground mb-6 leading-relaxed">
           {description}
         </p>
-        
-        <Link href="/services">
-          <button className="flex items-center text-sm font-semibold text-white/70 hover:text-white group-hover:translate-x-1 transition-all">
-            Learn more <ArrowRight className="ml-2 w-4 h-4" />
-          </button>
-        </Link>
       </div>
     </motion.div>
   );
