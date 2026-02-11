@@ -21,7 +21,13 @@ export function Navigation() {
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-4 md:px-6">
       <div className="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 z-50 relative group">
-          <img src={logoImg} alt="Low Code Era Logo" className="w-10 h-10 object-contain brightness-200" />
+          <div className="relative w-10 h-10 flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-white/10">
+            <img 
+              src={logoImg} 
+              alt="Low Code Era Logo" 
+              className="w-full h-full object-contain logo-gradient scale-110" 
+            />
+          </div>
           <span className="text-xl font-bold tracking-tighter font-display text-white">
             Low Code Era
           </span>

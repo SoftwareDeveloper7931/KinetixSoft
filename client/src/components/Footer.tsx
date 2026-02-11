@@ -12,7 +12,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-4">
-              <img src={logoImg} alt="Low Code Era Logo" className="w-8 h-8 object-contain brightness-200" />
+              <div className="relative w-8 h-8 flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-white/10">
+                <img 
+                  src={logoImg} 
+                  alt="Low Code Era Logo" 
+                  className="w-full h-full object-contain logo-gradient scale-110" 
+                />
+              </div>
               <span className="text-2xl font-bold tracking-tighter font-display text-white">
                 Low Code Era
               </span>
