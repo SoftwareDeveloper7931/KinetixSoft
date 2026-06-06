@@ -24,12 +24,12 @@ export function Navigation() {
           <div className="relative w-10 h-10 flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-white/10">
             <img 
               src={logoImg} 
-              alt="Low Code Era Logo" 
+              alt="Nest of Dev Logo" 
               className="w-full h-full object-contain scale-110" 
             />
           </div>
           <span className="text-xl font-bold tracking-tighter font-display text-white">
-            Low Code Era
+            Nest of Dev
           </span>
         </Link>
 

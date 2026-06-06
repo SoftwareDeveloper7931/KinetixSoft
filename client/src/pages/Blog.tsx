@@ -11,7 +11,7 @@ export default function Blog() {
       slug: "future-of-low-code",
       title: "The Future of Low-Code", 
       date: "Jan 12, 2026", 
-      author: "Low Code Era Team", 
+      author: "Nest of Dev Team", 
       excerpt: "How platforms like FlutterFlow and Retool are changing development forever." 
     },
     { 

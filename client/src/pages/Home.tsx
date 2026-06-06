@@ -51,7 +51,7 @@ export default function Home() {
                   transition={{ duration: 0.8, delay: 0.1 }}
                   className="text-3xl md:text-5xl font-bold tracking-tight mb-6 leading-[1.2] text-white"
                 >
-                  The <span className="text-gradient">Low Code Era</span> is Here <br />
+                  The <span className="text-gradient">Nest of Dev</span> is Here <br />
                   Building the Future Together
                 </motion.h1>
               

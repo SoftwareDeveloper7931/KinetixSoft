@@ -15,12 +15,12 @@ export function Footer() {
               <div className="relative w-8 h-8 flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-white/10">
                 <img 
                   src={logoImg} 
-                  alt="Low Code Era Logo" 
+                  alt="Nest of Dev Logo" 
                   className="w-full h-full object-contain scale-110" 
                 />
               </div>
               <span className="text-2xl font-bold tracking-tighter font-display text-white">
-                Low Code Era
+                Nest of Dev
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
@@ -60,7 +60,7 @@ export function Footer() {
               <a href="https://www.linkedin.com/login" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
                 <Linkedin size={18} />
               </a>
-              <a href="mailto:contact@lowcodeera.com" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
+              <a href="mailto:contact@nestofdev.com" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
                 <Mail size={18} />
               </a>
             </div>
@@ -68,7 +68,7 @@ export function Footer() {
         </div>
         
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
-          <p>© 2024 Low Code Era. All rights reserved.</p>
+          <p>© 2024 Nest of Dev. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>

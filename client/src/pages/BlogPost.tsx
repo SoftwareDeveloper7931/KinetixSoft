@@ -9,7 +9,7 @@ const BLOG_POSTS = {
   "future-of-low-code": {
     title: "The Future of Low-Code",
     date: "Jan 12, 2026",
-    author: "Low Code Era Team",
+    author: "Nest of Dev Team",
     readTime: "5 min read",
     content: `
       <p>The landscape of software development is undergoing a seismic shift. Low-code and no-code platforms are no longer just toys for simple prototypes; they are becoming the backbone of enterprise-grade solutions.</p>
