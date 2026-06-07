@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Github, Twitter, Linkedin, Mail } from "lucide-react";
 
-import logoImg from "@assets/ChatGPT_Image_Sep_14__2025__05_33_41_PM-removebg-preview_1770837558605.png";
+import logoImg from "@assets/Gemini_Generated_Image_mzqtlqmzqtlqmzqt_(1)_1780858765034.png";
 
 export function Footer() {
   return (
