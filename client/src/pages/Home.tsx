@@ -12,7 +12,7 @@ import { Footer } from "@/components/Footer";
 import { BackgroundElements } from "@/components/BackgroundElements";
 import { ContactForm } from "@/components/ContactForm";
 import heroImage from "@assets/software-house-offices-gliwice-1-700x467_1768334823016.jpg";
-import { SiFlutter, SiReplit } from "react-icons/si";
+import { SiFlutter, SiReplit, SiRetool } from "react-icons/si";
 
 /* ── FAQ data (unchanged from existing set) ──────────────────────── */
 const faqs = [
@@ -136,6 +136,18 @@ const platforms = [
     ),
     color: "from-orange-500/10 to-amber-600/10",
     border: "hover:border-orange-500/30",
+  },
+  {
+    name: "Retool",
+    description: "Internal tools & dashboards",
+    href: "/services/retool",
+    logo: (
+      <div className="w-10 h-10 rounded-xl bg-yellow-50 flex items-center justify-center">
+        <SiRetool className="w-6 h-6 text-yellow-600" />
+      </div>
+    ),
+    color: "from-yellow-500/10 to-orange-600/10",
+    border: "hover:border-yellow-500/30",
   },
 ];
 
@@ -377,7 +389,7 @@ export default function Home() {
             We build on whichever platform actually fits your product — not whichever one we default to out of habit.
           </p>
         </motion.div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {platforms.map((p, i) => (
             <motion.div
               key={i}
@@ -431,28 +443,26 @@ export default function Home() {
             >
               <div className="absolute inset-0 bg-blue-500/5" />
               {/* overlapping circles with logos */}
-              <div className="relative z-10 w-52 h-52">
-                {platforms.map((p, i) => {
-                  const positions = [
-                    { top: "0%", left: "25%" },
-                    { top: "25%", left: "50%" },
-                    { top: "50%", left: "25%" },
-                    { top: "25%", left: "0%" },
-                  ];
-                  return (
-                    <div
-                      key={i}
-                      className="absolute w-20 h-20 rounded-full glass-panel border border-white/20 flex items-center justify-center shadow-lg"
-                      style={positions[i]}
-                    >
+              <div className="relative z-10 flex flex-col items-center gap-4">
+                {/* top row: 3 badges */}
+                <div className="flex gap-4">
+                  {platforms.slice(0, 3).map((p, i) => (
+                    <div key={i} className="w-16 h-16 rounded-full glass-panel border border-white/20 flex items-center justify-center shadow-lg" style={{ boxShadow: "0 0 20px 2px rgba(79,142,255,0.12)" }}>
                       <div className="scale-75">{p.logo}</div>
                     </div>
-                  );
-                })}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                    <Code2 className="w-5 h-5 text-white" />
-                  </div>
+                  ))}
+                </div>
+                {/* bottom row: 2 badges centred */}
+                <div className="flex gap-4">
+                  {platforms.slice(3).map((p, i) => (
+                    <div key={i} className="w-16 h-16 rounded-full glass-panel border border-white/20 flex items-center justify-center shadow-lg" style={{ boxShadow: "0 0 20px 2px rgba(79,142,255,0.12)" }}>
+                      <div className="scale-75">{p.logo}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex items-center gap-1.5 mt-1">
+                  <Code2 className="w-4 h-4 text-blue-400" />
+                  <span className="text-xs text-muted-foreground">5 mature platforms</span>
                 </div>
               </div>
             </motion.div>
