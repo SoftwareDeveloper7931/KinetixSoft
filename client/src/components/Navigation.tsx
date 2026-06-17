@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
-import logoImg from "@assets/kinetixmvp-logo-transparent.png";
+import logoImg from "@assets/kinetixmvp-icon-transparent.png";
 
 const links = [
   { href: "/", label: "Home" },
