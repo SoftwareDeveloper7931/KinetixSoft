@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Github, Twitter, Linkedin, Mail } from "lucide-react";
 
-import logoImg from "@assets/kinetixmvp-full-logo.png";
+import logoImg from "@assets/kinetixmvp-icon-v2-transparent.png";
 
 export function Footer() {
   return (

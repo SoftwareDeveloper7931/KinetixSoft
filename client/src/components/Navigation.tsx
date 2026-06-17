@@ -19,12 +19,12 @@ export function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-2 md:px-6">
-      <div className="max-w-7xl mx-auto glass-panel rounded-2xl px-5 py-2 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto glass-panel rounded-2xl px-5 h-14 flex items-center justify-between overflow-visible">
         <Link href="/" className="flex items-center z-50 relative group">
           <img
             src={logoImg}
             alt="KinetixMVP Logo"
-            style={{ width: 90, height: 90 }}
+            style={{ width: 72, height: 72 }}
             className="object-contain"
           />
           <span className="text-xl font-bold tracking-tight font-display text-white -ml-2">
