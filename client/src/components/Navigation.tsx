@@ -24,7 +24,7 @@ export function Navigation() {
           <img
             src={logoImg}
             alt="KinetixMVP Logo"
-            className="h-9 w-9 object-contain"
+            className="h-12 w-12 object-contain"
           />
           <span className="text-lg font-bold tracking-tight font-display text-white">
             KinetixMVP
