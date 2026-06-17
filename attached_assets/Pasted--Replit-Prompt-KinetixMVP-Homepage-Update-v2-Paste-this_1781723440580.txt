@@ -1,0 +1,100 @@
+# Replit Prompt — KinetixMVP Homepage Update (v2)
+
+Paste this into the same Replit project chat. This is a content/structure update, not a rebuild.
+
+---
+
+## ⚠️ Do Not Touch
+- **Hero section image** — keep the current hero background/visual exactly as it is.
+- **Navbar** — keep the current nav exactly as it is (logo, links, layout).
+
+Everything below applies to the sections *after* the hero only.
+
+## Global rules
+1. **Branding:** Company name is **KinetixMVP** everywhere it appears in copy, footer, and any section headings — never "Hub Of Dev."
+2. **Original copy only:** Every headline, paragraph, and FAQ answer below is original — written fresh, not adapted line-by-line from any reference site. Keep that standard for any further edits: same structure/sections are fine to reuse, but wording should be ours.
+3. Keep the existing dark theme, blue/indigo accents, italic serif accent words inside headings.
+
+---
+
+## 1. Stats Row (unchanged, keep as-is)
+100% Founder-Led / 24/7 Support Mindset / 2025 Studio Launched — leave this exactly as currently built.
+
+## 2. "Here's What You're Actually Getting" → rename to **"What You Actually Get"**
+4 feature cards (icon + title + description):
+
+1. **Built AI-Native From Day One** — "We default to AI-assisted development on every project, which means faster turnaround without sacrificing code quality or structure."
+2. **Speed Without the Technical Debt** — "We move quickly because the platforms we build on are mature — not because we're cutting corners you'll end up paying for later."
+3. **Full Visibility, Every Step** — "You'll always know exactly where your project stands, from kickoff through launch and into the support window after."
+4. **Built to Handle Real Growth** — "Every app is architected so a spike in users is a good problem, not an emergency rebuild."
+
+## 3. Case Studies (already updated — keep as-is)
+**Cashnix** — financial forecasting app (goals, what-if scenarios, financial KPIs, monthly/yearly forecasting from transactions). Tags: FinTech, FlutterFlow, Forecasting. Testimonial from Amir Khan, Founder of Cashnix. No changes needed here, just carry it forward into this version of the page.
+
+## 4. "Pick Your Platform"
+**Heading:** "Pick Your *Platform*"
+**Subtext:** "We build on whichever platform actually fits your product — not whichever one we default to out of habit."
+
+4 cards, each with the tool's logo + name:
+- **Podio**
+- **FlutterFlow**
+- **Lovable**
+- **Replit**
+
+Each card should link to that platform's detailed page (see the separate page prompts for Podio, FlutterFlow, Lovable, and Replit).
+
+## 5. "Where We Focus"
+**Heading:** "Where We *Focus*"
+**Body:** "We're not generalists, and we're not trying to be. Our focus is AI-powered applications built on platforms designed for speed. If you need something that ships in weeks instead of months — and still holds up once real users show up — that's exactly where we operate. No padding, no stalling, no perpetual 'almost done.' Just shipped products."
+
+## 6. "Why This Actually Works"
+**Visual:** overlapping circle graphic with all four platform logos (Podio / FlutterFlow / Lovable / Replit), same style as before.
+**Heading:** "Why This Actually *Works*"
+**Body:** "Most dev shops either move too slowly to keep up, or move fast by cutting corners that show up later. We sit in neither camp. The platforms we build on aren't experimental — they're mature tools that have already powered thousands of live products. We know exactly where each one is strong, where it isn't, and how to get the most out of it for your specific build. You're not paying us to experiment on your idea — you're paying us to execute it well."
+
+## 7. "Who We Build For"
+**Heading:** "Who We *Build For*"
+
+4 cards (numbered "01"–"04", title with one italic accent phrase, no body copy — matches the minimal card style already in use):
+
+| # | Title |
+|---|---|
+| 01 | Founders With *Vision*, Not Yet a Dev Team |
+| 02 | Startups on a *Deadline* |
+| 03 | Agencies Promising *AI* to Their Clients |
+| 04 | Teams Bolting *AI* Onto an Existing Product |
+
+## 8. "What Makes Us Different"
+**Visual:** laptop/dashboard image with blue-orange accent bar (keep existing image)
+**Heading:** "What Makes Us *Different*"
+**Body:** "Plenty of teams can write code. Fewer will tell you honestly whether an idea is ready to build or needs more thinking first. We'll tell you which one it is, then build accordingly — using whichever platform actually fits the job, not whichever one we're most comfortable defaulting to."
+
+## 9. Contact / Lead Form Section
+**Left side:**
+**Heading:** "Let's Build Your App with a Team That *Ships*"
+**Body:** "Whether you've got a rough sketch of an idea or an app that's outgrown its current build, tell us where things stand. We'll come back with real next steps and an honest estimate — not a sales pitch."
+**Contact details:** phone + email placeholders (update with KinetixMVP's real info)
+
+**Right side — form card:** (unchanged)
+**Heading:** "Let's Get *Started*"
+**Fields:** Full Name*, Email Address*, Phone Number*, Country*, "Tell us about your business" (textarea)
+**Button:** "Submit"
+
+## 10. FAQs (keep the original rewritten set already in the project — no changes)
+"Common Questions" accordion with the 7 original Q&As already built (What makes KinetixMVP different, custom development, scaling, timeline, cost, UI/UX inclusion, post-launch support). Leave as-is.
+
+## 11. Final CTA Banner
+**Heading:** "We Should *Talk*"
+**Badge:** "Your Trusted Partner" + 5-star rating
+**Body:** "If you're ready to turn an idea into something real, KinetixMVP is ready to build it with you."
+**Buttons:** "Get Started", "Schedule Meeting →"
+
+## 12. Footer (unchanged — keep as-is)
+KinetixMVP brand, address/contact placeholders, Company links, "Book A Call" CTA, copyright line, social icons, Privacy Policy link.
+
+---
+
+## Notes
+- Sections 1, 10, and 12 are flagged "keep as-is" because they were already correct in the last build — don't regenerate them, just leave them.
+- Hero and navbar are explicitly out of scope for this update.
+- "Podio," "FlutterFlow," "Lovable," and "Replit" are real third-party platform names/logos — display their actual logos, don't invent new ones.
