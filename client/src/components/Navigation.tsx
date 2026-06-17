@@ -20,7 +20,7 @@ export function Navigation() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-2 md:px-6">
       <div className="max-w-7xl mx-auto glass-panel rounded-2xl px-5 py-2 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-1 z-50 relative group">
+        <Link href="/" className="flex items-center z-50 relative group">
           <img
             src={logoImg}
             alt="KinetixMVP Logo"
