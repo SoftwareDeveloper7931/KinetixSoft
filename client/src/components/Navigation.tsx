@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
-import logoImg from "@assets/kinetixmvp-full-logo.png";
+import logoImg from "@assets/kinetixmvp-icon-v2-transparent.png";
 
 const links = [
   { href: "/", label: "Home" },
@@ -19,13 +19,17 @@ export function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-2 md:px-6">
-      <div className="max-w-7xl mx-auto glass-panel rounded-2xl px-5 h-14 flex items-center justify-between overflow-visible">
-        <Link href="/" className="flex items-center z-50 relative group -my-6">
+      <div className="max-w-7xl mx-auto glass-panel rounded-2xl px-5 py-2 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-3 z-50 relative group">
           <img
             src={logoImg}
             alt="KinetixMVP Logo"
-            className="h-24 w-auto object-contain brightness-150"
+            style={{ width: 64, height: 64 }}
+            className="object-contain"
           />
+          <span className="text-xl font-bold tracking-tight font-display text-white">
+            KinetixMVP
+          </span>
         </Link>
 
         {/* Desktop Nav */}
