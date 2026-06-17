@@ -1,0 +1,168 @@
+# Replit Prompt — KinetixMVP FlutterFlow Landing Page
+
+Paste everything below into Replit's AI assistant (or use as your build brief).
+
+---
+
+## Context / Goal
+
+Update my landing page with the content and structure below. Two global rules that apply to EVERY section:
+
+1. **Rebrand:** Replace every instance of "Hub Of Dev" / "HubOfDev" / "Hub of Dev" with **"KinetixMVP"** — logo text, nav, headings, footer brand name, copyright line, and any inline copy that mentions the company name. Keep the same logo mark/icon style, just swap the wordmark text.
+2. **Bubble animation:** In the "Industries We Serve" section, make the icon bubbles actually *bubble* — continuous, gentle floating motion (slow vertical bob + slight scale pulse, slightly randomized timing/duration per bubble so they don't move in sync), plus the small decorative background dots should slowly drift upward and fade/loop like rising bubbles in water. Should feel ambient and subtle, not distracting, and pause/reduce motion on `prefers-reduced-motion`.
+
+Keep the existing visual style: dark (near-black) background, blue/indigo accent color (~#4F5DFF range) with an orange accent used sparingly (star ratings, "trusted partner" badge), italic serif font used for accent/emphasis words inside headings (e.g. *FlutterFlow*, *Agency*, *Services*), bold sans-serif for everything else.
+
+---
+
+## 1. Header / Nav
+- Logo: `</>` icon + **KinetixMVP**
+- Nav links: Home, Technology (dropdown), Blogs
+- CTA button (top right): "Book A Free Consultation"
+
+## 2. Hero Section
+**Headline:** "Leading *FlutterFlow* Agency for Scalable App Development" (the word "FlutterFlow" in italic blue accent style)
+
+**Body copy:**
+"KinetixMVP is a results-driven FlutterFlow Agency specializing in building fast, scalable, and production-ready applications using FlutterFlow. We help startups, SMEs, and enterprises transform ideas into high-performing mobile and web apps with speed, precision, and scalability. Our FlutterFlow experts combine UI/UX excellence, backend integrations, and business logic to deliver apps that are not just visually appealing but also secure, scalable, and market-ready."
+
+**Buttons:** "Get Started" (filled), "Schedule Meeting →" (outlined)
+
+**Visual:** two overlapping phone mockups showing an app UI, floating over a soft blue glow
+
+**Stats row (3 stats):**
+| Stat | Label | Subtext |
+|---|---|---|
+| 100% | Transparency | Clear communication at every step |
+| 24/7 | Mindset | Reliability built into every product |
+| 2025 | Founded | Built for startups & growing teams |
+
+## 3. "Why Choose Us" Section
+**Heading:** "Why Choose KinetixMVP as Your *FlutterFlow Agency*?"
+**Subtext:** "Choosing the right FlutterFlow Agency can define the success of your product. At KinetixMVP, we focus on performance, scalability, and long-term growth."
+
+**4 feature cards (icon + title + description):**
+1. **Proven FlutterFlow Development Expertise** — "We have deep expertise in FlutterFlow development, enabling us to build complex apps with clean architecture, optimized workflows, and seamless integrations."
+2. **Faster Time-to-Market** — "Using FlutterFlow's powerful no-code/low-code ecosystem, we accelerate development timelines without compromising quality."
+3. **Scalable & Secure Architecture** — "Our FlutterFlow app development follows best practices for scalability, performance optimization, and secure backend integrations."
+4. **End-to-End FlutterFlow App Development Agency** — "From ideation and UI/UX design to deployment and maintenance, KinetixMVP is a complete FlutterFlow app development agency."
+
+## 4. Case Studies Section
+**Heading:** "Our *Case Studies*"
+
+**Case study card — Well Quest:**
+- Description: "A wellness app to create meaningful goals across Spiritual, Physical, Mental, Emotional, and Personal Development areas."
+- Tags: UI/UX, FlutterFlow, Wellness
+- Testimonial quote: "The webapp was built so amazingly, the team was very cooperative, they understood my vision perfectly."
+- 5-star rating
+- Attribution: John Doe, Founder of Well Quest
+- Visual: phone mockup of the WellQuest app (vision board / image grid UI)
+
+## 5. Services Section
+**Heading:** "Our FlutterFlow Development *Services*"
+
+**6 service cards (each: numbered tag "01"–"06", small eyebrow label, then a title with one italic accent word):**
+
+| # | Eyebrow label | Title |
+|---|---|---|
+| 01 | Build the Right Thing Before You Build It | Product Strategy *&* App Planning |
+| 02 | Designs That Feel Natural to Use | UI/UX Design *for* FlutterFlow Apps |
+| 03 | Connect Your App to What Matters | *AI*-Powered FlutterFlow Apps |
+| 04 | Smarter Apps, Real AI Value | Third-Party *Integrations* |
+| 05 | Evaluate, Optimize, Improve | FlutterFlow App *Audit* |
+| 06 | Stable, Secure, and Always Running | FlutterFlow App Support *&* Maintenance |
+
+(These cards are intentionally minimal — eyebrow tag + title only, no long body copy, matching the current design.)
+
+## 6. "Best Agency For Startups & Enterprises" Section
+**Heading:** "Best FlutterFlow App Development Agency for *Startups & Enterprises*"
+
+**Body:** "KinetixMVP is recognized as one of the best FlutterFlow app development agencies for businesses looking to scale quickly and efficiently. Whether you are a startup validating an idea or an enterprise modernizing internal systems, our FlutterFlow Agency ensures:"
+
+**Bullet list:**
+- High performance
+- Clean, scalable architecture
+- Reduced development cost
+- Faster go-to-market
+
+**Visual:** handshake/business photo with a blue-to-orange accent bar
+
+## 7. "Industries We Serve" Section ⭐ (bubble animation lives here)
+**Heading:** "Industries We *Serve*"
+
+**Bubble icons (floating circular badges with icon + label):**
+AI Apps · Fintech & Payments · SaaS Platform · Social Media Apps · Education · Real Estate · Marketplace · Healthcare · Logistic & On-Demand
+
+Arrange them in a loose, organic scattered layout (not a strict grid) like the reference, each bubble glowing with a soft blue radial highlight. Add a few small decorative un-labeled bubbles in the background for depth. Apply the bubbling animation described in the global rules above to all of these.
+
+## 8. FlutterFlow Development Process
+**Heading:** "FlutterFlow Development *Process*"
+
+Vertical timeline, alternating left/right, connected by a center dotted line with icon nodes:
+
+1. **Discovery & Strategy** — "We analyze your business goals and define the best FlutterFlow development approach."
+2. **UI/UX & Architecture Design** — "We design scalable workflows and user-centric interfaces."
+3. **FlutterFlow App Development** — "Our FlutterFlow Agency builds your app with optimized logic and integrations."
+4. **Testing & Optimization** — "Rigorous testing ensures performance, security, and scalability."
+5. **Deployment & Support** — "We deploy your app and provide ongoing maintenance and enhancements."
+
+## 9. "Why FlutterFlow for App Development?" Section
+**Visual:** card with the FlutterFlow logo + wordmark on a dark gradient background
+
+**Heading:** "Why FlutterFlow for *App Development*?"
+
+**Body:** "FlutterFlow is a powerful low-code platform that enables faster development while maintaining flexibility. Benefits of FlutterFlow app development include:"
+
+**Bullet list:**
+- Rapid development cycles
+- Cross-platform compatibility
+- Scalable backend integrations
+- Cost-effective development
+- Production-ready Flutter code
+
+**Closing line:** "KinetixMVP leverages FlutterFlow to its full potential, making us a reliable FlutterFlow development agency."
+
+## 10. Contact / Lead Form Section
+**Left side:**
+**Heading:** "Let's Build Your App with a Trusted *FlutterFlow Agency*"
+**Body:** "If you're looking for a reliable FlutterFlow Agency to bring your app idea to life, KinetixMVP is your ideal partner. Fill out the form or contact us directly to get a personalized quote for your FlutterFlow app development project. Let's build something scalable, user-friendly, and production-ready together."
+**Contact details:** phone number, email (use placeholder contact info — update with KinetixMVP's real phone/email)
+
+**Right side — form card:**
+**Heading:** "Let's Get *Started*"
+**Fields:** Full Name*, Email Address*, Phone Number*, Country*, "Tell us about your business" (textarea)
+**Footer text:** "By submitting this form you agree to our [Terms] and **Privacy Policy**."
+**Button:** "Submit"
+
+## 11. FAQs
+**Heading:** "FAQ*s*"
+
+Accordion with these questions (write concise 2–3 sentence answers consistent with the page content; flag these as draft copy for me to review/edit):
+1. What makes KinetixMVP a top FlutterFlow Agency?
+2. Do you provide custom FlutterFlow development?
+3. Can FlutterFlow apps scale for large user bases?
+4. How long does it take to build a FlutterFlow app?
+5. How much does FlutterFlow app development cost?
+6. Do you offer UI/UX design along with FlutterFlow development?
+7. Do you offer ongoing maintenance and support?
+
+## 12. Final CTA Banner
+**Heading:** "We Should *Talk*"
+**Badge:** "Your Trusted Partner" + 5-star rating badge
+**Body:** "If you're looking for a reliable FlutterFlow Agency to bring your app idea to life, KinetixMVP is your ideal partner."
+**Buttons:** "Get Started", "Schedule Meeting →"
+
+## 13. Footer
+- Logo/brand: **KinetixMVP**
+- Address block: "Lahore, Pakistan" — [street address — update with real address]
+- Phone + email (placeholder — update with KinetixMVP's real contact info)
+- **Company** column: Home, Blogs, Contact Us
+- **Talk To Our CEO** column: "Are you ready to go? Book a call!" → "Book A Call" button
+- Bottom bar: "2026 KinetixMVP. All Rights Reserved." + social icons (Facebook, LinkedIn, Instagram) + "Privacy Policy" link
+
+---
+
+## Notes for whoever builds this
+- All contact emails/phone/address currently reference the old "hubofdev.com" domain and Lahore office — these are placeholders in this prompt; swap in KinetixMVP's actual contact details before publishing.
+- FAQ answers weren't visible in the source reference (accordion was collapsed), so they're drafted fresh — review before going live.
+- Animation should be performant (CSS transforms/keyframes preferred over JS-driven reflow) and respect `prefers-reduced-motion`.
