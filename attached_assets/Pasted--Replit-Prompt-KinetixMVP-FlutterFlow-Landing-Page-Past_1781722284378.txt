@@ -1,0 +1,171 @@
+# Replit Prompt — KinetixMVP FlutterFlow Landing Page
+
+Paste everything below into Replit's AI assistant (or use as your build brief).
+
+---
+
+## Context / Goal
+
+Update my landing page with the content and structure below. This is a full content rewrite — none of the copy should closely mirror any existing FlutterFlow agency site; all headlines, body text, and FAQ answers below are original.
+
+Two rules that apply to EVERY section:
+
+1. **Branding:** Company name is **KinetixMVP** everywhere — logo text, nav, headings, footer brand name, copyright line, and any inline copy that mentions the company name. Keep the same logo mark/icon style, just use this wordmark.
+2. **Bubble animation:** In the "Industries We've Built For" section, the icon bubbles should continuously and gently animate — slow vertical bob + slight scale pulse, with slightly randomized timing/duration per bubble so they don't move in sync. Small decorative background dots should slowly drift upward and fade/loop like rising bubbles in water. Keep it subtle and ambient, not distracting, and respect `prefers-reduced-motion`.
+
+Keep the existing visual style: dark (near-black) background, blue/indigo accent color (~#4F5DFF range) with an orange accent used sparingly (star ratings, badges), italic serif font for accent/emphasis words inside headings, bold sans-serif for everything else.
+
+---
+
+## 1. Header / Nav
+- Logo: `</>` icon + **KinetixMVP**
+- Nav links: Home, Technology (dropdown), Blogs
+- CTA button (top right): "Book A Free Consultation"
+
+## 2. Hero Section
+**Headline:** "Turning Ideas Into Production-Ready *FlutterFlow* Apps"
+
+**Body copy:**
+"KinetixMVP is a FlutterFlow development studio focused on shipping real, working products — not just prototypes. We partner with founders, growing teams, and established companies to design, build, and scale mobile and web apps on FlutterFlow, pairing solid UI/UX with dependable backend architecture so what you launch is ready for real users from day one."
+
+**Buttons:** "Start Your Project" (filled), "Book a Call →" (outlined)
+
+**Visual:** two overlapping phone mockups showing an app UI, floating over a soft blue glow
+
+**Stats row (3 stats):**
+| Stat | Label | Subtext |
+|---|---|---|
+| 100% | Founder-Led | Direct access to the people building your app |
+| 24/7 | Support Mindset | We don't disappear after launch |
+| 2025 | Studio Launched | Built specifically for startups and scaleups |
+
+## 3. "Why Choose Us" Section
+**Heading:** "What Makes KinetixMVP a Strong *FlutterFlow Partner*"
+**Subtext:** "Picking the right build partner shapes everything that comes after launch. Here's how we approach every FlutterFlow project."
+
+**4 feature cards (icon + title + description):**
+1. **Real FlutterFlow Depth** — "We don't just drag and drop components — our team understands FlutterFlow's logic layer, API integrations, and data structures well enough to build apps that hold up under real usage."
+2. **Built to Move Quickly** — "FlutterFlow's visual development model lets us ship working builds in weeks, not months, without skipping the architecture decisions that matter later."
+3. **Engineered to Scale** — "Every app we build is structured around clean data models and secure backend connections, so growth doesn't mean a rebuild."
+4. **One Team, Start to Finish** — "Strategy, design, development, and post-launch support all come from the same team — no handoffs, no lost context."
+
+## 4. Case Studies Section
+**Heading:** "Work We've *Shipped*"
+
+**Case study card — Cashnix:**
+- Description: "A financial forecasting app that lets users set savings goals, model what-if scenarios, track financial KPIs, and view monthly and yearly forecasts generated automatically from their transaction history."
+- Tags: FinTech, FlutterFlow, Forecasting
+- Testimonial quote: "We came in with a complicated forecasting model and KinetixMVP shipped something our users genuinely understand and enjoy using."
+- 5-star rating
+- Attribution: Amir Khan, Founder of Cashnix
+- Visual: phone mockup of the Cashnix app (dashboard / KPI charts UI)
+
+## 5. Services Section
+**Heading:** "How We *Help*"
+
+**6 service cards (each: numbered tag "01"–"06", small eyebrow label, then a title with one italic accent word):**
+
+| # | Eyebrow label | Title |
+|---|---|---|
+| 01 | Validate Before You Build | Product Strategy *&* Scoping |
+| 02 | Interfaces People Actually Enjoy | UI/UX Design *for* FlutterFlow |
+| 03 | Add Intelligence Where It Counts | *AI* Features in FlutterFlow |
+| 04 | Plug Into the Tools You Already Use | Third-Party *API* Integrations |
+| 05 | A Second Opinion on Your Build | FlutterFlow App *Reviews* |
+| 06 | We Stay After Launch | Ongoing Support *&* Maintenance |
+
+(These cards are intentionally minimal — eyebrow tag + title only, no long body copy.)
+
+## 6. "Built for Startups & Growing Teams" Section
+**Heading:** "Built for *Startups & Growing Teams*"
+
+**Body:** "KinetixMVP works with founders validating a first version and with teams scaling an app that already has real users. Either way, the priorities are the same:"
+
+**Bullet list:**
+- Performance that holds up under load
+- An architecture you won't outgrow in six months
+- Development costs that match your stage
+- A faster path from idea to live product
+
+**Visual:** handshake/business photo with a blue-to-orange accent bar
+
+## 7. "Industries We've Built For" Section ⭐ (bubble animation lives here)
+**Heading:** "Industries We've *Built For*"
+
+**Bubble icons (floating circular badges with icon + label):**
+AI Apps · Fintech & Payments · SaaS Platforms · Social Apps · Education · Real Estate · Marketplaces · Healthcare · Logistics & On-Demand
+
+Arrange them in a loose, organic scattered layout (not a strict grid), each bubble glowing with a soft blue radial highlight. Add a few small decorative un-labeled bubbles in the background for depth. Apply the bubbling animation described in the global rules above to all of these.
+
+## 8. Process Section
+**Heading:** "How a *Project* Runs"
+
+Vertical timeline, alternating left/right, connected by a center dotted line with icon nodes:
+
+1. **Discovery & Scoping** — "We map out your goals, users, and constraints before any screen gets built."
+2. **UI/UX & Data Architecture** — "We design the interface and the underlying data structure side by side, so neither one fights the other later."
+3. **Build in FlutterFlow** — "Your app gets built with real logic and integrations, not just static screens."
+4. **QA & Performance Testing** — "We stress-test the build for speed, security, and edge cases before it goes live."
+5. **Launch & Ongoing Support** — "We ship the app and stay on to handle updates, fixes, and new features."
+
+## 9. "Why We Build on FlutterFlow" Section
+**Visual:** card with the FlutterFlow logo + wordmark on a dark gradient background
+
+**Heading:** "Why We Build on *FlutterFlow*"
+
+**Body:** "FlutterFlow lets us move fast without giving up control over the final product. For most app ideas, it means:"
+
+**Bullet list:**
+- Faster build cycles than traditional development
+- One codebase across iOS, Android, and web
+- Backend integrations that scale with your data
+- Lower cost than a from-scratch build
+- Production-grade Flutter code under the hood
+
+**Closing line:** "KinetixMVP builds on FlutterFlow daily — it's the core of how we deliver fast without cutting corners."
+
+## 10. Contact / Lead Form Section
+**Left side:**
+**Heading:** "Have an App Idea? *Let's Talk It Through*"
+**Body:** "Tell us where things stand — whether you have a rough idea or an existing app that needs to scale — and we'll get back to you with next steps and a realistic estimate."
+**Contact details:** phone number, email (use placeholder contact info — update with KinetixMVP's real phone/email)
+
+**Right side — form card:**
+**Heading:** "Get a *Project Estimate*"
+**Fields:** Full Name*, Email Address*, Phone Number*, Country*, "Tell us about your business" (textarea)
+**Footer text:** "By submitting this form you agree to our [Terms] and **Privacy Policy**."
+**Button:** "Submit"
+
+## 11. FAQs
+**Heading:** "Common *Questions*"
+
+1. **What makes KinetixMVP different from other FlutterFlow teams?** — "We focus on the parts most no-code teams skip — data architecture, API integrations, and security — so your app holds up after it has real users, not just in a demo."
+2. **Can you build a fully custom FlutterFlow app, or do you rely on templates?** — "Every build starts from your actual requirements. We use FlutterFlow's component system for speed, but the logic, design, and integrations are custom to your product."
+3. **Will the app still work if my user base grows quickly?** — "Yes — we design the data model and backend connections with growth in mind from the first sprint, so scaling up doesn't require a rebuild."
+4. **How long does a typical FlutterFlow build take?** — "Most projects run 4–10 weeks depending on scope, integrations, and how much custom logic the app needs."
+5. **What does a FlutterFlow project usually cost?** — "Cost depends on complexity — a simple MVP and a multi-integration platform are priced very differently. We'll give you a real number after a scoping call."
+6. **Is UI/UX design included, or do I need to bring my own designs?** — "Design is part of the process. We can work from your existing designs or create the UI/UX from scratch as part of the build."
+7. **Do you support the app after it launches?** — "Yes — we offer ongoing maintenance, monitoring, and feature updates after launch so the app keeps running smoothly."
+
+(These are original draft answers — review and adjust tone/specifics before publishing.)
+
+## 12. Final CTA Banner
+**Heading:** "Ready to *Build*?"
+**Badge:** "Trusted by Founders" + 5-star rating badge
+**Body:** "If you've got an app idea that needs a real build partner — not just a freelancer — KinetixMVP is ready when you are."
+**Buttons:** "Start Your Project", "Book a Call →"
+
+## 13. Footer
+- Logo/brand: **KinetixMVP**
+- Address block: "Lahore, Pakistan" — [street address — update with real address]
+- Phone + email (placeholder — update with KinetixMVP's real contact info)
+- **Company** column: Home, Blogs, Contact Us
+- **Talk to the Team** column: "Have questions before you commit? Let's talk." → "Book A Call" button
+- Bottom bar: "2026 KinetixMVP. All Rights Reserved." + social icons (Facebook, LinkedIn, Instagram) + "Privacy Policy" link
+
+---
+
+## Notes for whoever builds this
+- All contact emails/phone/address are placeholders — swap in KinetixMVP's actual contact details before publishing.
+- FAQ answers are original drafts (not pulled from any existing site) — review tone/specifics before going live.
+- Animation should be performant (CSS transforms/keyframes preferred over JS-driven reflow) and respect `prefers-reduced-motion`.
