@@ -24,7 +24,7 @@ export function Navigation() {
           <img
             src={logoImg}
             alt="KinetixMVP Logo"
-            className="h-20 w-auto object-contain brightness-150"
+            className="h-28 w-auto object-contain brightness-150"
           />
         </Link>
 
