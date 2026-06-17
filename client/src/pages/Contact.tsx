@@ -27,7 +27,7 @@ export default function Contact() {
             <div className="space-y-8">
               <div className="glass-panel p-6 rounded-xl border-l-4 border-cyan-500">
                 <h3 className="text-lg font-semibold text-white mb-2">Email Us</h3>
-                <p className="text-cyan-400">hello@nestofdev.com</p>
+                <p className="text-cyan-400">hello@kinetixmvp.com</p>
               </div>
               <div className="glass-panel p-6 rounded-xl border-l-4 border-purple-500">
                 <h3 className="text-lg font-semibold text-white mb-2">Call Us</h3>

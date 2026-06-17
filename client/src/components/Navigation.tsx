@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
-import logoImg from "@assets/Gemini_Generated_Image_mzqtlqmzqtlqmzqt_(1)_1780858765034.png";
+import logoImg from "@assets/Gemini_Generated_Image_wi7r6bwi7r6bwi7r_(1)_1781718375603.png";
 
 const links = [
   { href: "/", label: "Home" },
@@ -24,12 +24,12 @@ export function Navigation() {
           <div className="relative w-10 h-10 flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-white/10">
             <img 
               src={logoImg} 
-              alt="Nest of Dev Logo" 
+              alt="KinetixMVP Logo" 
               className="w-full h-full object-contain scale-110" 
             />
           </div>
           <span className="text-xl font-bold tracking-tighter font-display text-white">
-            Nest of Dev
+            KinetixMVP
           </span>
         </Link>
 
