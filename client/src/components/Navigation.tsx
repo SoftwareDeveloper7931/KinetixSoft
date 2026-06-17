@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
-import logoImg from "@assets/kinetixmvp-icon-transparent.png";
+import logoImg from "@assets/kinetixmvp-full-logo.png";
 
 const links = [
   { href: "/", label: "Home" },
@@ -24,11 +24,8 @@ export function Navigation() {
           <img
             src={logoImg}
             alt="KinetixMVP Logo"
-            className="h-16 w-16 object-contain"
+            className="h-16 w-auto object-contain brightness-150"
           />
-          <span className="text-lg font-bold tracking-tight font-display text-white">
-            KinetixMVP
-          </span>
         </Link>
 
         {/* Desktop Nav */}
