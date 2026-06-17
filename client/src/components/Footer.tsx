@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { Github, Twitter, Linkedin, Mail } from "lucide-react";
 
-import logoImg from "@assets/Gemini_Generated_Image_wi7r6bwi7r6bwi7r_(1)_1781718375603.png";
+import logoImg from "@assets/kinetixmvp-logo-full-transparent.png";
 
 export function Footer() {
   return (
@@ -11,17 +11,12 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-4">
-              <div className="relative w-8 h-8 flex items-center justify-center overflow-hidden rounded-lg bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-white/10">
-                <img 
-                  src={logoImg} 
-                  alt="KinetixMVP Logo" 
-                  className="w-full h-full object-contain scale-110" 
-                />
-              </div>
-              <span className="text-2xl font-bold tracking-tighter font-display text-white">
-                KinetixMVP
-              </span>
+            <Link href="/" className="flex items-center mb-4">
+              <img 
+                src={logoImg} 
+                alt="KinetixMVP Logo" 
+                className="h-20 w-auto object-contain" 
+              />
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Crafting digital experiences that transcend the ordinary. We build future-ready software solutions.
