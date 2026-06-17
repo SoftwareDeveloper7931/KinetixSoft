@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
-import logoImg from "@assets/kinetixmvp-logo-full-transparent.png";
+import logoImg from "@assets/kinetixmvp-logo-transparent.png";
 
 const links = [
   { href: "/", label: "Home" },
@@ -18,14 +18,17 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-4 md:px-6">
-      <div className="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center z-50 relative group">
-          <img 
-            src={logoImg} 
-            alt="KinetixMVP Logo" 
-            className="h-16 w-auto object-contain" 
+    <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-2 md:px-6">
+      <div className="max-w-7xl mx-auto glass-panel rounded-2xl px-5 py-2 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-2 z-50 relative group">
+          <img
+            src={logoImg}
+            alt="KinetixMVP Logo"
+            className="h-9 w-9 object-contain"
           />
+          <span className="text-lg font-bold tracking-tight font-display text-white">
+            KinetixMVP
+          </span>
         </Link>
 
         {/* Desktop Nav */}
@@ -33,7 +36,7 @@ export function Navigation() {
           {links.map((link) => (
             link.cta ? (
               <Link key={link.href} href={link.href}>
-                <Button className="bg-white text-black hover:bg-white/90 border-0 shadow-lg shadow-white/10 rounded-full px-6">
+                <Button className="bg-white text-black hover:bg-white/90 border-0 shadow-lg shadow-white/10 rounded-full px-5 h-9 text-sm">
                   {link.label}
                 </Button>
               </Link>
@@ -46,7 +49,7 @@ export function Navigation() {
         </div>
 
         {/* Mobile Toggle */}
-        <button 
+        <button
           className="md:hidden z-50 relative text-white"
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -55,14 +58,14 @@ export function Navigation() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="absolute inset-x-0 top-0 pt-24 pb-8 px-6 bg-[#0B0F19]/95 backdrop-blur-xl border-b border-white/10 md:hidden flex flex-col gap-4 rounded-b-2xl"
+            className="absolute inset-x-0 top-0 pt-16 pb-8 px-6 bg-[#0B0F19]/95 backdrop-blur-xl border-b border-white/10 md:hidden flex flex-col gap-4 rounded-b-2xl"
           >
             {links.map((link) => (
-              <Link 
-                key={link.href} 
+              <Link
+                key={link.href}
                 href={link.href}
                 className="text-lg font-medium text-white/90 py-2 border-b border-white/5"
                 onClick={() => setIsOpen(false)}
