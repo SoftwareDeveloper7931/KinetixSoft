@@ -1,0 +1,125 @@
+# Replit Prompt — KinetixMVP Lovable Page
+
+Paste this into your Replit project to build the `/lovable` page. Same section structure as the FlutterFlow page, with original copy specific to Lovable.
+
+---
+
+## Global rules
+- Brand is **KinetixMVP** throughout.
+- Reuse the existing header/nav, footer, and "Industries We've Built For" bubble section components as-is — no need to rebuild those.
+- Keep the dark theme, blue/indigo accents, italic serif accent words inside headings.
+- All copy below is original — don't reuse phrasing from the FlutterFlow, Podio, or homepage prompts.
+
+---
+
+## 1. Hero Section
+**Headline:** "Go From Prompt to Working *Web App* — Without Skipping the Hard Parts"
+
+**Body copy:** "KinetixMVP uses Lovable to turn product ideas into real, working web apps fast — then does what most AI-generated builds skip: clean data structure, proper auth, and integrations that hold up once real users show up. You get the speed of AI-assisted development with the judgment of a team that's shipped production apps before."
+
+**Buttons:** "Get Started", "Schedule Meeting →"
+**Visual:** browser mockup showing a SaaS dashboard or landing page generated and refined in Lovable
+
+**Stats row:**
+| Stat | Label | Subtext |
+|---|---|---|
+| 100% | Founder-Led | Direct access to the people building your app |
+| 24/7 | Support Mindset | We don't disappear after launch |
+| 2025 | Studio Launched | Built specifically for startups and scaleups |
+
+## 2. "Why Choose KinetixMVP as Your Lovable Partner?"
+**Subtext:** "Anyone can type a prompt into Lovable. Getting from a rough first version to something you'd actually put your name on is a different skill."
+
+**4 feature cards:**
+1. **We Know Where AI Builds Break** — "AI-generated apps tend to fall apart around auth, data relationships, and edge cases. We catch and fix those before they become your users' problem."
+2. **Fast First Version, Solid Final One** — "We use Lovable to get a working app in front of you within days, then spend the remaining time hardening it instead of starting over."
+3. **Structured Data From the Start** — "We design your database schema deliberately instead of letting the AI improvise it, so the app doesn't need a rebuild once it has real users."
+4. **We Stay Past the First Prompt** — "Most Lovable builds need refinement after the initial generation. We handle that refinement as a normal part of the project, not an afterthought."
+
+## 3. Case Study
+**Heading:** "Work We've *Shipped*"
+
+**Case study card — Pitchloop** *(placeholder example — swap for a real client case study)*:
+- Description: "A startup needed a way for founders to draft investor pitch decks and get structured feedback before a real meeting. We used Lovable to ship a working web app in under two weeks, then hardened the auth and data layer for a public launch."
+- Tags: SaaS, Lovable, MVP
+- Testimonial quote: "We had a real product to show investors in the time it would've taken most agencies to finish a proposal."
+- 5-star rating
+- Attribution: Daniel Reyes, Founder of Pitchloop
+- Visual: browser mockup of the Pitchloop dashboard
+
+## 4. Services Section
+**Heading:** "Our Lovable Development *Services*"
+
+6 cards (numbered "01"–"06", eyebrow label, title with one italic accent word, no body copy):
+
+| # | Eyebrow label | Title |
+|---|---|---|
+| 01 | From Rough Idea to Working App | Rapid *MVP* Builds |
+| 02 | The Part Lovable Doesn't Do for You | Auth *&* Data Architecture |
+| 03 | Make It Feel Like a Real Product | UI/UX *Refinement* |
+| 04 | Connect It to Your Stack | Third-Party *API* Integrations |
+| 05 | A Second Look Before Launch | Lovable App *Reviews* |
+| 06 | Keep It Running After Launch | Ongoing Support *&* Maintenance |
+
+## 5. "Best Lovable Agency for Startups & Enterprises"
+**Heading:** "Built for Founders Who Need to *Move Fast*"
+**Body:** "KinetixMVP works with founders validating a first idea and with teams that already have a Lovable build and need it taken further. Either way, we focus on:"
+
+**Bullets:**
+- A real working app in days, not months
+- Data architecture that won't need a rebuild later
+- Lower cost than a from-scratch custom build
+- A product you can actually put in front of users or investors
+
+**Visual:** handshake/business photo with blue-to-orange accent bar
+
+## 6. Industries We've Built For
+Reuse the existing bubble section component (same industries, same bubbling animation) — no changes needed here.
+
+## 7. Process Section
+**Heading:** "How a Lovable *Build* Runs"
+
+1. **Scoping the First Version** — "We define exactly what the first working version needs to prove before any prompting starts."
+2. **Generate & Structure** — "We build the initial app in Lovable, then immediately address the data model and auth setup."
+3. **Refine the Real Build** — "We go past the AI-generated first draft to fix edge cases, polish the UI, and connect real integrations."
+4. **Testing & Hardening** — "We test for the failure points AI-generated apps commonly miss — permissions, data validation, and load."
+5. **Launch & Ongoing Support** — "We ship the app and stay on for fixes, updates, and new features as you grow."
+
+## 8. "Why Lovable for Fast-Moving Builds?"
+**Visual:** card with the Lovable logo/wordmark on a dark gradient background
+**Heading:** "Why We Build on *Lovable*"
+**Body:** "Lovable lets us go from idea to working app faster than traditional development, without giving up a real codebase underneath. For most early-stage products, that means:"
+
+**Bullets:**
+- A working app in days instead of weeks
+- A real, exportable codebase — not a black box
+- Fast iteration during the validation stage
+- Lower cost for a first version
+- A natural path to a more custom build later, if you need one
+
+**Closing line:** "KinetixMVP uses Lovable to get founders a real product fast — then does the unglamorous work of making sure it holds up."
+
+## 9. Contact / Lead Form Section
+**Heading:** "Have an Idea That Needs to Exist *This Week*?"
+**Body:** "Tell us what you're trying to validate, and we'll come back with a realistic timeline and estimate for getting a working version in front of real users."
+Reuse the existing form component (Full Name, Email, Phone, Country, "Tell us about your business", Submit).
+
+## 10. FAQs
+**Heading:** "Common *Questions*"
+
+1. **What makes KinetixMVP different from just using Lovable myself?** — "Lovable gets you a first draft fast. We handle the parts that draft usually gets wrong — data structure, auth, and edge cases — so what ships is actually production-ready."
+2. **Can you take over a Lovable app I've already started?** — "Yes — we regularly pick up existing Lovable builds, review the structure, and take them the rest of the way to a real launch."
+3. **Will the app hold up once it has real users?** — "That's the main thing we add on top of Lovable's output — proper data architecture and testing so growth doesn't break the app."
+4. **How long does a typical Lovable build take?** — "A first working version can be days. A polished, production-ready build usually runs 2–5 weeks depending on scope."
+5. **What does a Lovable project usually cost?** — "Cost depends on how much custom logic and integration work is involved. We'll give you a real number after a scoping call."
+6. **Is design included, or do I need to bring my own?** — "Design is part of the process — we can refine what Lovable generates or design the UI more deliberately from the start."
+7. **Do you support the app after it launches?** — "Yes — we offer ongoing maintenance and feature updates after launch."
+
+## 11. Final CTA Banner
+**Heading:** "Ready to See It *Built*?"
+**Badge:** "Trusted by Founders" + 5-star rating
+**Body:** "If you've got an idea you need to see working — not just described — KinetixMVP can have it in front of you fast."
+**Buttons:** "Start Your Project", "Book a Call →"
+
+## 12. Footer
+Reuse the existing footer component as-is.
