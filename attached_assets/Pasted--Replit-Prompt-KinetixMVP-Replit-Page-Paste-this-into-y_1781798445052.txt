@@ -1,0 +1,125 @@
+# Replit Prompt — KinetixMVP Replit Page
+
+Paste this into your Replit project to build the `/replit` page. Same section structure as the FlutterFlow page, with original copy specific to Replit.
+
+---
+
+## Global rules
+- Brand is **KinetixMVP** throughout.
+- Reuse the existing header/nav, footer, and "Industries We've Built For" bubble section components as-is — no need to rebuild those.
+- Keep the dark theme, blue/indigo accents, italic serif accent words inside headings.
+- All copy below is original — don't reuse phrasing from the FlutterFlow, Podio, Lovable, or homepage prompts.
+
+---
+
+## 1. Hero Section
+**Headline:** "When Your App Idea Has Outgrown *No-Code*"
+
+**Body copy:** "KinetixMVP builds on Replit when a project needs real, custom code — AI agents, backend services, or logic that a visual builder can't express. You get full control over the codebase, paired with the speed of AI-assisted development, for products that need to do more than what a template allows."
+
+**Buttons:** "Get Started", "Schedule Meeting →"
+**Visual:** code editor / terminal mockup showing an active build with an AI agent panel
+
+**Stats row:**
+| Stat | Label | Subtext |
+|---|---|---|
+| 100% | Founder-Led | Direct access to the people building your app |
+| 24/7 | Support Mindset | We don't disappear after launch |
+| 2025 | Studio Launched | Built specifically for startups and scaleups |
+
+## 2. "Why Choose KinetixMVP as Your Replit Partner?"
+**Subtext:** "Replit gives us real code and real infrastructure to work with — which matters once a project needs more than a visual builder can give it."
+
+**4 feature cards:**
+1. **Full Control Where It Matters** — "When your product needs custom logic, AI agents, or non-standard integrations, we're not boxed in by what a drag-and-drop builder supports."
+2. **AI-Assisted, Not AI-Replaced** — "We use Replit's AI tooling to move fast, but every build gets reviewed and structured by people who understand the codebase, not just the prompt."
+3. **Built for Real Backend Work** — "Databases, APIs, scheduled jobs, and AI agent logic are first-class here — not workarounds bolted onto a no-code tool."
+4. **A Real Codebase You Own** — "What we build is actual code you can take anywhere, hand to another developer, or scale however you need."
+
+## 3. Case Study
+**Heading:** "Work We've *Shipped*"
+
+**Case study card — QueueSense** *(placeholder example — swap for a real client case study)*:
+- Description: "A support team needed incoming tickets automatically triaged and routed by urgency. We built an AI agent on Replit that reads each ticket, scores it, and routes it — running continuously in the background."
+- Tags: AI Agents, Replit, Backend Automation
+- Testimonial quote: "It's been quietly doing the triage work our team used to fight over every morning, without anyone touching it."
+- 5-star rating
+- Attribution: Maya Chen, Founder of QueueSense
+- Visual: terminal/dashboard mockup showing the agent's activity log
+
+## 4. Services Section
+**Heading:** "Our Replit Development *Services*"
+
+6 cards (numbered "01"–"06", eyebrow label, title with one italic accent word, no body copy):
+
+| # | Eyebrow label | Title |
+|---|---|---|
+| 01 | When No-Code Hits a Wall | Custom *Backend* Development |
+| 02 | Logic That Runs Itself | AI *Agent* Development |
+| 03 | Real Code, Real Speed | AI-Assisted *App* Builds |
+| 04 | Connect Anything to Anything | API *&* Third-Party Integrations |
+| 05 | A Second Opinion on Your Build | Codebase *Reviews* |
+| 06 | Keep It Running After Launch | Ongoing Support *&* Maintenance |
+
+## 5. "Best Replit Agency for Startups & Enterprises"
+**Heading:** "Built for Products That Need *Real Code*"
+**Body:** "KinetixMVP works with technical founders who want speed without giving up control, and with teams whose product has outgrown what a visual builder can support. Either way, we focus on:"
+
+**Bullets:**
+- Custom logic that no-code platforms can't express
+- A real codebase you can scale, extend, or hand off
+- AI-assisted development speed without losing code quality
+- Backend infrastructure built to handle production traffic
+
+**Visual:** handshake/business photo with blue-to-orange accent bar
+
+## 6. Industries We've Built For
+Reuse the existing bubble section component (same industries, same bubbling animation) — no changes needed here.
+
+## 7. Process Section
+**Heading:** "How a Replit *Build* Runs"
+
+1. **Technical Scoping** — "We define the architecture, data model, and any AI agent logic before writing the first line of code."
+2. **Core Build** — "We build the application using Replit's AI-assisted workflow, with a real engineer reviewing structure and logic throughout."
+3. **Agent & Integration Setup** — "Any AI agents, scheduled jobs, or third-party integrations get built and tested in isolation before wiring into the full app."
+4. **Testing & Load Checks** — "We test for correctness, security, and how the system behaves under real traffic, not just the happy path."
+5. **Deployment & Ongoing Support** — "We deploy the build and stay on to handle monitoring, fixes, and new features."
+
+## 8. "Why Replit for Custom Builds?"
+**Visual:** card with the Replit logo/wordmark on a dark gradient background
+**Heading:** "Why We Build on *Replit*"
+**Body:** "Replit gives us AI-assisted development speed without trading away control over the actual code. For projects that need more than a no-code platform can offer, that means:"
+
+**Bullets:**
+- A real, ownable codebase instead of a black-box build
+- AI agents and custom backend logic as first-class features
+- Fast iteration without sacrificing engineering quality
+- Easy handoff to an in-house team later, if you build one
+- Infrastructure that scales with real production traffic
+
+**Closing line:** "KinetixMVP builds on Replit when a project's ambitions have outgrown what a visual builder can support."
+
+## 9. Contact / Lead Form Section
+**Heading:** "Outgrown *No-Code*? Let's Talk About What's Next."
+**Body:** "Tell us what your current build can't do, and we'll come back with a realistic plan for what a custom build on Replit would take."
+Reuse the existing form component (Full Name, Email, Phone, Country, "Tell us about your business", Submit).
+
+## 10. FAQs
+**Heading:** "Common *Questions*"
+
+1. **How is this different from a no-code build?** — "You get a real, custom codebase instead of a configuration on top of someone else's platform — which matters once your product needs logic a visual builder can't express."
+2. **Can you build AI agents, not just standard web apps?** — "Yes — AI agent development is one of our core Replit services, from simple automation to more complex multi-step agents."
+3. **Can you take over an existing Replit project?** — "Yes — we regularly review and continue existing codebases rather than starting over from scratch."
+4. **How long does a typical Replit build take?** — "Most projects run 4–10 weeks depending on how much custom logic, AI agent work, and integration is involved."
+5. **What does a Replit project usually cost?** — "Cost depends heavily on complexity — a simple backend service and a multi-agent system are priced very differently. We'll give you a real number after a scoping call."
+6. **Do I own the code at the end?** — "Yes — what we build is a real, exportable codebase that's yours, not something locked into a platform you don't control."
+7. **Do you support the app after it launches?** — "Yes — we offer ongoing monitoring, maintenance, and feature development after launch."
+
+## 11. Final CTA Banner
+**Heading:** "Ready to Build *Beyond No-Code*?"
+**Badge:** "Trusted by Founders" + 5-star rating
+**Body:** "If your idea needs real code and real infrastructure, KinetixMVP can build it with you on Replit."
+**Buttons:** "Start Your Project", "Book a Call →"
+
+## 12. Footer
+Reuse the existing footer component as-is.

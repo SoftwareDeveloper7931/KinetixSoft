@@ -18,6 +18,7 @@ import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
 import CustomApiIntegration from "@/pages/CustomApiIntegration";
 import LovableDev from "@/pages/LovableDev";
+import ReplitDev from "@/pages/ReplitDev";
 
 function Router() {
   return (
@@ -28,6 +29,7 @@ function Router() {
       <Route path="/services/flutterflow" component={FlutterFlowDev} />
       <Route path="/services/retool" component={RetoolDev} />
       <Route path="/services/lovable" component={LovableDev} />
+      <Route path="/services/replit" component={ReplitDev} />
       <Route path="/services/custom-api" component={CustomApiIntegration} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
