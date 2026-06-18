@@ -1,0 +1,126 @@
+# Replit Prompt — KinetixMVP Retool Page
+
+Paste this into your Replit project to build the `/retool` page. Same section structure as the other platform pages, with original copy specific to Retool.
+
+---
+
+## Global rules
+- Brand is **KinetixMVP** throughout.
+- Reuse the existing header/nav, footer, and "Industries We've Built For" bubble section components as-is — no need to rebuild those.
+- Keep the dark theme, blue/indigo accents, italic serif accent words inside headings.
+- All copy below is original — don't reuse phrasing from the FlutterFlow, Podio, Lovable, Replit, or homepage prompts.
+- **Distinction from the Podio page:** Podio is for teams that want a self-contained workspace/CRM. Retool is for teams that already have databases and APIs and need a fast internal interface on top of them — admin panels, ops dashboards, support tools. Keep that distinction clear in the copy; don't reuse Podio's "replace your spreadsheets" framing here.
+
+---
+
+## 1. Hero Section
+**Headline:** "Internal Tools Built Directly on Top of *Your* Data"
+
+**Body copy:** "KinetixMVP uses Retool to build admin panels, ops dashboards, and internal tools that connect straight to your existing databases and APIs — no migrating your data into a new system first. If your team is stuck running production fixes through raw SQL or waiting on engineering for every internal request, we build the interface that fixes that."
+
+**Buttons:** "Get Started", "Schedule Meeting →"
+**Visual:** dashboard mockup showing an internal admin panel (user table, action buttons, charts)
+
+**Stats row:**
+| Stat | Label | Subtext |
+|---|---|---|
+| 100% | Founder-Led | Direct access to the people building your tool |
+| 24/7 | Support Mindset | We don't disappear after launch |
+| 2025 | Studio Launched | Built specifically for startups and scaleups |
+
+## 2. "Why Choose KinetixMVP as Your Retool Partner?"
+**Subtext:** "Retool is fast to build in, but it's easy to end up with a tangle of disconnected panels. Here's how we keep internal tools maintainable as they grow."
+
+**4 feature cards:**
+1. **Built on Your Real Data** — "We connect directly to your existing databases and APIs instead of asking you to duplicate data into a new system."
+2. **Designed for the People Who'll Use It** — "We build around your support, ops, or sales team's actual day-to-day tasks, not a generic CRUD interface."
+3. **Permissions Done Properly** — "Role-based access and audit trails are part of the build from the start, since internal tools usually touch sensitive data."
+4. **Maintainable as You Add More Tools** — "We structure queries and components so your second and third internal tool don't turn into a maze of copy-pasted logic."
+
+## 3. Case Study
+**Heading:** "Work We've *Shipped*"
+
+**Case study card — ClaimDesk** *(placeholder example — swap for a real client case study)*:
+- Description: "An insurance ops team was approving claims by running manual SQL queries and emailing spreadsheets back and forth. We built a Retool admin panel connected directly to their production database, with proper role-based permissions for reviewers and approvers."
+- Tags: Internal Tools, Retool, Operations
+- Testimonial quote: "Our reviewers stopped asking engineering for help every time they needed to fix a claim record."
+- 5-star rating
+- Attribution: Lucas Ferreira, Ops Manager at ClaimDesk
+- Visual: dashboard mockup of the ClaimDesk admin panel
+
+## 4. Services Section
+**Heading:** "Our Retool Development *Services*"
+
+6 cards (numbered "01"–"06", eyebrow label, title with one italic accent word, no body copy):
+
+| # | Eyebrow label | Title |
+|---|---|---|
+| 01 | Built Around Your Actual Workflow | Admin Panel *&* Dashboard Design |
+| 02 | Connect to What You Already Run | Database *&* API Integration |
+| 03 | Who Can See and Do What | Role-Based *Permissions* |
+| 04 | From One-Off to Internal Platform | Multi-Tool *Architecture* |
+| 05 | Clean Up What's Already There | Retool App *Audit* |
+| 06 | Keep It Running After Launch | Ongoing Support *&* Maintenance |
+
+## 5. "Best Retool Agency for Startups & Enterprises"
+**Heading:** "Built for Teams Running Ops Through *Raw Queries*"
+**Body:** "KinetixMVP works with startups building their first internal tool and with larger teams whose internal tools have outgrown a single engineer's spare time. Either way, we focus on:"
+
+**Bullets:**
+- Interfaces built directly on your existing data, no migration needed
+- Permissions and audit trails handled properly from day one
+- Faster delivery than custom-coded internal software
+- A structure that scales as you add more internal tools
+
+**Visual:** handshake/business photo with blue-to-orange accent bar
+
+## 6. Industries We've Built For
+Reuse the existing bubble section component (same industries, same bubbling animation) — no changes needed here.
+
+## 7. Process Section
+**Heading:** "How a Retool *Build* Runs"
+
+1. **Workflow & Data Discovery** — "We learn what your team needs to see and do, and map which databases and APIs the tool needs to touch."
+2. **Permission & Access Design** — "We define who can view, edit, or approve what before building a single screen."
+3. **Build the Interface** — "We build the panel or dashboard directly against your real data sources."
+4. **Testing With Your Team** — "We test with the actual people who'll use it daily, not just against sample data."
+5. **Rollout & Support** — "We deploy the tool and stay on to add features or fix issues as your operations change."
+
+## 8. "Why Retool for Internal Tools?"
+**Visual:** card with the Retool logo/wordmark on a dark gradient background
+**Heading:** "Why We Build on *Retool*"
+**Body:** "Retool lets us build directly against your existing infrastructure instead of standing up a parallel system. For most internal-tool needs, that means:"
+
+**Bullets:**
+- No data migration — it connects to what you already run
+- Faster delivery than custom-coded admin tools
+- Built-in support for role-based permissions
+- Easy to extend as your team needs more tools
+- Lower cost than a full custom engineering build
+
+**Closing line:** "KinetixMVP builds on Retool when the data already exists and the missing piece is just a fast, safe way for your team to work with it."
+
+## 9. Contact / Lead Form Section
+**Heading:** "Still Running Ops Through *Spreadsheets and SQL*?"
+**Body:** "Tell us what your team is doing manually today, and we'll come back with a realistic plan for an internal tool built directly on your existing data."
+Reuse the existing form component (Full Name, Email, Phone, Country, "Tell us about your business", Submit).
+
+## 10. FAQs
+**Heading:** "Common *Questions*"
+
+1. **How is this different from the Podio service you offer?** — "Podio is a self-contained workspace for teams starting fresh. Retool connects directly to databases and systems you already run — it's the right fit when your data already exists somewhere and you just need a fast, safe interface on top of it."
+2. **Do we need to migrate our data to use Retool?** — "No — that's the main advantage. Retool connects to your existing databases and APIs directly, so there's nothing to migrate."
+3. **Can you build tools for multiple teams or departments?** — "Yes — we structure permissions and components so different teams can have their own views without duplicating the underlying logic."
+4. **How long does a typical Retool build take?** — "Most internal tools run 2–6 weeks depending on how many data sources and permission levels are involved."
+5. **What does a Retool project usually cost?** — "Cost depends on data complexity and how many workflows the tool needs to support. We'll give you a real number after a discovery call."
+6. **Is this secure enough for sensitive internal data?** — "Yes — role-based permissions and audit trails are part of the build, since most internal tools touch data that shouldn't be open to everyone."
+7. **Do you support the tool after it launches?** — "Yes — we offer ongoing support as your data sources, permissions, or workflows change."
+
+## 11. Final CTA Banner
+**Heading:** "Ready to Get Off *Manual Ops*?"
+**Badge:** "Trusted by Founders" + 5-star rating
+**Body:** "If your team is duct-taping internal workflows together with spreadsheets and SQL, KinetixMVP can build the tool that replaces that."
+**Buttons:** "Start Your Project", "Book a Call →"
+
+## 12. Footer
+Reuse the existing footer component as-is.
