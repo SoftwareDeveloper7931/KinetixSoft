@@ -17,7 +17,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-6xl font-bold mb-6 text-white"
           >
-            Who <span className="text-gradient">KinetixMVP</span> Is
+            Who <span className="text-gradient">KinetixSoft</span> Is
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}

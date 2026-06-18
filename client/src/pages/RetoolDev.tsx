@@ -152,7 +152,7 @@ export default function RetoolDev() {
               <span className="italic text-gradient">Your</span> Data
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              KinetixMVP uses Retool to build admin panels, ops dashboards, and internal tools that connect straight to your existing databases and APIs — no migrating your data into a new system first. If your team is stuck running production fixes through raw SQL or waiting on engineering for every internal request, we build the interface that fixes that.
+              KinetixSoft uses Retool to build admin panels, ops dashboards, and internal tools that connect straight to your existing databases and APIs — no migrating your data into a new system first. If your team is stuck running production fixes through raw SQL or waiting on engineering for every internal request, we build the interface that fixes that.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/contact">
@@ -261,7 +261,7 @@ export default function RetoolDev() {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Why Choose KinetixMVP as Your{" "}
+            Why Choose KinetixSoft as Your{" "}
             <span className="italic text-gradient">Retool Partner</span>?
           </h2>
           <p className="text-muted-foreground text-lg">
@@ -439,7 +439,7 @@ export default function RetoolDev() {
                 <span className="italic text-gradient">Raw Queries</span>
               </h2>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                KinetixMVP works with startups building their first internal tool and with larger teams whose internal tools have outgrown a single engineer's spare time. Either way, we focus on:
+                KinetixSoft works with startups building their first internal tool and with larger teams whose internal tools have outgrown a single engineer's spare time. Either way, we focus on:
               </p>
               <ul className="space-y-3">
                 {[
@@ -614,7 +614,7 @@ export default function RetoolDev() {
                 ))}
               </ul>
               <p className="text-muted-foreground text-sm italic">
-                KinetixMVP builds on Retool when the data already exists and the missing piece is just a fast, safe way for your team to work with it.
+                KinetixSoft builds on Retool when the data already exists and the missing piece is just a fast, safe way for your team to work with it.
               </p>
             </div>
           </div>
@@ -705,7 +705,7 @@ export default function RetoolDev() {
               Ready to Get Off <span className="italic text-gradient">Manual Ops</span>?
             </h2>
             <p className="text-muted-foreground text-lg mb-10">
-              If your team is duct-taping internal workflows together with spreadsheets and SQL, KinetixMVP can build the tool that replaces that.
+              If your team is duct-taping internal workflows together with spreadsheets and SQL, KinetixSoft can build the tool that replaces that.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact">

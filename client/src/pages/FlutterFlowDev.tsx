@@ -44,7 +44,7 @@ function InjectStyle() {
 /* ── FAQ accordion ───────────────────────────────────────────────── */
 const faqs = [
   {
-    q: "What makes KinetixMVP different from other FlutterFlow teams?",
+    q: "What makes KinetixSoft different from other FlutterFlow teams?",
     a: "We focus on the parts most no-code teams skip — data architecture, API integrations, and security — so your app holds up after it has real users, not just in a demo."
   },
   {
@@ -151,7 +151,7 @@ export default function FlutterFlowDev() {
               <span className="italic text-gradient">FlutterFlow</span>{" "}Apps
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              KinetixMVP is a FlutterFlow development studio focused on shipping real, working products — not just prototypes. We partner with founders, growing teams, and established companies to design, build, and scale mobile and web apps on FlutterFlow.
+              KinetixSoft is a FlutterFlow development studio focused on shipping real, working products — not just prototypes. We partner with founders, growing teams, and established companies to design, build, and scale mobile and web apps on FlutterFlow.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/contact">
@@ -239,7 +239,7 @@ export default function FlutterFlowDev() {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            What Makes KinetixMVP a Strong{" "}
+            What Makes KinetixSoft a Strong{" "}
             <span className="italic text-gradient">FlutterFlow Partner</span>
           </h2>
           <p className="text-muted-foreground text-lg">
@@ -344,7 +344,7 @@ export default function FlutterFlowDev() {
                 A financial forecasting app that lets users set savings goals, model what-if scenarios, track financial KPIs, and view monthly and yearly forecasts generated automatically from their transaction history.
               </p>
               <blockquote className="border-l-2 border-blue-500 pl-4 text-white/80 italic text-sm mb-5">
-                "We came in with a complicated forecasting model and KinetixMVP shipped something our users genuinely understand and enjoy using."
+                "We came in with a complicated forecasting model and KinetixSoft shipped something our users genuinely understand and enjoy using."
               </blockquote>
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm">A</div>
@@ -412,7 +412,7 @@ export default function FlutterFlowDev() {
                 Built for <span className="italic text-gradient">Startups & Growing Teams</span>
               </h2>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                KinetixMVP works with founders validating a first version and with teams scaling an app that already has real users. Either way, the priorities are the same:
+                KinetixSoft works with founders validating a first version and with teams scaling an app that already has real users. Either way, the priorities are the same:
               </p>
               <ul className="space-y-3">
                 {[
@@ -610,7 +610,7 @@ export default function FlutterFlowDev() {
                 ))}
               </ul>
               <p className="text-muted-foreground text-sm italic">
-                KinetixMVP builds on FlutterFlow daily — it's the core of how we deliver fast without cutting corners.
+                KinetixSoft builds on FlutterFlow daily — it's the core of how we deliver fast without cutting corners.
               </p>
             </div>
           </div>
@@ -746,7 +746,7 @@ export default function FlutterFlowDev() {
               Ready to <span className="italic text-gradient">Build</span>?
             </h2>
             <p className="text-muted-foreground text-lg mb-10">
-              If you've got an app idea that needs a real build partner — not just a freelancer — KinetixMVP is ready when you are.
+              If you've got an app idea that needs a real build partner — not just a freelancer — KinetixSoft is ready when you are.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact">

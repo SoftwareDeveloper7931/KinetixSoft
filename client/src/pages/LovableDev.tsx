@@ -44,7 +44,7 @@ function InjectStyle() {
 /* ── FAQs ────────────────────────────────────────────────────────── */
 const faqs = [
   {
-    q: "What makes KinetixMVP different from just using Lovable myself?",
+    q: "What makes KinetixSoft different from just using Lovable myself?",
     a: "Lovable gets you a first draft fast. We handle the parts that draft usually gets wrong — data structure, auth, and edge cases — so what ships is actually production-ready."
   },
   {
@@ -151,7 +151,7 @@ export default function LovableDev() {
               — Without Skipping the Hard Parts
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              KinetixMVP uses Lovable to turn product ideas into real, working web apps fast — then does what most AI-generated builds skip: clean data structure, proper auth, and integrations that hold up once real users show up.
+              KinetixSoft uses Lovable to turn product ideas into real, working web apps fast — then does what most AI-generated builds skip: clean data structure, proper auth, and integrations that hold up once real users show up.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/contact">
@@ -253,7 +253,7 @@ export default function LovableDev() {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Why Choose KinetixMVP as Your{" "}
+            Why Choose KinetixSoft as Your{" "}
             <span className="italic text-gradient">Lovable Partner</span>?
           </h2>
           <p className="text-muted-foreground text-lg">
@@ -429,7 +429,7 @@ export default function LovableDev() {
                 <span className="italic text-gradient">Move Fast</span>
               </h2>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                KinetixMVP works with founders validating a first idea and with teams that already have a Lovable build and need it taken further. Either way, we focus on:
+                KinetixSoft works with founders validating a first idea and with teams that already have a Lovable build and need it taken further. Either way, we focus on:
               </p>
               <ul className="space-y-3">
                 {[
@@ -602,7 +602,7 @@ export default function LovableDev() {
                 ))}
               </ul>
               <p className="text-muted-foreground text-sm italic">
-                KinetixMVP uses Lovable to get founders a real product fast — then does the unglamorous work of making sure it holds up.
+                KinetixSoft uses Lovable to get founders a real product fast — then does the unglamorous work of making sure it holds up.
               </p>
             </div>
           </div>
@@ -693,7 +693,7 @@ export default function LovableDev() {
               Ready to See It <span className="italic text-gradient">Built</span>?
             </h2>
             <p className="text-muted-foreground text-lg mb-10">
-              If you've got an idea you need to see working — not just described — KinetixMVP can have it in front of you fast.
+              If you've got an idea you need to see working — not just described — KinetixSoft can have it in front of you fast.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact">

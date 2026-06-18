@@ -14,7 +14,7 @@ export function Footer() {
             <Link href="/" className="flex items-center mb-4">
               <img
                 src={logoImg}
-                alt="KinetixMVP Logo"
+                alt="KinetixSoft Logo"
                 className="h-16 w-auto object-contain"
               />
             </Link>
@@ -29,6 +29,8 @@ export function Footer() {
               <li><Link href="/services/podio" className="hover:text-cyan-400 transition-colors">Podio Solutions</Link></li>
               <li><Link href="/services/flutterflow" className="hover:text-cyan-400 transition-colors">FlutterFlow Apps</Link></li>
               <li><Link href="/services/retool" className="hover:text-cyan-400 transition-colors">Retool Development</Link></li>
+              <li><Link href="/services/lovable" className="hover:text-cyan-400 transition-colors">Lovable Builds</Link></li>
+              <li><Link href="/services/replit" className="hover:text-cyan-400 transition-colors">Replit Development</Link></li>
               <li><Link href="/services/custom-api" className="hover:text-cyan-400 transition-colors">Custom API Integration</Link></li>
             </ul>
           </div>
@@ -55,7 +57,7 @@ export function Footer() {
               <a href="https://www.linkedin.com/login" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
                 <Linkedin size={18} />
               </a>
-              <a href="mailto:contact@kinetixmvp.com" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
+              <a href="mailto:hello@kinetixsoft.com" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
                 <Mail size={18} />
               </a>
             </div>
@@ -63,7 +65,7 @@ export function Footer() {
         </div>
         
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
-          <p>© 2024 KinetixMVP. All rights reserved.</p>
+          <p>© 2025 KinetixSoft. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>

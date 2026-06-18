@@ -44,7 +44,7 @@ function InjectStyle() {
 /* ── FAQ accordion ───────────────────────────────────────────────── */
 const faqs = [
   {
-    q: "What makes KinetixMVP different from a generic Podio template?",
+    q: "What makes KinetixSoft different from a generic Podio template?",
     a: "Templates assume your process looks like everyone else's. We build around how your team actually works, which means less retraining and fewer workarounds later."
   },
   {
@@ -149,7 +149,7 @@ export default function PodioSolutions() {
               Custom <span className="italic text-gradient">Podio</span> Workspaces Built Around How Your Team Actually Works
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              KinetixMVP builds custom Podio workspaces for teams who've outgrown spreadsheets and generic CRMs but don't want the cost or rigidity of enterprise software. We design CRM systems, project trackers, approval workflows, and internal tools that match your actual process — not a template you have to bend yourself around.
+              KinetixSoft builds custom Podio workspaces for teams who've outgrown spreadsheets and generic CRMs but don't want the cost or rigidity of enterprise software. We design CRM systems, project trackers, approval workflows, and internal tools that match your actual process — not a template you have to bend yourself around.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/contact">
@@ -245,7 +245,7 @@ export default function PodioSolutions() {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Why Choose KinetixMVP as Your{" "}
+            Why Choose KinetixSoft as Your{" "}
             <span className="italic text-gradient">Podio Partner</span>?
           </h2>
           <p className="text-muted-foreground text-lg">
@@ -422,7 +422,7 @@ export default function PodioSolutions() {
                 <span className="italic text-gradient">Outgrown Spreadsheets</span>
               </h2>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                KinetixMVP works with small teams setting up their first real CRM and with larger teams consolidating tools that no longer talk to each other. Either way, we focus on:
+                KinetixSoft works with small teams setting up their first real CRM and with larger teams consolidating tools that no longer talk to each other. Either way, we focus on:
               </p>
               <ul className="space-y-3">
                 {[
@@ -613,7 +613,7 @@ export default function PodioSolutions() {
                 ))}
               </ul>
               <p className="text-muted-foreground text-sm italic">
-                KinetixMVP builds on Podio when a team needs a real system fast — without committing to enterprise software they'll outgrow in a different way.
+                KinetixSoft builds on Podio when a team needs a real system fast — without committing to enterprise software they'll outgrow in a different way.
               </p>
             </div>
           </div>
@@ -716,7 +716,7 @@ export default function PodioSolutions() {
               Ready to Get <span className="italic text-gradient">Organized</span>?
             </h2>
             <p className="text-muted-foreground text-lg mb-10">
-              If your team is managing critical work across spreadsheets and sticky notes, KinetixMVP can build you a real system.
+              If your team is managing critical work across spreadsheets and sticky notes, KinetixSoft can build you a real system.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact">

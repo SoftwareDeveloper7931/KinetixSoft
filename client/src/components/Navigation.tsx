@@ -23,12 +23,12 @@ export function Navigation() {
         <Link href="/" className="flex items-center z-50 relative group">
           <img
             src={logoImg}
-            alt="KinetixMVP Logo"
+            alt="KinetixSoft Logo"
             style={{ width: 72, height: 72 }}
             className="object-contain"
           />
           <span className="text-xl font-bold tracking-tight font-display text-white -ml-2">
-            KinetixMVP
+            KinetixSoft
           </span>
         </Link>
 

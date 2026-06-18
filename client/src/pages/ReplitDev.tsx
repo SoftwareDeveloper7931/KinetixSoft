@@ -165,7 +165,7 @@ export default function ReplitDev() {
               <span className="italic text-gradient">No-Code</span>
             </h1>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              KinetixMVP builds on Replit when a project needs real, custom code — AI agents, backend services, or logic that a visual builder can't express. You get full control over the codebase, paired with the speed of AI-assisted development, for products that need to do more than what a template allows.
+              KinetixSoft builds on Replit when a project needs real, custom code — AI agents, backend services, or logic that a visual builder can't express. You get full control over the codebase, paired with the speed of AI-assisted development, for products that need to do more than what a template allows.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/contact">
@@ -257,7 +257,7 @@ export default function ReplitDev() {
           className="text-center max-w-3xl mx-auto mb-14"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Why Choose KinetixMVP as Your{" "}
+            Why Choose KinetixSoft as Your{" "}
             <span className="italic text-gradient">Replit Partner</span>?
           </h2>
           <p className="text-muted-foreground text-lg">
@@ -431,7 +431,7 @@ export default function ReplitDev() {
                 <span className="italic text-gradient">Real Code</span>
               </h2>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                KinetixMVP works with technical founders who want speed without giving up control, and with teams whose product has outgrown what a visual builder can support. Either way, we focus on:
+                KinetixSoft works with technical founders who want speed without giving up control, and with teams whose product has outgrown what a visual builder can support. Either way, we focus on:
               </p>
               <ul className="space-y-3">
                 {[
@@ -606,7 +606,7 @@ export default function ReplitDev() {
                 ))}
               </ul>
               <p className="text-muted-foreground text-sm italic">
-                KinetixMVP builds on Replit when a project's ambitions have outgrown what a visual builder can support.
+                KinetixSoft builds on Replit when a project's ambitions have outgrown what a visual builder can support.
               </p>
             </div>
           </div>
@@ -696,7 +696,7 @@ export default function ReplitDev() {
               Ready to Build <span className="italic text-gradient">Beyond No-Code</span>?
             </h2>
             <p className="text-muted-foreground text-lg mb-10">
-              If your idea needs real code and real infrastructure, KinetixMVP can build it with you on Replit.
+              If your idea needs real code and real infrastructure, KinetixSoft can build it with you on Replit.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact">

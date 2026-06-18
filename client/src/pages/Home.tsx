@@ -17,7 +17,7 @@ import { SiFlutter, SiReplit, SiRetool } from "react-icons/si";
 /* ── FAQ data (unchanged from existing set) ──────────────────────── */
 const faqs = [
   {
-    q: "What makes KinetixMVP different from other development teams?",
+    q: "What makes KinetixSoft different from other development teams?",
     a: "We focus on the parts most teams skip — data architecture, API integrations, and security — so your app holds up after it has real users, not just in a demo."
   },
   {
@@ -186,7 +186,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.1 }}
                 className="text-3xl md:text-5xl font-bold tracking-tight mb-6 leading-[1.2] text-white"
               >
-                The <span className="text-gradient">KinetixMVP</span> is Here <br />
+                The <span className="text-gradient">KinetixSoft</span> is Here <br />
                 Building the Future Together
               </motion.h1>
 
@@ -357,7 +357,7 @@ export default function Home() {
                 A financial forecasting app that lets users set savings goals, model what-if scenarios, track financial KPIs, and view monthly and yearly forecasts generated automatically from their transaction history.
               </p>
               <blockquote className="border-l-2 border-blue-500 pl-4 text-white/80 italic text-sm mb-5">
-                "We came in with a complicated forecasting model and KinetixMVP shipped something our users genuinely understand and enjoy using."
+                "We came in with a complicated forecasting model and KinetixSoft shipped something our users genuinely understand and enjoy using."
               </blockquote>
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-sm">A</div>
@@ -649,7 +649,7 @@ export default function Home() {
               We Should <span className="italic text-gradient">Talk</span>
             </h2>
             <p className="text-muted-foreground text-lg mb-10">
-              If you're ready to turn an idea into something real, KinetixMVP is ready to build it with you.
+              If you're ready to turn an idea into something real, KinetixSoft is ready to build it with you.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact">
