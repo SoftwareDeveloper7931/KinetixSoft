@@ -1,0 +1,125 @@
+# Replit Prompt — KinetixMVP Podio Page
+
+Paste this into your Replit project to build the `/podio` page. Same section structure as the FlutterFlow page, with original copy specific to Podio.
+
+---
+
+## Global rules
+- Brand is **KinetixMVP** throughout.
+- Reuse the existing header/nav, footer, and "Industries We've Built For" bubble section components as-is — no need to rebuild those.
+- Keep the dark theme, blue/indigo accents, italic serif accent words inside headings.
+- All copy below is original — don't reuse phrasing from the FlutterFlow or homepage prompts.
+
+---
+
+## 1. Hero Section
+**Headline:** "Custom *Podio* Workspaces Built Around How Your Team Actually Works"
+
+**Body copy:** "KinetixMVP builds custom Podio workspaces for teams who've outgrown spreadsheets and generic CRMs but don't want the cost or rigidity of enterprise software. We design CRM systems, project trackers, approval workflows, and internal tools that match your actual process — not a template you have to bend yourself around."
+
+**Buttons:** "Get Started", "Schedule Meeting →"
+**Visual:** dashboard mockup showing a Podio workspace (CRM pipeline or project tracker view)
+
+**Stats row:**
+| Stat | Label | Subtext |
+|---|---|---|
+| 100% | Founder-Led | Direct access to the people building your workspace |
+| 24/7 | Support Mindset | We don't disappear after launch |
+| 2025 | Studio Launched | Built specifically for startups and scaleups |
+
+## 2. "Why Choose KinetixMVP as Your Podio Partner?"
+**Subtext:** "Podio is flexible enough to model almost any business process — which also means it's easy to build something messy. Here's how we keep it clean."
+
+**4 feature cards:**
+1. **Workspaces Modeled on Your Process** — "We map your actual workflow before touching Podio's app builder, so the structure fits how your team works rather than forcing a generic CRM template."
+2. **Automation That Removes Busywork** — "Approval chains, status updates, and notifications run automatically, so your team spends less time managing the tool and more time using it."
+3. **Clean Data Structure From the Start** — "We design your fields, relationships, and apps so reporting stays accurate as your workspace grows — not something bolted on later."
+4. **One Partner, Ongoing** — "We don't just hand off a workspace and leave. As your process changes, we adjust the build with you."
+
+## 3. Case Study
+**Heading:** "Work We've *Shipped*"
+
+**Case study card — OpsFlow** *(placeholder example — swap for a real client case study)*:
+- Description: "A logistics company needed one place to track shipments, automate manager approvals, and replace six disconnected spreadsheets. We built a Podio workspace that gave their team a single source of truth."
+- Tags: Operations, Podio, Workflow Automation
+- Testimonial quote: "We went from chasing updates across five tools to having one dashboard everyone actually opens every morning."
+- 5-star rating
+- Attribution: Priya Sharma, Operations Lead at OpsFlow
+- Visual: dashboard mockup of the OpsFlow workspace
+
+## 4. Services Section
+**Heading:** "Our Podio Development *Services*"
+
+6 cards (numbered "01"–"06", eyebrow label, title with one italic accent word, no body copy):
+
+| # | Eyebrow label | Title |
+|---|---|---|
+| 01 | Map Before You Build | Process Mapping *&* Workspace Planning |
+| 02 | Custom Apps, Not Templates | Podio App *&* Pipeline Design |
+| 03 | Remove the Manual Steps | Workflow *Automation* |
+| 04 | Connect Your Other Tools | Third-Party *Integrations* |
+| 05 | Clean Up What's Already There | Podio Workspace *Audit* |
+| 06 | Stay Running as You Grow | Ongoing Support *&* Maintenance |
+
+## 5. "Best Podio Agency for Startups & Enterprises"
+**Heading:** "Built for Teams That Have *Outgrown Spreadsheets*"
+**Body:** "KinetixMVP works with small teams setting up their first real CRM and with larger teams consolidating tools that no longer talk to each other. Either way, we focus on:"
+
+**Bullets:**
+- Workspaces that match your actual process, not a generic template
+- Clean data structure that keeps reporting accurate as you grow
+- Lower cost than custom-built internal software
+- A working system in weeks, not a multi-month rollout
+
+**Visual:** handshake/business photo with blue-to-orange accent bar
+
+## 6. Industries We've Built For
+Reuse the existing bubble section component (same industries, same bubbling animation) — no changes needed here.
+
+## 7. Process Section
+**Heading:** "How a Podio *Build* Runs"
+
+1. **Process Discovery** — "We sit down with your team to understand how work actually moves today, not how the org chart says it should."
+2. **Workspace & Data Design** — "We design the apps, fields, and relationships that will hold up as your data grows."
+3. **Build & Automate** — "Your workspace gets built with the automations, approval flows, and integrations it needs to actually save time."
+4. **Testing With Real Users** — "We test the workspace with your team before rollout, not just on our own end."
+5. **Rollout & Support** — "We help your team adopt the new workspace and stay on to adjust it as your process evolves."
+
+## 8. "Why Podio for Internal Tools?"
+**Visual:** card with the Podio logo/wordmark on a dark gradient background
+**Heading:** "Why We Build on *Podio*"
+**Body:** "Podio gives us a flexible base for building real business tools without the cost of custom software. For most internal-tool projects, that means:"
+
+**Bullets:**
+- Faster rollout than custom-built software
+- Flexible enough to model CRM, project tracking, or approval workflows
+- Automation built in, not bolted on
+- Lower long-term cost than enterprise platforms
+- Easy to adjust as your process changes
+
+**Closing line:** "KinetixMVP builds on Podio when a team needs a real system fast — without committing to enterprise software they'll outgrow in a different way."
+
+## 9. Contact / Lead Form Section
+**Heading:** "Have a Process That Needs a *Real System*?"
+**Body:** "Tell us how your team works today — and where it's breaking down — and we'll come back with a realistic plan and estimate for a Podio build that fits."
+Reuse the existing form component (Full Name, Email, Phone, Country, "Tell us about your business", Submit).
+
+## 10. FAQs
+**Heading:** "Common *Questions*"
+
+1. **What makes KinetixMVP different from a generic Podio template?** — "Templates assume your process looks like everyone else's. We build around how your team actually works, which means less retraining and fewer workarounds later."
+2. **Can Podio replace our CRM and project management tools?** — "Often, yes — Podio can model both in one workspace. We'll tell you honestly if your needs are better served by a dedicated tool instead."
+3. **Will the workspace still work as our team grows?** — "Yes — we structure the data and apps with growth in mind, so adding users or new workflows doesn't mean rebuilding from scratch."
+4. **How long does a typical Podio build take?** — "Most workspace builds run 2–6 weeks depending on how many processes and integrations are involved."
+5. **What does a Podio project usually cost?** — "Cost depends on how many workflows and integrations you need. We'll give you a real number after a process discovery call."
+6. **Do you migrate data from our existing spreadsheets or tools?** — "Yes — data migration is part of the build, so your team isn't starting from zero on day one."
+7. **Do you support the workspace after launch?** — "Yes — we offer ongoing adjustments and support as your process changes, not just a one-time handoff."
+
+## 11. Final CTA Banner
+**Heading:** "Ready to Get Organized?"
+**Badge:** "Trusted by Founders" + 5-star rating
+**Body:** "If your team is managing critical work across spreadsheets and sticky notes, KinetixMVP can build you a real system."
+**Buttons:** "Start Your Project", "Book a Call →"
+
+## 12. Footer
+Reuse the existing footer component as-is.
