@@ -204,7 +204,7 @@ export default function Home() {
                 className="text-base md:text-lg mb-8 max-w-xl leading-relaxed"
                 style={{ color: "#8A93A3" }}
               >
-                We specialize in crafting high-performance applications using Podio, FlutterFlow, and Retool. Elevate your business efficiency with our custom-tailored digital tools.
+                From idea to launch, we deliver custom digital solutions that save time, cut costs, and drive results.
               </motion.p>
 
               <motion.div
