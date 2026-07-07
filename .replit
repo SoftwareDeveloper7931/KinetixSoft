@@ -40,3 +40,13 @@ waitForPort = 5000
 
 [agent]
 expertMode = true
+
+[userenv]
+
+[userenv.shared]
+FIREBASE_AUTH_DOMAIN = "website-545dd.firebaseapp.com"
+FIREBASE_PROJECT_ID = "website-545dd"
+FIREBASE_STORAGE_BUCKET = "website-545dd.firebasestorage.app"
+FIREBASE_MESSAGING_SENDER_ID = "598008544499"
+FIREBASE_APP_ID = "1:598008544499:web:d4d88fa694e87e54124b86"
+FIREBASE_MEASUREMENT_ID = "G-ZLY72SDDJX"
