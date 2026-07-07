@@ -76,14 +76,17 @@ const faqs = [
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="border border-white/10 rounded-xl overflow-hidden">
+    <div style={{ border: "1px solid #232A36", borderRadius: "6px", overflow: "hidden" }}>
       <button
         onClick={() => setOpen(!open)}
         data-testid={`faq-toggle-${q.slice(0, 20).replace(/\s/g, "-")}`}
-        className="w-full flex items-center justify-between px-6 py-5 text-left text-white font-semibold hover:bg-white/5 transition-colors"
+        className="w-full flex items-center justify-between px-6 py-5 text-left font-semibold transition-colors"
+        style={{ color: "#E9EBEF" }}
+        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#161B26"; }}
+        onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
       >
         <span>{q}</span>
-        <ChevronDown className={`w-5 h-5 text-blue-400 shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
+        <ChevronDown className={`w-5 h-5 shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`} style={{ color: "#4A5FBD" }} />
       </button>
       <AnimatePresence initial={false}>
         {open && (
@@ -143,26 +146,41 @@ export default function FlutterFlowDev() {
       <section className="pt-36 pb-24 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <div className="inline-flex items-center gap-2 glass-panel px-4 py-2 rounded-full text-sm text-blue-300 mb-6 border border-blue-500/20">
+            <div
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm mb-6 eyebrow"
+              style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}
+            >
               <Smartphone className="w-4 h-4" /> FlutterFlow Development Studio
             </div>
-            <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-white leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl xl:text-6xl leading-tight mb-6" style={{ color: "#E9EBEF" }}>
               Turning Ideas Into Production-Ready{" "}
-              <span className="italic text-gradient">FlutterFlow</span>{" "}Apps
+              <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>FlutterFlow</em>{" "}Apps
             </h1>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+            <p className="text-lg leading-relaxed mb-8" style={{ color: "#8A93A3" }}>
               KinetixSoft is a FlutterFlow development studio focused on shipping real, working products — not just prototypes. We partner with founders, growing teams, and established companies to design, build, and scale mobile and web apps on FlutterFlow.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/contact">
-                <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full h-12 px-8 hover:opacity-90" data-testid="button-hero-start">
+                <button
+                  className="h-12 px-8 text-sm font-semibold transition-colors"
+                  style={{ background: "#4A5FBD", color: "#E9EBEF", borderRadius: "6px", border: "none", cursor: "pointer" }}
+                  data-testid="button-hero-start"
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#5A6FCC"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#4A5FBD"; }}
+                >
                   Start Your Project
-                </Button>
+                </button>
               </Link>
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="rounded-full h-12 px-8 border-white/20 text-white hover:bg-white/10" data-testid="button-hero-call">
-                  Book a Call <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
+                <button
+                  className="h-12 px-8 text-sm font-semibold transition-colors flex items-center gap-2"
+                  style={{ background: "transparent", color: "#E9EBEF", borderRadius: "6px", border: "1px solid #232A36", cursor: "pointer" }}
+                  data-testid="button-hero-call"
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#4A5FBD"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#232A36"; }}
+                >
+                  Book a Call <ArrowRight className="w-4 h-4" />
+                </button>
               </Link>
             </div>
           </motion.div>
@@ -220,11 +238,12 @@ export default function FlutterFlowDev() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 + i * 0.15 }}
-              className="glass-card rounded-2xl p-6 border border-white/10 text-center"
+              className="p-6 text-center"
+              style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}
             >
-              <div className="text-3xl font-bold text-gradient mb-1">{s.stat}</div>
-              <div className="text-white font-semibold mb-1">{s.label}</div>
-              <div className="text-muted-foreground text-sm">{s.sub}</div>
+              <div className="text-3xl font-bold mb-1" style={{ color: "#4A5FBD" }}>{s.stat}</div>
+              <div className="font-semibold mb-1" style={{ color: "#E9EBEF" }}>{s.label}</div>
+              <div className="text-sm" style={{ color: "#8A93A3" }}>{s.sub}</div>
             </motion.div>
           ))}
         </div>
@@ -238,11 +257,11 @@ export default function FlutterFlowDev() {
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto mb-14"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl mb-4" style={{ color: "#E9EBEF" }}>
             What Makes KinetixSoft a Strong{" "}
-            <span className="italic text-gradient">FlutterFlow Partner</span>
+            <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>FlutterFlow Partner</em>
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-lg" style={{ color: "#8A93A3" }}>
             Picking the right build partner shapes everything that comes after launch. Here's how we approach every FlutterFlow project.
           </p>
         </motion.div>
@@ -275,13 +294,14 @@ export default function FlutterFlowDev() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="glass-panel p-7 rounded-2xl border border-white/10 hover:border-blue-500/30 transition-colors group"
+              className="p-7 card-hover"
+              style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}
             >
-              <div className="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-5 group-hover:bg-blue-500/20 transition-colors">
+              <div className="w-12 h-12 flex items-center justify-center mb-5" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>
                 {f.icon}
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">{f.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{f.desc}</p>
+              <h3 className="text-xl font-semibold mb-3" style={{ color: "#E9EBEF" }}>{f.title}</h3>
+              <p className="leading-relaxed" style={{ color: "#8A93A3" }}>{f.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -626,11 +646,11 @@ export default function FlutterFlowDev() {
             viewport={{ once: true }}
             className="flex flex-col justify-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-5">
+            <h2 className="text-3xl md:text-4xl mb-5" style={{ color: "#E9EBEF" }}>
               Have an App Idea?{" "}
-              <span className="italic text-gradient">Let's Talk It Through</span>
+              <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Let's Talk It Through</em>
             </h2>
-            <p className="text-muted-foreground mb-8 leading-relaxed">
+            <p className="mb-8 leading-relaxed" style={{ color: "#8A93A3" }}>
               Tell us where things stand — whether you have a rough idea or an existing app that needs to scale — and we'll get back to you with next steps and a realistic estimate.
             </p>
             <div className="space-y-4">
@@ -639,8 +659,8 @@ export default function FlutterFlowDev() {
                 { icon: <Mail className="w-5 h-5" />, text: "info@kinetixsoft.com" },
                 { icon: <MapPin className="w-5 h-5" />, text: "Lahore, Pakistan" },
               ].map((c, i) => (
-                <div key={i} className="flex items-center gap-3 text-white/80">
-                  <div className="w-10 h-10 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400">
+                <div key={i} className="flex items-center gap-3" style={{ color: "#E9EBEF" }}>
+                  <div className="w-10 h-10 flex items-center justify-center" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>
                     {c.icon}
                   </div>
                   {c.text}
@@ -653,58 +673,67 @@ export default function FlutterFlowDev() {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass-card rounded-3xl border border-white/10 p-8"
+            style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}
+          className="p-8"
           >
-            <h3 className="text-2xl font-bold text-white mb-6">
-              Get a <span className="italic text-gradient">Project Estimate</span>
+            <h3 className="text-2xl font-semibold mb-6" style={{ color: "#E9EBEF" }}>
+              Get a <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Project Estimate</em>
             </h3>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <input
                 {...register("name", { required: true })}
                 placeholder="Full Name *"
                 data-testid="input-contact-name"
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-blue-500/50"
+                className="w-full px-4 py-3 focus:outline-none"
+                style={{ background: "#161B26", border: "1px solid #232A36", borderRadius: "6px", color: "#E9EBEF" }}
               />
               <input
                 {...register("email", { required: true })}
                 type="email"
                 placeholder="Email Address *"
                 data-testid="input-contact-email"
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-blue-500/50"
+                className="w-full px-4 py-3 focus:outline-none"
+                style={{ background: "#161B26", border: "1px solid #232A36", borderRadius: "6px", color: "#E9EBEF" }}
               />
               <input
                 {...register("phone", { required: true })}
                 placeholder="Phone Number *"
                 data-testid="input-contact-phone"
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-blue-500/50"
+                className="w-full px-4 py-3 focus:outline-none"
+                style={{ background: "#161B26", border: "1px solid #232A36", borderRadius: "6px", color: "#E9EBEF" }}
               />
               <input
                 {...register("country", { required: true })}
                 placeholder="Country *"
                 data-testid="input-contact-country"
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-blue-500/50"
+                className="w-full px-4 py-3 focus:outline-none"
+                style={{ background: "#161B26", border: "1px solid #232A36", borderRadius: "6px", color: "#E9EBEF" }}
               />
               <textarea
                 {...register("message")}
                 placeholder="Tell us about your business"
                 data-testid="input-contact-message"
                 rows={4}
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-blue-500/50 resize-none"
+                className="w-full px-4 py-3 focus:outline-none resize-none"
+                style={{ background: "#161B26", border: "1px solid #232A36", borderRadius: "6px", color: "#E9EBEF" }}
               />
-              <p className="text-muted-foreground text-xs">
+              <p className="text-xs" style={{ color: "#8A93A3" }}>
                 By submitting this form you agree to our{" "}
-                <Link href="/terms" className="underline text-blue-400">Terms</Link>{" "}
+                <Link href="/terms" className="underline" style={{ color: "#4A5FBD" }}>Terms</Link>{" "}
                 and{" "}
-                <Link href="/privacy" className="underline text-blue-400 font-semibold">Privacy Policy</Link>.
+                <Link href="/privacy" className="underline font-semibold" style={{ color: "#4A5FBD" }}>Privacy Policy</Link>.
               </p>
-              <Button
+              <button
                 type="submit"
                 disabled={isSubmitting}
                 data-testid="button-contact-submit"
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl h-12 font-semibold hover:opacity-90"
+                className="w-full h-12 font-semibold transition-colors"
+                style={{ background: "#4A5FBD", color: "#E9EBEF", borderRadius: "6px", border: "none", cursor: "pointer" }}
+                onMouseEnter={(e) => { if (!isSubmitting) (e.currentTarget as HTMLButtonElement).style.background = "#5A6FCC"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#4A5FBD"; }}
               >
                 {isSubmitting ? "Sending..." : "Submit"}
-              </Button>
+              </button>
             </form>
           </motion.div>
         </div>
@@ -716,9 +745,10 @@ export default function FlutterFlowDev() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold text-white text-center mb-12"
+          className="text-3xl md:text-4xl text-center mb-12"
+          style={{ color: "#E9EBEF" }}
         >
-          Common <span className="italic text-gradient">Questions</span>
+          Common <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Questions</em>
         </motion.h2>
         <div className="space-y-3">
           {faqs.map((f, i) => <FAQItem key={i} q={f.q} a={f.a} />)}
@@ -731,33 +761,49 @@ export default function FlutterFlowDev() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="glass-panel rounded-3xl border border-white/10 text-center overflow-hidden relative py-20 px-6"
+          className="text-center overflow-hidden relative py-20 px-6"
+          style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-purple-600/10" />
+          <div className="absolute inset-0" style={{ background: "rgba(74,95,189,0.05)" }} />
           <div className="relative z-10 max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full text-sm text-orange-300 border border-orange-400/20 mb-6">
-              <Star className="w-4 h-4 fill-orange-400 text-orange-400" />
+            <div
+              className="inline-flex items-center gap-2 px-4 py-2 text-sm mb-6"
+              style={{ background: "rgba(201,168,106,0.08)", border: "1px solid rgba(201,168,106,0.2)", borderRadius: "6px", color: "#C9A86A" }}
+            >
+              <Star className="w-4 h-4" style={{ fill: "#C9A86A", color: "#C9A86A" }} />
               Trusted by Founders
               <div className="flex gap-0.5">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3 fill-orange-400 text-orange-400" />)}
+                {[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3" style={{ fill: "#C9A86A", color: "#C9A86A" }} />)}
               </div>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-5">
-              Ready to <span className="italic text-gradient">Build</span>?
+            <h2 className="text-4xl md:text-5xl mb-5" style={{ color: "#E9EBEF" }}>
+              Ready to <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Build</em>?
             </h2>
-            <p className="text-muted-foreground text-lg mb-10">
+            <p className="text-lg mb-10" style={{ color: "#8A93A3" }}>
               If you've got an app idea that needs a real build partner — not just a freelancer — KinetixSoft is ready when you are.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/contact">
-                <Button size="lg" className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full h-12 px-8 hover:opacity-90" data-testid="button-cta-start">
+                <button
+                  className="h-12 px-8 text-sm font-semibold transition-colors"
+                  style={{ background: "#4A5FBD", color: "#E9EBEF", borderRadius: "6px", border: "none", cursor: "pointer" }}
+                  data-testid="button-cta-start"
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#5A6FCC"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#4A5FBD"; }}
+                >
                   Start Your Project
-                </Button>
+                </button>
               </Link>
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="rounded-full h-12 px-8 border-white/20 text-white hover:bg-white/10" data-testid="button-cta-call">
-                  Book a Call <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
+                <button
+                  className="h-12 px-8 text-sm font-semibold transition-colors flex items-center gap-2"
+                  style={{ background: "transparent", color: "#E9EBEF", borderRadius: "6px", border: "1px solid #232A36", cursor: "pointer" }}
+                  data-testid="button-cta-call"
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#4A5FBD"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#232A36"; }}
+                >
+                  Book a Call <ArrowRight className="w-4 h-4" />
+                </button>
               </Link>
             </div>
           </div>

@@ -1,0 +1,78 @@
+# Replit Prompt — KinetixSoft UI Polish Pass (Premium / Corporate)
+
+Paste this into your Replit project. This is a **visual-only** pass — don't change any copy, section structure, or page content from what's already built. Apply these tokens and component rules consistently across all 6 pages (Home, FlutterFlow, Podio, Lovable, Replit, Retool).
+
+---
+
+## Why this pass
+The current look reads as a generic "dark AI SaaS" template — near-black background, bright neon-blue accent, glow effects, rounded everything. The goal is the opposite impression: **precise, restrained, trustworthy** — closer to how a serious engineering studio or boutique consultancy presents itself than a flashy AI startup.
+
+---
+
+## 1. Color tokens (replace existing palette with these)
+
+| Token | Value | Use |
+|---|---|---|
+| `--bg` | `#0A0E14` | Page background (ink, not pure black) |
+| `--surface` | `#12161F` | Cards, panels, form fields |
+| `--surface-raised` | `#161B26` | Hover state on cards/panels |
+| `--border` | `#232A36` | Hairline borders — used a lot, always 1px |
+| `--text-primary` | `#E9EBEF` | Headlines, body copy |
+| `--text-secondary` | `#8A93A3` | Subtext, captions, labels |
+| `--accent` | `#4A5FBD` | Primary actions, links, key highlights — desaturated, not neon |
+| `--accent-hover` | `#5A6FCC` | Hover state for accent elements |
+| `--accent-muted` | `#4A5FBD` at 12% opacity | Subtle backgrounds behind icons/badges |
+| `--brass` | `#C9A86A` | Sparing secondary accent — star ratings, "trusted" badges only. Never used for primary CTAs. |
+
+Remove all radial glow/blur background effects currently behind the hero and stats. Replace with at most one flat, low-opacity (8–10%) linear gradient wash from `--accent` to transparent, anchored to one corner — no diffuse "spotlight" blur.
+
+## 2. Typography
+
+- **Display face (headlines, H1/H2):** `Newsreader` (serif, Google Fonts) at weight 400–500. Use for the full headline now, not just the italic accent word — but keep one phrase per headline in italic style as the existing accent pattern, just rendered in this serif rather than a script-like italic.
+- **Body / UI face:** `Inter` for all body copy, nav, buttons, form labels, card titles.
+- **Eyebrow / label face:** `Inter`, uppercase, letter-spacing `0.08em`, size `12px`, color `--text-secondary` — used for the small numbered tags and section labels (e.g. "01", "FinTech", "Founder of Cashnix").
+
+Type scale:
+- H1: 48–56px / Newsreader 500 / line-height 1.1
+- H2: 32–36px / Newsreader 500
+- H3 (card titles): 20–22px / Inter 600
+- Body: 16px / Inter 400 / line-height 1.6
+- Caption/eyebrow: 12px / Inter 600, uppercase, letter-spaced
+
+## 3. Shape & spacing
+
+- Border radius: **6px** everywhere (buttons, cards, inputs, badges). Drop the larger pill-shaped radius currently on buttons and tags — small, consistent radius reads more precise/corporate.
+- Borders: 1px solid `--border` on every card and panel — no shadow-only separation, no glow.
+- Section vertical padding: increase to at least 96px top/bottom on desktop (more whitespace = more premium). 56px on mobile.
+- Card internal padding: 32px (up from whatever's currently tighter).
+
+## 4. Signature element: the ledger rule
+Adopt one consistent divider motif used everywhere a section break or stat is shown — a thin horizontal hairline with a small tick mark and index number, like an engineering spec sheet or financial ledger:
+
+```html
+<div class="ledger-rule">
+  <span class="ledger-index">01</span>
+  <span class="ledger-line"></span>
+</div>
+```
+```css
+.ledger-rule { display: flex; align-items: center; gap: 12px; margin: 16px 0; }
+.ledger-index { font: 600 12px Inter; color: var(--text-secondary); letter-spacing: 0.08em; }
+.ledger-line { flex: 1; height: 1px; background: var(--border); }
+```
+Use this above each major section heading (instead of just floating the heading on its own), and reuse the same tick-mark styling for the numbered service cards (01–06) so they visually connect to the same system. This is the one recognizable signature — keep everything else quiet around it.
+
+## 5. Component-level rules
+
+**Buttons**
+- Primary: solid `--accent` fill, `--text-primary` text, 6px radius, no glow/shadow. On hover, background shifts to `--accent-hover` — no scale/lift animation.
+- Secondary (outlined): 1px `--border`, transparent fill, `--text-primary` text. On hover, border becomes `--accent`.
+
+**Cards (feature cards, service cards, case study card)**
+- `--surface` background, 1px `--border`, 6px radius, 32px padding.
+- On hover: border becomes `--accent` at 40% opacity — no lift/scale transform, no shadow bloom.
+- Icons: render in `--accent`, contained in a 40px square with `--accent-muted` background and 6px radius — not a bare floating icon.
+
+**Forms**
+- Inputs: `--surface` background, 1px `--border`, 6px radius, `--text-primary` text. Focus state: border becomes `--accent`, no glow ring.
+- Labels: eyebrow style (upper...
