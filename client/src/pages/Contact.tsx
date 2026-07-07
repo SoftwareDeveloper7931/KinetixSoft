@@ -27,11 +27,11 @@ export default function Contact() {
             <div className="space-y-8">
               <div className="glass-panel p-6 rounded-xl border-l-4 border-cyan-500">
                 <h3 className="text-lg font-semibold text-white mb-2">Email Us</h3>
-                <p className="text-cyan-400">hello@kinetixmvp.com</p>
+                <a href="mailto:info@kinetixsoft.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">info@kinetixsoft.com</a>
               </div>
               <div className="glass-panel p-6 rounded-xl border-l-4 border-purple-500">
-                <h3 className="text-lg font-semibold text-white mb-2">Call Us</h3>
-                <p className="text-purple-400">+1 (555) 987-6543</p>
+                <h3 className="text-lg font-semibold text-white mb-2">Call / WhatsApp</h3>
+                <a href="https://wa.me/923079575055" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300 transition-colors">+923079575055</a>
               </div>
             </div>
           </motion.div>

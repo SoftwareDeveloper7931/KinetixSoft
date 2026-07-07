@@ -625,8 +625,8 @@ export default function ReplitDev() {
             </p>
             <div className="space-y-4">
               {[
-                { icon: <Phone className="w-5 h-5" />, text: "+1 (555) 000-0000" },
-                { icon: <Mail className="w-5 h-5" />, text: "hello@kinetixmvp.com" },
+                { icon: <Phone className="w-5 h-5" />, text: "+923079575055" },
+                { icon: <Mail className="w-5 h-5" />, text: "info@kinetixsoft.com" },
                 { icon: <MapPin className="w-5 h-5" />, text: "Lahore, Pakistan" },
               ].map((c, i) => (
                 <div key={i} className="flex items-center gap-3 text-white/80">

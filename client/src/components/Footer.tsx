@@ -1,5 +1,6 @@
 import { Link } from "wouter";
-import { Github, Twitter, Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
+import { SiInstagram, SiWhatsapp } from "react-icons/si";
 
 import logoImg from "@assets/kinetixmvp-icon-v2-transparent.png";
 
@@ -48,16 +49,16 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-white mb-6">Connect</h4>
             <div className="flex gap-4">
-              <a href="https://github.com/login" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
-                <Github size={18} />
+              <a href="https://www.instagram.com/kinetixsoft/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
+                <SiInstagram size={18} />
               </a>
-              <a href="https://twitter.com/login" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
-                <Twitter size={18} />
+              <a href="https://wa.me/923079575055" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
+                <SiWhatsapp size={18} />
               </a>
-              <a href="https://www.linkedin.com/login" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
+              <a href="https://www.linkedin.com/in/kinetix-soft-b4542141b" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
                 <Linkedin size={18} />
               </a>
-              <a href="mailto:hello@kinetixsoft.com" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
+              <a href="mailto:info@kinetixsoft.com" className="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-white/70 hover:text-cyan-400 hover:bg-white/10 transition-all">
                 <Mail size={18} />
               </a>
             </div>
