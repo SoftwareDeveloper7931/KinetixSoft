@@ -4,6 +4,7 @@ import { storage } from "./storage";
 import { api } from "@shared/routes";
 import { z } from "zod";
 import axios from "axios";
+import { saveToFirestore } from "./firebase";
 
 export async function registerRoutes(
   httpServer: Server,
@@ -13,8 +14,23 @@ export async function registerRoutes(
     try {
       const input = api.contact.submit.input.parse(req.body);
       
-      // Save to database first
+      // Save to PostgreSQL
       await storage.createContactSubmission(input);
+
+      // Save to Firestore (awaited but errors are caught — won't block user response)
+      try {
+        await saveToFirestore("contact_submissions", {
+          name: input.name,
+          email: input.email,
+          phone: input.phone ?? "",
+          company: input.company ?? "",
+          service: input.service,
+          budget: input.budget,
+          message: input.message,
+        });
+      } catch (err: any) {
+        console.error("Firestore save failed:", err.message ?? err);
+      }
 
       // Handle external integrations (Brevo & Podio)
       // We wrap these in try-catch blocks so they don't block the user response if they fail configuration

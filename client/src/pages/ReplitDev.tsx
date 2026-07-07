@@ -144,10 +144,27 @@ const terminalLines = [
 export default function ReplitDev() {
   const { register, handleSubmit, reset, formState: { isSubmitting } } = useForm();
 
-  const onSubmit = async (_data: any) => {
-    await new Promise(r => setTimeout(r, 800));
-    alert("Thanks! We'll be in touch shortly.");
-    reset();
+  const onSubmit = async (data: any) => {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone ?? "",
+          company: data.country ?? "",
+          service: "replit",
+          budget: "not-specified",
+          message: data.message ?? "",
+        }),
+      });
+      if (!res.ok) throw new Error("Submission failed");
+      alert("Thanks! We'll be in touch shortly.");
+      reset();
+    } catch {
+      alert("Something went wrong. Please try again.");
+    }
   };
 
   return (

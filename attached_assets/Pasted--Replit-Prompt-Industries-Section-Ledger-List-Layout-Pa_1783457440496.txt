@@ -1,0 +1,94 @@
+# Replit Prompt — Industries Section: Ledger List Layout
+
+Paste into your Replit project. Replaces the current flat circle-grid version of "Industries We've Built For" with a layout that matches the ledger-rule signature from the UI polish pass. Apply to **both** the web pages and the Expo mobile app.
+
+---
+
+## Web (all 6 pages that include this section)
+
+Replace the grid of circular icon badges with a single-column list of rows:
+
+```html
+<section>
+  <div class="ledger-rule"><span class="ledger-index">—</span><span class="ledger-line"></span></div>
+  <h2>Industries We've <em>Built For</em></h2>
+
+  <div class="industry-list">
+    <div class="industry-row">
+      <span class="industry-index">01</span>
+      <span class="industry-icon"><!-- icon --></span>
+      <span class="industry-label">AI apps</span>
+    </div>
+    <!-- repeat for: Fintech & payments, SaaS platforms, Social apps,
+         Education, Real estate, Marketplaces, Healthcare, Logistics & on-demand -->
+  </div>
+</section>
+```
+
+```css
+.industry-list { display: flex; flex-direction: column; }
+.industry-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 4px;
+  border-bottom: 1px solid var(--border);
+}
+.industry-row:last-child { border-bottom: none; }
+.industry-index { font: 600 12px Inter; color: var(--text-secondary); width: 20px; }
+.industry-icon {
+  width: 32px; height: 32px; border-radius: 6px;
+  background: var(--accent-muted);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent);
+}
+.industry-label { font: 400 15px Inter; color: var(--text-primary); }
+
+/* hover: row background lifts slightly, no scale/lift transform */
+.industry-row:hover { background: var(--surface-raised); }
+```
+
+On desktop, lay these out as **two columns** of rows side by side (5 + 4) inside a shared container so the section doesn't run too tall. On mobile, single column, full width — this same markup works at both breakpoints without changes.
+
+Remove the bobbing/float animation entirely for this layout — static rows fit the "understated" direction better than motion here, and it removes a `prefers-reduced-motion` edge case to maintain.
+
+## Mobile app (Expo)
+
+Same concept, native components:
+
+```jsx
+<View style={styles.industryList}>
+  {industries.map((item, i) => (
+    <View key={item.label} style={[styles.row, i === industries.length - 1 && styles.rowLast]}>
+      <Text style={styles.index}>{String(i + 1).padStart(2, '0')}</Text>
+      <View style={styles.iconBadge}>
+        <Icon name={item.icon} size={16} color={tokens.accent} />
+      </View>
+      <Text style={styles.label}>{item.label}</Text>
+    </View>
+  ))}
+</View>
+```
+
+```js
+const styles = StyleSheet.create({
+  row: {
+    flexDirection: 'row', alignItems: 'center', gap: 12,
+    paddingVertical: 14, paddingHorizontal: 4,
+    borderBottomWidth: 1, borderBottomColor: tokens.border,
+  },
+  rowLast: { borderBottomWidth: 0 },
+  index: { fontSize: 12, fontWeight: '600', color: tokens.textSecondary, width: 20 },
+  iconBadge: {
+    width: 32, height: 32, borderRadius: 6,
+    backgroundColor: tokens.accentMuted,
+    alignItems: 'center', justifyContent: 'center',
+  },
+  label: { fontSize: 15, color: tokens.textPrimary },
+});
+```
+
+Single column on mobile (no two-column split — screen width doesn't support it). Use the same `tokens` object already wired up for the rest of the app (`#0A0E14` bg, `#4A5FBD` accent, `#C9A86A` brass, 6px radius) so this matches the rest of the Home tab exactly.
+
+---
+
+## Note
+This replaces the circular-badge grid currently in both builds. Content (the 9 industries + icons) stays the same — only the layout and removal of the float animation change.
