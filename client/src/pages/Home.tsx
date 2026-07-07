@@ -4,7 +4,9 @@ import { Link } from "wouter";
 import {
   ArrowRight, Bot, Zap, Eye, TrendingUp, CheckCircle,
   Star, ChevronDown, Phone, Mail, MapPin, Code2,
-  Database, Smartphone
+  Database, Smartphone, DollarSign, Layers, Users,
+  GraduationCap, Home as HomeIcon, ShoppingBag,
+  HeartPulse, Truck
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
@@ -98,6 +100,18 @@ function LovableLogo() {
     </svg>
   );
 }
+
+const industries = [
+  { label: "AI Apps",               icon: <Bot className="w-4 h-4" /> },
+  { label: "Fintech & Payments",    icon: <DollarSign className="w-4 h-4" /> },
+  { label: "SaaS Platforms",        icon: <Layers className="w-4 h-4" /> },
+  { label: "Social Apps",           icon: <Users className="w-4 h-4" /> },
+  { label: "Education",             icon: <GraduationCap className="w-4 h-4" /> },
+  { label: "Real Estate",           icon: <HomeIcon className="w-4 h-4" /> },
+  { label: "Marketplaces",          icon: <ShoppingBag className="w-4 h-4" /> },
+  { label: "Healthcare",            icon: <HeartPulse className="w-4 h-4" /> },
+  { label: "Logistics & On-Demand", icon: <Truck className="w-4 h-4" /> },
+];
 
 const platforms = [
   {
@@ -557,7 +571,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ 8. WHAT MAKES US DIFFERENT ══════════════════════════ */}
+      {/* ══ 8. INDUSTRIES ═══════════════════════════════════════ */}
+      <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
+        <div className="mb-14">
+          <div className="ledger-rule mb-6"><span className="ledger-index">08</span><span className="ledger-line" /></div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl"
+            style={{ color: "#E9EBEF" }}
+          >
+            Industries We've <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Built For</em>
+          </motion.h2>
+        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-12"
+          style={{ border: "1px solid #232A36", borderRadius: "6px", background: "#12161F", padding: "8px 24px" }}
+        >
+          {industries.map((ind, i) => (
+            <div
+              key={i}
+              className="flex items-center gap-3 transition-colors"
+              style={{
+                padding: "14px 8px",
+                borderBottom: i < industries.length - 1 && !(i === 4 && industries.length === 9) ? "1px solid #232A36" : "none",
+              }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.background = "#161B26"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.background = "transparent"; }}
+              data-testid={`industry-row-${i}`}
+            >
+              <span className="shrink-0 font-semibold text-xs w-5" style={{ color: "#8A93A3" }}>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span
+                className="shrink-0 flex items-center justify-center w-8 h-8"
+                style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}
+              >
+                {ind.icon}
+              </span>
+              <span className="text-sm" style={{ color: "#E9EBEF" }}>{ind.label}</span>
+            </div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* ══ 9. WHAT MAKES US DIFFERENT ══════════════════════════ */}
       <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="overflow-hidden" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
           <div className="grid grid-cols-1 md:grid-cols-2">
@@ -567,7 +629,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="p-10 flex flex-col justify-center"
             >
-              <div className="ledger-rule mb-6"><span className="ledger-index">08</span><span className="ledger-line" /></div>
+              <div className="ledger-rule mb-6"><span className="ledger-index">09</span><span className="ledger-line" /></div>
               <h2 className="text-3xl mb-5" style={{ color: "#E9EBEF" }}>
                 What Makes Us <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Different</em>
               </h2>
@@ -614,7 +676,7 @@ export default function Home() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <div className="ledger-rule mb-6"><span className="ledger-index">09</span><span className="ledger-line" /></div>
+            <div className="ledger-rule mb-6"><span className="ledger-index">10</span><span className="ledger-line" /></div>
             <h2 className="text-3xl md:text-4xl mb-6" style={{ color: "#E9EBEF" }}>
               Let's Build Your App with a Team That{" "}
               <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Ships</em>
@@ -660,7 +722,7 @@ export default function Home() {
 
       {/* ══ 10. FAQS — "Common Questions" ═══════════════════════ */}
       <section className="py-24 px-4 md:px-6 max-w-3xl mx-auto relative z-10">
-        <div className="ledger-rule mb-6"><span className="ledger-index">10</span><span className="ledger-line" /></div>
+        <div className="ledger-rule mb-6"><span className="ledger-index">11</span><span className="ledger-line" /></div>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
