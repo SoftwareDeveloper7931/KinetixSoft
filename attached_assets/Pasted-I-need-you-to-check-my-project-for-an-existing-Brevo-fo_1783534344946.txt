@@ -1,0 +1,32 @@
+I need you to check my project for an existing Brevo (formerly Sendinblue) integration and set it up if it's missing. Follow these steps in order:
+
+STEP 1 — VALIDATE EXISTING INTEGRATION
+- Search the entire codebase for any existing Brevo/Sendinblue integration. Look for:
+  - Packages: "sib-api-v3-sdk", "@getbrevo/brevo", "sendinblue" in package.json / requirements.txt
+  - Environment variables: BREVO_API_KEY, SENDINBLUE_API_KEY, or similar
+  - Any existing API calls to api.brevo.com or api.sendinblue.com
+  - Any existing email-sending functions related to form submissions
+- Report back clearly: "Brevo IS integrated" or "Brevo IS NOT integrated", along with what you found (or didn't find).
+
+STEP 2 — IF NOT INTEGRATED, SET IT UP
+If no integration exists, do the following:
+1. Install the official Brevo SDK/package for this project's language/framework (e.g., "@getbrevo/brevo" for Node.js, or use plain REST calls via fetch/axios if simpler).
+2. Ask me for my Brevo API key and store it securely as an environment variable (BREVO_API_KEY) using Replit Secrets — do NOT hardcode it.
+3. Create a reusable function/module (e.g., lib/brevo.js or utils/sendEmail.py) that:
+   - Accepts form submission data (name, email, message, or whatever fields my form has)
+   - Sends a transactional email via Brevo's API to my specified recipient email address
+   - Uses a clear subject line and formatted body including all submitted fields
+   - Handles errors gracefully and logs failures without crashing the app
+4. Connect this function to my existing form submission handler/endpoint so that every time the form is submitted, an email is triggered.
+5. Add basic validation so empty/malformed submissions don't trigger email sends.
+6. Test the integration by simulating a form submission and confirm the email is sent successfully (or explain how I can test it myself).
+
+STEP 3 — CONFIRM & DOCUMENT
+- Show me the final code changes.
+- Tell me exactly what environment variables/secrets I need to set (with variable names) and where to get them from my Brevo account (API key from Brevo dashboard → SMTP & API section).
+- Briefly explain how the flow works end-to-end.
+
+Ask me clarifying questions first if you're unsure about:
+- What framework/language my form backend uses
+- Which email address form submissions should be sent to
+- What fields the form currently collects

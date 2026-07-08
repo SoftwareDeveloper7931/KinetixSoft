@@ -35,8 +35,11 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "npm run dev"
+args = "npx next dev --port 5000"
 waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
 
 [agent]
 expertMode = true
@@ -50,3 +53,4 @@ FIREBASE_STORAGE_BUCKET = "website-545dd.firebasestorage.app"
 FIREBASE_MESSAGING_SENDER_ID = "598008544499"
 FIREBASE_APP_ID = "1:598008544499:web:d4d88fa694e87e54124b86"
 FIREBASE_MEASUREMENT_ID = "G-ZLY72SDDJX"
+BREVO_API_KEY = "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"
