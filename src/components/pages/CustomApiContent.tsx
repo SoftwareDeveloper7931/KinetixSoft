@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Link } from "wouter";
+import Link from "next/link";
 import { ArrowRight, Plug, Zap, Shield, Globe, CheckCircle } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 

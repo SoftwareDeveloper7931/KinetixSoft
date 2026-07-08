@@ -1,0 +1,1 @@
+- [Next.js + Wouter conflict](nextjs-wouter-conflict.md) — wouter's Link/useLocation calls window.location synchronously and crashes Next.js SSR even in "use client" components.

@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "wouter";
+import Link from "next/link";
 import { Linkedin, Mail } from "lucide-react";
 import { SiInstagram, SiWhatsapp } from "react-icons/si";
 
@@ -16,7 +16,8 @@ export function Footer() {
               <img
                 src="/logo.png"
                 alt="KinetixSoft Logo"
-                style={{ width: 64, height: 64 }}
+                width={64}
+                height={64}
                 className="object-contain"
               />
             </Link>

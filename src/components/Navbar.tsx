@@ -1,6 +1,7 @@
 "use client";
 
-import { Link, useLocation } from "wouter";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -13,7 +14,7 @@ const links = [
 ];
 
 export function Navbar() {
-  const [pathname] = useLocation();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -31,8 +32,10 @@ export function Navbar() {
           <img
             src="/logo.png"
             alt="KinetixSoft Logo"
-            style={{ width: 72, height: 72 }}
+            width={72}
+            height={72}
             className="object-contain"
+            style={{ width: 72, height: "auto" }}
           />
           <span
             className="text-xl font-semibold tracking-tight -ml-2"

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "wouter";
+import Link from "next/link";
 import { Calendar, User, Clock, ArrowRight } from "lucide-react";
 
 const ALL_POSTS = [

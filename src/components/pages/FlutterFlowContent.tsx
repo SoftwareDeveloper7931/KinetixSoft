@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "wouter";
+import Link from "next/link";
 import {
   Smartphone, Zap, Shield, Code2, Star, ChevronDown, ArrowRight,
   BarChart2, DollarSign, Layers, Users, GraduationCap, ShoppingBag,

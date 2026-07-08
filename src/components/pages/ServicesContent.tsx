@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Link } from "wouter";
+import Link from "next/link";
 import { ArrowRight, CheckCircle } from "lucide-react";
 import { SiFlutter, SiReplit, SiRetool } from "react-icons/si";
 
