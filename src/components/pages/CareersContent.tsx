@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Link } from "wouter";
 import { MapPin, Clock, ArrowRight } from "lucide-react";
 
 const jobs = [

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
+import { Link } from "wouter";
 import { Database, Zap, Shield, Users, Star, ChevronDown, ArrowRight, BarChart2, Settings, Globe, Layers, DollarSign, GraduationCap, ShoppingBag, Home as HomeIcon, Truck, Bot, HeartPulse } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 

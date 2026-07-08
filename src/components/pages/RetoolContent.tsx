@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
+import { Link } from "wouter";
 import { Layout, Zap, Shield, Database, Star, ChevronDown, ArrowRight, BarChart2, Settings, Users, Layers, DollarSign, Globe, Bot } from "lucide-react";
 import { SiRetool } from "react-icons/si";
 import { ContactForm } from "@/components/ContactForm";

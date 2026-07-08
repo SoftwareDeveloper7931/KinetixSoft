@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
+import { Link } from "wouter";
 import {
   ArrowRight, Bot, Zap, Eye, TrendingUp, Star, ChevronDown,
   Phone, Mail, MapPin, Code2, DollarSign, Layers, Users,

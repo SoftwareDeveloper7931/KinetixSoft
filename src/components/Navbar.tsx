@@ -1,11 +1,9 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, useLocation } from "wouter";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import Image from "next/image";
 
 const links = [
   { href: "/", label: "Home" },
@@ -15,7 +13,7 @@ const links = [
 ];
 
 export function Navbar() {
-  const pathname = usePathname();
+  const [pathname] = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -30,13 +28,11 @@ export function Navbar() {
         }}
       >
         <Link href="/" className="flex items-center z-50 relative group">
-          <Image
+          <img
             src="/logo.png"
             alt="KinetixSoft Logo"
-            width={72}
-            height={72}
+            style={{ width: 72, height: 72 }}
             className="object-contain"
-            priority
           />
           <span
             className="text-xl font-semibold tracking-tight -ml-2"
