@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -29,13 +30,14 @@ export function Navbar() {
         }}
       >
         <Link href="/" className="flex items-center z-50 relative group">
-          <img
+          <Image
             src="/logo.png"
             alt="KinetixSoft Logo"
             width={72}
             height={72}
+            priority
             className="object-contain"
-            style={{ width: 72, height: "auto" }}
+            style={{ width: 72, height: 72 }}
           />
           <span
             className="text-xl font-semibold tracking-tight -ml-2"

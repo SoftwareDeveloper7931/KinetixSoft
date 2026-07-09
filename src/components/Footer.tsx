@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Linkedin, Mail } from "lucide-react";
 import { SiInstagram, SiWhatsapp } from "react-icons/si";
 
@@ -13,7 +14,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-1">
             <Link href="/" className="flex items-center mb-4">
-              <img
+              <Image
                 src="/logo.png"
                 alt="KinetixSoft Logo"
                 width={64}

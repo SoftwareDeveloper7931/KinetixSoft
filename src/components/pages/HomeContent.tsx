@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight, Bot, Zap, Eye, TrendingUp, Star, ChevronDown,
   Phone, Mail, MapPin, Code2, DollarSign, Layers, Users,
@@ -90,7 +91,7 @@ export default function HomeContent() {
       {/* HERO */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/hero-office.jpg" alt="KinetixSoft Software Agency" fetchPriority="high" decoding="async" className="h-full w-full object-cover object-top" />
+          <Image src="/hero-office.jpg" alt="KinetixSoft Software Agency" fill priority quality={75} sizes="100vw" className="object-cover object-top" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/50 to-[#0A0E14] z-10" />
         </div>
         <div className="relative z-30 w-full pt-24">

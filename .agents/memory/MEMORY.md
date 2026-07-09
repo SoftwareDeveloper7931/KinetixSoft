@@ -1,1 +1,2 @@
 - [Next.js + Wouter conflict](nextjs-wouter-conflict.md) — wouter's Link/useLocation calls window.location synchronously and crashes Next.js SSR even in "use client" components.
+- [Next build vs dev collision](next-build-dev-collision.md) — never run next build against the dev server's .next; use NEXT_DIST_DIR=.next-build.
