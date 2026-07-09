@@ -60,7 +60,7 @@ export default function PodioContent() {
             <div className="inline-flex items-center gap-2 px-4 py-2 text-sm mb-6 eyebrow" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>
               <Database className="w-4 h-4" /> Podio Development Studio
             </div>
-            <h1 className="text-4xl md:text-5xl xl:text-6xl leading-tight mb-6" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}>
+            <h1 className="text-4xl md:text-5xl xl:text-6xl leading-tight mb-6" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
               Custom <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Podio</em> Workspaces That Replace Spreadsheets
             </h1>
             <p className="text-lg leading-relaxed mb-8" style={{ color: "#8A93A3" }}>KinetixSoft builds Podio CRM systems, workflow automations, and operational tools for growing teams. We take you from scattered data and manual processes to a structured system your whole team can actually use.</p>
@@ -184,7 +184,7 @@ export default function PodioContent() {
         <div style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px", overflow: "hidden" }}>
           <div className="grid grid-cols-1 md:grid-cols-2">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="p-10 flex flex-col justify-center">
-              <h2 className="text-3xl mb-5" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}>Have You <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Outgrown</em> Spreadsheets?</h2>
+              <h2 className="text-3xl mb-5" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>Have You <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Outgrown</em> Spreadsheets?</h2>
               <p className="mb-6 leading-relaxed" style={{ color: "#8A93A3" }}>If your team is managing clients, projects, or operations out of Excel, you're already slowing down. Podio gives you structure without the rigidity of enterprise software — and we'll build it around the way your team already works.</p>
               <Link href="/contact">
                 <button className="h-11 px-6 text-sm font-semibold w-fit flex items-center gap-2" style={{ background: "#4A5FBD", color: "#E9EBEF", borderRadius: "6px", border: "none", cursor: "pointer" }} onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#5A6FCC"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#4A5FBD"; }}>
@@ -216,7 +216,7 @@ export default function PodioContent() {
       {/* CONTACT */}
       <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10 mb-8">
         <div className="p-8 md:p-10" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-          <h2 className="text-3xl mb-2 text-center" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}>Start Your <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Podio Project</em></h2>
+          <h2 className="text-3xl mb-2 text-center" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>Start Your <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Podio Project</em></h2>
           <p className="text-center text-sm mb-8" style={{ color: "#8A93A3" }}>Tell us about your team and we'll get back to you within one business day.</p>
           <ContactForm defaultService="podio" />
         </div>

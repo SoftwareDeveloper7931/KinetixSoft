@@ -90,7 +90,7 @@ export default function BlogContent() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl mb-5" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}
+            className="text-4xl md:text-6xl mb-5" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}
           >
             Low-Code <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Insights</em>
           </motion.h1>

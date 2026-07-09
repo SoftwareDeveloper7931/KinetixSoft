@@ -7,7 +7,7 @@ export default function TermsContent() {
     <div className="min-h-screen bg-[#0B0F19]">
       <section className="pt-36 pb-24 px-4 md:px-6 max-w-3xl mx-auto relative z-10">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <h1 className="text-4xl md:text-5xl mb-4" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}>Terms of Service</h1>
+          <h1 className="text-4xl md:text-5xl mb-4" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>Terms of Service</h1>
           <p className="text-sm mb-12" style={{ color: "#8A93A3" }}>Last updated: January 2025</p>
         </motion.div>
 
@@ -25,7 +25,7 @@ export default function TermsContent() {
             { title: "Contact", body: "Questions about these terms? Reach us at info@kinetixsoft.com." },
           ].map((section, i) => (
             <section key={i}>
-              <h2 style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontSize: "1.5rem", marginBottom: "0.75rem" }}>{section.title}</h2>
+              <h2 style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontSize: "1.5rem", marginBottom: "0.75rem" }}>{section.title}</h2>
               <p className="leading-relaxed">{section.body}</p>
             </section>
           ))}

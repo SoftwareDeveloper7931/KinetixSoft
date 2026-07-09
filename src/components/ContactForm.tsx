@@ -29,7 +29,7 @@ const inputStyle: React.CSSProperties = {
   color: "#E9EBEF",
   padding: "0 14px",
   fontSize: "14px",
-  fontFamily: "Inter, sans-serif",
+  fontFamily: "var(--font-body)",
   outline: "none",
 };
 
@@ -47,7 +47,7 @@ const textareaStyle: React.CSSProperties = {
   color: "#E9EBEF",
   padding: "12px 14px",
   fontSize: "14px",
-  fontFamily: "Inter, sans-serif",
+  fontFamily: "var(--font-body)",
   outline: "none",
   resize: "vertical",
 };

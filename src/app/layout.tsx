@@ -1,8 +1,26 @@
 import type { Metadata } from "next";
+import { Inter, Newsreader } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-inter",
+  display: "swap",
+  preload: true,
+});
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  weight: ["400", "500"],
+  variable: "--font-newsreader",
+  display: "swap",
+  preload: true,
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kinetixsoft.com"),
@@ -156,7 +174,7 @@ const websiteSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${inter.variable} ${newsreader.variable}`}>
       <body>
         <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />

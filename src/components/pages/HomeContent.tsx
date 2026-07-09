@@ -90,7 +90,7 @@ export default function HomeContent() {
       {/* HERO */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src="/hero-office.jpg" alt="KinetixSoft Software Agency" className="h-full w-full object-cover object-top" />
+          <img src="/hero-office.jpg" alt="KinetixSoft Software Agency" fetchPriority="high" decoding="async" className="h-full w-full object-cover object-top" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/50 to-[#0A0E14] z-10" />
         </div>
         <div className="relative z-30 w-full pt-24">
@@ -102,7 +102,7 @@ export default function HomeContent() {
                 </span>
               </motion.div>
               <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }}
-                className="text-4xl md:text-6xl mb-6" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}
+                className="text-4xl md:text-6xl mb-6" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}
               >
                 The <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>KinetixSoft</em> is Here <br />
                 Building the Future Together
@@ -146,7 +146,7 @@ export default function HomeContent() {
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.12 }} viewport={{ once: true }}
               className="p-8 text-center" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}
             >
-              <div className="text-3xl font-bold mb-1" style={{ color: "#4A5FBD", fontFamily: "Newsreader, serif" }}>{s.stat}</div>
+              <div className="text-3xl font-bold mb-1" style={{ color: "#4A5FBD", fontFamily: "var(--font-display)" }}>{s.stat}</div>
               <div className="font-semibold mb-1" style={{ color: "#E9EBEF" }}>{s.label}</div>
               <div className="text-sm" style={{ color: "#8A93A3" }}>{s.sub}</div>
             </motion.div>

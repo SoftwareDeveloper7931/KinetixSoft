@@ -39,7 +39,7 @@ export function Navbar() {
           />
           <span
             className="text-xl font-semibold tracking-tight -ml-2"
-            style={{ color: "#E9EBEF", fontFamily: "Inter, sans-serif" }}
+            style={{ color: "#E9EBEF", fontFamily: "var(--font-body)" }}
           >
             KinetixSoft
           </span>
@@ -62,7 +62,7 @@ export function Navbar() {
                     border: "none",
                     cursor: "pointer",
                     transition: "background 0.2s ease",
-                    fontFamily: "Inter, sans-serif",
+                    fontFamily: "var(--font-body)",
                   }}
                   onMouseEnter={(e) => {
                     (e.currentTarget as HTMLButtonElement).style.background = "#5A6FCC";
@@ -82,7 +82,7 @@ export function Navbar() {
                 className="text-sm font-medium transition-colors"
                 style={{
                   color: pathname === link.href ? "#4A5FBD" : "#8A93A3",
-                  fontFamily: "Inter, sans-serif",
+                  fontFamily: "var(--font-body)",
                 }}
               >
                 {link.label}
@@ -120,7 +120,7 @@ export function Navbar() {
                 style={{
                   color: "#E9EBEF",
                   borderBottom: "1px solid #232A36",
-                  fontFamily: "Inter, sans-serif",
+                  fontFamily: "var(--font-body)",
                 }}
                 onClick={() => setIsOpen(false)}
               >

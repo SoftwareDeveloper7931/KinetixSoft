@@ -132,7 +132,7 @@ export default function ServicesContent() {
           <span className="inline-block px-4 py-1 text-xs font-semibold uppercase tracking-widest mb-6" style={{ border: "1px solid #232A36", borderRadius: "6px", color: "#8A93A3", background: "rgba(74,95,189,0.08)" }}>Our Platforms</span>
         </motion.div>
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-          className="text-4xl md:text-6xl mb-6" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}
+          className="text-4xl md:text-6xl mb-6" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}
         >
           5 Platforms. <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>One Studio.</em>
         </motion.h1>
@@ -163,7 +163,7 @@ export default function ServicesContent() {
                     <h2 className="text-2xl font-semibold" style={{ color: "#E9EBEF" }}>{svc.name}</h2>
                   </div>
                 </div>
-                <h3 className="text-lg mb-2" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif" }}>{svc.headline}</h3>
+                <h3 className="text-lg mb-2" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)" }}>{svc.headline}</h3>
                 <p className="text-sm mb-5 leading-relaxed" style={{ color: "#8A93A3" }}>{svc.body}</p>
                 <div className="grid grid-cols-2 gap-2 mb-6">
                   {svc.bullets.map((b, j) => (
@@ -190,7 +190,7 @@ export default function ServicesContent() {
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="p-12" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}
         >
-          <h2 className="text-3xl mb-4" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}>
+          <h2 className="text-3xl mb-4" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
             Not Sure Which <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Platform Fits?</em>
           </h2>
           <p className="mb-8" style={{ color: "#8A93A3" }}>Tell us what you're building and we'll recommend the right platform — and explain why.</p>

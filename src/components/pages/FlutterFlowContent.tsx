@@ -65,7 +65,7 @@ export default function FlutterFlowContent() {
             <div className="inline-flex items-center gap-2 px-4 py-2 text-sm mb-6 eyebrow" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>
               <Smartphone className="w-4 h-4" /> FlutterFlow Development Studio
             </div>
-            <h1 className="text-4xl md:text-5xl xl:text-6xl leading-tight mb-6" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}>
+            <h1 className="text-4xl md:text-5xl xl:text-6xl leading-tight mb-6" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
               Turning Ideas Into Production-Ready <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>FlutterFlow</em> Apps
             </h1>
             <p className="text-lg leading-relaxed mb-8" style={{ color: "#8A93A3" }}>KinetixSoft is a FlutterFlow development studio focused on shipping real, working products — not just prototypes. We partner with founders, growing teams, and established companies to design, build, and scale mobile and web apps on FlutterFlow.</p>
@@ -227,7 +227,7 @@ export default function FlutterFlowContent() {
         <div style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px", overflow: "hidden" }}>
           <div className="grid grid-cols-1 md:grid-cols-2">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="p-10 flex flex-col justify-center">
-              <h2 className="text-3xl mb-5" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}>Built for <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Startups & Growing Teams</em></h2>
+              <h2 className="text-3xl mb-5" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>Built for <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Startups & Growing Teams</em></h2>
               <p className="mb-6 leading-relaxed" style={{ color: "#8A93A3" }}>KinetixSoft works with founders validating a first version and with teams scaling an app that already has real users. Either way, the priorities are the same: ship fast, build correctly, and keep things running after launch.</p>
               <ul className="space-y-3">
                 {["Fast to market without sacrificing structure", "App architecture designed for real growth", "Clear communication throughout the build", "Post-launch support, not ghosting"].map((item, i) => (
@@ -266,7 +266,7 @@ export default function FlutterFlowContent() {
       {/* CONTACT FORM */}
       <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10 mb-8">
         <div className="p-8 md:p-10" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-          <h2 className="text-3xl mb-2 text-center" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}>Start Your <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>FlutterFlow Project</em></h2>
+          <h2 className="text-3xl mb-2 text-center" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>Start Your <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>FlutterFlow Project</em></h2>
           <p className="text-center text-sm mb-8" style={{ color: "#8A93A3" }}>Tell us about your project and we'll get back to you within one business day.</p>
           <ContactForm defaultService="flutterflow" />
         </div>

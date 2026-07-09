@@ -11,3 +11,6 @@ export const metadata: Metadata = {
 export default function Page() {
   return <TermsContent />;
 }
+
+export const dynamic = "force-static";
+export const revalidate = 86400;

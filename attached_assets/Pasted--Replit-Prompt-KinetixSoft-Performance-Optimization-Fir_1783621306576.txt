@@ -1,0 +1,344 @@
+# Replit Prompt — KinetixSoft Performance Optimization (First Load Fix)
+
+Paste this into Replit. The site currently takes ~37 seconds for content to appear on first load. Apply every fix below in order — do not skip any step.
+
+---
+
+## Root Cause Diagnosis
+
+Run this first to understand what's happening:
+
+```bash
+# Check bundle size
+cd kinetixsoft-web && npx next build 2>&1 | tail -40
+
+# Check what's being imported
+find src -name "*.tsx" -o -name "*.ts" | xargs grep -l "import" | head -20
+```
+
+The 37-second load is almost certainly caused by one or more of:
+1. Google Fonts loading from external CDN on every request (blocks render)
+2. Large JavaScript bundle not split (user downloads everything upfront)
+3. No `loading="lazy"` on images (all images downloaded immediately)
+4. Replit cold start (free plan sleeps the server)
+5. No caching headers (every visit re-downloads everything)
+6. Heavy animations running before content is visible
+
+Fix all of them below.
+
+---
+
+## FIX 1 — Google Fonts: switch from CSS @import to next/font (biggest win)
+
+**Problem:** `globals.css` has `@import url('https://fonts.googleapis.com/...')` — this blocks rendering until Google's server responds. On a slow connection or cold start, this alone adds 3–8 seconds.
+
+**Fix:** Remove the `@import` from `globals.css` and use Next.js built-in font optimization instead.
+
+Open `src/app/layout.tsx` and replace the font import section:
+
+```tsx
+import { Inter, Newsreader } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",      // show text immediately with fallback font
+  preload: true,
+});
+
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  variable: "--font-newsreader",
+  style: ["normal", "italic"],
+  weight: ["400", "500"],
+  display: "swap",
+  preload: true,
+});
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className={`${inter.variable} ${newsreader.variable}`}>
+      <body>
+        ...
+      </body>
+    </html>
+  );
+}
+```
+
+Then in `globals.css`, remove the entire `@import url('https://fonts.googleapis.com/...')` line and replace font-family references:
+
+```css
+/* REMOVE THIS LINE ENTIRELY: */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter...'); */
+
+/* Replace font-family values with CSS variables: */
+body { font-family: var(--font-inter), sans-serif; }
+h1, h2 { font-family: var(--font-newsreader), serif; }
+```
+
+Next.js will now self-host the fonts, preload them, and serve them from the same domain — no external round trip.
+
+---
+
+## FIX 2 — Add loading="lazy" and priority to images
+
+Open every page and component that uses `<Image>` or `<img>`:
+
+```tsx
+// Hero image — add priority (loads immediately, no lazy)
+<Image
+  src="/hero-mockup.png"
+  alt="KinetixSoft app dashboard mockup"
+  width={600}
+  height={500}
+  priority          // ← add this to hero/above-fold images only
+/>
+
+// All other images — add lazy loading
+<Image
+  src="/case-study.png"
+  alt="Cashnix financial forecasting dashboard"
+  width={600}
+  height={400}
+  loading="lazy"    // ← add this to every below-fold image
+/>
+```
+
+Also add this to `next.config.ts` to serve images in modern formats:
+
+```ts
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 86400,  // cache images for 24 hours
+  },
+};
+```
+
+---
+
+## FIX 3 — Split the JavaScript bundle (dynamic imports)
+
+Heavy components that are not visible on first load should be loaded lazily. Find any component that uses animations, maps, charts, or is far down the page.
+
+In each `page.tsx`, wrap below-fold sections with `dynamic`:
+
+```tsx
+import dynamic from "next/dynamic";
+
+// Replace static imports of heavy components:
+// import IndustriesSection from "@/components/IndustriesSection";
+// import FaqSection from "@/components/FaqSection";
+// import ContactForm from "@/components/ContactForm";
+
+// With dynamic imports:
+const IndustriesSection = dynamic(() => import("@/components/IndustriesSection"), {
+  loading: () => <div style={{ height: 400 }} />,   // placeholder prevents layout shift
+});
+
+const FaqSection = dynamic(() => import("@/components/FaqSection"), {
+  loading: () => <div style={{ height: 300 }} />,
+});
+
+const ContactForm = dynamic(() => import("@/components/ContactForm"), {
+  loading: () => <div style={{ height: 400 }} />,
+});
+```
+
+This splits these components into separate JS chunks — the browser downloads them only when the user scrolls near them.
+
+---
+
+## FIX 4 — Add HTTP caching headers
+
+Create `src/middleware.ts` in the project root:
+
+```ts
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+
+export function middleware(request: NextRequest) {
+  const response = NextResponse.next();
+  const { pathname } = request.nextUrl;
+
+  // Cache static assets aggressively
+  if (pathname.startsWith("/_next/static/")) {
+    response.headers.set("Cache-Control", "public, max-age=31536000, immutable");
+  }
+
+  // Cache pages for 1 hour with stale-while-revalidate
+  if (!pathname.startsWith("/api/")) {
+    response.headers.set(
+      "Cache-Control",
+      "public, s-maxage=3600, stale-while-revalidate=86400"
+    );
+  }
+
+  return response;
+}
+
+export const config = {
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+};
+```
+
+Also add to `next.config.ts`:
+
+```ts
+const nextConfig: NextConfig = {
+  reactStrictMode: true,
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 86400,
+  },
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "DENY" },
+        ],
+      },
+      {
+        source: "/fonts/(.*)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+    ];
+  },
+};
+```
+
+---
+
+## FIX 5 — Convert page content to static (ISR)
+
+All 6 pages are static marketing pages — they never change based on the user. Make sure they are statically generated at build time, not rendered on every request.
+
+Add this to every `page.tsx` (Home, FlutterFlow, Podio, Lovable, Replit, Retool):
+
+```tsx
+// Force static generation — page is built once, served instantly
+export const dynamic = "force-static";
+export const revalidate = 86400; // rebuild every 24 hours
+```
+
+This means Vercel builds the page HTML once and serves it from CDN — no server processing on each visit, which eliminates the cold-start delay.
+
+---
+
+## FIX 6 — Preload critical resources
+
+Add to `src/app/layout.tsx` inside the `<head>`:
+
+```tsx
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className={`${inter.variable} ${newsreader.variable}`}>
+      <head>
+        {/* Preconnect to nothing external — fonts are self-hosted after Fix 1 */}
+        {/* Preload hero image */}
+        <link rel="preload" as="image" href="/og-default.png" />
+      </head>
+      <body>
+        ...
+      </body>
+    </html>
+  );
+}
+```
+
+---
+
+## FIX 7 — Remove unused CSS and heavy animations on load
+
+In `globals.css`, move any `@keyframes` animation definitions so they only run after the page is interactive. Specifically:
+
+- Any bobbing/floating animation → add `animation-delay: 1s` so it starts after first paint
+- Any `transition` on elements that are visible on first load → reduce to `100ms` or remove
+
+```css
+/* Add animation-delay to any keyframe animations */
+.industry-row,
+.card {
+  animation-delay: 0.1s;
+}
+
+/* Reduce transition duration on above-fold elements */
+nav a { transition: color 100ms ease; }
+.btn-primary { transition: background 100ms ease; }
+```
+
+---
+
+## FIX 8 — Replit-specific: keep server warm (cold start fix)
+
+Replit free plan sleeps the server after inactivity. This causes the first visit to take 10–20 seconds just waiting for the server to wake up. Two options:
+
+**Option A — Use a free uptime monitor (recommended):**
+Go to https://uptimerobot.com → sign up free → Add new monitor:
+- Monitor Type: HTTP(s)
+- URL: your `.replit.dev` URL
+- Check interval: every 5 minutes
+
+This pings your server every 5 minutes so it never sleeps.
+
+**Option B — Upgrade Replit plan** to get Always On (no cold starts).
+
+**Option C — Deploy to Vercel** (already planned). Vercel has no cold start problem for static/ISR pages because they're served from CDN, not a sleeping server. After Vercel deployment, this issue disappears entirely for static pages.
+
+---
+
+## FIX 9 — Verify build output after all fixes
+
+Run this and check the sizes:
+
+```bash
+npx next build
+```
+
+After fixes, you should see:
+- Pages marked as `○ (Static)` — these load instantly from CDN
+- First load JS under `100 kB` for each route
+- No route showing `λ (Server)` unless it needs real-time data
+
+**Target:**
+| Metric | Before | Target After Fixes |
+|---|---|---|
+| First Contentful Paint | ~15–20s | < 1.5s |
+| Time to Interactive | ~37s | < 3s |
+| Total page size | Unknown | < 300 kB |
+
+---
+
+## FIX 10 — Audit checklist after applying all fixes
+
+Run through this before marking done:
+
+```
+□ Google Fonts @import removed from globals.css
+□ next/font used in layout.tsx with display: swap
+□ Hero image has priority prop
+□ All below-fold images have loading="lazy"
+□ IndustriesSection, FaqSection, ContactForm use dynamic()
+□ export const dynamic = "force-static" on all 6 pages
+□ Cache headers set in next.config.ts
+□ middleware.ts created with caching rules
+□ UptimeRobot or Vercel deployment set up (no cold starts)
+□ npx next build runs without errors
+□ All pages show ○ (Static) in build output
+```
+
+---
+
+## Expected result after all fixes
+
+- **First visit (cold):** 1–3 seconds (down from 37s)
+- **Repeat visit:** under 1 second (served from browser cache)
+- **On Vercel:** under 800ms (CDN edge, no cold start)
+
+The single biggest win is **Fix 1 (Google Fonts)** and **Fix 5 (static generation)** — if nothing else, apply those two first.

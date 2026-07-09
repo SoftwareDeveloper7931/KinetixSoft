@@ -34,7 +34,7 @@ export default function AboutContent() {
             </span>
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl mb-6" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}
+            className="text-4xl md:text-6xl mb-6" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}
           >
             Who <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>KinetixSoft</em> Is
           </motion.h1>
@@ -53,7 +53,7 @@ export default function AboutContent() {
             className="p-10" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}
           >
             <div className="ledger-rule mb-6"><span className="ledger-index">Mission</span><span className="ledger-line" /></div>
-            <h2 className="text-2xl mb-4" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}>
+            <h2 className="text-2xl mb-4" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
               Ship Real Products, <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Not Just Demos</em>
             </h2>
             <p className="leading-relaxed" style={{ color: "#8A93A3" }}>
@@ -64,7 +64,7 @@ export default function AboutContent() {
             className="p-10" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}
           >
             <div className="ledger-rule mb-6"><span className="ledger-index">Vision</span><span className="ledger-line" /></div>
-            <h2 className="text-2xl mb-4" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}>
+            <h2 className="text-2xl mb-4" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
               A Studio Known for <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Honest Execution</em>
             </h2>
             <p className="leading-relaxed" style={{ color: "#8A93A3" }}>
@@ -78,7 +78,7 @@ export default function AboutContent() {
       <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-2xl mx-auto mb-14">
           <div className="ledger-rule mb-6"><span className="ledger-index">Values</span><span className="ledger-line" /></div>
-          <h2 className="text-3xl md:text-4xl" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}>
+          <h2 className="text-3xl md:text-4xl" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
             What We <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Stand For</em>
           </h2>
         </motion.div>
@@ -101,7 +101,7 @@ export default function AboutContent() {
           <div className="grid grid-cols-1 md:grid-cols-2">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="p-10 flex flex-col justify-center">
               <div className="ledger-rule mb-6"><span className="ledger-index">Why Us</span><span className="ledger-line" /></div>
-              <h2 className="text-3xl mb-5" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}>
+              <h2 className="text-3xl mb-5" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
                 Founder-Led, <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Always</em>
               </h2>
               <p className="leading-relaxed mb-6" style={{ color: "#8A93A3" }}>
@@ -120,7 +120,7 @@ export default function AboutContent() {
               className="relative p-10 flex items-center justify-center min-h-[300px]" style={{ background: "#161B26", borderLeft: "1px solid #232A36" }}
             >
               <div className="text-center">
-                <div className="text-6xl font-bold mb-2" style={{ color: "#4A5FBD", fontFamily: "Newsreader, serif" }}>2025</div>
+                <div className="text-6xl font-bold mb-2" style={{ color: "#4A5FBD", fontFamily: "var(--font-display)" }}>2025</div>
                 <div className="text-sm eyebrow mb-8">Studio Founded</div>
                 <div className="grid grid-cols-2 gap-4">
                   {[{ v: "5+", l: "Platforms" }, { v: "100%", l: "Founder-Led" }, { v: "24/7", l: "Support" }, { v: "PKR/USD", l: "Both welcome" }].map((s, i) => (
@@ -141,7 +141,7 @@ export default function AboutContent() {
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className="p-12" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}
         >
-          <h2 className="text-3xl mb-4" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}>
+          <h2 className="text-3xl mb-4" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
             Ready to <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Build Something?</em>
           </h2>
           <p className="mb-8" style={{ color: "#8A93A3" }}>Tell us about your project and we'll get back to you with a real plan — not a sales pitch.</p>

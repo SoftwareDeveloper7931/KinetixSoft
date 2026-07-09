@@ -30,7 +30,7 @@ export default function CustomApiContent() {
             <div className="inline-flex items-center gap-2 px-4 py-2 text-sm mb-6 eyebrow" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>
               <Plug className="w-4 h-4" /> Custom API Integration
             </div>
-            <h1 className="text-4xl md:text-5xl xl:text-6xl leading-tight mb-6" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}>
+            <h1 className="text-4xl md:text-5xl xl:text-6xl leading-tight mb-6" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
               Connect Your <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Apps, Data & Tools</em>
             </h1>
             <p className="text-lg leading-relaxed mb-8" style={{ color: "#8A93A3" }}>
@@ -116,7 +116,7 @@ export default function CustomApiContent() {
       {/* CONTACT FORM */}
       <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10 mb-8">
         <div className="p-8 md:p-10" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-          <h2 className="text-3xl mb-2 text-center" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}>
+          <h2 className="text-3xl mb-2 text-center" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
             Discuss Your <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Integration</em>
           </h2>
           <p className="text-center text-sm mb-8" style={{ color: "#8A93A3" }}>Tell us what needs to connect and we'll scope it out in 24 hours.</p>

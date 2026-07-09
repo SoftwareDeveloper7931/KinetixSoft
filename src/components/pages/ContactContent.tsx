@@ -15,7 +15,7 @@ export default function ContactContent() {
             <span className="inline-block px-4 py-1 text-xs font-semibold uppercase tracking-widest mb-6" style={{ border: "1px solid #232A36", borderRadius: "6px", color: "#8A93A3", background: "rgba(74,95,189,0.08)" }}>
               Get in Touch
             </span>
-            <h1 className="text-4xl md:text-5xl mb-6" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}>
+            <h1 className="text-4xl md:text-5xl mb-6" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
               Let's Build Something <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Amazing</em>
             </h1>
             <p className="text-lg leading-relaxed mb-10" style={{ color: "#8A93A3" }}>

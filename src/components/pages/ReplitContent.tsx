@@ -58,7 +58,7 @@ export default function ReplitContent() {
             <div className="inline-flex items-center gap-2 px-4 py-2 text-sm mb-6 eyebrow" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>
               <SiReplit className="w-4 h-4" /> Replit Development Studio
             </div>
-            <h1 className="text-4xl md:text-5xl xl:text-6xl leading-tight mb-6" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}>
+            <h1 className="text-4xl md:text-5xl xl:text-6xl leading-tight mb-6" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
               Full-Stack Apps and <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>AI Tools</em> Built Fast on Replit
             </h1>
             <p className="text-lg leading-relaxed mb-8" style={{ color: "#8A93A3" }}>KinetixSoft builds production-ready full-stack apps, AI agents, and automation tools on Replit. From a simple API to a multi-agent pipeline — we ship working code, not demos.</p>
@@ -174,7 +174,7 @@ export default function ReplitContent() {
       {/* CONTACT */}
       <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10 mb-8">
         <div className="p-8 md:p-10" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-          <h2 className="text-3xl mb-2 text-center" style={{ color: "#E9EBEF", fontFamily: "Newsreader, Georgia, serif", fontWeight: 500 }}>Start Your <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Replit Project</em></h2>
+          <h2 className="text-3xl mb-2 text-center" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>Start Your <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Replit Project</em></h2>
           <p className="text-center text-sm mb-8" style={{ color: "#8A93A3" }}>Tell us what you need and we'll scope it out in 24 hours.</p>
           <ContactForm defaultService="replit" />
         </div>
