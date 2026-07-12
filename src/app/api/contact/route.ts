@@ -53,19 +53,6 @@ async function sendBrevoEmail(data: z.infer<typeof contactSchema>) {
   }
 }
 
-async function saveToDb(data: z.infer<typeof contactSchema>) {
-  if (!process.env.DATABASE_URL) {
-    console.warn("DATABASE_URL not set — skipping DB save");
-    return;
-  }
-  try {
-    const { saveContactSubmission } = await import("@/lib/db");
-    await saveContactSubmission(data);
-  } catch (err) {
-    console.error("DB save error:", err);
-  }
-}
-
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -80,7 +67,7 @@ export async function POST(req: NextRequest) {
 
     const data = parsed.data;
 
-    await Promise.allSettled([sendBrevoEmail(data), saveToDb(data)]);
+    await sendBrevoEmail(data);
 
     return NextResponse.json({ success: true, message: "Message received. We'll be in touch shortly." });
   } catch (err: any) {

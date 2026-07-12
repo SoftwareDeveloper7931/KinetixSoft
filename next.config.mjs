@@ -4,7 +4,6 @@ const nextConfig = {
   compress: true,
   distDir: process.env.NEXT_DIST_DIR || '.next',
   poweredByHeader: false,
-  serverExternalPackages: ['pg', 'drizzle-orm'],
   allowedDevOrigins: process.env.REPLIT_DEV_DOMAIN
     ? [process.env.REPLIT_DEV_DOMAIN, `*.${process.env.REPLIT_DEV_DOMAIN.split('.').slice(1).join('.')}`]
     : [],
