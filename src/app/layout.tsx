@@ -180,8 +180,8 @@ const websiteSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${newsreader.variable}`}>
-      <body>
+    <html lang="en" className={`${inter.variable} ${newsreader.variable}`} suppressHydrationWarning>
+      <body suppressHydrationWarning>
         <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />
         <Navbar />
