@@ -1,0 +1,197 @@
+# Replit Prompt — Remove Vite, Express & Unused Dependencies
+
+The project has been migrated to Next.js. Vite, Express, and all related packages are no longer needed. This prompt cleans the project so only Next.js + Brevo remains.
+
+Do NOT delete or touch anything inside `src/` — only remove build tools, server files, and unused packages.
+
+---
+
+## STEP 1 — Audit what exists first
+
+Run these commands and report what you find before deleting anything:
+
+```bash
+# Show full folder structure (2 levels deep)
+find . -maxdepth 2 -not -path "*/node_modules/*" -not -path "*/.git/*" -not -path "*/.next/*"
+
+# Show all package.json files in workspace
+find . -name "package.json" -not -path "*/node_modules/*"
+
+# Check for Express references
+grep -r "express" . --include="*.ts" --include="*.js" --include="*.json" -l --exclude-dir=node_modules
+
+# Check for Vite references
+grep -r "vite\|vitejs" . --include="*.ts" --include="*.js" --include="*.json" -l --exclude-dir=node_modules
+
+# Check for database references (Drizzle, Postgres, Firebase Admin)
+grep -r "drizzle\|postgres\|DATABASE_URL\|firebase-admin" . --include="*.ts" --include="*.js" --include="*.json" -l --exclude-dir=node_modules
+```
+
+Print a summary of everything found before proceeding.
+
+---
+
+## STEP 2 — Delete server/API folders
+
+Delete these folders and files if they exist:
+
+```bash
+# Express API server
+rm -rf artifacts/api-server
+rm -rf server/
+rm -rf api/
+
+# Vite config files
+rm -f vite.config.ts
+rm -f vite.config.js
+
+# Old Express entry points
+rm -f index.ts
+rm -f index.js
+rm -f server.ts
+rm -f server.js
+rm -f app.ts
+rm -f app.js
+
+# Build output from old stack
+rm -rf dist/
+rm -rf build/
+
+# Old database files (not needed for static site)
+rm -rf lib/db
+rm -rf lib/api-client-react
+rm -rf lib/api-zod
+rm -rf scripts/
+
+# Drizzle config
+rm -f drizzle.config.ts
+rm -f drizzle.config.js
+
+# Old workspace artifacts (if they exist outside Next.js project)
+rm -rf artifacts/
+```
+
+After each deletion, confirm the folder/file is gone. If any path does not exist, skip it silently — do not error.
+
+---
+
+## STEP 3 — Clean root package.json
+
+The root `package.json` currently has workspace scripts pointing to the old Express/Vite setup. Replace the entire root `package.json` with this clean version:
+
+```json
+{
+  "name": "kinetixsoft-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5",
+    "tailwindcss": "^3.4.1",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5"
+  }
+}
+```
+
+---
+
+## STEP 4 — Remove old workspace config files
+
+These files managed the pnpm monorepo which is no longer needed:
+
+```bash
+# Remove pnpm workspace config
+rm -f pnpm-workspace.yaml
+rm -f pnpm-lock.yaml
+rm -f .npmrc
+
+# Remove old TypeScript project references
+# (Next.js has its own tsconfig — the root one is no longer needed)
+rm -f tsconfig.base.json
+
+# Remove replit.md workspace notes (outdated stack info)
+rm -f replit.md
+```
+
+---
+
+## STEP 5 — Clean tsconfig.json
+
+The current `tsconfig.json` has project references pointing to deleted packages. Replace it with a clean Next.js tsconfig:
+
+```json
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [{ "name": "next" }],
+    "paths": { "@/*": ["./src/*"] }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}
+```
+
+---
+
+## STEP 6 — Clean .replit config
+
+Update the `.replit` file so Replit runs the Next.js dev server instead of the old Express server:
+
+Find the `.replit` file and update the run command:
+
+```toml
+run = "npm run dev"
+
+[deployment]
+run = ["sh", "-c", "npm run build && npm run start"]
+build = ["sh", "-c", "npm run build"]
+
+[[ports]]
+localPort = 3000
+externalPort = 80
+```
+
+---
+
+## STEP 7 — Remove unused environment variables
+
+Check `.env` or `.env.local` for any database-related variables and remove them:
+
+```bash
+# Show current env file
+cat .env 2>/dev/null || cat .env.local 2>/dev/null
+```
+
+Remove these lines if they exist (keep BREVO_API_KEY and CONTACT_EMAIL):
+```
+DATABASE_URL=...          ← DELETE
+POSTGRES_URL=...          ← DELETE
+FIREBASE_PROJECT_ID=...   ← DELETE (unless Firebase is being used)
+...
