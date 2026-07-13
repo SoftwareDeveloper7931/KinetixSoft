@@ -1,0 +1,242 @@
+# Replit Prompt — Fix Vercel Deployment Failure
+
+The Vercel deployment is failing at `npm install` with:
+`npm error Exit handler never called! Error: Command "npm install" exited with 1`
+
+This is caused by a `preinstall` script in `package.json` that blocks npm and forces pnpm.
+Vercel uses npm — so the build dies immediately. Fix everything below in order.
+
+---
+
+## FIX 1 — Remove the preinstall script from package.json (CRITICAL)
+
+Open `package.json` and find this script:
+```json
+"preinstall": "sh -c 'rm -f package-lock.json yarn.lock; case \"$npm_config_user_agent\" in pnpm/*) ;; *) echo \"Use pnpm instead\" >&2; exit 1 ;; esac'"
+```
+
+**Delete it completely.** The final `scripts` section must look exactly like this:
+
+```json
+{
+  "name": "kinetixsoft-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5",
+    "tailwindcss": "^3.4.1",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5"
+  }
+}
+```
+
+No `preinstall`, no `pnpm` references, no workspace scripts. Just Next.js.
+
+---
+
+## FIX 2 — Remove pnpm-related files (if still present)
+
+```bash
+rm -f pnpm-lock.yaml
+rm -f pnpm-workspace.yaml
+rm -f .npmrc
+```
+
+If `.npmrc` exists and contains `engine-strict=true` or `only-allow=pnpm`, delete that file entirely. These force pnpm and break Vercel.
+
+---
+
+## FIX 3 — Generate a clean package-lock.json for npm
+
+Vercel needs a `package-lock.json` to do fast installs. Generate it:
+
+```bash
+rm -f package-lock.json
+rm -rf node_modules
+npm install
+```
+
+This creates a fresh `package-lock.json` using npm. Commit this file to git — Vercel uses it to speed up builds.
+
+---
+
+## FIX 4 — Add vercel.json to the project root
+
+Create a `vercel.json` file in the project root:
+
+```json
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "outputDirectory": ".next"
+}
+```
+
+This tells Vercel exactly how to build — no guessing.
+
+---
+
+## FIX 5 — Add .gitignore entries
+
+Make sure `.gitignore` has these entries so build cache and env files are not pushed to GitHub:
+
+```
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js
+.next/
+out/
+
+# Production
+build/
+dist/
+
+# Env files — NEVER commit these
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# pnpm (no longer used)
+pnpm-lock.yaml
+
+# OS
+.DS_Store
+Thumbs.db
+```
+
+---
+
+## FIX 6 — Remove unused Firebase configs from the project
+
+The project has Firebase config variables (FIREBASE_APP_ID, FIREBASE_AUTH_DOMAIN, etc.) but Firebase is not being used. Remove any Firebase import from the codebase:
+
+```bash
+# Check if firebase is imported anywhere
+grep -r "firebase" src --include="*.ts" --include="*.tsx" --include="*.js" -l
+```
+
+If any files are found, remove the firebase imports from them. Firebase is not needed — the site is static + Brevo only.
+
+Also remove firebase-admin from package.json if it appears in dependencies:
+```bash
+npm uninstall firebase-admin firebase
+```
+
+---
+
+## FIX 7 — Verify build works locally before pushing
+
+```bash
+npm run build
+```
+
+Expected output — no errors, all pages static:
+```
+Route (app)                Size     First Load JS
+┌ ○ /                      x kB     < 120 kB
+├ ○ /flutterflow           x kB     < 120 kB
+├ ○ /podio                 x kB     < 120 kB
+├ ○ /lovable               x kB     < 120 kB
+├ ○ /replit-platform       x kB     < 120 kB
+├ ○ /retool                x kB     < 120 kB
+└ λ /api/contact           (Server) ← OK, this is the Brevo route
+○  (Static) prerendered as static content
+```
+
+If build fails, share the error message before pushing to GitHub.
+
+---
+
+## FIX 8 — Push to GitHub
+
+After build succeeds locally:
+
+```bash
+git add .
+git commit -m "fix: remove preinstall script, switch to npm for Vercel"
+git push origin main
+```
+
+Vercel will automatically trigger a new deployment when it detects the push.
+
+---
+
+## FIX 9 — Add CONTACT_EMAIL to Vercel (do this manually)
+
+Go to Vercel → kinetix-soft project → Settings → Environment Variables → Add:
+
+| Key | Value | Environment |
+|---|---|---|
+| `BREVO_API_KEY` | (already set ✅) | Production + Preview |
+| `CONTACT_EMAIL` | your@email.com | Production + Preview |
+
+**CONTACT_EMAIL is missing** — the contact form will send emails but they will go nowhere without it. Add it now.
+
+After adding, go to Deployments → click the latest deployment → **Redeploy** (with the new env vars).
+
+---
+
+## FIX 10 — Remove unused Firebase secrets from Replit
+
+In Replit → Tools → Secrets, delete these (they are not used by the Next.js site):
+- `FIREBASE_API_KEY`
+- `FIREBASE_APP_ID`
+- `FIREBASE_AUTH_DOMAIN`
+- `FIREBASE_MEASUREMENT_ID`
+- `FIREBASE_MESSAGING_SENDER`
+- `FIREBASE_PROJECT_ID`
+- `FIREBASE_STORAGE_BUCKET`
+- `GOOGLE_API_KEY`
+- `SESSION_SECRET`
+
+Keep only:
+- `BREVO_API_KEY`
+- `CONTACT_EMAIL`
+
+---
+
+## Expected result after all fixes
+
+Vercel deployment log should look like:
+```
+✅ Cloning github.com/SoftwareDeveloper7931/KinetixSoft
+✅ Installing dependencies...   ← no more npm error
+✅ Running "npm run build"
+✅ Build completed
+✅ Deployed to https://kinetix-soft.vercel.app
+```
+
+---
+
+## Summary of what was wrong
+
+| Problem | Fix |
+|---|---|
+| `preinstall` script blocked npm | Removed from package.json |
+| pnpm lock file confusing Vercel | Deleted, replaced with package-lock.json |
+| No vercel.json | Created with explicit build commands |
+| `CONTACT_EMAIL` missing on Vercel | Added manually in Vercel dashboard |
+| Firebase packages not needed | Uninstalled |
