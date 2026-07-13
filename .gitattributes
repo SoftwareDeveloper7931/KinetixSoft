@@ -8,3 +8,4 @@
 .next/dev/cache/turbopack/v16.2.10/00000135.sst filter=lfs diff=lfs merge=lfs -text
 .next/dev/cache/turbopack/v16.2.10/00000327.sst filter=lfs diff=lfs merge=lfs -text
 .next/dev/cache/turbopack/v16.2.10/00000328.sst filter=lfs diff=lfs merge=lfs -text
+.next/dev/cache/turbopack/v16.2.10/00000031.sst filter=lfs diff=lfs merge=lfs -text
