@@ -1,0 +1,96 @@
+# Replit Prompt — Fix HomeContent 404 (Two Exact Issues)
+
+Two specific bugs in HomeContent.tsx are crashing the page. Fix both below.
+
+---
+
+## FIX 1 — Wrong ContactForm import (line 9 in HomeContent.tsx)
+
+Find this line in `src/components/pages/HomeContent.tsx`:
+```tsx
+import { ContactForm } from "@/components/ContactForm";
+```
+
+Replace with:
+```tsx
+import ContactForm from "@/components/ContactForm";
+```
+
+Named import `{ ContactForm }` returns `undefined` when the component uses `export default`.
+This causes React to crash silently — the page renders nothing and Vercel serves 404.
+
+---
+
+## FIX 2 — ContactForm.tsx must use named export OR default export consistently
+
+Open `src/components/ContactForm.tsx` and check the export:
+
+```bash
+grep "export" src/components/ContactForm.tsx
+```
+
+### If it shows `export default function ContactForm`:
+The import fix in FIX 1 above is all you need.
+
+### If it shows `export function ContactForm` (named export):
+Keep the original import `{ ContactForm }` in HomeContent.tsx — no change needed there.
+But also add a default export at the bottom of ContactForm.tsx:
+```tsx
+export default ContactForm;
+```
+
+---
+
+## FIX 3 — framer-motion React 19 compatibility
+
+framer-motion v11 has known issues with React 19 during server-side static generation.
+This can silently fail on Vercel even when local build passes.
+
+Open `package.json` and update framer-motion:
+```json
+"framer-motion": "^12.0.0",
+```
+
+Then run:
+```bash
+npm install framer-motion@latest
+```
+
+OR if upgrading causes issues, add this to `src/app/layout.tsx` to prevent SSR conflicts:
+```tsx
+// At the top of layout.tsx, add:
+export const dynamic = "force-dynamic";
+```
+
+Actually the better fix — in `src/components/pages/HomeContent.tsx`, the file already has
+`"use client"` at the top which is correct. The framer-motion issue only affects server
+components. Since HomeContent is already a client component, this should be fine.
+Skip this fix if FIX 1 alone resolves the 404.
+
+---
+
+## STEP — Verify and push
+
+After applying FIX 1:
+
+```bash
+npm run build 2>&1 | tail -20
+```
+
+If build passes with no errors:
+```bash
+git add src/components/pages/HomeContent.tsx src/components/ContactForm.tsx
+git commit -m "fix: correct ContactForm import (named → default)"
+git push origin main
+```
+
+Vercel will redeploy in ~60 seconds. kinetixsoft.com will load. ✅
+
+---
+
+## Why this was hard to spot
+
+The build succeeds even with a wrong import because TypeScript with `any` types won't
+catch `undefined` component errors at compile time. The crash only happens at runtime
+when React tries to render `undefined` as a component — Vercel catches the error and
+serves the `not-found.tsx` page, which looks exactly like a routing 404.
