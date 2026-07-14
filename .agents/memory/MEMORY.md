@@ -1,3 +1,4 @@
 - [Vite/Express → Next.js cleanup](vite-express-removal.md) — after deleting old stack, grep config files (next.config, post-merge.sh, tsconfig, package.json, .replit) for references to removed packages/scripts; build passing ≠ cleanup complete.
 - [GitHub git push auth](github-git-push-auth.md) — the GitHub connector does NOT provide git-push credentials here (proxy returns 0); use a GITHUB_TOKEN PAT via x-access-token push URL, redact the token.
+- [Lockfile registry URLs](lockfile-registry-urls.md) — package-lock.json here records Replit package-firewall URLs; sed them to registry.npmjs.org before pushing to GitHub or external CI (Vercel) fails.
 - [Shrink GitHub repo history](github-history-shrink.md) — never filter-repo the platform-managed workspace git; rewrite a /tmp mirror clone of origin and force-push. Rotate token if filter-repo prints it.
