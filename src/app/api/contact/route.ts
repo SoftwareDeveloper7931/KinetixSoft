@@ -20,7 +20,7 @@ async function sendBrevoEmail(data: z.infer<typeof contactSchema>) {
 
   const body = {
     sender: { name: "KinetixSoft Website", email: "info@kinetixsoft.com" },
-    to: [{ email: "info@kinetixsoft.com", name: "KinetixSoft Team" }],
+    to: [{ email: "softwaredevelopers7931@gmail.com", name: "KinetixSoft Team" }],
     replyTo: { email: data.email, name: data.name },
     subject: `New enquiry: ${data.service} — ${data.name}`,
     htmlContent: `
