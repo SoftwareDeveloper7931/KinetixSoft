@@ -3,9 +3,9 @@ import ServicesContent from "@/components/pages/ServicesContent";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "App Development Services — FlutterFlow, Lovable, Retool, Podio & Replit | KinetixSoft",
+  title: "App Development Services — FlutterFlow, Lovable, Retool, Podio, Replit & Bubble | KinetixSoft",
   description:
-    "KinetixSoft offers app development services across five platforms: FlutterFlow (mobile apps), Lovable (web apps/SaaS), Retool (internal tools), Podio (CRM), and Replit (full-stack/AI). Find the right platform for your project.",
+    "KinetixSoft offers app development services across six platforms: FlutterFlow (mobile apps), Lovable (web apps/SaaS), Retool (internal tools), Podio (CRM), Replit (full-stack/AI), and Bubble (no-code web apps). Find the right platform for your project.",
   alternates: { canonical: "https://kinetixsoft.com/services" },
   keywords: [
     "app development services",
@@ -14,12 +14,13 @@ export const metadata: Metadata = {
     "Retool internal tools",
     "Podio CRM development",
     "Replit full-stack",
+    "Bubble app development",
     "no-code development services",
     "low-code agency services",
   ],
   openGraph: {
     title: "Services — KinetixSoft",
-    description: "Five platforms. One studio. FlutterFlow, Lovable, Retool, Podio, and Replit development services.",
+    description: "Six platforms. One studio. FlutterFlow, Lovable, Retool, Podio, Replit, and Bubble development services.",
     url: "https://kinetixsoft.com/services",
   },
 };
@@ -38,14 +39,15 @@ const listSchema = {
   "@type": "ItemList",
   name: "KinetixSoft App Development Services",
   url: "https://kinetixsoft.com/services",
-  description: "Production-ready app development services across five low-code and no-code platforms.",
+  description: "Production-ready app development services across six low-code and no-code platforms.",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "FlutterFlow App Development", url: "https://kinetixsoft.com/flutterflow", description: "Cross-platform mobile and web apps built on FlutterFlow with Firebase, Supabase, and custom API integrations." },
     { "@type": "ListItem", position: 2, name: "Lovable Web App Development", url: "https://kinetixsoft.com/lovable", description: "AI-powered SaaS products and web apps built on Lovable with proper auth, payments, and production hardening." },
     { "@type": "ListItem", position: 3, name: "Retool Internal Tools", url: "https://kinetixsoft.com/retool", description: "Purpose-built internal tools, admin panels, and dashboards on Retool connected to your database or API." },
     { "@type": "ListItem", position: 4, name: "Podio CRM Development", url: "https://kinetixsoft.com/podio", description: "Custom Podio workspaces, CRM systems, and workflow automation for growing teams." },
     { "@type": "ListItem", position: 5, name: "Replit Full-Stack & AI Development", url: "https://kinetixsoft.com/replit-platform", description: "Full-stack apps, AI agents, and backend services built on Replit using Python and Node.js." },
-    { "@type": "ListItem", position: 6, name: "Custom API Integration", url: "https://kinetixsoft.com/services/custom-api", description: "Custom REST API integrations, webhooks, and automation pipelines connecting your apps and data sources." },
+    { "@type": "ListItem", position: 6, name: "Bubble Web App Development", url: "https://kinetixsoft.com/bubble", description: "Production-ready no-code web apps built on Bubble with proper data architecture, workflows, and API integrations." },
+    { "@type": "ListItem", position: 7, name: "Custom API Integration", url: "https://kinetixsoft.com/services/custom-api", description: "Custom REST API integrations, webhooks, and automation pipelines connecting your apps and data sources." },
   ],
 };
 

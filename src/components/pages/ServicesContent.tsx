@@ -8,6 +8,17 @@ import { SiFlutter, SiReplit, SiRetool } from "react-icons/si";
 function PodioLogo() {
   return <svg viewBox="0 0 60 60" className="w-10 h-10" fill="none"><rect width="60" height="60" rx="12" fill="#E8F5E9" /><text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fontSize="13" fontWeight="bold" fill="#4CAF50" fontFamily="sans-serif">Podio</text></svg>;
 }
+function BubbleLogo() {
+  return (
+    <svg viewBox="0 0 60 60" className="w-10 h-10" fill="none">
+      <rect width="60" height="60" rx="12" fill="#E8EAF6" />
+      <circle cx="30" cy="30" r="13" fill="none" stroke="#4A5FBD" strokeWidth="3" />
+      <circle cx="30" cy="30" r="6" fill="#4A5FBD" opacity="0.7" />
+      <circle cx="30" cy="30" r="2.5" fill="#12161F" />
+    </svg>
+  );
+}
+
 function LovableLogo() {
   return <svg viewBox="0 0 60 60" className="w-10 h-10" fill="none"><rect width="60" height="60" rx="12" fill="#FFF0F0" /><text x="50%" y="38%" dominantBaseline="middle" textAnchor="middle" fontSize="18" fill="#E53935">♥</text><text x="50%" y="70%" dominantBaseline="middle" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#E53935" fontFamily="sans-serif">lovable</text></svg>;
 }
@@ -121,6 +132,30 @@ const services = [
       </div>
     ),
   },
+  {
+    href: "/bubble",
+    badge: "No-Code Web Apps",
+    logo: <BubbleLogo />,
+    name: "Bubble",
+    headline: "Full-Stack Web Apps Without Code",
+    body: "Production-ready web apps built on Bubble with proper data architecture, workflow logic, and third-party API integrations.",
+    bullets: ["Custom Bubble app builds", "Data & workflow architecture", "API & plugin integrations", "App audits & ongoing support"],
+    mockup: (
+      <div className="space-y-2">
+        <div className="grid grid-cols-2 gap-2">
+          {[{ l: "Users", v: "1.2k" }, { l: "Workflows", v: "86" }].map((s, i) => (
+            <div key={i} className="p-2 text-center" style={{ background: "#161B26", border: "1px solid #232A36", borderRadius: "4px" }}>
+              <div className="text-sm font-bold" style={{ color: "#4A5FBD" }}>{s.v}</div>
+              <div className="text-[10px]" style={{ color: "#8A93A3" }}>{s.l}</div>
+            </div>
+          ))}
+        </div>
+        <div className="h-10 flex items-end gap-1 px-1">
+          {[35, 50, 42, 65, 58, 80].map((h, i) => <div key={i} className="flex-1 rounded-sm" style={{ height: `${h}%`, background: i === 5 ? "#4A5FBD" : "rgba(74,95,189,0.3)" }} />)}
+        </div>
+      </div>
+    ),
+  },
 ];
 
 export default function ServicesContent() {
@@ -134,7 +169,7 @@ export default function ServicesContent() {
         <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
           className="text-4xl md:text-6xl mb-6" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}
         >
-          5 Platforms. <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>One Studio.</em>
+          6 Platforms. <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>One Studio.</em>
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
           className="text-lg max-w-2xl mx-auto" style={{ color: "#8A93A3" }}
