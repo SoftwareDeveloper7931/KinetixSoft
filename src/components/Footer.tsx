@@ -24,7 +24,7 @@ export function Footer() {
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed">
               KinetixSoft is an app development studio that builds production-ready mobile,
-              web, and internal tools using FlutterFlow, Lovable, Retool, Podio, and Replit.
+              web, and internal tools using FlutterFlow, Lovable, Retool, Podio, Replit, and Bubble.
             </p>
           </div>
 
@@ -36,6 +36,7 @@ export function Footer() {
               <li><Link href="/retool" className="hover:text-[#4A5FBD] transition-colors">Retool Development</Link></li>
               <li><Link href="/lovable" className="hover:text-[#4A5FBD] transition-colors">Lovable Builds</Link></li>
               <li><Link href="/replit-platform" className="hover:text-[#4A5FBD] transition-colors">Replit Development</Link></li>
+              <li><Link href="/bubble" className="hover:text-[#4A5FBD] transition-colors">Bubble Web Apps</Link></li>
               <li><Link href="/services/custom-api" className="hover:text-[#4A5FBD] transition-colors">Custom API Integration</Link></li>
             </ul>
           </div>

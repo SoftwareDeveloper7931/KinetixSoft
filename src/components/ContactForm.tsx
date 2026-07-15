@@ -9,6 +9,7 @@ const SERVICE_OPTIONS = [
   { value: "retool", label: "Retool Development" },
   { value: "lovable", label: "Lovable Builds" },
   { value: "replit", label: "Replit Development" },
+  { value: "bubble", label: "Bubble Web Apps" },
   { value: "custom-api", label: "Custom API Integration" },
   { value: "other", label: "Other / Not Sure" },
 ];

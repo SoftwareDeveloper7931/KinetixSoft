@@ -55,6 +55,17 @@ function PodioLogo() {
   );
 }
 
+function BubbleLogo() {
+  return (
+    <svg viewBox="0 0 60 60" className="w-10 h-10" fill="none">
+      <rect width="60" height="60" rx="12" fill="#E8EAF6" />
+      <circle cx="30" cy="30" r="13" fill="none" stroke="#4A5FBD" strokeWidth="3" />
+      <circle cx="30" cy="30" r="6" fill="#4A5FBD" opacity="0.7" />
+      <circle cx="30" cy="30" r="2.5" fill="#12161F" />
+    </svg>
+  );
+}
+
 function LovableLogo() {
   return (
     <svg viewBox="0 0 60 60" className="w-10 h-10" fill="none">
@@ -83,6 +94,7 @@ const platforms = [
   { name: "Lovable", description: "AI-powered web apps", href: "/lovable", logo: <LovableLogo /> },
   { name: "Replit", description: "Full-stack AI development", href: "/replit-platform", logo: <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center"><SiReplit className="w-6 h-6 text-orange-500" /></div> },
   { name: "Retool", description: "Internal tools & dashboards", href: "/retool", logo: <div className="w-10 h-10 rounded-xl bg-yellow-50 flex items-center justify-center"><SiRetool className="w-6 h-6 text-yellow-600" /></div> },
+  { name: "Bubble", description: "No-code web app development", href: "/bubble", logo: <BubbleLogo /> },
 ];
 
 export default function HomeContent() {
@@ -248,7 +260,7 @@ export default function HomeContent() {
           <h2 className="text-3xl md:text-4xl mb-4" style={{ color: "#E9EBEF" }}>Pick Your <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Platform</em></h2>
           <p className="text-lg" style={{ color: "#8A93A3" }}>We build on whichever platform actually fits your product — not whichever one we default to out of habit.</p>
         </motion.div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {platforms.map((p, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }}>
               <Link href={p.href}>
@@ -301,7 +313,7 @@ export default function HomeContent() {
                 </div>
                 <div className="flex items-center gap-1.5 mt-1">
                   <Code2 className="w-4 h-4" style={{ color: "#4A5FBD" }} />
-                  <span className="text-xs eyebrow">5 mature platforms</span>
+                  <span className="text-xs eyebrow">6 mature platforms</span>
                 </div>
               </div>
             </motion.div>

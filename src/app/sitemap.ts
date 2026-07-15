@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/lovable`, lastModified: new Date("2026-07-01"), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/replit-platform`, lastModified: new Date("2026-07-01"), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/retool`, lastModified: new Date("2026-07-01"), changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/bubble`, lastModified: new Date("2026-07-14"), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/services`, lastModified: new Date("2026-07-01"), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/services/custom-api`, lastModified: new Date("2026-07-01"), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/about`, lastModified: new Date("2026-07-01"), changeFrequency: "monthly", priority: 0.7 },

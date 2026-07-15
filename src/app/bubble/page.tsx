@@ -1,0 +1,97 @@
+import type { Metadata } from "next";
+import BubbleContent from "@/components/pages/BubbleContent";
+import JsonLd from "@/components/JsonLd";
+
+export const metadata: Metadata = {
+  title: "Bubble Development Agency — No-Code Web Apps | KinetixSoft",
+  description:
+    "KinetixSoft is a Bubble development agency building production-ready web apps with proper data architecture, workflow logic, API integrations, and post-launch support.",
+  alternates: { canonical: "https://kinetixsoft.com/bubble" },
+  keywords: [
+    "Bubble agency",
+    "Bubble developer",
+    "Bubble.io app development",
+    "hire Bubble developer",
+    "Bubble no-code web app",
+    "Bubble API integration",
+    "Bubble SaaS development",
+    "Bubble app audit",
+    "no-code web app development",
+    "Bubble production app",
+  ],
+  openGraph: {
+    title: "Bubble Development Agency — KinetixSoft",
+    description:
+      "Production-ready web apps built on Bubble. Custom data architecture, workflow logic, API integrations, and ongoing support.",
+    url: "https://kinetixsoft.com/bubble",
+  },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://kinetixsoft.com/bubble/#service",
+  name: "Bubble App Development",
+  provider: { "@id": "https://kinetixsoft.com/#organization" },
+  description:
+    "KinetixSoft builds production-ready web applications using Bubble. Services include product strategy and scoping, UI/UX design, custom app builds, API and third-party integrations, app audits, and ongoing support.",
+  serviceType: "No-Code Web Application Development",
+  areaServed: "Worldwide",
+  offers: {
+    "@type": "Offer",
+    url: "https://kinetixsoft.com/contact",
+    description: "Custom Bubble app development — scoped per project",
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://kinetixsoft.com" },
+    { "@type": "ListItem", position: 2, name: "Bubble Development", item: "https://kinetixsoft.com/bubble" },
+  ],
+};
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  name: "How KinetixSoft Builds Your Bubble App",
+  description: "Our 5-step process for delivering production-ready Bubble apps",
+  step: [
+    { "@type": "HowToStep", position: 1, name: "Discovery & Scoping", text: "We map your goals, users, and constraints before any screen gets built." },
+    { "@type": "HowToStep", position: 2, name: "Data & Workflow Design", text: "We design the database structure and workflow logic side by side, so neither fights the other later." },
+    { "@type": "HowToStep", position: 3, name: "Build in Bubble", text: "Your app gets built with real workflows and integrations, not just static screens." },
+    { "@type": "HowToStep", position: 4, name: "QA & Performance Testing", text: "We stress-test the build for speed, edge cases, and security before it goes live." },
+    { "@type": "HowToStep", position: 5, name: "Launch & Ongoing Support", text: "We ship the app and stay on to handle updates, fixes, and new features." },
+  ],
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "What makes KinetixSoft different from other Bubble developers?", acceptedAnswer: { "@type": "Answer", text: "We don't just use Bubble's drag-and-drop defaults. We design proper data structures, workflows, and API integrations upfront — so the app holds up when real users arrive, not just in a demo." } },
+    { "@type": "Question", name: "Can you build a fully custom Bubble app, or do you use templates?", acceptedAnswer: { "@type": "Answer", text: "Every build starts from your actual requirements. We use Bubble's component library for speed but the data model, workflows, and design are custom to your product." } },
+    { "@type": "Question", name: "Will a Bubble app scale for large user bases?", acceptedAnswer: { "@type": "Answer", text: "Yes — with the right database structure and workflow design from the start. We architect Bubble apps to handle growth without requiring a rebuild later." } },
+    { "@type": "Question", name: "How long does a typical Bubble build take?", acceptedAnswer: { "@type": "Answer", text: "Most projects run 3–8 weeks depending on complexity, number of workflows, and third-party integrations required." } },
+    { "@type": "Question", name: "What does a Bubble project usually cost?", acceptedAnswer: { "@type": "Answer", text: "Cost depends on how many features, workflows, and integrations the app needs. We'll give you a real number after a scoping call." } },
+    { "@type": "Question", name: "Is UI/UX design included?", acceptedAnswer: { "@type": "Answer", text: "Yes — design is part of every Bubble build. We can work from your existing designs or create the full UI from scratch." } },
+    { "@type": "Question", name: "Do you support the app after it launches?", acceptedAnswer: { "@type": "Answer", text: "Yes — we offer ongoing maintenance, workflow updates, and feature development after launch." } },
+  ],
+};
+
+export default function Page() {
+  return (
+    <>
+      <JsonLd data={serviceSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={howToSchema} />
+      <JsonLd data={faqSchema} />
+      <BubbleContent />
+    </>
+  );
+}
+
+export const dynamic = "force-static";
+export const revalidate = 86400;

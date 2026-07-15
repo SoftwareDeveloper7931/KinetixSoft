@@ -1,0 +1,688 @@
+# Replit Prompt — Add Bubble as a New Service/Platform
+
+Add Bubble.io as a sixth platform alongside FlutterFlow, Podio, Lovable, Replit, and Retool.
+This includes: a new page, a content component, nav/footer links, homepage platform card,
+and sitemap entry. Follow the exact same pattern as the existing platform pages.
+
+Do NOT change any existing page content. Only add new files and update the specific
+locations listed below.
+
+---
+
+## STEP 1 — Create the content component
+
+Create `src/components/pages/BubbleContent.tsx`:
+
+```tsx
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import {
+  ArrowRight, ChevronDown, Database, Zap, Users,
+  Globe, Shield, Wrench, Star, Phone, Mail, MapPin
+} from "lucide-react";
+import ContactForm from "@/components/ContactForm";
+
+const faqs = [
+  {
+    q: "What makes KinetixSoft different from other Bubble developers?",
+    a: "We don't just use Bubble's drag-and-drop defaults. We design proper data structures, workflows, and API integrations upfront — so the app holds up when real users arrive, not just in a demo."
+  },
+  {
+    q: "Can you build a fully custom Bubble app, or do you use templates?",
+    a: "Every build starts from your actual requirements. We use Bubble's component library for speed but the data model, workflows, and design are custom to your product."
+  },
+  {
+    q: "Will a Bubble app scale for large user bases?",
+    a: "Yes — with the right database structure and workflow design from the start. We architect Bubble apps to handle growth without requiring a rebuild later."
+  },
+  {
+    q: "How long does a typical Bubble build take?",
+    a: "Most projects run 3–8 weeks depending on complexity, number of workflows, and third-party integrations required."
+  },
+  {
+    q: "What does a Bubble project usually cost?",
+    a: "Cost depends on how many features, workflows, and integrations the app needs. We'll give you a real number after a scoping call."
+  },
+  {
+    q: "Is UI/UX design included?",
+    a: "Yes — design is part of every Bubble build. We can work from your existing designs or create the full UI from scratch."
+  },
+  {
+    q: "Do you support the app after it launches?",
+    a: "Yes — we offer ongoing maintenance, workflow updates, and feature development after launch."
+  },
+];
+
+function FAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div style={{ border: "1px solid #232A36", borderRadius: "6px", overflow: "hidden" }}>
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-6 py-5 text-left font-semibold"
+        style={{ color: "#E9EBEF", background: "transparent" }}
+        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#161B26"; }}
+        onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
+      >
+        <span>{q}</span>
+        <ChevronDown
+          className={`w-5 h-5 shrink-0 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          style={{ color: "#4A5FBD" }}
+        />
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key="body"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.22 }}
+            className="overflow-hidden"
+          >
+            <p className="px-6 pb-5 leading-relaxed" style={{ color: "#8A93A3" }}>{a}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
+
+function BubbleLogo({ size = 40 }: { size?: number }) {
+  return (
+    <svg viewBox="0 0 60 60" width={size} height={size} fill="none">
+      <rect width="60" height="60" rx="12" fill="#1A1F2E" />
+      <circle cx="30" cy="30" r="14" fill="none" stroke="#4A5FBD" strokeWidth="3" />
+      <circle cx="30" cy="30" r="7" fill="#4A5FBD" opacity="0.7" />
+      <circle cx="30" cy="30" r="3" fill="#E9EBEF" />
+    </svg>
+  );
+}
+
+const services = [
+  { num: "01", eyebrow: "Validate Before You Build", title: "Product Strategy", accent: "& Scoping" },
+  { num: "02", eyebrow: "Interfaces People Enjoy", title: "Bubble UI/UX", accent: "Design" },
+  { num: "03", eyebrow: "No Code, Real Logic", title: "Custom Bubble", accent: "App Builds" },
+  { num: "04", eyebrow: "Connect Your Stack", title: "API & Third-Party", accent: "Integrations" },
+  { num: "05", eyebrow: "A Second Opinion", title: "Bubble App", accent: "Audits" },
+  { num: "06", eyebrow: "We Stay After Launch", title: "Ongoing Support", accent: "& Maintenance" },
+];
+
+const process = [
+  { title: "Discovery & Scoping", body: "We map your goals, users, and constraints before any screen gets built." },
+  { title: "Data & Workflow Design", body: "We design the database structure and workflow logic side by side, so neither fights the other later." },
+  { title: "Build in Bubble", body: "Your app gets built with real workflows and integrations, not just static screens." },
+  { title: "QA & Performance Testing", body: "We stress-test the build for speed, edge cases, and security before it goes live." },
+  { title: "Launch & Ongoing Support", body: "We ship the app and stay on to handle updates, fixes, and new features." },
+];
+
+const whyBullets = [
+  "Visual development speeds up delivery without losing logic control",
+  "Built-in database, auth, and hosting in one platform",
+  "Third-party API integrations work natively",
+  "No-code means lower cost than traditional development",
+  "Easy to update and iterate post-launch without a developer on call",
+];
+
+export default function BubbleContent() {
+  return (
+    <div className="min-h-screen relative" style={{ background: "#0A0E14" }}>
+
+      {/* HERO */}
+      <section className="relative pt-32 pb-24 px-4 md:px-6"
+        style={{ background: "linear-gradient(135deg, #0A0E14 60%, rgba(74,95,189,0.06) 100%)" }}>
+        <div className="max-w-7xl mx-auto">
+          <div className="ledger-rule mb-6">
+            <span className="ledger-index">Bubble</span>
+            <span className="ledger-line" />
+          </div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
+            className="text-4xl md:text-6xl mb-6 max-w-3xl"
+            style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500, lineHeight: 1.1 }}
+          >
+            Full-Stack Web Apps Built{" "}
+            <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Without Code</em>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.15 }}
+            className="text-lg mb-10 max-w-xl leading-relaxed" style={{ color: "#8A93A3" }}
+          >
+            KinetixSoft builds production-ready web applications on Bubble — with proper
+            data architecture, workflow logic, and third-party integrations — so what
+            launches is ready for real users, not just a prototype.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.25 }}
+            className="flex flex-wrap gap-4"
+          >
+            <Link href="/contact">
+              <button className="h-12 px-8 text-sm font-semibold"
+                style={{ background: "#4A5FBD", color: "#E9EBEF", borderRadius: "6px", border: "none", cursor: "pointer" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#5A6FCC"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#4A5FBD"; }}
+              >Start Your Project</button>
+            </Link>
+            <Link href="/contact">
+              <button className="h-12 px-8 text-sm font-semibold flex items-center gap-2"
+                style={{ background: "transparent", color: "#E9EBEF", borderRadius: "6px", border: "1px solid #232A36", cursor: "pointer" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#4A5FBD"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#232A36"; }}
+              >Schedule Meeting <ArrowRight className="w-4 h-4" /></button>
+            </Link>
+          </motion.div>
+
+          {/* Stats */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-16 pt-12" style={{ borderTop: "1px solid #232A36" }}>
+            {[
+              { num: "100%", label: "Founder-Led", sub: "Direct access to the people building your app" },
+              { num: "24/7", label: "Support Mindset", sub: "We don't disappear after launch" },
+              { num: "2025", label: "Studio Launched", sub: "Built for startups and scaleups" },
+            ].map((s) => (
+              <div key={s.label}>
+                <div className="text-5xl mb-2" style={{ fontFamily: "var(--font-display)", fontWeight: 400, color: "#E9EBEF", lineHeight: 1 }}>{s.num}</div>
+                <div className="font-semibold text-sm mb-1" style={{ color: "#E9EBEF" }}>{s.label}</div>
+                <div className="text-sm" style={{ color: "#8A93A3" }}>{s.sub}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY KINETIXSOFT */}
+      <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto">
+        <div className="ledger-rule mb-6"><span className="ledger-index">Why KinetixSoft</span><span className="ledger-line" /></div>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="text-3xl md:text-4xl mb-4" style={{ color: "#E9EBEF" }}
+        >
+          What Makes KinetixSoft a Strong{" "}
+          <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Bubble Partner</em>
+        </motion.h2>
+        <p className="mb-12 text-lg max-w-2xl" style={{ color: "#8A93A3" }}>
+          Bubble is powerful enough to build real production apps — which also means it's
+          easy to build something that breaks under load. Here's how we keep it solid.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {[
+            { icon: <Database className="w-6 h-6" />, title: "Data Structure First", body: "We design your database schema before touching the canvas, so the app's foundation holds up as data grows." },
+            { icon: <Zap className="w-6 h-6" />, title: "Workflows That Actually Work", body: "Bubble workflows can get messy fast. We keep them clean, documented, and debuggable from day one." },
+            { icon: <Globe className="w-6 h-6" />, title: "Real API Integrations", body: "Stripe, Brevo, OpenAI, Zapier — we connect the tools your business already uses, not just what's in the plugin store." },
+            { icon: <Shield className="w-6 h-6" />, title: "Privacy Rules Done Right", body: "Bubble's privacy and access rules are powerful and easy to get wrong. We configure them correctly from the start." },
+          ].map((f, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }}
+              className="p-8" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}
+            >
+              <div className="w-10 h-10 flex items-center justify-center mb-5"
+                style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>
+                {f.icon}
+              </div>
+              <h3 className="text-lg font-semibold mb-3" style={{ color: "#E9EBEF" }}>{f.title}</h3>
+              <p className="leading-relaxed" style={{ color: "#8A93A3" }}>{f.body}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* CASE STUDY */}
+      <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto" style={{ background: "#12161F" }}>
+        <div className="max-w-4xl mx-auto">
+          <div className="ledger-rule mb-6"><span className="ledger-index">Case Study</span><span className="ledger-line" /></div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="text-3xl md:text-4xl mb-12" style={{ color: "#E9EBEF" }}
+          >
+            Work We've <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Shipped</em>
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="p-8" style={{ background: "#0A0E14", border: "1px solid #232A36", borderRadius: "6px" }}
+          >
+            <h3 className="text-xl font-semibold mb-3" style={{ color: "#E9EBEF" }}>
+              ClientHub <span style={{ fontSize: 12, color: "#8A93A3", fontWeight: 400 }}>(placeholder — replace with real case study)</span>
+            </h3>
+            <p className="mb-5 leading-relaxed" style={{ color: "#8A93A3" }}>
+              A B2B SaaS platform that lets agencies manage clients, deliverables, and
+              invoices in one place. Built on Bubble with Stripe for payments and a custom
+              client portal — shipped in 6 weeks from kickoff to live.
+            </p>
+            <div className="flex flex-wrap gap-2 mb-6">
+              {["SaaS", "Bubble", "Stripe"].map(t => (
+                <span key={t} className="text-xs px-3 py-1 eyebrow"
+                  style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>
+                  {t}
+                </span>
+              ))}
+            </div>
+            <div style={{ borderTop: "1px solid #232A36", paddingTop: 24 }}>
+              <p className="italic text-base mb-4" style={{ color: "#E9EBEF" }}>
+                &ldquo;They understood what we needed before we finished explaining it — and shipped something that actually works.&rdquo;
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 flex items-center justify-center font-bold text-sm"
+                  style={{ borderRadius: "6px", background: "#4A5FBD", color: "#E9EBEF" }}>S</div>
+                <div>
+                  <div className="text-sm font-semibold" style={{ color: "#E9EBEF" }}>Sara Malik</div>
+                  <div className="text-xs eyebrow">Founder of ClientHub</div>
+                </div>
+                <div className="ml-auto flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4" style={{ fill: "#C9A86A", color: "#C9A86A" }} />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto">
+        <div className="ledger-rule mb-6"><span className="ledger-index">Services</span><span className="ledger-line" /></div>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="text-3xl md:text-4xl mb-12" style={{ color: "#E9EBEF" }}
+        >
+          Our Bubble Development <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Services</em>
+        </motion.h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {services.map((s, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }} viewport={{ once: true }}
+              className="p-8" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}
+            >
+              <div className="flex items-center gap-3 mb-5">
+                <div className="px-2 py-0.5" style={{ background: "#4A5FBD", borderRadius: "4px" }}>
+                  <span style={{ fontSize: 11, fontWeight: 700, color: "#fff" }}>{s.num}</span>
+                </div>
+                <span className="eyebrow">{s.eyebrow}</span>
+              </div>
+              <h3 className="text-lg font-semibold" style={{ color: "#E9EBEF" }}>
+                {s.title} <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>{s.accent}</em>
+              </h3>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* FOR WHO */}
+      <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto" style={{ background: "#12161F" }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+          <div>
+            <div className="ledger-rule mb-6"><span className="ledger-index">Who We Help</span><span className="ledger-line" /></div>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              className="text-3xl md:text-4xl mb-6" style={{ color: "#E9EBEF" }}
+            >
+              Built for Founders Who Need to{" "}
+              <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Move Fast</em>
+            </motion.h2>
+            <p className="mb-8 leading-relaxed" style={{ color: "#8A93A3" }}>
+              KinetixSoft works with founders validating a first idea and with growing teams
+              that need a scalable web product without a full engineering hire. Either way:
+            </p>
+            <ul className="space-y-4">
+              {[
+                "A working web app in weeks, not months",
+                "Proper data structure that won't need a rebuild",
+                "Lower cost than custom-coded development",
+                "A product ready to put in front of real users",
+              ].map(b => (
+                <li key={b} className="flex items-start gap-3 text-sm" style={{ color: "#8A93A3" }}>
+                  <span style={{ color: "#4A5FBD", flexShrink: 0, marginTop: 2 }}>—</span>{b}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="flex items-center justify-center" style={{ background: "#161B26", borderRadius: "6px", border: "1px solid #232A36", minHeight: 280 }}>
+            <div className="text-center p-8">
+              <BubbleLogo size={64} />
+              <p className="mt-4 text-sm" style={{ color: "#8A93A3" }}>Bubble.io — powered by KinetixSoft</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section className="py-24 px-4 md:px-6 max-w-3xl mx-auto">
+        <div className="ledger-rule mb-6"><span className="ledger-index">Process</span><span className="ledger-line" /></div>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="text-3xl md:text-4xl mb-12" style={{ color: "#E9EBEF" }}
+        >
+          How a Bubble <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Build</em> Runs
+        </motion.h2>
+        <div>
+          {process.map((step, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }}
+              className="grid gap-5 py-8" style={{ gridTemplateColumns: "40px 1fr", borderBottom: i < process.length - 1 ? "1px solid #232A36" : "none" }}
+            >
+              <div style={{ fontFamily: "var(--font-display)", fontSize: 28, color: "#4A5FBD", opacity: 0.5, paddingTop: 2 }}>
+                0{i + 1}
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg mb-2" style={{ color: "#E9EBEF" }}>{step.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#8A93A3" }}>{step.body}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* WHY BUBBLE */}
+      <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto" style={{ background: "#12161F" }}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 items-center">
+          <div className="flex items-center justify-center" style={{ background: "#161B26", borderRadius: "6px", border: "1px solid #232A36", padding: 40, textAlign: "center" }}>
+            <div>
+              <BubbleLogo size={56} />
+              <p className="mt-3 font-semibold" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)" }}>Bubble</p>
+              <p className="text-xs mt-1" style={{ color: "#8A93A3" }}>powered by KinetixSoft</p>
+            </div>
+          </div>
+          <div className="md:col-span-2">
+            <div className="ledger-rule mb-6"><span className="ledger-index">Technology</span><span className="ledger-line" /></div>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              className="text-3xl md:text-4xl mb-5" style={{ color: "#E9EBEF" }}
+            >
+              Why We Build on <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Bubble</em>
+            </motion.h2>
+            <p className="mb-6 leading-relaxed" style={{ color: "#8A93A3" }}>
+              Bubble lets us ship full-stack web apps with databases, auth, payments, and
+              APIs — without writing custom backend code. For most web products, that means:
+            </p>
+            <ul className="space-y-3 mb-6">
+              {whyBullets.map(b => (
+                <li key={b} className="flex items-start gap-3 text-sm" style={{ color: "#8A93A3" }}>
+                  <span style={{ color: "#4A5FBD", flexShrink: 0, marginTop: 2 }}>—</span>{b}
+                </li>
+              ))}
+            </ul>
+            <p className="text-sm" style={{ color: "#8A93A3" }}>
+              KinetixSoft builds on Bubble daily — it's our go-to for web apps that need to launch fast and scale cleanly.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+            <div className="ledger-rule mb-6"><span className="ledger-index">Contact</span><span className="ledger-line" /></div>
+            <h2 className="text-3xl md:text-4xl mb-6" style={{ color: "#E9EBEF" }}>
+              Have a Web App Idea? <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Let's Talk It Through</em>
+            </h2>
+            <p className="text-lg mb-8 leading-relaxed" style={{ color: "#8A93A3" }}>
+              Tell us where things stand — whether you have a rough idea or an existing
+              app that needs to scale — and we'll get back with next steps and a realistic estimate.
+            </p>
+            <div className="space-y-4">
+              {[
+                { icon: <Phone className="w-5 h-5" />, text: "+923079575055" },
+                { icon: <Mail className="w-5 h-5" />, text: "info@kinetixsoft.com" },
+                { icon: <MapPin className="w-5 h-5" />, text: "Lahore, Pakistan" },
+              ].map((c, i) => (
+                <div key={i} className="flex items-center gap-3" style={{ color: "#E9EBEF" }}>
+                  <div className="w-10 h-10 flex items-center justify-center"
+                    style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>
+                    {c.icon}
+                  </div>
+                  {c.text}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+          <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+            <div className="p-8" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
+              <h3 className="text-2xl font-semibold mb-2 text-center" style={{ color: "#E9EBEF" }}>
+                Get a <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Project Estimate</em>
+              </h3>
+              <p className="mb-8 text-center text-sm" style={{ color: "#8A93A3" }}>
+                We'll get back to you within 24 hours.
+              </p>
+              <ContactForm />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-24 px-4 md:px-6 max-w-3xl mx-auto">
+        <div className="ledger-rule mb-6"><span className="ledger-index">FAQ</span><span className="ledger-line" /></div>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="text-3xl md:text-4xl mb-12" style={{ color: "#E9EBEF" }}
+        >
+          Common <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Questions</em>
+        </motion.h2>
+        <div className="space-y-3">
+          {faqs.map((f, i) => <FAQItem key={i} q={f.q} a={f.a} />)}
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="text-center overflow-hidden relative py-20 px-6"
+          style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}
+        >
+          <div className="absolute inset-0" style={{ background: "rgba(74,95,189,0.04)" }} />
+          <div className="relative z-10 max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-4 py-2 text-sm mb-6"
+              style={{ background: "rgba(201,168,106,0.08)", border: "1px solid rgba(201,168,106,0.2)", borderRadius: "6px", color: "#C9A86A" }}>
+              <Star className="w-4 h-4" style={{ fill: "#C9A86A", color: "#C9A86A" }} />
+              Trusted by Founders
+              <div className="flex gap-0.5">{[...Array(5)].map((_, i) => <Star key={i} className="w-3 h-3" style={{ fill: "#C9A86A", color: "#C9A86A" }} />)}</div>
+            </div>
+            <h2 className="text-4xl md:text-5xl mb-5" style={{ color: "#E9EBEF" }}>
+              Ready to <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Build?</em>
+            </h2>
+            <p className="text-lg mb-10" style={{ color: "#8A93A3" }}>
+              If you've got a web app idea that needs a real build partner, KinetixSoft is ready.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link href="/contact">
+                <button className="h-12 px-8 text-sm font-semibold"
+                  style={{ background: "#4A5FBD", color: "#E9EBEF", borderRadius: "6px", border: "none", cursor: "pointer" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#5A6FCC"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#4A5FBD"; }}
+                >Start Your Project</button>
+              </Link>
+              <Link href="/contact">
+                <button className="h-12 px-8 text-sm font-semibold flex items-center gap-2"
+                  style={{ background: "transparent", color: "#E9EBEF", borderRadius: "6px", border: "1px solid #232A36", cursor: "pointer" }}
+                  onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#4A5FBD"; }}
+                  onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#232A36"; }}
+                >Book a Call <ArrowRight className="w-4 h-4" /></button>
+              </Link>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+    </div>
+  );
+}
+```
+
+---
+
+## STEP 2 — Create the Bubble page route
+
+Create `src/app/bubble/page.tsx`:
+
+```tsx
+import type { Metadata } from "next";
+import BubbleContent from "@/components/pages/BubbleContent";
+import JsonLd from "@/components/JsonLd";
+
+export const metadata: Metadata = {
+  title: "Bubble Development Agency — No-Code Web Apps",
+  description:
+    "KinetixSoft builds production-ready web apps on Bubble with proper data architecture, workflow logic, and third-party integrations. Founder-led studio for startups.",
+  alternates: { canonical: "https://kinetixsoft.com/bubble" },
+  openGraph: {
+    title: "Bubble Development Agency | KinetixSoft",
+    description: "Full-stack web apps built on Bubble.io — fast, scalable, and production-ready.",
+    url: "https://kinetixsoft.com/bubble",
+  },
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Bubble App Development",
+  provider: { "@type": "Organization", name: "KinetixSoft" },
+  areaServed: "Worldwide",
+  description:
+    "Custom Bubble.io web application development for startups and growing teams, including UI/UX design, workflow automation, API integrations, and ongoing support.",
+  offers: { "@type": "Offer", availability: "https://schema.org/InStock" },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://kinetixsoft.com/" },
+    { "@type": "ListItem", position: 2, name: "Bubble", item: "https://kinetixsoft.com/bubble" },
+  ],
+};
+
+export default function BubblePage() {
+  return (
+    <>
+      <JsonLd data={serviceSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <BubbleContent />
+    </>
+  );
+}
+```
+
+---
+
+## STEP 3 — Add Bubble to the homepage platform cards
+
+Open `src/components/pages/HomeContent.tsx`.
+
+Find the `platforms` array and add Bubble:
+
+```tsx
+// Find this array:
+const platforms = [
+  { name: "Podio", ... },
+  { name: "FlutterFlow", ... },
+  { name: "Lovable", ... },
+  { name: "Replit", ... },
+  { name: "Retool", ... },
+];
+
+// Add Bubble as the 6th item:
+  { name: "Bubble", description: "No-code web app development", href: "/bubble", logo: <BubbleLogo /> },
+```
+
+Add the `BubbleLogo` component inside HomeContent.tsx (or import it):
+
+```tsx
+function BubbleLogo() {
+  return (
+    <svg viewBox="0 0 60 60" width={40} height={40} fill="none">
+      <rect width="60" height="60" rx="12" fill="#1A1F2E" />
+      <circle cx="30" cy="30" r="14" fill="none" stroke="#4A5FBD" strokeWidth="3" />
+      <circle cx="30" cy="30" r="7" fill="#4A5FBD" opacity="0.7" />
+      <circle cx="30" cy="30" r="3" fill="#E9EBEF" />
+    </svg>
+  );
+}
+```
+
+Also update the platform grid to `lg:grid-cols-6` since there are now 6 platforms:
+```tsx
+// Find:
+className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5"
+// Replace with:
+className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-5"
+```
+
+---
+
+## STEP 4 — Add Bubble to Navbar dropdown
+
+Open `src/components/Navbar.tsx`.
+
+Find the platforms/services array and add:
+```tsx
+{ label: "Bubble", href: "/bubble" },
+```
+
+Place it after Retool or in alphabetical order with the other platforms.
+
+---
+
+## STEP 5 — Add Bubble to Footer
+
+Open `src/components/Footer.tsx`.
+
+Find the company/services links array and add:
+```tsx
+{ label: "Bubble", href: "/bubble" },
+```
+
+---
+
+## STEP 6 — Add Bubble to sitemap
+
+Open `src/app/sitemap.ts` and add:
+
+```ts
+{ url: `${base}/bubble`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.9 },
+```
+
+---
+
+## STEP 7 — Build and push
+
+```bash
+npm run build 2>&1 | tail -20
+```
+
+Build must pass with `/bubble` showing as a static route:
+```
+○ /bubble    (Static)
+```
+
+Then push:
+```bash
+git add .
+git commit -m "feat: add Bubble as new service platform page"
+git push origin main
+```
+
+---
+
+## What gets added
+
+| File | Action |
+|---|---|
+| `src/components/pages/BubbleContent.tsx` | New — full page content |
+| `src/app/bubble/page.tsx` | New — route + metadata + schema |
+| `src/components/pages/HomeContent.tsx` | Updated — add Bubble to platform cards |
+| `src/components/Navbar.tsx` | Updated — add Bubble to Services dropdown |
+| `src/components/Footer.tsx` | Updated — add Bubble link |
+| `src/app/sitemap.ts` | Updated — add /bubble entry |
+
+---
+
+## Note
+The case study (ClientHub) is a placeholder. Replace with a real Bubble client project
+before publishing — including the client name, attribution, quote, and tags.
