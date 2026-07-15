@@ -89,6 +89,9 @@ export const metadata: Metadata = {
     },
   },
   alternates: { canonical: "https://kinetixsoft.com" },
+  verification: {
+    google: "PASTE_YOUR_GOOGLE_SEARCH_CONSOLE_CODE_HERE",
+  },
 };
 
 const organizationSchema = {
