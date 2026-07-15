@@ -1,7 +1,6 @@
 const HOST = "kinetixsoft.com";
-const KEY_LOCATION = `https://${HOST}/indexnow-key.txt`;
 
-export async function pingIndexNow(urls: string[]): Promise<{ ok: boolean; status: number }> {
+export async function notifyIndexNow(urls: string[]): Promise<{ ok: boolean; status: number }> {
   const key = process.env.INDEXNOW_KEY;
   if (!key) {
     throw new Error("INDEXNOW_KEY environment variable is not set");
@@ -16,7 +15,7 @@ export async function pingIndexNow(urls: string[]): Promise<{ ok: boolean; statu
     body: JSON.stringify({
       host: HOST,
       key,
-      keyLocation: KEY_LOCATION,
+      keyLocation: `https://${HOST}/${key}.txt`,
       urlList: urls,
     }),
   });
