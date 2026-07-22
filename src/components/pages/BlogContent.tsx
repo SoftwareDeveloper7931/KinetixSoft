@@ -53,8 +53,8 @@ const ALL_POSTS = [
     date: "Jul 21, 2026",
     author: "KinetixSoft Team",
     readTime: "8 min read",
-    category: "Rankings",
-    categoryColor: "bg-pink-500/10 border-pink-500/20 text-pink-300",
+    category: "Bubble",
+    categoryColor: "bg-blue-400/10 border-blue-400/20 text-blue-300",
     excerpt: "Looking for a Bubble.io development agency in Pakistan? We compare what to look for and explain why a local team can ship your Bubble app faster and more affordably.",
   },
   {
@@ -83,8 +83,8 @@ const ALL_POSTS = [
     date: "Jul 21, 2026",
     author: "KinetixSoft Team",
     readTime: "7 min read",
-    category: "Guides",
-    categoryColor: "bg-indigo-500/10 border-indigo-500/20 text-indigo-300",
+    category: "Bubble",
+    categoryColor: "bg-blue-400/10 border-blue-400/20 text-blue-300",
     excerpt: "Bubble.io lets you build full web apps without code — but how does it actually work? This guide covers the basics, real use cases, costs, and honest limitations.",
   },
   {
@@ -93,8 +93,8 @@ const ALL_POSTS = [
     date: "Jul 21, 2026",
     author: "KinetixSoft Team",
     readTime: "10 min read",
-    category: "How To's",
-    categoryColor: "bg-teal-500/10 border-teal-500/20 text-teal-300",
+    category: "Bubble",
+    categoryColor: "bg-blue-400/10 border-blue-400/20 text-blue-300",
     excerpt: "Want to build a SaaS product with Bubble.io? Here's the step-by-step process we use at KinetixSoft — from data design to launch — with real timelines and cost estimates.",
   },
   {

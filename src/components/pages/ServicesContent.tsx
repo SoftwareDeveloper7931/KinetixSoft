@@ -6,16 +6,17 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 import { SiFlutter, SiReplit, SiRetool } from "react-icons/si";
 
 function PodioLogo() {
-  return <svg viewBox="0 0 60 60" className="w-10 h-10" fill="none"><rect width="60" height="60" rx="12" fill="#E8F5E9" /><text x="50%" y="54%" dominantBaseline="middle" textAnchor="middle" fontSize="13" fontWeight="bold" fill="#4CAF50" fontFamily="sans-serif">Podio</text></svg>;
+  return (
+    <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center bg-white">
+      <img src="/podio-logo.jfif" alt="Podio" className="w-10 h-10 object-cover" />
+    </div>
+  );
 }
 function BubbleLogo() {
   return (
-    <svg viewBox="0 0 60 60" className="w-10 h-10" fill="none">
-      <rect width="60" height="60" rx="12" fill="#E8EAF6" />
-      <circle cx="30" cy="30" r="13" fill="none" stroke="#4A5FBD" strokeWidth="3" />
-      <circle cx="30" cy="30" r="6" fill="#4A5FBD" opacity="0.7" />
-      <circle cx="30" cy="30" r="2.5" fill="#12161F" />
-    </svg>
+    <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center bg-white">
+      <img src="/bubble-logo.png" alt="Bubble" className="w-9 h-9 object-contain" />
+    </div>
   );
 }
 
