@@ -195,8 +195,9 @@ export default function HomeContent() {
             Work We've <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Shipped</em>
           </motion.h2>
         </div>
+        <Link href="/case-studies/cashnix" className="block max-w-4xl mx-auto" aria-label="Read the Cashnix case study">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="overflow-hidden max-w-4xl mx-auto" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}
+          className="overflow-hidden card-hover" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2">
             <div className="relative p-10 flex items-center justify-center min-h-[260px]" style={{ background: "#161B26" }}>
@@ -237,16 +238,16 @@ export default function HomeContent() {
                 "We came in with a complicated forecasting model and KinetixSoft shipped something our users genuinely understand and enjoy using."
               </blockquote>
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 flex items-center justify-center font-bold text-sm" style={{ borderRadius: "6px", background: "#4A5FBD", color: "#E9EBEF" }}>A</div>
                 <div>
-                  <div className="text-sm font-semibold" style={{ color: "#E9EBEF" }}>Amir Khan</div>
-                  <div className="text-xs eyebrow">Founder of Cashnix</div>
+                  <div className="text-sm font-semibold" style={{ color: "#E9EBEF" }}>A Fintech Founder, US</div>
+                  <div className="text-xs eyebrow">Cashnix client</div>
                 </div>
                 <div className="ml-auto flex gap-0.5">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4" style={{ fill: "#C9A86A", color: "#C9A86A" }} />)}</div>
               </div>
             </div>
           </div>
         </motion.div>
+        </Link>
       </section>
 
       {/* PICK YOUR PLATFORM */}

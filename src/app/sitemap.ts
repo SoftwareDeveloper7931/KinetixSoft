@@ -45,6 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/bubble`, lastModified: new Date("2026-07-14"), changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/services`, lastModified: new Date("2026-07-01"), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/services/custom-api`, lastModified: new Date("2026-07-01"), changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/case-studies/cashnix`, lastModified: new Date("2026-08-17"), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/about`, lastModified: new Date("2026-07-01"), changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/contact`, lastModified: new Date("2026-07-01"), changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/blog`, lastModified: new Date("2026-07-21"), changeFrequency: "weekly", priority: 0.7 },
