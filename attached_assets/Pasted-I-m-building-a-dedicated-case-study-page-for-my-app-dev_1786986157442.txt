@@ -1,0 +1,20 @@
+I'm building a dedicated case study page for my app development agency's website (KinetixSoft — built with Next.js, dark theme, clean modern SaaS style). I need a "Cashnix" case study page at /case-studies/cashnix.
+
+Context on the app (Cashnix - Financial Forecast, live on Google Play, built by KinetixSoft using FlutterFlow):
+- A personal finance app that tracks income/expenses, forecasts future finances, and helps users hit savings goals
+- Key features: transaction tracking with custom categories, recurring transactions, what-if scenario planning (simulate future financial decisions before making them), visual insights (bar/line/pie charts), KPIs (max/min balance, savings rate, top spending category), AI-powered financial recommendations, multi-currency support, CSV export, dark mode, savings goal tracking with progress indicators
+- Built on FlutterFlow with custom logic for the forecasting/what-if engine
+- Client testimonial: "We came in with a complicated forecasting model and KinetixSoft shipped something our users genuinely understand and enjoy using." — attributed to "A Fintech Founder, US" (anonymized, no full name)
+
+Build the page with these sections:
+1. Hero: App name, one-line description, "FinTech / FlutterFlow / Forecasting" tags (matching my homepage tag style), and a "View on Google Play" button linking to https://play.google.com/store/apps/details?id=com.mycompany.cashnixfinancialforecasting
+2. The Challenge: 2-3 short paragraphs on the problem — the client had a complex financial forecasting model that needed to become an intuitive, usable mobile experience without dumbing down the underlying logic
+3. The Approach: how we used FlutterFlow for speed on the UI/UX and data layer, with custom Dart/API logic layered in specifically for the what-if forecasting engine and KPI calculations — reinforcing that low-code + custom code isn't a compromise
+4. Key Features Built: a clean grid/list of the features above
+5. The Outcome: qualitative outcomes (shipped production-ready app, positive user feedback on clarity/usability, founder testimonial) and placeholder stat cards I can fill in later (e.g., downloads, user rating, time-to-launch)
+6. Testimonial block: the quote above, attributed to "A Fintech Founder, US" — styled prominently, no headshot/avatar since it's anonymized
+7. CTA at the bottom: "Have an idea like this? Let's build it." linking to /contact
+
+Match the visual language of my existing homepage — dark background, bold gradient/italic accent text on headers (like "Work We've *Shipped*" style), card-based sections, subtle borders. Keep it clean, not cluttered. Make it fully responsive.
+
+Also update my homepage's existing Cashnix card in the "Work We've Shipped" section so the attribution reads "A Fintech Founder, US" instead of "Amir Khan, Founder of Cashnix," and link the card to this new /case-studies/cashnix page.
