@@ -11,6 +11,7 @@ const links = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact", cta: true },
 ];
 
@@ -83,7 +84,10 @@ export function Navbar() {
                 data-testid={`nav-link-${link.label.toLowerCase()}`}
                 className="text-sm font-medium transition-colors"
                 style={{
-                  color: pathname === link.href ? "#4A5FBD" : "#8A93A3",
+                  color:
+                    pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))
+                      ? "#4A5FBD"
+                      : "#8A93A3",
                   fontFamily: "var(--font-body)",
                 }}
               >

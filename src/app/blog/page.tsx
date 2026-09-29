@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
 import BlogContent from "@/components/pages/BlogContent";
 import JsonLd from "@/components/JsonLd";
+import { ALL_POSTS } from "@/data/blog-posts";
 
 export const metadata: Metadata = {
   title: "Blog — Low-Code & AI Development Insights from KinetixSoft",
   description:
-    "Practical guides, tutorials, and case studies on FlutterFlow, Lovable, Retool, Podio, and Replit from the KinetixSoft team. Learn how to ship better apps faster.",
+    "Practical guides, tutorials, and case studies on FlutterFlow, Bubble, Lovable, Retool, Podio, and Replit from the KinetixSoft team. Learn how to ship better apps faster.",
   alternates: { canonical: "https://kinetixsoft.com/blog" },
   keywords: [
     "FlutterFlow tutorials",
+    "FlutterFlow app use cases",
     "Podio guides",
+    "Bubble development",
     "Retool tips",
     "Lovable development guide",
     "Replit AI development",
@@ -19,8 +22,22 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Blog — KinetixSoft",
-    description: "Practical guides and case studies on FlutterFlow, Lovable, Retool, Podio, and Replit development.",
+    description: "Practical guides and case studies on FlutterFlow, Bubble, Lovable, Retool, Podio, and Replit development.",
     url: "https://kinetixsoft.com/blog",
+    images: [
+      {
+        url: "https://kinetixsoft.com/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "KinetixSoft Blog",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog — KinetixSoft",
+    description: "Practical guides and case studies on FlutterFlow, Bubble, Lovable, Retool, Podio, and Replit development.",
+    images: ["https://kinetixsoft.com/og-default.png"],
   },
 };
 
@@ -39,18 +56,18 @@ const blogSchema = {
   "@id": "https://kinetixsoft.com/blog/#blog",
   name: "KinetixSoft Blog",
   url: "https://kinetixsoft.com/blog",
-  description: "Practical guides, tutorials, and case studies on low-code and AI app development platforms including FlutterFlow, Lovable, Retool, Podio, and Replit.",
+  description: "Practical guides, tutorials, and case studies on low-code and AI app development platforms including FlutterFlow, Bubble, Lovable, Retool, Podio, and Replit.",
   publisher: {
     "@id": "https://kinetixsoft.com/#organization",
   },
   inLanguage: "en-US",
-  blogPost: [
-    { "@type": "BlogPosting", headline: "Complete Guide to Building a Podio Workspace for Your Business", url: "https://kinetixsoft.com/blog/podio-workspace-guide", datePublished: "2026-06-10" },
-    { "@type": "BlogPosting", headline: "Building Production-Ready Apps with FlutterFlow", url: "https://kinetixsoft.com/blog/flutterflow-production-apps", datePublished: "2026-06-08" },
-    { "@type": "BlogPosting", headline: "Retool: The Best Way to Build Internal Tools Without Coding From Scratch", url: "https://kinetixsoft.com/blog/retool-internal-tools", datePublished: "2026-06-06" },
-    { "@type": "BlogPosting", headline: "How Lovable Is Changing the Way We Build Web Apps", url: "https://kinetixsoft.com/blog/lovable-ai-apps", datePublished: "2026-06-04" },
-    { "@type": "BlogPosting", headline: "Building AI Agents with Replit: A Practical Guide", url: "https://kinetixsoft.com/blog/replit-ai-agents", datePublished: "2026-06-02" },
-  ],
+  blogPost: ALL_POSTS.map((post) => ({
+    "@type": "BlogPosting",
+    headline: post.title,
+    url: `https://kinetixsoft.com/blog/${post.slug}`,
+    datePublished: post.isoDate,
+    description: post.excerpt,
+  })),
 };
 
 export default function Page() {
