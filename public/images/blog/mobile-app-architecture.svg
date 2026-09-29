@@ -44,7 +44,7 @@
 
     <!-- Title -->
     <text x="0" y="65" fill="#E9EBEF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">Production Mobile Architecture in FlutterFlow</text>
-    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">State Management, Secure Storage, Background Services & Offline Sync</text>
+    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">State Management, Secure Storage, Background Services &amp; Offline Sync</text>
   </g>
 
   <!-- Dynamic Content Area -->
@@ -53,28 +53,28 @@
   <g transform="translate(0, 20)">
     <!-- Layer 1: Client UI -->
     <rect width="1040" height="60" rx="8" fill="#141C2B" stroke="#4A5FBD" stroke-width="1.5" />
-    <text x="30" y="35" fill="#7E95F7" font-family="sans-serif" font-size="13" font-weight="700">FLUTTER CLIENT LAYER (iOS & Android Native ARM)</text>
+    <text x="30" y="35" fill="#7E95F7" font-family="sans-serif" font-size="13" font-weight="700">FLUTTER CLIENT LAYER (iOS &amp; Android Native ARM)</text>
     <text x="500" y="35" fill="#8A93A3" font-family="sans-serif" font-size="11">Widgets • 60 FPS Skia/Impeller Render Tree • Local State • Biometric Auth</text>
 
-    <!-- Layer 2: Business Logic & Actions -->
+    <!-- Layer 2: Business Logic &amp; Actions -->
     <rect y="80" width="1040" height="70" rx="8" fill="#101724" stroke="#232A36" />
     <text x="30" y="112" fill="#E9EBEF" font-family="sans-serif" font-size="13" font-weight="700">APPLICATION LOGIC LAYER</text>
     <text x="30" y="132" fill="#8A93A3" font-family="sans-serif" font-size="11">Custom Dart Actions • Local Cache / SQLite • Notification Scheduler • Offline Queue Sync</text>
 
-    <!-- Layer 3: Network & Gateway -->
+    <!-- Layer 3: Network &amp; Gateway -->
     <rect y="170" width="1040" height="70" rx="8" fill="#0D1320" stroke="#232A36" />
-    <text x="30" y="202" fill="#F59E0B" font-family="sans-serif" font-size="13" font-weight="700">SECURITY & API GATEWAY</text>
+    <text x="30" y="202" fill="#F59E0B" font-family="sans-serif" font-size="13" font-weight="700">SECURITY &amp; API GATEWAY</text>
     <text x="30" y="222" fill="#8A93A3" font-family="sans-serif" font-size="11">JWT Token Validation • HTTPS REST Endpoints • Rate Limiting • Payment Pre-Auth Proxy</text>
 
     <!-- Layer 4: Cloud Backends -->
     <g transform="translate(0, 260)">
       <rect width="330" height="80" rx="8" fill="#131A26" stroke="#10B981" />
       <text x="20" y="32" fill="#10B981" font-family="sans-serif" font-size="12" font-weight="700">FIREBASE / SUPABASE</text>
-      <text x="20" y="55" fill="#8A93A3" font-family="sans-serif" font-size="11">Row-Level Security & Real-Time Listeners</text>
+      <text x="20" y="55" fill="#8A93A3" font-family="sans-serif" font-size="11">Row-Level Security &amp; Real-Time Listeners</text>
 
       <rect x="350" width="340" height="80" rx="8" fill="#131A26" stroke="#3B82F6" />
       <text x="20" y="32" fill="#3B82F6" font-family="sans-serif" font-size="12" font-weight="700">CLOUD FUNCTIONS (NODE.JS)</text>
-      <text x="20" y="55" fill="#8A93A3" font-family="sans-serif" font-size="11">Server-Side Math, Webhooks & Automated Tasks</text>
+      <text x="20" y="55" fill="#8A93A3" font-family="sans-serif" font-size="11">Server-Side Math, Webhooks &amp; Automated Tasks</text>
 
       <rect x="710" width="330" height="80" rx="8" fill="#131A26" stroke="#F43F5E" />
       <text x="20" y="32" fill="#F43F5E" font-family="sans-serif" font-size="12" font-weight="700">THIRD-PARTY INTEGRATIONS</text>

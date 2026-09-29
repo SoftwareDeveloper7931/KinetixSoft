@@ -25,8 +25,8 @@
   <g transform="translate(80, 70)">
     <rect x="0" y="0" width="140" height="28" rx="14" fill="#4A5FBD" fill-opacity="0.15" stroke="#4A5FBD" stroke-opacity="0.4" />
     <text x="70" y="18" fill="#7E95F7" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" text-anchor="middle" letter-spacing="0.5">REGIONAL ENGINEERING</text>
-    <text x="0" y="65" fill="#E9EBEF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">GCC & Middle East App Architecture Standards</text>
-    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">Arabic RTL Layouts, KNET / Benefit / Tap Gateways & Regional Data Residency</text>
+    <text x="0" y="65" fill="#E9EBEF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">GCC &amp; Middle East App Architecture Standards</text>
+    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">Arabic RTL Layouts, KNET / Benefit / Tap Gateways &amp; Regional Data Residency</text>
   </g>
 
   <g transform="translate(80, 200)">
@@ -50,13 +50,13 @@
       <rect width="300" height="340" rx="10" fill="#121724" stroke="#232A36" />
       <text x="25" y="35" fill="#10B981" font-family="sans-serif" font-size="13" font-weight="700">GULF PAYMENT RAILS</text>
       <rect x="20" y="60" width="260" height="75" rx="6" fill="#182030" />
-      <text x="35" y="85" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Tap Payments & Moyasar</text>
+      <text x="35" y="85" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Tap Payments &amp; Moyasar</text>
       <text x="35" y="105" fill="#8A93A3" font-family="sans-serif" font-size="10">Accept Mada (KSA), KNET (Kuwait), Benefit (Bahrain), and Apple Pay.</text>
       <rect x="20" y="145" width="260" height="75" rx="6" fill="#182030" />
-      <text x="35" y="170" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Split Payouts & Marketplace VAT</text>
+      <text x="35" y="170" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Split Payouts &amp; Marketplace VAT</text>
       <text x="35" y="190" fill="#8A93A3" font-family="sans-serif" font-size="10">ZATCA e-invoicing compliance and automated tax breakdown receipts.</text>
       <rect x="20" y="230" width="260" height="85" rx="6" fill="#182030" />
-      <text x="35" y="255" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Cash on Delivery & OTP Verification</text>
+      <text x="35" y="255" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Cash on Delivery &amp; OTP Verification</text>
       <text x="35" y="275" fill="#8A93A3" font-family="sans-serif" font-size="10">SMS verification via Unifonic or Twilio for order security.</text>
     </g>
 
@@ -64,14 +64,14 @@
       <rect width="300" height="340" rx="10" fill="#121724" stroke="#232A36" />
       <text x="25" y="35" fill="#F59E0B" font-family="sans-serif" font-size="13" font-weight="700">MIDDLE EAST CLOUD REGIONS</text>
       <rect x="20" y="60" width="260" height="75" rx="6" fill="#182030" />
-      <text x="35" y="85" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Dammam & Doha Cloud Regions</text>
-      <text x="35" y="105" fill="#8A93A3" font-family="sans-serif" font-size="10">Low-latency data hosting in Saudi Arabia (me-central2) & Qatar.</text>
+      <text x="35" y="85" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Dammam &amp; Doha Cloud Regions</text>
+      <text x="35" y="105" fill="#8A93A3" font-family="sans-serif" font-size="10">Low-latency data hosting in Saudi Arabia (me-central2) &amp; Qatar.</text>
       <rect x="20" y="145" width="260" height="75" rx="6" fill="#182030" />
       <text x="35" y="170" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">GCC Work-Week Alignment</text>
       <text x="35" y="190" fill="#8A93A3" font-family="sans-serif" font-size="10">Dedicated sprint support aligned with Sunday–Thursday working cycles.</text>
       <rect x="20" y="230" width="260" height="85" rx="6" fill="#182030" />
       <text x="35" y="255" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">KinetixSoft GCC Delivery Record</text>
-      <text x="35" y="275" fill="#8A93A3" font-family="sans-serif" font-size="10">Trusted development partner for founders across UAE, KSA, Qatar & Kuwait.</text>
+      <text x="35" y="275" fill="#8A93A3" font-family="sans-serif" font-size="10">Trusted development partner for founders across UAE, KSA, Qatar &amp; Kuwait.</text>
     </g>
   </g>
   

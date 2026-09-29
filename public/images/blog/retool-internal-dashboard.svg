@@ -43,8 +43,8 @@
     <text x="65" y="18" fill="#7E95F7" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" text-anchor="middle" letter-spacing="0.5">INTERNAL TOOLS</text>
 
     <!-- Title -->
-    <text x="0" y="65" fill="#E9EBEF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">Retool Operations & Admin Dashboard</text>
-    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">Direct SQL & REST Querying with Role-Based Permission Controls</text>
+    <text x="0" y="65" fill="#E9EBEF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">Retool Operations &amp; Admin Dashboard</text>
+    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">Direct SQL &amp; REST Querying with Role-Based Permission Controls</text>
   </g>
 
   <!-- Dynamic Content Area -->
@@ -103,11 +103,11 @@
     <!-- Side Specs -->
     <g transform="translate(730, 20)">
       <rect width="310" height="95" rx="8" fill="#131926" stroke="#232A36" />
-      <text x="20" y="32" fill="#E9EBEF" font-family="sans-serif" font-size="13" font-weight="700">Direct SQL & API Access</text>
+      <text x="20" y="32" fill="#E9EBEF" font-family="sans-serif" font-size="13" font-weight="700">Direct SQL &amp; API Access</text>
       <text x="20" y="55" fill="#8A93A3" font-family="sans-serif" font-size="11">Connects securely to PostgreSQL, MySQL, Snowflake, MongoDB, and internal microservice REST APIs.</text>
 
       <rect y="115" width="310" height="95" rx="8" fill="#131926" stroke="#232A36" />
-      <text x="20" y="147" fill="#E9EBEF" font-family="sans-serif" font-size="13" font-weight="700">Audit Logging & RBAC</text>
+      <text x="20" y="147" fill="#E9EBEF" font-family="sans-serif" font-size="13" font-weight="700">Audit Logging &amp; RBAC</text>
       <text x="20" y="170" fill="#8A93A3" font-family="sans-serif" font-size="11">Every button click, record modification, and database write is logged with employee identity.</text>
     </g>
   </g>

@@ -44,7 +44,7 @@
 
     <!-- Title -->
     <text x="0" y="65" fill="#E9EBEF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">Cross-Platform International Deployment</text>
-    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">Multilingual Localisation, Regional Compliance (GDPR, PIPEDA, KSA 2030), & RTL Support</text>
+    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">Multilingual Localisation, Regional Compliance (GDPR, PIPEDA, KSA 2030), &amp; RTL Support</text>
   </g>
 
   <!-- Dynamic Content Area -->
@@ -54,11 +54,11 @@
     <!-- Architecture cards -->
     <g transform="translate(40, 0)">
       <rect width="320" height="340" rx="10" fill="#131926" stroke="#232A36" />
-      <text x="25" y="35" fill="#3B82F6" font-family="sans-serif" font-size="12" font-weight="700">EUROPE & UK • GDPR</text>
+      <text x="25" y="35" fill="#3B82F6" font-family="sans-serif" font-size="12" font-weight="700">EUROPE &amp; UK • GDPR</text>
       <text x="25" y="65" fill="#E9EBEF" font-family="sans-serif" font-size="14" font-weight="600">Strict Data Privacy Baseline</text>
       <text x="25" y="95" fill="#8A93A3" font-family="sans-serif" font-size="11">• EU-Region Hosting (Frankfurt / Dublin)</text>
       <text x="25" y="120" fill="#8A93A3" font-family="sans-serif" font-size="11">• Zero unconsented third-party trackers</text>
-      <text x="25" y="145" fill="#8A93A3" font-family="sans-serif" font-size="11">• Data subject export & erasure workflows</text>
+      <text x="25" y="145" fill="#8A93A3" font-family="sans-serif" font-size="11">• Data subject export &amp; erasure workflows</text>
       <text x="25" y="170" fill="#8A93A3" font-family="sans-serif" font-size="11">• Local payments: iDEAL, Bancontact, Klarna</text>
       <rect x="25" y="210" width="270" height="90" rx="6" fill="#1A2230" />
       <text x="40" y="235" fill="#10B981" font-family="sans-serif" font-size="11" font-weight="600">Covered Countries:</text>
@@ -68,12 +68,12 @@
 
     <g transform="translate(400, 0)">
       <rect width="320" height="340" rx="10" fill="#131926" stroke="#4A5FBD" stroke-width="2" />
-      <text x="25" y="35" fill="#7E95F7" font-family="sans-serif" font-size="12" font-weight="700">GCC & GULF • VISION 2030</text>
-      <text x="25" y="65" fill="#E9EBEF" font-family="sans-serif" font-size="14" font-weight="600">Bilingual Arabic & RTL Layouts</text>
+      <text x="25" y="35" fill="#7E95F7" font-family="sans-serif" font-size="12" font-weight="700">GCC &amp; GULF • VISION 2030</text>
+      <text x="25" y="65" fill="#E9EBEF" font-family="sans-serif" font-size="14" font-weight="600">Bilingual Arabic &amp; RTL Layouts</text>
       <text x="25" y="95" fill="#8A93A3" font-family="sans-serif" font-size="11">• True bidirectional RTL layout mirroring</text>
       <text x="25" y="120" fill="#8A93A3" font-family="sans-serif" font-size="11">• Native Cairo / IBM Plex Arabic typography</text>
       <text x="25" y="145" fill="#8A93A3" font-family="sans-serif" font-size="11">• GCC Gateways: Tap, PayTabs, QNB, Telr</text>
-      <text x="25" y="170" fill="#8A93A3" font-family="sans-serif" font-size="11">• Timezone overlap with UAE & KSA workdays</text>
+      <text x="25" y="170" fill="#8A93A3" font-family="sans-serif" font-size="11">• Timezone overlap with UAE &amp; KSA workdays</text>
       <rect x="25" y="210" width="270" height="90" rx="6" fill="#1A2230" />
       <text x="40" y="235" fill="#7E95F7" font-family="sans-serif" font-size="11" font-weight="600">Covered Countries:</text>
       <text x="40" y="255" fill="#8A93A3" font-family="sans-serif" font-size="11">UAE (Dubai/Abu Dhabi), Saudi Arabia,</text>
@@ -82,12 +82,12 @@
 
     <g transform="translate(760, 0)">
       <rect width="280" height="340" rx="10" fill="#131926" stroke="#232A36" />
-      <text x="25" y="35" fill="#10B981" font-family="sans-serif" font-size="12" font-weight="700">AMERICAS & APAC</text>
+      <text x="25" y="35" fill="#10B981" font-family="sans-serif" font-size="12" font-weight="700">AMERICAS &amp; APAC</text>
       <text x="25" y="65" fill="#E9EBEF" font-family="sans-serif" font-size="14" font-weight="600">Rapid Commercial Delivery</text>
       <text x="25" y="95" fill="#8A93A3" font-family="sans-serif" font-size="11">• USA: Stripe, Plaid, HIPAA-ready</text>
       <text x="25" y="120" fill="#8A93A3" font-family="sans-serif" font-size="11">• Canada: Bilingual FR/EN, Law 25</text>
       <text x="25" y="145" fill="#8A93A3" font-family="sans-serif" font-size="11">• Australia: AEST morning overlap, BPAY</text>
-      <text x="25" y="170" fill="#8A93A3" font-family="sans-serif" font-size="11">• Singapore: PDPA & Southeast Asia hub</text>
+      <text x="25" y="170" fill="#8A93A3" font-family="sans-serif" font-size="11">• Singapore: PDPA &amp; Southeast Asia hub</text>
       <rect x="25" y="210" width="230" height="90" rx="6" fill="#1A2230" />
       <text x="40" y="235" fill="#10B981" font-family="sans-serif" font-size="11" font-weight="600">40–60% Rate Advantage</text>
       <text x="40" y="255" fill="#8A93A3" font-family="sans-serif" font-size="11">Same quality, western contract terms,</text>

@@ -25,8 +25,8 @@
   <g transform="translate(80, 70)">
     <rect x="0" y="0" width="140" height="28" rx="14" fill="#4A5FBD" fill-opacity="0.15" stroke="#4A5FBD" stroke-opacity="0.4" />
     <text x="70" y="18" fill="#7E95F7" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" text-anchor="middle" letter-spacing="0.5">TECHNOLOGY SELECTION</text>
-    <text x="0" y="65" fill="#E9EBEF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">Modern Low-Code & AI Platform Decision Matrix</text>
-    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">Choosing the Optimal Stack: Mobile Apps, Complex SaaS, Internal Dashboards & AI MVPs</text>
+    <text x="0" y="65" fill="#E9EBEF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">Modern Low-Code &amp; AI Platform Decision Matrix</text>
+    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">Choosing the Optimal Stack: Mobile Apps, Complex SaaS, Internal Dashboards &amp; AI MVPs</text>
   </g>
 
   <g transform="translate(80, 200)">
@@ -46,8 +46,8 @@
     <g transform="translate(0, 45)">
       <line x1="0" y1="60" x2="1040" y2="60" stroke="#1D2535" />
       <text x="30" y="38" fill="#7E95F7" font-family="sans-serif" font-size="14" font-weight="700">FlutterFlow</text>
-      <text x="220" y="38" fill="#E9EBEF" font-family="sans-serif" font-size="13">Native iOS & Android Mobile Apps</text>
-      <text x="500" y="38" fill="#8A93A3" font-family="sans-serif" font-size="12">60 FPS performance, offline cache, camera & GPS</text>
+      <text x="220" y="38" fill="#E9EBEF" font-family="sans-serif" font-size="13">Native iOS &amp; Android Mobile Apps</text>
+      <text x="500" y="38" fill="#8A93A3" font-family="sans-serif" font-size="12">60 FPS performance, offline cache, camera &amp; GPS</text>
       <text x="760" y="38" fill="#10B981" font-family="sans-serif" font-size="13" font-weight="600">4 – 8 Weeks</text>
       <text x="940" y="38" fill="#10B981" font-family="sans-serif" font-size="12" font-weight="600">100% (Dart)</text>
     </g>
@@ -56,7 +56,7 @@
     <g transform="translate(0, 105)">
       <line x1="0" y1="60" x2="1040" y2="60" stroke="#1D2535" />
       <text x="30" y="38" fill="#3B82F6" font-family="sans-serif" font-size="14" font-weight="700">Bubble.io</text>
-      <text x="220" y="38" fill="#E9EBEF" font-family="sans-serif" font-size="13">Full-Stack Web SaaS & Marketplaces</text>
+      <text x="220" y="38" fill="#E9EBEF" font-family="sans-serif" font-size="13">Full-Stack Web SaaS &amp; Marketplaces</text>
       <text x="500" y="38" fill="#8A93A3" font-family="sans-serif" font-size="12">Built-in database, complex workflows, user privacy</text>
       <text x="760" y="38" fill="#10B981" font-family="sans-serif" font-size="13" font-weight="600">3 – 6 Weeks</text>
       <text x="940" y="38" fill="#EF4444" font-family="sans-serif" font-size="12">Hosted Only</text>
@@ -66,8 +66,8 @@
     <g transform="translate(0, 165)">
       <line x1="0" y1="60" x2="1040" y2="60" stroke="#1D2535" />
       <text x="30" y="38" fill="#A855F7" font-family="sans-serif" font-size="14" font-weight="700">Retool</text>
-      <text x="220" y="38" fill="#E9EBEF" font-family="sans-serif" font-size="13">Internal Admin Consoles & Ops Tools</text>
-      <text x="500" y="38" fill="#8A93A3" font-family="sans-serif" font-size="12">Direct SQL / REST connection, granular RBAC & audit</text>
+      <text x="220" y="38" fill="#E9EBEF" font-family="sans-serif" font-size="13">Internal Admin Consoles &amp; Ops Tools</text>
+      <text x="500" y="38" fill="#8A93A3" font-family="sans-serif" font-size="12">Direct SQL / REST connection, granular RBAC &amp; audit</text>
       <text x="760" y="38" fill="#10B981" font-family="sans-serif" font-size="13" font-weight="600">2 – 4 Weeks</text>
       <text x="940" y="38" fill="#8A93A3" font-family="sans-serif" font-size="12">JSON / Git</text>
     </g>
@@ -76,7 +76,7 @@
     <g transform="translate(0, 225)">
       <line x1="0" y1="60" x2="1040" y2="60" stroke="#1D2535" />
       <text x="30" y="38" fill="#F43F5E" font-family="sans-serif" font-size="14" font-weight="700">Lovable AI</text>
-      <text x="220" y="38" fill="#E9EBEF" font-family="sans-serif" font-size="13">AI-Accelerated Web Apps & MVPs</text>
+      <text x="220" y="38" fill="#E9EBEF" font-family="sans-serif" font-size="13">AI-Accelerated Web Apps &amp; MVPs</text>
       <text x="500" y="38" fill="#8A93A3" font-family="sans-serif" font-size="12">Generates modern React + Supabase code from prompts</text>
       <text x="760" y="38" fill="#10B981" font-family="sans-serif" font-size="13" font-weight="600">1 – 3 Weeks</text>
       <text x="940" y="38" fill="#10B981" font-family="sans-serif" font-size="12" font-weight="600">100% (React)</text>
@@ -85,7 +85,7 @@
     <!-- Row 5: Podio -->
     <g transform="translate(0, 285)">
       <text x="30" y="38" fill="#10B981" font-family="sans-serif" font-size="14" font-weight="700">Citrix Podio</text>
-      <text x="220" y="38" fill="#E9EBEF" font-family="sans-serif" font-size="13">B2B CRM & Operations Automation</text>
+      <text x="220" y="38" fill="#E9EBEF" font-family="sans-serif" font-size="13">B2B CRM &amp; Operations Automation</text>
       <text x="500" y="38" fill="#8A93A3" font-family="sans-serif" font-size="12">GlobiFlow triggers, SMS integrations, deal pipelines</text>
       <text x="760" y="38" fill="#10B981" font-family="sans-serif" font-size="13" font-weight="600">2 – 5 Weeks</text>
       <text x="940" y="38" fill="#8A93A3" font-family="sans-serif" font-size="12">API Sync</text>

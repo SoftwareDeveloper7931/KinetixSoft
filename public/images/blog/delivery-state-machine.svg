@@ -44,7 +44,7 @@
 
     <!-- Title -->
     <text x="0" y="65" fill="#E9EBEF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">Order Lifecycle State Machine</text>
-    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">Sub-Second State Transitions via Cloud Firestore & Push Webhooks</text>
+    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">Sub-Second State Transitions via Cloud Firestore &amp; Push Webhooks</text>
   </g>
 
   <!-- Dynamic Content Area -->

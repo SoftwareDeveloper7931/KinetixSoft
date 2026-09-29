@@ -44,7 +44,7 @@
 
     <!-- Title -->
     <text x="0" y="65" fill="#E9EBEF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">Bubble.io Full-Stack Web Architecture</text>
-    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">Visual Relational Database, Server-Side Workflows, & Privacy Rules</text>
+    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">Visual Relational Database, Server-Side Workflows, &amp; Privacy Rules</text>
   </g>
 
   <!-- Dynamic Content Area -->
@@ -98,7 +98,7 @@
 
       <g transform="translate(25, 90)">
         <circle cx="8" cy="8" r="4" fill="#4A5FBD" />
-        <text x="25" y="12" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Built-In Database & Auth</text>
+        <text x="25" y="12" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Built-In Database &amp; Auth</text>
         <text x="25" y="32" fill="#8A93A3" font-family="sans-serif" font-size="11">No separate Supabase or backend needed — entire app lives under one unified roof.</text>
       </g>
 

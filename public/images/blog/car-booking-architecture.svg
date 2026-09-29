@@ -25,8 +25,8 @@
   <g transform="translate(80, 70)">
     <rect x="0" y="0" width="140" height="28" rx="14" fill="#4A5FBD" fill-opacity="0.15" stroke="#4A5FBD" stroke-opacity="0.4" />
     <text x="70" y="18" fill="#7E95F7" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" text-anchor="middle" letter-spacing="0.5">MOBILITY ARCHITECTURE</text>
-    <text x="0" y="65" fill="#E9EBEF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">Car Booking & Chauffeur Mobility Platform</text>
-    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">Google Maps Polylines, Dynamic Surge Engine & Driver Dispatch State</text>
+    <text x="0" y="65" fill="#E9EBEF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">Car Booking &amp; Chauffeur Mobility Platform</text>
+    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">Google Maps Polylines, Dynamic Surge Engine &amp; Driver Dispatch State</text>
   </g>
 
   <g transform="translate(80, 200)">
@@ -56,7 +56,7 @@
       <text x="35" y="180" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Turn-by-Turn Navigation Handoff</text>
       <text x="35" y="200" fill="#8A93A3" font-family="sans-serif" font-size="10">Single-tap deep-link launches Google Maps or Waze with destination.</text>
       <rect x="25" y="250" width="260" height="75" rx="6" fill="#131926" />
-      <text x="35" y="275" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Live Earnings & Shift Summary</text>
+      <text x="35" y="275" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Live Earnings &amp; Shift Summary</text>
       <text x="35" y="295" fill="#8A93A3" font-family="sans-serif" font-size="10">Net fares, tips, fuel surcharges, and instant bank payout ledger.</text>
     </g>
 
@@ -65,7 +65,7 @@
       <text x="25" y="35" fill="#F59E0B" font-family="sans-serif" font-size="13" font-weight="700">FLEET DISPATCH CONSOLE</text>
       <rect x="25" y="60" width="270" height="80" rx="6" fill="#131926" />
       <text x="35" y="85" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Live Vehicle Radar Map</text>
-      <text x="35" y="105" fill="#8A93A3" font-family="sans-serif" font-size="10">WebSocket telemetry displays real-time coordinates & bearing.</text>
+      <text x="35" y="105" fill="#8A93A3" font-family="sans-serif" font-size="10">WebSocket telemetry displays real-time coordinates &amp; bearing.</text>
       <rect x="25" y="155" width="270" height="80" rx="6" fill="#131926" />
       <text x="35" y="180" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Manual Phone Call Dispatch</text>
       <text x="35" y="200" fill="#8A93A3" font-family="sans-serif" font-size="10">Hotel concierge and VIP telephone booking manual override.</text>
