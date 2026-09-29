@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19" />
+      <stop offset="50%" stop-color="#121624" />
+      <stop offset="100%" stop-color="#0D1322" />
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A5FBD" />
+      <stop offset="100%" stop-color="#364790" />
+    </linearGradient>
+    <linearGradient id="accentCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="accentEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A2130" />
+      <stop offset="100%" stop-color="#131824" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bgGrad)" />
+
+  <!-- Grid overlay -->
+  <g opacity="0.06">
+    <path d="M0,75 H1200 M0,150 H1200 M0,225 H1200 M0,300 H1200 M0,375 H1200 M0,450 H1200 M0,525 H1200 M0,600 H1200" stroke="#FFFFFF" stroke-width="1" />
+    <path d="M150,0 V675 M300,0 V675 M450,0 V675 M600,0 V675 M750,0 V675 M900,0 V675 M1050,0 V675" stroke="#FFFFFF" stroke-width="1" />
+  </g>
+
+  <!-- Header Section -->
+  <g transform="translate(80, 70)">
+    <!-- Badge -->
+    <rect x="0" y="0" width="130" height="28" rx="14" fill="#4A5FBD" fill-opacity="0.15" stroke="#4A5FBD" stroke-opacity="0.4" />
+    <text x="65" y="18" fill="#7E95F7" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" text-anchor="middle" letter-spacing="0.5">CRM WORKFLOWS</text>
+
+    <!-- Title -->
+    <text x="0" y="65" fill="#E9EBEF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">Podio & GlobiFlow CRM Automation Pipeline</text>
+    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">Configurable Multi-App Workspaces for Sales, Real Estate & Operations</text>
+  </g>
+
+  <!-- Dynamic Content Area -->
+  <g transform="translate(80, 200)">
+    
+  <g transform="translate(0, 20)">
+    <!-- Stage 1 -->
+    <g transform="translate(40, 40)">
+      <rect width="260" height="240" rx="10" fill="#131926" stroke="#232A36" />
+      <text x="20" y="35" fill="#10B981" font-family="sans-serif" font-size="12" font-weight="700">INBOUND LEAD CAPTURE</text>
+      <text x="20" y="65" fill="#E9EBEF" font-family="sans-serif" font-size="13">• Web Form Submission</text>
+      <text x="20" y="95" fill="#E9EBEF" font-family="sans-serif" font-size="13">• Phone / SMS via Twilio</text>
+      <text x="20" y="125" fill="#E9EBEF" font-family="sans-serif" font-size="13">• Email Parser Trigger</text>
+      <rect x="20" y="155" width="220" height="60" rx="6" fill="#1B2433" />
+      <text x="30" y="180" fill="#8A93A3" font-family="sans-serif" font-size="10">Auto-Deduplication Engine:</text>
+      <text x="30" y="198" fill="#10B981" font-family="sans-serif" font-size="10">Checks phone & address match</text>
+    </g>
+
+    <path d="M300,160 H380" stroke="#4A5FBD" stroke-width="3" />
+
+    <!-- Stage 2 -->
+    <g transform="translate(390, 40)">
+      <rect width="260" height="240" rx="10" fill="#131926" stroke="#4A5FBD" stroke-width="2" />
+      <text x="20" y="35" fill="#7E95F7" font-family="sans-serif" font-size="12" font-weight="700">GLOBIFLOW LOGIC ENGINE</text>
+      <text x="20" y="65" fill="#E9EBEF" font-family="sans-serif" font-size="13">• Auto-Assign Sales Rep</text>
+      <text x="20" y="95" fill="#E9EBEF" font-family="sans-serif" font-size="13">• Scheduled SMS Drip Campaign</text>
+      <text x="20" y="125" fill="#E9EBEF" font-family="sans-serif" font-size="13">• Calculate Deal Valuation</text>
+      <rect x="20" y="155" width="220" height="60" rx="6" fill="#1B2433" />
+      <text x="30" y="180" fill="#8A93A3" font-family="sans-serif" font-size="10">Task SLA Monitor:</text>
+      <text x="30" y="198" fill="#F59E0B" font-family="sans-serif" font-size="10">Alert manager if uncontacted >2h</text>
+    </g>
+
+    <path d="M650,160 H730" stroke="#4A5FBD" stroke-width="3" />
+
+    <!-- Stage 3 -->
+    <g transform="translate(740, 40)">
+      <rect width="260" height="240" rx="10" fill="#131926" stroke="#232A36" />
+      <text x="20" y="35" fill="#F59E0B" font-family="sans-serif" font-size="12" font-weight="700">CONTRACT & CLOSING</text>
+      <text x="20" y="65" fill="#E9EBEF" font-family="sans-serif" font-size="13">• Auto-Generate PDF Agreement</text>
+      <text x="20" y="95" fill="#E9EBEF" font-family="sans-serif" font-size="13">• Send via RightSignature / DocuSign</text>
+      <text x="20" y="125" fill="#E9EBEF" font-family="sans-serif" font-size="13">• Quickbooks / Xero Invoice Sync</text>
+      <rect x="20" y="155" width="220" height="60" rx="6" fill="#1B2433" />
+      <text x="30" y="180" fill="#8A93A3" font-family="sans-serif" font-size="10">Deal Won Status:</text>
+      <text x="30" y="198" fill="#10B981" font-family="sans-serif" font-size="10">Archive & handoff to operations</text>
+    </g>
+  </g>
+  
+  </g>
+
+  <!-- Watermark / Footer branding -->
+  <g transform="translate(80, 620)">
+    <circle cx="8" cy="-5" r="5" fill="#4A5FBD" />
+    <text x="22" y="-1" fill="#4A5FBD" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">KinetixSoft</text>
+    <text x="100" y="-1" fill="#475569" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">• Technical Architecture Series</text>
+  </g>
+</svg>

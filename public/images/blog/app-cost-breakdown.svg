@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19" />
+      <stop offset="50%" stop-color="#121624" />
+      <stop offset="100%" stop-color="#0D1322" />
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A5FBD" />
+      <stop offset="100%" stop-color="#364790" />
+    </linearGradient>
+    <linearGradient id="accentCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="accentEmerald" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A2130" />
+      <stop offset="100%" stop-color="#131824" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bgGrad)" />
+
+  <!-- Grid overlay -->
+  <g opacity="0.06">
+    <path d="M0,75 H1200 M0,150 H1200 M0,225 H1200 M0,300 H1200 M0,375 H1200 M0,450 H1200 M0,525 H1200 M0,600 H1200" stroke="#FFFFFF" stroke-width="1" />
+    <path d="M150,0 V675 M300,0 V675 M450,0 V675 M600,0 V675 M750,0 V675 M900,0 V675 M1050,0 V675" stroke="#FFFFFF" stroke-width="1" />
+  </g>
+
+  <!-- Header Section -->
+  <g transform="translate(80, 70)">
+    <!-- Badge -->
+    <rect x="0" y="0" width="130" height="28" rx="14" fill="#4A5FBD" fill-opacity="0.15" stroke="#4A5FBD" stroke-opacity="0.4" />
+    <text x="65" y="18" fill="#7E95F7" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" text-anchor="middle" letter-spacing="0.5">SCOPING GUIDE</text>
+
+    <!-- Title -->
+    <text x="0" y="65" fill="#E9EBEF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">App Development Cost & Timeline Roadmap</text>
+    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">Realistic Scoping: From 2-Week Lovable MVP to 8-Week FlutterFlow & Bubble Releases</text>
+  </g>
+
+  <!-- Dynamic Content Area -->
+  <g transform="translate(80, 200)">
+    
+  <g transform="translate(0, 20)">
+    <!-- Stage 1 -->
+    <g transform="translate(30, 0)">
+      <rect width="210" height="340" rx="10" fill="#131926" stroke="#232A36" />
+      <text x="20" y="35" fill="#F43F5E" font-family="sans-serif" font-size="12" font-weight="700">TIER 1 • 1–2 WEEKS</text>
+      <text x="20" y="60" fill="#E9EBEF" font-family="sans-serif" font-size="15" font-weight="700">Lovable AI MVP</text>
+      <text x="20" y="85" fill="#10B981" font-family="sans-serif" font-size="16" font-weight="700">$500 – $3,000</text>
+      <text x="20" y="115" fill="#8A93A3" font-family="sans-serif" font-size="11">Rapid interactive prototype for investor demos, idea validation, and early user feedback loops.</text>
+      <rect x="20" y="180" width="170" height="1" fill="#232A36" />
+      <text x="20" y="210" fill="#E9EBEF" font-family="sans-serif" font-size="11">Deliverables:</text>
+      <text x="20" y="235" fill="#8A93A3" font-family="sans-serif" font-size="10">• Working React UI</text>
+      <text x="20" y="255" fill="#8A93A3" font-family="sans-serif" font-size="10">• Basic Auth flow</text>
+      <text x="20" y="275" fill="#8A93A3" font-family="sans-serif" font-size="10">• Mock or Supabase data</text>
+    </g>
+
+    <!-- Stage 2 -->
+    <g transform="translate(270, 0)">
+      <rect width="210" height="340" rx="10" fill="#131926" stroke="#232A36" />
+      <text x="20" y="35" fill="#3B82F6" font-family="sans-serif" font-size="12" font-weight="700">TIER 2 • 3–5 WEEKS</text>
+      <text x="20" y="60" fill="#E9EBEF" font-family="sans-serif" font-size="15" font-weight="700">Bubble Web SaaS</text>
+      <text x="20" y="85" fill="#10B981" font-family="sans-serif" font-size="16" font-weight="700">$2,000 – $8,000</text>
+      <text x="20" y="115" fill="#8A93A3" font-family="sans-serif" font-size="11">Production SaaS, B2B portals, and marketplaces with database privacy and Stripe billing.</text>
+      <rect x="20" y="180" width="170" height="1" fill="#232A36" />
+      <text x="20" y="210" fill="#E9EBEF" font-family="sans-serif" font-size="11">Deliverables:</text>
+      <text x="20" y="235" fill="#8A93A3" font-family="sans-serif" font-size="10">• Relational Database</text>
+      <text x="20" y="255" fill="#8A93A3" font-family="sans-serif" font-size="10">• Subscription Billing</text>
+      <text x="20" y="275" fill="#8A93A3" font-family="sans-serif" font-size="10">• Role-Based Permissions</text>
+    </g>
+
+    <!-- Stage 3 -->
+    <g transform="translate(510, 0)">
+      <rect width="210" height="340" rx="10" fill="#131926" stroke="#4A5FBD" stroke-width="2" />
+      <text x="20" y="35" fill="#7E95F7" font-family="sans-serif" font-size="12" font-weight="700">TIER 3 • 4–8 WEEKS</text>
+      <text x="20" y="60" fill="#E9EBEF" font-family="sans-serif" font-size="15" font-weight="700">FlutterFlow Mobile</text>
+      <text x="20" y="85" fill="#10B981" font-family="sans-serif" font-size="16" font-weight="700">$4,000 – $16,000</text>
+      <text x="20" y="115" fill="#8A93A3" font-family="sans-serif" font-size="11">Native iOS and Android production apps with camera, GPS, push notifications, and store release.</text>
+      <rect x="20" y="180" width="170" height="1" fill="#232A36" />
+      <text x="20" y="210" fill="#E9EBEF" font-family="sans-serif" font-size="11">Deliverables:</text>
+      <text x="20" y="235" fill="#8A93A3" font-family="sans-serif" font-size="10">• iOS & Android Releases</text>
+      <text x="20" y="255" fill="#8A93A3" font-family="sans-serif" font-size="10">• Real-Time DB Sync</text>
+      <text x="20" y="275" fill="#8A93A3" font-family="sans-serif" font-size="10">• App Store Approval</text>
+    </g>
+
+    <!-- Stage 4 -->
+    <g transform="translate(750, 0)">
+      <rect width="250" height="340" rx="10" fill="#131926" stroke="#232A36" />
+      <text x="20" y="35" fill="#10B981" font-family="sans-serif" font-size="12" font-weight="700">TIER 4 • 6–10 WEEKS</text>
+      <text x="20" y="60" fill="#E9EBEF" font-family="sans-serif" font-size="15" font-weight="700">Custom Full-Stack</text>
+      <text x="20" y="85" fill="#10B981" font-family="sans-serif" font-size="16" font-weight="700">$8,000 – $25,000</text>
+      <text x="20" y="115" fill="#8A93A3" font-family="sans-serif" font-size="11">Custom API backend, machine learning integration, proprietary algorithms, and complex integrations.</text>
+      <rect x="20" y="180" width="210" height="1" fill="#232A36" />
+      <text x="20" y="210" fill="#E9EBEF" font-family="sans-serif" font-size="11">Deliverables:</text>
+      <text x="20" y="235" fill="#8A93A3" font-family="sans-serif" font-size="10">• Replit / Node.js Backend</text>
+      <text x="20" y="255" fill="#8A93A3" font-family="sans-serif" font-size="10">• Custom AI Agent Pipelines</text>
+      <text x="20" y="275" fill="#8A93A3" font-family="sans-serif" font-size="10">• Enterprise SLA & Support</text>
+    </g>
+  </g>
+  
+  </g>
+
+  <!-- Watermark / Footer branding -->
+  <g transform="translate(80, 620)">
+    <circle cx="8" cy="-5" r="5" fill="#4A5FBD" />
+    <text x="22" y="-1" fill="#4A5FBD" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">KinetixSoft</text>
+    <text x="100" y="-1" fill="#475569" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">• Technical Architecture Series</text>
+  </g>
+</svg>

@@ -108,39 +108,51 @@ export default function BlogContent() {
             >
               <Link href={`/blog/${post.slug}`} className="block h-full group">
                 <div
-                  className="p-6 h-full flex flex-col transition-all duration-300 group-hover:border-[#4A5FBD]/40 group-hover:-translate-y-1"
+                  className="h-full flex flex-col transition-all duration-300 group-hover:border-[#4A5FBD]/40 group-hover:-translate-y-1 overflow-hidden"
                   style={{
                     background: "#12161F",
                     border: "1px solid #232A36",
-                    borderRadius: "6px",
+                    borderRadius: "8px",
                   }}
                 >
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className={`text-xs px-3 py-1 rounded-full border font-semibold ${post.categoryColor}`}>
-                      {post.category}
-                    </span>
-                  </div>
-                  <h2
-                    className="text-lg font-semibold mb-3 leading-snug group-hover:text-[#4A5FBD] transition-colors"
-                    style={{ color: "#E9EBEF" }}
-                  >
-                    {post.title}
-                  </h2>
-                  <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: "#8A93A3" }}>
-                    {post.excerpt}
-                  </p>
-                  <div className="flex items-center justify-between pt-4 border-t border-[#232A36]/60">
-                    <div className="flex items-center gap-3 text-xs" style={{ color: "#8A93A3" }}>
-                      <span className="flex items-center gap-1">
-                        <Calendar className="w-3.5 h-3.5" />
-                        {post.date}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5" />
-                        {post.readTime}
+                  {post.heroImage && (
+                    <div className="relative w-full h-44 overflow-hidden bg-[#0B0F19] border-b border-[#232A36]">
+                      <img
+                        src={post.heroImage}
+                        alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6 flex-1 flex flex-col">
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className={`text-xs px-3 py-1 rounded-full border font-semibold ${post.categoryColor}`}>
+                        {post.category}
                       </span>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-[#4A5FBD] group-hover:translate-x-1 transition-transform" />
+                    <h2
+                      className="text-lg font-semibold mb-3 leading-snug group-hover:text-[#4A5FBD] transition-colors"
+                      style={{ color: "#E9EBEF" }}
+                    >
+                      {post.title}
+                    </h2>
+                    <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: "#8A93A3" }}>
+                      {post.excerpt}
+                    </p>
+                    <div className="flex items-center justify-between pt-4 border-t border-[#232A36]/60">
+                      <div className="flex items-center gap-3 text-xs" style={{ color: "#8A93A3" }}>
+                        <span className="flex items-center gap-1">
+                          <Calendar className="w-3.5 h-3.5" />
+                          {post.date}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-3.5 h-3.5" />
+                          {post.readTime}
+                        </span>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-[#4A5FBD] group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
                 </div>
               </Link>

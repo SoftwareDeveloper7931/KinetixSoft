@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19" />
+      <stop offset="50%" stop-color="#121624" />
+      <stop offset="100%" stop-color="#0D1322" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A2130" />
+      <stop offset="100%" stop-color="#131824" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bgGrad)" />
+
+  <g opacity="0.06">
+    <path d="M0,75 H1200 M0,150 H1200 M0,225 H1200 M0,300 H1200 M0,375 H1200 M0,450 H1200 M0,525 H1200 M0,600 H1200" stroke="#FFFFFF" stroke-width="1" />
+    <path d="M150,0 V675 M300,0 V675 M450,0 V675 M600,0 V675 M750,0 V675 M900,0 V675 M1050,0 V675" stroke="#FFFFFF" stroke-width="1" />
+  </g>
+
+  <g transform="translate(80, 70)">
+    <rect x="0" y="0" width="140" height="28" rx="14" fill="#4A5FBD" fill-opacity="0.15" stroke="#4A5FBD" stroke-opacity="0.4" />
+    <text x="70" y="18" fill="#7E95F7" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" text-anchor="middle" letter-spacing="0.5">MENTAL WELLNESS</text>
+    <text x="0" y="65" fill="#E9EBEF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">Daily Reflection & Voice Journaling Architecture</text>
+    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">Biometric Security, OpenAI Whisper Transcription & Local Habit Streaks</text>
+  </g>
+
+  <g transform="translate(80, 200)">
+    
+  <g transform="translate(0, 10)">
+    <g transform="translate(20, 0)">
+      <rect width="310" height="350" rx="12" fill="url(#cardGrad)" stroke="#232A36" stroke-width="1.5" />
+      <text x="25" y="35" fill="#7E95F7" font-family="sans-serif" font-size="13" font-weight="700">1. INTAKE & AUDIO TRANSCRIPTION</text>
+      <rect x="25" y="60" width="260" height="80" rx="6" fill="#131926" />
+      <text x="35" y="85" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Voice-to-Text Whisper API</text>
+      <text x="35" y="105" fill="#8A93A3" font-family="sans-serif" font-size="10">High-accuracy audio transcribing formats stream-of-consciousness thoughts into polished text.</text>
+      <rect x="25" y="155" width="260" height="80" rx="6" fill="#131926" />
+      <text x="35" y="180" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Dynamic Contextual Prompts</text>
+      <text x="35" y="200" fill="#8A93A3" font-family="sans-serif" font-size="10">Morning priority setting • Midday energy scan • Evening gratitude & learnings.</text>
+      <rect x="25" y="250" width="260" height="75" rx="6" fill="#131926" />
+      <text x="35" y="275" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Photo & Emotion Tagging</text>
+      <text x="35" y="295" fill="#8A93A3" font-family="sans-serif" font-size="10">Attach memories, gratitude photos, and somatic mood ratings (1–10).</text>
+    </g>
+
+    <g transform="translate(360, 0)">
+      <rect width="310" height="350" rx="12" fill="url(#cardGrad)" stroke="#232A36" stroke-width="1.5" />
+      <text x="25" y="35" fill="#10B981" font-family="sans-serif" font-size="13" font-weight="700">2. ZERO-TRUST PRIVACY</text>
+      <rect x="25" y="60" width="260" height="80" rx="6" fill="#131926" />
+      <text x="35" y="85" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Native Biometric App Lock</text>
+      <text x="35" y="105" fill="#8A93A3" font-family="sans-serif" font-size="10">iOS Face ID & Android BiometricPrompt lock entry whenever the app enters background.</text>
+      <rect x="25" y="155" width="260" height="80" rx="6" fill="#131926" />
+      <text x="35" y="180" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Client-Side Data Encryption</text>
+      <text x="35" y="200" fill="#8A93A3" font-family="sans-serif" font-size="10">Entries encrypted with user private keys before syncing to cloud storage.</text>
+      <rect x="25" y="250" width="260" height="75" rx="6" fill="#131926" />
+      <text x="35" y="275" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Offline-First Local Storage</text>
+      <text x="35" y="295" fill="#8A93A3" font-family="sans-serif" font-size="10">Immediate local write prevents loss of reflections in low-reception environments.</text>
+    </g>
+
+    <g transform="translate(700, 0)">
+      <rect width="320" height="350" rx="12" fill="url(#cardGrad)" stroke="#232A36" stroke-width="1.5" />
+      <text x="25" y="35" fill="#F59E0B" font-family="sans-serif" font-size="13" font-weight="700">3. RETENTION & INSIGHTS</text>
+      <rect x="25" y="60" width="270" height="80" rx="6" fill="#131926" />
+      <text x="35" y="85" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Streak Engine & Badges</text>
+      <text x="35" y="105" fill="#8A93A3" font-family="sans-serif" font-size="10">Calculates consecutive reflection days with milestone rewards and streak freeze.</text>
+      <rect x="25" y="155" width="270" height="80" rx="6" fill="#131926" />
+      <text x="35" y="180" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">"On This Day" Memory Flashbacks</text>
+      <text x="35" y="200" fill="#8A93A3" font-family="sans-serif" font-size="10">Automatically resurfaces entries written 30, 90, or 365 days ago.</text>
+      <rect x="25" y="250" width="270" height="75" rx="6" fill="#131926" />
+      <text x="35" y="275" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Beautiful Annual PDF Export</text>
+      <text x="35" y="295" fill="#8A93A3" font-family="sans-serif" font-size="10">Compiles year of gratitude and milestones into a printable personal memory book.</text>
+    </g>
+  </g>
+  
+  </g>
+
+  <g transform="translate(80, 620)">
+    <circle cx="8" cy="-5" r="5" fill="#4A5FBD" />
+    <text x="22" y="-1" fill="#4A5FBD" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">KinetixSoft</text>
+    <text x="100" y="-1" fill="#475569" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">• Engineering Blueprint Series</text>
+  </g>
+</svg>

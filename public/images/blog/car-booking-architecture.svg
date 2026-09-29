@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19" />
+      <stop offset="50%" stop-color="#121624" />
+      <stop offset="100%" stop-color="#0D1322" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A2130" />
+      <stop offset="100%" stop-color="#131824" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bgGrad)" />
+
+  <g opacity="0.06">
+    <path d="M0,75 H1200 M0,150 H1200 M0,225 H1200 M0,300 H1200 M0,375 H1200 M0,450 H1200 M0,525 H1200 M0,600 H1200" stroke="#FFFFFF" stroke-width="1" />
+    <path d="M150,0 V675 M300,0 V675 M450,0 V675 M600,0 V675 M750,0 V675 M900,0 V675 M1050,0 V675" stroke="#FFFFFF" stroke-width="1" />
+  </g>
+
+  <g transform="translate(80, 70)">
+    <rect x="0" y="0" width="140" height="28" rx="14" fill="#4A5FBD" fill-opacity="0.15" stroke="#4A5FBD" stroke-opacity="0.4" />
+    <text x="70" y="18" fill="#7E95F7" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" text-anchor="middle" letter-spacing="0.5">MOBILITY ARCHITECTURE</text>
+    <text x="0" y="65" fill="#E9EBEF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">Car Booking & Chauffeur Mobility Platform</text>
+    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">Google Maps Polylines, Dynamic Surge Engine & Driver Dispatch State</text>
+  </g>
+
+  <g transform="translate(80, 200)">
+    
+  <g transform="translate(0, 10)">
+    <g transform="translate(20, 0)">
+      <rect width="310" height="350" rx="12" fill="url(#cardGrad)" stroke="#232A36" stroke-width="1.5" />
+      <text x="25" y="35" fill="#3B82F6" font-family="sans-serif" font-size="13" font-weight="700">PASSENGER APPLICATION</text>
+      <rect x="25" y="60" width="260" height="80" rx="6" fill="#131926" />
+      <text x="35" y="85" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Dynamic Google Route Polyline</text>
+      <text x="35" y="105" fill="#8A93A3" font-family="sans-serif" font-size="10">Directions API calculates ETA, distance, and optimal route pathing.</text>
+      <rect x="25" y="155" width="260" height="80" rx="6" fill="#131926" />
+      <text x="35" y="180" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Tiered Vehicle Selector</text>
+      <text x="35" y="200" fill="#8A93A3" font-family="sans-serif" font-size="10">Executive Sedan ($45) • Luxury Van ($75) • First Class ($110)</text>
+      <rect x="25" y="250" width="260" height="75" rx="6" fill="#131926" />
+      <text x="35" y="275" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Pre-Auth Card Hold</text>
+      <text x="35" y="295" fill="#8A93A3" font-family="sans-serif" font-size="10">Stripe pre-authorizes trip estimate; captures final fare on drop-off.</text>
+    </g>
+
+    <g transform="translate(360, 0)">
+      <rect width="310" height="350" rx="12" fill="url(#cardGrad)" stroke="#232A36" stroke-width="1.5" />
+      <text x="25" y="35" fill="#10B981" font-family="sans-serif" font-size="13" font-weight="700">DRIVER APPLICATION</text>
+      <rect x="25" y="60" width="260" height="80" rx="6" fill="#131926" />
+      <text x="35" y="85" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">15-Second Dispatch Waterfall</text>
+      <text x="35" y="105" fill="#8A93A3" font-family="sans-serif" font-size="10">Proximity-based matching alerts nearest driver before cascading.</text>
+      <rect x="25" y="155" width="260" height="80" rx="6" fill="#131926" />
+      <text x="35" y="180" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Turn-by-Turn Navigation Handoff</text>
+      <text x="35" y="200" fill="#8A93A3" font-family="sans-serif" font-size="10">Single-tap deep-link launches Google Maps or Waze with destination.</text>
+      <rect x="25" y="250" width="260" height="75" rx="6" fill="#131926" />
+      <text x="35" y="275" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Live Earnings & Shift Summary</text>
+      <text x="35" y="295" fill="#8A93A3" font-family="sans-serif" font-size="10">Net fares, tips, fuel surcharges, and instant bank payout ledger.</text>
+    </g>
+
+    <g transform="translate(700, 0)">
+      <rect width="320" height="350" rx="12" fill="url(#cardGrad)" stroke="#232A36" stroke-width="1.5" />
+      <text x="25" y="35" fill="#F59E0B" font-family="sans-serif" font-size="13" font-weight="700">FLEET DISPATCH CONSOLE</text>
+      <rect x="25" y="60" width="270" height="80" rx="6" fill="#131926" />
+      <text x="35" y="85" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Live Vehicle Radar Map</text>
+      <text x="35" y="105" fill="#8A93A3" font-family="sans-serif" font-size="10">WebSocket telemetry displays real-time coordinates & bearing.</text>
+      <rect x="25" y="155" width="270" height="80" rx="6" fill="#131926" />
+      <text x="35" y="180" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Manual Phone Call Dispatch</text>
+      <text x="35" y="200" fill="#8A93A3" font-family="sans-serif" font-size="10">Hotel concierge and VIP telephone booking manual override.</text>
+      <rect x="25" y="250" width="270" height="75" rx="6" fill="#131926" />
+      <text x="35" y="275" fill="#E9EBEF" font-family="sans-serif" font-size="12" font-weight="600">Flight Status Sync</text>
+      <text x="35" y="295" fill="#8A93A3" font-family="sans-serif" font-size="10">Auto-adjusts pickup time for airport flight delays and gate changes.</text>
+    </g>
+  </g>
+  
+  </g>
+
+  <g transform="translate(80, 620)">
+    <circle cx="8" cy="-5" r="5" fill="#4A5FBD" />
+    <text x="22" y="-1" fill="#4A5FBD" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">KinetixSoft</text>
+    <text x="100" y="-1" fill="#475569" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">• Engineering Blueprint Series</text>
+  </g>
+</svg>

@@ -19,7 +19,9 @@ export async function generateMetadata({
   if (!post) return { title: "Post Not Found" };
 
   const canonicalUrl = `https://kinetixsoft.com/blog/${post.slug}`;
-  const ogImage = "https://kinetixsoft.com/og-default.png";
+  const ogImage = post.heroImage
+    ? `https://kinetixsoft.com${post.heroImage}`
+    : "https://kinetixsoft.com/og-default.png";
 
   return {
     title: `${post.title} — KinetixSoft`,
@@ -73,7 +75,9 @@ export default async function BlogPostPage({
     "@type": "Article",
     headline: post.title,
     description: post.excerpt,
-    image: "https://kinetixsoft.com/og-default.png",
+    image: post.heroImage
+      ? `https://kinetixsoft.com${post.heroImage}`
+      : "https://kinetixsoft.com/og-default.png",
     author: {
       "@type": "Organization",
       name: post.author,
@@ -143,6 +147,18 @@ export default async function BlogPostPage({
           {post.title}
         </h1>
 
+        {/* Featured Hero Image */}
+        {post.heroImage && (
+          <div className="my-8 rounded-xl overflow-hidden border border-[#232A36] shadow-2xl bg-[#12161F]">
+            <img
+              src={post.heroImage}
+              alt={post.title}
+              className="w-full h-auto max-h-[460px] object-cover"
+              loading="eager"
+            />
+          </div>
+        )}
+
         {/* Post Content */}
         <div
           className="prose prose-invert prose-lg max-w-none prose-headings:font-serif prose-headings:text-[#E9EBEF] prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4 prose-p:text-[#8A93A3] prose-p:leading-relaxed prose-p:mb-5 prose-strong:text-[#D1D5DB] prose-a:text-[#4A5FBD] prose-a:underline hover:prose-a:text-[#6379E0] prose-ul:text-[#8A93A3] prose-li:my-1.5 prose-code:text-[#D1D5DB] prose-code:bg-[#1E2533] prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded"
@@ -199,9 +215,19 @@ export default async function BlogPostPage({
                 <Link
                   key={related.slug}
                   href={`/blog/${related.slug}`}
-                  className="p-4 rounded-lg bg-[#12161F] border border-[#232A36] hover:border-[#4A5FBD]/40 transition-colors flex flex-col justify-between group"
+                  className="p-3.5 rounded-lg bg-[#12161F] border border-[#232A36] hover:border-[#4A5FBD]/40 transition-colors flex flex-col justify-between group"
                 >
                   <div>
+                    {related.heroImage && (
+                      <div className="w-full h-28 overflow-hidden rounded-md mb-3 bg-[#0B0F19]">
+                        <img
+                          src={related.heroImage}
+                          alt={related.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
                     <span className={`text-[10px] px-2 py-0.5 rounded-full border font-semibold ${related.categoryColor}`}>
                       {related.category}
                     </span>
