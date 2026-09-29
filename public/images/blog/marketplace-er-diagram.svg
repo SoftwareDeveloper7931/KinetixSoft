@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19" />
+      <stop offset="50%" stop-color="#121624" />
+      <stop offset="100%" stop-color="#0D1322" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A2130" />
+      <stop offset="100%" stop-color="#131824" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bgGrad)" />
+
+  <g opacity="0.06">
+    <path d="M0,75 H1200 M0,150 H1200 M0,225 H1200 M0,300 H1200 M0,375 H1200 M0,450 H1200 M0,525 H1200 M0,600 H1200" stroke="#FFFFFF" stroke-width="1" />
+    <path d="M150,0 V675 M300,0 V675 M450,0 V675 M600,0 V675 M750,0 V675 M900,0 V675 M1050,0 V675" stroke="#FFFFFF" stroke-width="1" />
+  </g>
+
+  <g transform="translate(80, 65)">
+    <rect x="0" y="0" width="160" height="28" rx="14" fill="#4A5FBD" fill-opacity="0.15" stroke="#4A5FBD" stroke-opacity="0.4" />
+    <text x="80" y="18" fill="#7E95F7" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" text-anchor="middle" letter-spacing="0.5">P2P MARKETPLACE ERD</text>
+    <text x="0" y="65" fill="#E9EBEF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">Second-Hand P2P Marketplace Schema (ER Diagram)</text>
+    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">Entity Relationships for Listings, In-App Chats, Escrow Orders & Payouts</text>
+  </g>
+
+  <g transform="translate(80, 195)">
+    
+  <g transform="translate(0, 10)">
+    <g transform="translate(20, 0)">
+      <rect width="220" height="175" rx="8" fill="#131926" stroke="#4A5FBD" stroke-width="1.5" />
+      <rect width="220" height="32" rx="8" fill="#1D263B" />
+      <text x="15" y="21" fill="#7E95F7" font-family="monospace" font-size="13" font-weight="700">listings</text>
+      <text x="15" y="52" fill="#E9EBEF" font-family="monospace" font-size="11">🔑 id: uuid [PK]</text>
+      <text x="15" y="74" fill="#7E95F7" font-family="monospace" font-size="11">🔗 seller_id: uuid [FK]</text>
+      <text x="15" y="96" fill="#8A93A3" font-family="monospace" font-size="11">   title: string</text>
+      <text x="15" y="118" fill="#10B981" font-family="monospace" font-size="11">   asking_price: numeric</text>
+      <text x="15" y="140" fill="#8A93A3" font-family="monospace" font-size="11">   status: 'ACTIVE'|'SOLD'</text>
+      <text x="15" y="162" fill="#8A93A3" font-family="monospace" font-size="11">   geohash: string (radius)</text>
+    </g>
+
+    <g transform="translate(20, 205)">
+      <rect width="220" height="150" rx="8" fill="#131926" stroke="#232A36" stroke-width="1.5" />
+      <rect width="220" height="32" rx="8" fill="#1A2233" />
+      <text x="15" y="21" fill="#E9EBEF" font-family="monospace" font-size="13" font-weight="700">chat_channels</text>
+      <text x="15" y="52" fill="#E9EBEF" font-family="monospace" font-size="11">🔑 id: uuid [PK]</text>
+      <text x="15" y="74" fill="#7E95F7" font-family="monospace" font-size="11">🔗 listing_id: uuid [FK]</text>
+      <text x="15" y="96" fill="#7E95F7" font-family="monospace" font-size="11">🔗 buyer_id: uuid [FK]</text>
+      <text x="15" y="118" fill="#8A93A3" font-family="monospace" font-size="11">   last_message_at: time</text>
+    </g>
+
+    <g transform="translate(380, 0)">
+      <rect width="270" height="215" rx="8" fill="#131926" stroke="#10B981" stroke-width="2" />
+      <rect width="270" height="32" rx="8" fill="#1D263B" />
+      <text x="15" y="21" fill="#10B981" font-family="monospace" font-size="13" font-weight="700">escrow_transactions</text>
+      <text x="15" y="52" fill="#E9EBEF" font-family="monospace" font-size="11">🔑 id: uuid [PK]</text>
+      <text x="15" y="74" fill="#7E95F7" font-family="monospace" font-size="11">🔗 listing_id: uuid [FK]</text>
+      <text x="15" y="96" fill="#7E95F7" font-family="monospace" font-size="11">🔗 buyer_id: uuid [FK]</text>
+      <text x="15" y="118" fill="#10B981" font-family="monospace" font-size="11">   held_amount: numeric</text>
+      <text x="15" y="140" fill="#F59E0B" font-family="monospace" font-size="11">   escrow_status: ENUM</text>
+      <text x="15" y="162" fill="#8A93A3" font-family="monospace" font-size="11">   carrier_tracking_num: text</text>
+      <text x="15" y="184" fill="#8A93A3" font-family="monospace" font-size="11">   inspection_deadline: time</text>
+    </g>
+
+    <g transform="translate(380, 235)">
+      <rect width="270" height="135" rx="8" fill="#131926" stroke="#232A36" stroke-width="1.5" />
+      <rect width="270" height="32" rx="8" fill="#1A2233" />
+      <text x="15" y="21" fill="#E9EBEF" font-family="monospace" font-size="13" font-weight="700">chat_messages</text>
+      <text x="15" y="52" fill="#E9EBEF" font-family="monospace" font-size="11">🔑 id: uuid [PK]</text>
+      <text x="15" y="74" fill="#7E95F7" font-family="monospace" font-size="11">🔗 channel_id: uuid [FK]</text>
+      <text x="15" y="96" fill="#7E95F7" font-family="monospace" font-size="11">🔗 sender_id: uuid [FK]</text>
+      <text x="15" y="118" fill="#8A93A3" font-family="monospace" font-size="11">   message_body: text, sent_at</text>
+    </g>
+
+    <path d="M240,75 H380" stroke="#10B981" stroke-width="2" stroke-dasharray="4" />
+  </g>
+  
+  </g>
+
+  <g transform="translate(80, 620)">
+    <circle cx="8" cy="-5" r="5" fill="#4A5FBD" />
+    <text x="22" y="-1" fill="#4A5FBD" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">KinetixSoft</text>
+    <text x="100" y="-1" fill="#475569" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">• Database ER Architecture Series</text>
+  </g>
+</svg>

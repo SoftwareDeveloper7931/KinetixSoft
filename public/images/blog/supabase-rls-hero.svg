@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19" />
+      <stop offset="50%" stop-color="#121624" />
+      <stop offset="100%" stop-color="#0D1322" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A2130" />
+      <stop offset="100%" stop-color="#131824" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#bgGrad)" />
+
+  <g opacity="0.06">
+    <path d="M0,75 H1200 M0,150 H1200 M0,225 H1200 M0,300 H1200 M0,375 H1200 M0,450 H1200 M0,525 H1200 M0,600 H1200" stroke="#FFFFFF" stroke-width="1" />
+    <path d="M150,0 V675 M300,0 V675 M450,0 V675 M600,0 V675 M750,0 V675 M900,0 V675 M1050,0 V675" stroke="#FFFFFF" stroke-width="1" />
+  </g>
+
+  <g transform="translate(80, 65)">
+    <rect x="0" y="0" width="160" height="28" rx="14" fill="#4A5FBD" fill-opacity="0.15" stroke="#4A5FBD" stroke-opacity="0.4" />
+    <text x="80" y="18" fill="#7E95F7" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" text-anchor="middle" letter-spacing="0.5">POSTGRES SECURITY</text>
+    <text x="0" y="65" fill="#E9EBEF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">Supabase Row Level Security (RLS) in FlutterFlow</text>
+    <text x="0" y="95" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="400">PostgreSQL Kernel-Enforced Authorization, auth.uid() & Multi-Tenant Organization Isolation</text>
+  </g>
+
+  <g transform="translate(80, 195)">
+    
+  <g transform="translate(0, 15)">
+    <g transform="translate(30, 0)">
+      <rect width="470" height="340" rx="10" fill="#121724" stroke="#10B981" stroke-width="2" />
+      <text x="25" y="38" fill="#10B981" font-family="sans-serif" font-size="16" font-weight="700">POSTGRESQL KERNEL ROW FILTER</text>
+      <rect x="25" y="60" width="420" height="75" rx="6" fill="#182030" />
+      <text x="35" y="85" fill="#E9EBEF" font-family="monospace" font-size="11">CREATE POLICY "Users can only read own data"</text>
+      <text x="35" y="105" fill="#10B981" font-family="monospace" font-size="11">ON profiles FOR SELECT USING (auth.uid() = id);</text>
+      <text x="35" y="125" fill="#8A93A3" font-family="sans-serif" font-size="10">Even if client sends SELECT * FROM profiles, only own row returns!</text>
+
+      <rect x="25" y="150" width="420" height="85" rx="6" fill="#182030" />
+      <text x="35" y="175" fill="#E9EBEF" font-family="monospace" font-size="11">CREATE POLICY "Team org isolation"</text>
+      <text x="35" y="195" fill="#7E95F7" font-family="monospace" font-size="11">USING (org_id IN (SELECT org_id FROM team_members</text>
+      <text x="35" y="215" fill="#7E95F7" font-family="monospace" font-size="11">                  WHERE user_id = auth.uid()));</text>
+
+      <rect x="25" y="250" width="420" height="65" rx="6" fill="#10B981" fill-opacity="0.1" stroke="#10B981" />
+      <text x="35" y="275" fill="#10B981" font-family="sans-serif" font-size="12" font-weight="700">CANNOT BE BYPASSED BY CLIENT HACKS</text>
+      <text x="35" y="295" fill="#8A93A3" font-family="sans-serif" font-size="11">Enforced by Postgres storage engine before SQL query execution.</text>
+    </g>
+
+    <g transform="translate(540, 0)">
+      <rect width="470" height="340" rx="10" fill="#121724" stroke="#232A36" stroke-width="1.5" />
+      <text x="25" y="38" fill="#7E95F7" font-family="sans-serif" font-size="16" font-weight="700">USING vs WITH CHECK CLAUSES</text>
+      <g transform="translate(25, 60)">
+        <rect width="420" height="120" rx="6" fill="#161E2D" />
+        <text x="15" y="25" fill="#7E95F7" font-family="sans-serif" font-size="13" font-weight="700">USING Clause (Row Visibility / Select / Update Target)</text>
+        <text x="15" y="48" fill="#8A93A3" font-family="sans-serif" font-size="11">• Evaluated against existing rows in the database.</text>
+        <text x="15" y="70" fill="#8A93A3" font-family="sans-serif" font-size="11">• Determines if the user is even permitted to see or touch the row.</text>
+        <text x="15" y="92" fill="#8A93A3" font-family="sans-serif" font-size="11">• If false, row acts as if it does not exist.</text>
+      </g>
+      <g transform="translate(25, 195)">
+        <rect width="420" height="120" rx="6" fill="#161E2D" />
+        <text x="15" y="25" fill="#10B981" font-family="sans-serif" font-size="13" font-weight="700">WITH CHECK Clause (Incoming Data Mutation Validation)</text>
+        <text x="15" y="48" fill="#8A93A3" font-family="sans-serif" font-size="11">• Evaluated against newly inserted or updated rows.</text>
+        <text x="15" y="70" fill="#8A93A3" font-family="sans-serif" font-size="11">• Guarantees user cannot change ownership or assign unauthorized org IDs.</text>
+        <text x="15" y="92" fill="#8A93A3" font-family="sans-serif" font-size="11">• Throws strict error if condition fails.</text>
+      </g>
+    </g>
+  </g>
+  
+  </g>
+
+  <g transform="translate(80, 620)">
+    <circle cx="8" cy="-5" r="5" fill="#4A5FBD" />
+    <text x="22" y="-1" fill="#4A5FBD" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600">KinetixSoft</text>
+    <text x="100" y="-1" fill="#475569" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">• Database ER Architecture Series</text>
+  </g>
+</svg>
