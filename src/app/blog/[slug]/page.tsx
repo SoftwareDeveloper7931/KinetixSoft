@@ -155,12 +155,6 @@ export default async function BlogPostPage({
               alt={post.title}
               className="w-full h-auto max-h-[460px] object-cover"
               loading="eager"
-              onError={(e) => {
-                const target = e.currentTarget;
-                if (!target.src.includes('og-default.png')) {
-                  target.src = '/og-default.png';
-                }
-              }}
             />
           </div>
         )}
