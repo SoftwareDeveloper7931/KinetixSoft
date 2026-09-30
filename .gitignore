@@ -16,3 +16,4 @@ out
 Thumbs.db
 *.tar.gz
 .next-build/
+scratch/

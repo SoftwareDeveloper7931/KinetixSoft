@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" width="1000" height="580">
+  <defs>
+    <linearGradient id="stBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#070A12" />
+      <stop offset="100%" stop-color="#0E1626" />
+    </linearGradient>
+    <linearGradient id="scGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="580" rx="16" fill="url(#stBg)" stroke="#1F2937" stroke-width="1.5" />
+
+  <!-- Header -->
+  <g transform="translate(50, 40)">
+    <rect width="210" height="26" rx="13" fill="#6366F1" fill-opacity="0.15" stroke="#6366F1" stroke-opacity="0.4" />
+    <text x="105" y="17" fill="#818CF8" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="0.5">PAYMENT ARCHITECTURE</text>
+    <text x="0" y="58" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="24" font-weight="800">FlutterFlow + Stripe: Complete Scenario Matrix</text>
+    <text x="0" y="84" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="13">Production Blueprint: One-Time Checkout, Recurring Subscriptions, Connect Marketplace Splits &amp; Pre-Auth Holds.</text>
+  </g>
+
+  <!-- 4 Scenarios -->
+  <g transform="translate(50, 140)">
+    <!-- Scenario 1: One-Time Checkout -->
+    <g transform="translate(0, 0)">
+      <rect width="210" height="380" rx="12" fill="url(#scGrad)" stroke="#3B82F6" stroke-opacity="0.4" stroke-width="1.5" />
+      <rect x="15" y="15" width="30" height="30" rx="6" fill="#3B82F6" fill-opacity="0.2" />
+      <text x="30" y="35" fill="#60A5FA" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">01</text>
+      <text x="55" y="28" fill="#F1F5F9" font-family="sans-serif" font-size="13" font-weight="700">One-Time Pay</text>
+      <text x="55" y="42" fill="#64748B" font-family="sans-serif" font-size="9.5">E-Commerce &amp; Invoices</text>
+
+      <rect x="12" y="65" width="186" height="50" rx="6" fill="#111827" />
+      <text x="22" y="83" fill="#60A5FA" font-family="sans-serif" font-size="10" font-weight="600">CLIENT FLOW:</text>
+      <text x="22" y="99" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">FlutterFlow Native Stripe action</text>
+      <text x="22" y="110" fill="#CBD5E1" font-family="sans-serif" font-size="9">calls Payment Sheet API.</text>
+
+      <rect x="12" y="125" width="186" height="55" rx="6" fill="#111827" />
+      <text x="22" y="143" fill="#60A5FA" font-family="sans-serif" font-size="10" font-weight="600">SERVERLESS BACKEND:</text>
+      <text x="22" y="159" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">Cloud Function creates Payment</text>
+      <text x="22" y="171" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">Intent with verified amount.</text>
+
+      <rect x="12" y="190" width="186" height="85" rx="6" fill="#111827" />
+      <text x="22" y="208" fill="#38BDF8" font-family="monospace" font-size="9.5">POST /createPaymentIntent</text>
+      <text x="22" y="224" fill="#94A3B8" font-family="monospace" font-size="9">{ amount: itemsTotal, </text>
+      <text x="22" y="238" fill="#94A3B8" font-family="monospace" font-size="9">  currency: 'usd', </text>
+      <text x="22" y="252" fill="#94A3B8" font-family="monospace" font-size="9">  customer: stripeCustId }</text>
+
+      <rect x="12" y="285" width="186" height="80" rx="6" fill="#10B981" fill-opacity="0.08" stroke="#10B981" stroke-opacity="0.25" />
+      <text x="22" y="303" fill="#34D399" font-family="sans-serif" font-size="10" font-weight="700">WEBHOOK SYNC:</text>
+      <text x="22" y="321" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">payment_intent.succeeded</text>
+      <text x="22" y="337" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">triggers order fulfillment</text>
+      <text x="22" y="351" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">in Firestore/Supabase.</text>
+    </g>
+
+    <!-- Scenario 2: Subscriptions -->
+    <g transform="translate(230, 0)">
+      <rect width="210" height="380" rx="12" fill="url(#scGrad)" stroke="#10B981" stroke-opacity="0.4" stroke-width="1.5" />
+      <rect x="15" y="15" width="30" height="30" rx="6" fill="#10B981" fill-opacity="0.2" />
+      <text x="30" y="35" fill="#34D399" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">02</text>
+      <text x="55" y="28" fill="#F1F5F9" font-family="sans-serif" font-size="13" font-weight="700">Subscriptions</text>
+      <text x="55" y="42" fill="#64748B" font-family="sans-serif" font-size="9.5">SaaS &amp; Monthly Plans</text>
+
+      <rect x="12" y="65" width="186" height="50" rx="6" fill="#111827" />
+      <text x="22" y="83" fill="#34D399" font-family="sans-serif" font-size="10" font-weight="600">CHECKOUT SESSION:</text>
+      <text x="22" y="99" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">Stripe Hosted Checkout URL</text>
+      <text x="22" y="110" fill="#CBD5E1" font-family="sans-serif" font-size="9">launched via WebView or Safari.</text>
+
+      <rect x="12" y="125" width="186" height="55" rx="6" fill="#111827" />
+      <text x="22" y="143" fill="#34D399" font-family="sans-serif" font-size="10" font-weight="600">CUSTOMER PORTAL:</text>
+      <text x="22" y="159" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">Stripe Billing Portal link lets</text>
+      <text x="22" y="171" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">users self-upgrade/cancel.</text>
+
+      <rect x="12" y="190" width="186" height="85" rx="6" fill="#111827" />
+      <text x="22" y="208" fill="#34D399" font-family="monospace" font-size="9.5">POST /createSubscription</text>
+      <text x="22" y="224" fill="#94A3B8" font-family="monospace" font-size="9">{ price: 'price_pro_tier',</text>
+      <text x="22" y="238" fill="#94A3B8" font-family="monospace" font-size="9">  mode: 'subscription',</text>
+      <text x="22" y="252" fill="#94A3B8" font-family="monospace" font-size="9">  trial_period_days: 14 }</text>
+
+      <rect x="12" y="285" width="186" height="80" rx="6" fill="#10B981" fill-opacity="0.08" stroke="#10B981" stroke-opacity="0.25" />
+      <text x="22" y="303" fill="#34D399" font-family="sans-serif" font-size="10" font-weight="700">LIFECYCLE HOOKS:</text>
+      <text x="22" y="321" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">customer.subscription.deleted</text>
+      <text x="22" y="337" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">downgrades user claim to</text>
+      <text x="22" y="351" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">'free' immediately.</text>
+    </g>
+
+    <!-- Scenario 3: Connect Marketplace -->
+    <g transform="translate(460, 0)">
+      <rect width="210" height="380" rx="12" fill="url(#scGrad)" stroke="#8B5CF6" stroke-opacity="0.4" stroke-width="1.5" />
+      <rect x="15" y="15" width="30" height="30" rx="6" fill="#8B5CF6" fill-opacity="0.2" />
+      <text x="30" y="35" fill="#A78BFA" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">03</text>
+      <text x="55" y="28" fill="#F1F5F9" font-family="sans-serif" font-size="13" font-weight="700">Stripe Connect</text>
+      <text x="55" y="42" fill="#64748B" font-family="sans-serif" font-size="9.5">Marketplace Splits</text>
+
+      <rect x="12" y="65" width="186" height="50" rx="6" fill="#111827" />
+      <text x="22" y="83" fill="#A78BFA" font-family="sans-serif" font-size="10" font-weight="600">SELLER ONBOARDING:</text>
+      <text x="22" y="99" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">Express onboarding links for</text>
+      <text x="22" y="110" fill="#CBD5E1" font-family="sans-serif" font-size="9">vendors, drivers, and hosts.</text>
+
+      <rect x="12" y="125" width="186" height="55" rx="6" fill="#111827" />
+      <text x="22" y="143" fill="#A78BFA" font-family="sans-serif" font-size="10" font-weight="600">AUTOMATIC COMMISSIONS:</text>
+      <text x="22" y="159" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">Platform fee deducted before</text>
+      <text x="22" y="171" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">payout transfers to seller.</text>
+
+      <rect x="12" y="190" width="186" height="85" rx="6" fill="#111827" />
+      <text x="22" y="208" fill="#A78BFA" font-family="monospace" font-size="9.5">POST /createTransfer</text>
+      <text x="22" y="224" fill="#94A3B8" font-family="monospace" font-size="9">{ transfer_data: {</text>
+      <text x="22" y="238" fill="#94A3B8" font-family="monospace" font-size="9">    destination: sellerAcct, </text>
+      <text x="22" y="252" fill="#94A3B8" font-family="monospace" font-size="9">  application_fee_amount: 500 }}</text>
+
+      <rect x="12" y="285" width="186" height="80" rx="6" fill="#10B981" fill-opacity="0.08" stroke="#10B981" stroke-opacity="0.25" />
+      <text x="22" y="303" fill="#34D399" font-family="sans-serif" font-size="10" font-weight="700">COMPLIANCE &amp; 1099:</text>
+      <text x="22" y="321" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">Stripe handles KYC/AML,</text>
+      <text x="22" y="337" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">identity verification, and</text>
+      <text x="22" y="351" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">tax documentation.</text>
+    </g>
+
+    <!-- Scenario 4: Pre-Auth Holds -->
+    <g transform="translate(690, 0)">
+      <rect width="210" height="380" rx="12" fill="url(#scGrad)" stroke="#F59E0B" stroke-opacity="0.4" stroke-width="1.5" />
+      <rect x="15" y="15" width="30" height="30" rx="6" fill="#F59E0B" fill-opacity="0.2" />
+      <text x="30" y="35" fill="#FBBF24" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">04</text>
+      <text x="55" y="28" fill="#F1F5F9" font-family="sans-serif" font-size="13" font-weight="700">Pre-Auth Holds</text>
+      <text x="55" y="42" fill="#64748B" font-family="sans-serif" font-size="9.5">Rides, Bookings &amp; Hotels</text>
+
+      <rect x="12" y="65" width="186" height="50" rx="6" fill="#111827" />
+      <text x="22" y="83" fill="#FBBF24" font-family="sans-serif" font-size="10" font-weight="600">HOLD ESTIMATED FARE:</text>
+      <text x="22" y="99" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">Authorizes $50 hold on card</text>
+      <text x="22" y="110" fill="#CBD5E1" font-family="sans-serif" font-size="9">when passenger books trip.</text>
+
+      <rect x="12" y="125" width="186" height="55" rx="6" fill="#111827" />
+      <text x="22" y="143" fill="#FBBF24" font-family="sans-serif" font-size="10" font-weight="600">DEFERRED CAPTURE:</text>
+      <text x="22" y="159" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">Payment is captured ONLY</text>
+      <text x="22" y="171" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">when service is marked complete.</text>
+
+      <rect x="12" y="190" width="186" height="85" rx="6" fill="#111827" />
+      <text x="22" y="208" fill="#FBBF24" font-family="monospace" font-size="9.5">POST /createIntent</text>
+      <text x="22" y="224" fill="#94A3B8" font-family="monospace" font-size="9">{ capture_method: 'manual',</text>
+      <text x="22" y="238" fill="#94A3B8" font-family="monospace" font-size="9">  amount: 5000 }</text>
+      <text x="22" y="252" fill="#94A3B8" font-family="monospace" font-size="9">// POST /intents/:id/capture</text>
+
+      <rect x="12" y="285" width="186" height="80" rx="6" fill="#10B981" fill-opacity="0.08" stroke="#10B981" stroke-opacity="0.25" />
+      <text x="22" y="303" fill="#34D399" font-family="sans-serif" font-size="10" font-weight="700">CHARGE FINAL AMOUNT:</text>
+      <text x="22" y="321" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">If trip was $42.50, capture</text>
+      <text x="22" y="337" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">$42.50 and release remaining</text>
+      <text x="22" y="351" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">$7.50 automatically.</text>
+    </g>
+  </g>
+</svg>
