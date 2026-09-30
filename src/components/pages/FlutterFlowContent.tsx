@@ -166,25 +166,44 @@ export default function FlutterFlowContent() {
           className="overflow-hidden max-w-4xl mx-auto" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="relative p-10 flex items-center justify-center min-h-[280px]" style={{ background: "#161B26" }}>
-              <div className="relative z-10 w-full max-w-[200px] space-y-3">
-                <div className="p-3" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-                  <div className="flex items-center justify-between mb-2"><span className="text-[10px] text-white/50 uppercase tracking-wider">Savings Goal</span><span className="text-xs text-green-400 font-bold">+12%</span></div>
-                  <div className="h-1.5 bg-white/10 rounded-full"><div className="h-full w-3/4 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full" /></div>
+            <div className="relative p-6 sm:p-8 flex items-center justify-center min-h-[300px] overflow-hidden" style={{ background: "#161B26" }}>
+              <div className="absolute -top-10 -right-10 w-48 h-48 rounded-full bg-blue-500/15 blur-3xl pointer-events-none" />
+              <div className="relative z-10 flex items-center gap-3">
+                <div className="w-[160px] sm:w-[180px] aspect-[9/19] rounded-[24px] overflow-hidden border border-[#2D374D] shadow-2xl bg-[#0D121B] hover:scale-105 transition-transform duration-500">
+                  <img
+                    src="/images/cashnix/cashnix-screen-1.png"
+                    alt="Cashnix FlutterFlow App Dashboard"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
-                <div className="p-3" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-                  <div className="flex items-center justify-between mb-2"><span className="text-[10px] text-white/50 uppercase tracking-wider">Monthly Forecast</span><DollarSign className="w-3 h-3 text-cyan-400" /></div>
-                  <div className="flex items-end gap-1 h-10">{[40, 55, 45, 70, 60, 80, 65].map((h, i) => <div key={i} className="flex-1 rounded-sm bg-gradient-to-t from-cyan-500/60 to-blue-500/30" style={{ height: `${h}%` }} />)}</div>
-                </div>
-                <div className="p-3" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-                  <div className="text-[10px] text-white/50 uppercase tracking-wider mb-1">KPI Score</div>
-                  <div className="text-xl font-bold text-white">94<span className="text-xs text-muted-foreground">/100</span></div>
+                <div className="hidden sm:block w-[130px] aspect-[9/19] rounded-[20px] overflow-hidden border border-[#232A36] shadow-xl opacity-60 -rotate-3 hover:opacity-100 transition-opacity bg-[#0D121B]">
+                  <img
+                    src="/images/cashnix/cashnix-screen-2.png"
+                    alt="Cashnix Cash Flow Forecasting"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </div>
             <div className="p-8 flex flex-col justify-center">
-              <div className="flex flex-wrap gap-2 mb-4">{["FinTech", "FlutterFlow", "Forecasting"].map(t => <span key={t} className="text-xs px-3 py-1 eyebrow" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>{t}</span>)}</div>
-              <h3 className="text-2xl font-semibold mb-3" style={{ color: "#E9EBEF" }}>Cashnix</h3>
+              <div className="flex flex-wrap items-center gap-2 mb-4">
+                {["FinTech", "FlutterFlow", "Forecasting"].map(t => (
+                  <span key={t} className="text-xs px-3 py-1 eyebrow" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>{t}</span>
+                ))}
+                <span className="text-xs px-2.5 py-0.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 font-medium">
+                  Live on Google Play
+                </span>
+              </div>
+              <div className="flex items-center gap-3 mb-3">
+                <img
+                  src="/images/cashnix/cashnix-icon.png"
+                  alt="Cashnix App Icon"
+                  className="w-9 h-9 rounded-xl border border-[#232A36] shadow-md object-cover"
+                />
+                <h3 className="text-2xl font-semibold" style={{ color: "#E9EBEF" }}>Cashnix</h3>
+              </div>
               <p className="text-sm mb-5 leading-relaxed" style={{ color: "#8A93A3" }}>A financial forecasting app that lets users set savings goals, model what-if scenarios, track financial KPIs, and view monthly and yearly forecasts generated automatically from their transaction history.</p>
               <blockquote className="pl-4 italic text-sm mb-5" style={{ borderLeft: "2px solid #4A5FBD", color: "#E9EBEF" }}>"We came in with a complicated forecasting model and KinetixSoft shipped something our users genuinely understand and enjoy using."</blockquote>
               <div className="flex items-center gap-3">

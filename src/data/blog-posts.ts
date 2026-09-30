@@ -176,7 +176,7 @@ export const ALL_POSTS: BlogPost[] = [
   },
   {
     "slug": "how-to-build-a-fintech-forecasting-app-in-flutterflow-2026",
-    "heroImage": "/images/blog/fintech-cashnix-hero.svg",
+    "heroImage": "/images/blog/cashnix-hero.svg",
     "title": "Building a Fintech & Financial Forecasting App in FlutterFlow: Real Architecture Lessons",
     "date": "Jul 22, 2026",
     "isoDate": "2026-07-22",

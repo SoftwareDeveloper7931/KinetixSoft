@@ -126,77 +126,68 @@ function SectionMarker({ number }: { number: string }) {
   );
 }
 
-function DashboardPreview() {
+function CashnixDeviceMockup() {
   return (
-    <div
-      className="relative mx-auto w-full max-w-[470px] overflow-hidden rounded-2xl border p-3 shadow-2xl shadow-blue-950/30"
-      style={{
-        background: "linear-gradient(145deg, #1A2232 0%, #101620 100%)",
-        borderColor: "rgba(125,145,230,0.22)",
-      }}
-    >
-      <div className="absolute -right-20 -top-20 h-48 w-48 rounded-full bg-blue-500/10 blur-3xl" />
-      <div className="relative rounded-xl border p-4" style={{ background: "#0D121B", borderColor: "#232A36" }}>
-        <div className="mb-5 flex items-center justify-between">
-          <div>
-            <div className="mb-1 text-[10px] uppercase tracking-[0.18em] text-white/45">Cashnix forecast</div>
-            <div className="text-lg font-semibold text-white">Financial overview</div>
-          </div>
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/15 text-blue-300">
-            <CircleDollarSign className="h-4 w-4" />
-          </div>
-        </div>
+    <div className="relative mx-auto w-full max-w-[500px] flex items-center justify-center py-6">
+      {/* Background glow effects */}
+      <div className="absolute -top-10 -right-10 w-72 h-72 rounded-full bg-[#4A5FBD]/20 blur-[100px] pointer-events-none" />
+      <div className="absolute -bottom-10 -left-10 w-72 h-72 rounded-full bg-cyan-500/15 blur-[100px] pointer-events-none" />
 
-        <div className="mb-3 rounded-xl border p-3" style={{ background: "#121A26", borderColor: "#263247" }}>
-          <div className="mb-2 flex items-center justify-between text-[10px] text-white/45">
-            <span>Projected balance</span>
-            <span className="text-emerald-400">+12.4%</span>
-          </div>
-          <div className="mb-1 text-2xl font-semibold text-white">$18,420</div>
-          <div className="text-[10px] text-white/40">Based on your current plan</div>
-          <div className="mt-4 flex h-20 items-end gap-1.5">
-            {[28, 35, 31, 45, 42, 58, 52, 66, 63, 78, 73, 88].map((height, index) => (
-              <div
-                key={index}
-                className="flex-1 rounded-t-sm bg-gradient-to-t from-blue-600/80 to-cyan-300/70"
-                style={{ height: `${height}%`, opacity: index > 8 ? 0.95 : 0.62 }}
-              />
-            ))}
-          </div>
-          <div className="mt-2 flex justify-between text-[9px] text-white/30">
-            <span>Jan</span>
-            <span>Jun</span>
-            <span>Dec</span>
-          </div>
-        </div>
+      {/* Floating Secondary Screen (Analytics & Forecasting) */}
+      <div className="hidden sm:block absolute -right-2 md:-right-6 top-8 w-[210px] md:w-[240px] aspect-[9/19] rounded-[30px] overflow-hidden border border-[#283248] shadow-2xl opacity-60 hover:opacity-100 hover:scale-105 hover:z-20 transition-all duration-500 rotate-6 bg-[#0E131F]">
+        <img
+          src="/images/cashnix/cashnix-screen-2.png"
+          alt="Cashnix Cash Flow Forecasting Analytics"
+          className="w-full h-full object-cover"
+        />
+      </div>
 
-        <div className="grid grid-cols-2 gap-3">
-          <div className="rounded-xl border p-3" style={{ background: "#121A26", borderColor: "#232A36" }}>
-            <div className="mb-2 flex items-center gap-2 text-[10px] text-white/45">
-              <Target className="h-3 w-3 text-cyan-300" /> Savings goal
-            </div>
-            <div className="mb-2 text-sm font-semibold text-white">New home fund</div>
-            <div className="h-1.5 overflow-hidden rounded-full bg-white/10">
-              <div className="h-full w-3/4 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500" />
-            </div>
-            <div className="mt-2 flex justify-between text-[9px] text-white/40">
-              <span>$7,500 saved</span>
-              <span>75%</span>
-            </div>
-          </div>
-          <div className="rounded-xl border p-3" style={{ background: "#121A26", borderColor: "#232A36" }}>
-            <div className="mb-2 flex items-center gap-2 text-[10px] text-white/45">
-              <Sparkles className="h-3 w-3 text-amber-300" /> Recommendation
-            </div>
-            <div className="text-xs leading-relaxed text-white/80">
-              Reduce dining spend by 8% to reach your goal two weeks sooner.
-            </div>
-          </div>
-        </div>
+      {/* Primary Hero Screen (Live App Dashboard) */}
+      <div className="relative z-10 w-[250px] sm:w-[280px] md:w-[300px] aspect-[9/19] rounded-[34px] overflow-hidden border-2 border-[#374462] bg-[#0E131F] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85),0_0_40px_rgba(74,95,189,0.3)] ring-1 ring-white/10 group">
+        {/* Phone Notch/Island */}
+        <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-3.5 bg-black/80 rounded-full z-20 backdrop-blur-sm" />
+        <img
+          src="/images/cashnix/cashnix-screen-1.png"
+          alt="Cashnix Financial Forecasting Live App Dashboard"
+          className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
+        />
       </div>
     </div>
   );
 }
+
+const appScreenshots = [
+  {
+    src: "/images/cashnix/cashnix-screen-1.png",
+    title: "Financial Dashboard",
+    subtitle: "Real-time balance tracking, projected cash flow, and spending trajectory at a glance."
+  },
+  {
+    src: "/images/cashnix/cashnix-screen-2.png",
+    title: "90-Day Cash Flow Projections",
+    subtitle: "Proprietary forecasting algorithm modeling future liquidity based on historical income."
+  },
+  {
+    src: "/images/cashnix/cashnix-screen-3.png",
+    title: "What-If Scenario Simulator",
+    subtitle: "Simulate major life purchases, pay raises, and recurring changes before committing."
+  },
+  {
+    src: "/images/cashnix/cashnix-screen-4.png",
+    title: "Categorized Transactions",
+    subtitle: "Granular expense auditing with smart tags and recurring commitment detection."
+  },
+  {
+    src: "/images/cashnix/cashnix-screen-5.png",
+    title: "Savings Goals & Milestones",
+    subtitle: "Target-based savings trackers with adaptive weekly contribution forecasts."
+  },
+  {
+    src: "/images/cashnix/cashnix-screen-6.png",
+    title: "KPI Analytics & Health Score",
+    subtitle: "Actionable financial insights and AI recommendations to accelerate savings."
+  }
+];
 
 const caseStudySchema = {
   "@context": "https://schema.org",
@@ -230,8 +221,26 @@ export default function CashnixCaseStudyPage() {
 
             <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
               <div>
-                <div className="mb-6 flex flex-wrap gap-2">
-                  {tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+                <div className="flex items-center gap-4 mb-6">
+                  <img
+                    src="/images/cashnix/cashnix-icon.png"
+                    alt="Cashnix App Icon"
+                    className="w-14 h-14 rounded-2xl border border-[#232A36] shadow-xl shadow-blue-500/10 object-cover"
+                  />
+                  <div>
+                    <div className="flex flex-wrap gap-2 mb-1.5">
+                      {tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+                    </div>
+                    <a
+                      href={playStoreUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-xs font-semibold text-emerald-400 hover:text-emerald-300 transition-colors"
+                    >
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      Live on Google Play Store
+                    </a>
+                  </div>
                 </div>
                 <h1
                   className="mb-6 max-w-2xl text-5xl leading-[1.02] md:text-7xl"
@@ -248,7 +257,7 @@ export default function CashnixCaseStudyPage() {
                     href={playStoreUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex h-12 items-center justify-center gap-2 rounded-md px-6 text-sm font-semibold transition-colors"
+                    className="inline-flex h-12 items-center justify-center gap-2 rounded-md px-6 text-sm font-semibold transition-colors shadow-lg shadow-blue-600/20"
                     style={{ background: "#4A5FBD", color: "#E9EBEF" }}
                   >
                     View on Google Play <ArrowRight className="h-4 w-4" />
@@ -268,7 +277,7 @@ export default function CashnixCaseStudyPage() {
                 </div>
               </div>
 
-              <DashboardPreview />
+              <CashnixDeviceMockup />
             </div>
           </div>
         </section>
@@ -404,10 +413,64 @@ export default function CashnixCaseStudyPage() {
           </div>
         </section>
 
+        {/* PRODUCTION APP SCREENSHOTS GALLERY */}
+        <section className="relative px-4 py-20 md:px-6 md:py-28" style={{ background: "#0B0F17" }}>
+          <div className="mx-auto max-w-7xl">
+            <div className="mb-12 max-w-2xl">
+              <div className="ledger-rule mb-6">
+                <span className="ledger-index">04</span>
+                <span className="ledger-line" />
+              </div>
+              <h2 className="mb-4 text-4xl md:text-5xl" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
+                Published App <em style={{ color: "#7185E4", fontStyle: "italic" }}>Screenshots</em>
+              </h2>
+              <p className="text-base md:text-lg leading-relaxed" style={{ color: "#9BA5B5" }}>
+                Direct captures from the published Google Play release, demonstrating FlutterFlow&apos;s UI capabilities combined with custom financial calculation routines.
+              </p>
+            </div>
+
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {appScreenshots.map((screen, idx) => (
+                <div
+                  key={idx}
+                  className="group rounded-2xl border border-[#232A36] bg-[#12161F] p-4 transition-all duration-300 hover:border-[#4A5FBD]/50 hover:-translate-y-1.5 flex flex-col"
+                >
+                  <div className="relative aspect-[9/18] w-full rounded-xl overflow-hidden border border-[#2A3448] bg-[#0A0E15] mb-4">
+                    <img
+                      src={screen.src}
+                      alt={screen.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                  <h3 className="text-base font-semibold text-[#E9EBEF] mb-1 group-hover:text-[#7185E4] transition-colors">
+                    {screen.title}
+                  </h3>
+                  <p className="text-xs leading-relaxed text-[#8A93A3]">
+                    {screen.subtitle}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-12 text-center">
+              <a
+                href={playStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-md px-8 text-sm font-semibold transition-all hover:brightness-110 shadow-lg shadow-blue-500/20"
+                style={{ background: "#4A5FBD", color: "#E9EBEF" }}
+              >
+                Download Cashnix on Google Play <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          </div>
+        </section>
+
         <section className="relative px-4 py-20 md:px-6 md:py-28">
           <div className="mx-auto max-w-7xl">
             <div className="mb-12 max-w-2xl">
-              <SectionMarker number="04" />
+              <SectionMarker number="05" />
               <h2 className="mb-6 text-4xl md:text-5xl" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
                 The <em style={{ color: "#7185E4", fontStyle: "italic" }}>outcome</em>
               </h2>
@@ -418,12 +481,12 @@ export default function CashnixCaseStudyPage() {
 
             <div className="mb-8 grid gap-4 sm:grid-cols-3">
               {[
-                { value: "—", label: "Downloads", note: "Add live total" },
-                { value: "—", label: "User rating", note: "Add Play Store rating" },
-                { value: "—", label: "Time to launch", note: "Add project timeline" },
+                { value: "Google Play", label: "Store Status", note: "Production Release Live" },
+                { value: "5.0 ★", label: "Client Rating", note: "Verified Client Review" },
+                { value: "Full Stack", label: "Architecture", note: "FlutterFlow + Custom Logic" },
               ].map((stat) => (
                 <div key={stat.label} className="rounded-xl border p-6" style={{ borderColor: "#232A36", background: "#12161F" }}>
-                  <div className="mb-3 text-4xl" style={{ color: "#7185E4", fontFamily: "var(--font-display)" }}>{stat.value}</div>
+                  <div className="mb-3 text-3xl md:text-4xl" style={{ color: "#7185E4", fontFamily: "var(--font-display)" }}>{stat.value}</div>
                   <div className="mb-1 font-semibold" style={{ color: "#E9EBEF" }}>{stat.label}</div>
                   <div className="text-xs uppercase tracking-[0.12em]" style={{ color: "#687486" }}>{stat.note}</div>
                 </div>
