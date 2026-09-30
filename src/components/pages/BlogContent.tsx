@@ -118,10 +118,16 @@ export default function BlogContent() {
                   {post.heroImage && (
                     <div className="relative w-full h-44 overflow-hidden bg-[#0B0F19] border-b border-[#232A36]">
                       <img
-                        src={post.heroImage}
+                        src={`${post.heroImage}?v=2`}
                         alt={post.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
+                        onError={(e) => {
+                          const target = e.currentTarget;
+                          if (!target.src.includes('og-default.png')) {
+                            target.src = '/og-default.png';
+                          }
+                        }}
                       />
                     </div>
                   )}

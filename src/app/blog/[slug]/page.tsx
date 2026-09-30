@@ -151,10 +151,16 @@ export default async function BlogPostPage({
         {post.heroImage && (
           <div className="my-8 rounded-xl overflow-hidden border border-[#232A36] shadow-2xl bg-[#12161F]">
             <img
-              src={post.heroImage}
+              src={`${post.heroImage}?v=2`}
               alt={post.title}
               className="w-full h-auto max-h-[460px] object-cover"
               loading="eager"
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (!target.src.includes('og-default.png')) {
+                  target.src = '/og-default.png';
+                }
+              }}
             />
           </div>
         )}
