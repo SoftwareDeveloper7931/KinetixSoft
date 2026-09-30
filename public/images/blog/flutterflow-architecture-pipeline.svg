@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 550" width="1000" height="550">
+  <defs>
+    <linearGradient id="pipeBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19" />
+      <stop offset="100%" stop-color="#121826" />
+    </linearGradient>
+    <linearGradient id="stepGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A2234" />
+      <stop offset="100%" stop-color="#101622" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="550" rx="16" fill="url(#pipeBg)" stroke="#232A36" stroke-width="1.5" />
+
+  <!-- Title -->
+  <g transform="translate(50, 45)">
+    <text x="0" y="20" fill="#E9EBEF" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700">The FlutterFlow Full-Stack Production Architecture</text>
+    <text x="0" y="42" fill="#8A93A3" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13">End-to-end data flow: Visual Client UI &#8594; State Management &#8594; Secure Proxy Cloud Functions &#8594; Enterprise Cloud</text>
+  </g>
+
+  <!-- 4 Step Flow -->
+  <g transform="translate(50, 120)">
+    <!-- Step 1: Visual UI Layer -->
+    <g transform="translate(0, 0)">
+      <rect width="200" height="340" rx="12" fill="url(#stepGrad)" stroke="#4A5FBD" stroke-width="1.5" />
+      <rect x="15" y="15" width="28" height="28" rx="6" fill="#4A5FBD" fill-opacity="0.2" />
+      <text x="29" y="34" fill="#7E95F7" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">1</text>
+      <text x="52" y="34" fill="#E9EBEF" font-family="sans-serif" font-size="14" font-weight="700">CLIENT UI</text>
+      
+      <rect x="15" y="55" width="170" height="48" rx="6" fill="#0C101A" />
+      <text x="25" y="75" fill="#E9EBEF" font-family="monospace" font-size="10">Scaffold &amp; Layouts</text>
+      <text x="25" y="90" fill="#8A93A3" font-family="sans-serif" font-size="9">Row, Col, Stack, Container</text>
+
+      <rect x="15" y="112" width="170" height="48" rx="6" fill="#0C101A" />
+      <text x="25" y="132" fill="#E9EBEF" font-family="monospace" font-size="10">Dynamic Feeds</text>
+      <text x="25" y="147" fill="#8A93A3" font-family="sans-serif" font-size="9">ListView &amp; Dynamic Children</text>
+
+      <rect x="15" y="170" width="170" height="48" rx="6" fill="#0C101A" />
+      <text x="25" y="190" fill="#E9EBEF" font-family="monospace" font-size="10">Input &amp; Forms</text>
+      <text x="25" y="205" fill="#8A93A3" font-family="sans-serif" font-size="9">TextFields, Dropdowns, Toggles</text>
+
+      <rect x="15" y="228" width="170" height="48" rx="6" fill="#0C101A" />
+      <text x="25" y="248" fill="#E9EBEF" font-family="monospace" font-size="10">Visibility Logic</text>
+      <text x="25" y="263" fill="#8A93A3" font-family="sans-serif" font-size="9">Conditional UI Gates</text>
+
+      <rect x="15" y="286" width="170" height="38" rx="6" fill="#4A5FBD" fill-opacity="0.1" stroke="#4A5FBD" stroke-opacity="0.3" />
+      <text x="25" y="309" fill="#7E95F7" font-family="sans-serif" font-size="10" font-weight="600">Pure Flutter (Dart)</text>
+    </g>
+
+    <!-- Arrow 1 -> 2 -->
+    <path d="M210, 170 H225" stroke="#4A5FBD" stroke-width="2" marker-end="url(#arrow)" />
+
+    <!-- Step 2: State & Action Flows -->
+    <g transform="translate(235, 0)">
+      <rect width="200" height="340" rx="12" fill="url(#stepGrad)" stroke="#232A36" stroke-width="1.5" />
+      <rect x="15" y="15" width="28" height="28" rx="6" fill="#06B6D4" fill-opacity="0.2" />
+      <text x="29" y="34" fill="#06B6D4" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">2</text>
+      <text x="52" y="34" fill="#E9EBEF" font-family="sans-serif" font-size="14" font-weight="700">STATE &amp; FLOWS</text>
+
+      <rect x="15" y="55" width="170" height="48" rx="6" fill="#0C101A" />
+      <text x="25" y="75" fill="#E9EBEF" font-family="monospace" font-size="10">App State</text>
+      <text x="25" y="90" fill="#8A93A3" font-family="sans-serif" font-size="9">Session Memory (Chat, Auth)</text>
+
+      <rect x="15" y="112" width="170" height="48" rx="6" fill="#0C101A" />
+      <text x="25" y="132" fill="#E9EBEF" font-family="monospace" font-size="10">Page &amp; Component</text>
+      <text x="25" y="147" fill="#8A93A3" font-family="sans-serif" font-size="9">Local Transient Variables</text>
+
+      <rect x="15" y="170" width="170" height="48" rx="6" fill="#0C101A" />
+      <text x="25" y="190" fill="#E9EBEF" font-family="monospace" font-size="10">Action Flow Chains</text>
+      <text x="25" y="205" fill="#8A93A3" font-family="sans-serif" font-size="9">Sequenced Trigger Logic</text>
+
+      <rect x="15" y="228" width="170" height="48" rx="6" fill="#0C101A" />
+      <text x="25" y="248" fill="#E9EBEF" font-family="monospace" font-size="10">Custom Actions</text>
+      <text x="25" y="263" fill="#8A93A3" font-family="sans-serif" font-size="9">Dart Cloud Functions Bridge</text>
+
+      <rect x="15" y="286" width="170" height="38" rx="6" fill="#06B6D4" fill-opacity="0.1" stroke="#06B6D4" stroke-opacity="0.3" />
+      <text x="25" y="309" fill="#06B6D4" font-family="sans-serif" font-size="10" font-weight="600">Reactive State Engine</text>
+    </g>
+
+    <!-- Arrow 2 -> 3 -->
+    <path d="M445, 170 H460" stroke="#06B6D4" stroke-width="2" />
+
+    <!-- Step 3: Secure Serverless Gateway -->
+    <g transform="translate(470, 0)">
+      <rect width="200" height="340" rx="12" fill="url(#stepGrad)" stroke="#10B981" stroke-width="1.5" />
+      <rect x="15" y="15" width="28" height="28" rx="6" fill="#10B981" fill-opacity="0.2" />
+      <text x="29" y="34" fill="#10B981" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">3</text>
+      <text x="52" y="34" fill="#E9EBEF" font-family="sans-serif" font-size="14" font-weight="700">SECURE PROXY</text>
+
+      <rect x="15" y="55" width="170" height="48" rx="6" fill="#0C101A" />
+      <text x="25" y="75" fill="#10B981" font-family="monospace" font-size="10">&#9679; Make Private</text>
+      <text x="25" y="90" fill="#8A93A3" font-family="sans-serif" font-size="9">Routes via Cloud Functions</text>
+
+      <rect x="15" y="112" width="170" height="48" rx="6" fill="#0C101A" />
+      <text x="25" y="132" fill="#E9EBEF" font-family="monospace" font-size="10">Private Env Values</text>
+      <text x="25" y="147" fill="#8A93A3" font-family="sans-serif" font-size="9">Zero API Key Extraction</text>
+
+      <rect x="15" y="170" width="170" height="48" rx="6" fill="#0C101A" />
+      <text x="25" y="190" fill="#E9EBEF" font-family="monospace" font-size="10">Custom Claims</text>
+      <text x="25" y="205" fill="#8A93A3" font-family="sans-serif" font-size="9">RBAC Token Signing</text>
+
+      <rect x="15" y="228" width="170" height="48" rx="6" fill="#0C101A" />
+      <text x="25" y="248" fill="#E9EBEF" font-family="monospace" font-size="10">Auth Token Refresh</text>
+      <text x="25" y="263" fill="#8A93A3" font-family="sans-serif" font-size="9">Immediate Access Elevation</text>
+
+      <rect x="15" y="286" width="170" height="38" rx="6" fill="#10B981" fill-opacity="0.1" stroke="#10B981" stroke-opacity="0.3" />
+      <text x="25" y="309" fill="#10B981" font-family="sans-serif" font-size="10" font-weight="600">Zero-Trust Security</text>
+    </g>
+
+    <!-- Arrow 3 -> 4 -->
+    <path d="M680, 170 H695" stroke="#10B981" stroke-width="2" />
+
+    <!-- Step 4: External Services & Stores -->
+    <g transform="translate(705, 0)">
+      <rect width="200" height="340" rx="12" fill="url(#stepGrad)" stroke="#F43F5E" stroke-width="1.5" />
+      <rect x="15" y="15" width="28" height="28" rx="6" fill="#F43F5E" fill-opacity="0.2" />
+      <text x="29" y="34" fill="#F43F5E" font-family="sans-serif" font-size="13" font-weight="bold" text-anchor="middle">4</text>
+      <text x="52" y="34" fill="#E9EBEF" font-family="sans-serif" font-size="14" font-weight="700">SERVICES &amp; STORES</text>
+
+      <rect x="15" y="55" width="170" height="48" rx="6" fill="#0C101A" />
+      <text x="25" y="75" fill="#E9EBEF" font-family="monospace" font-size="10">Brevo Transactional</text>
+      <text x="25" y="90" fill="#8A93A3" font-family="sans-serif" font-size="9">Automated Email Deliveries</text>
+
+      <rect x="15" y="112" width="170" height="48" rx="6" fill="#0C101A" />
+      <text x="25" y="132" fill="#E9EBEF" font-family="monospace" font-size="10">OpenAI API</text>
+      <text x="25" y="147" fill="#8A93A3" font-family="sans-serif" font-size="9">Conversational LLM Context</text>
+
+      <rect x="15" y="170" width="170" height="48" rx="6" fill="#0C101A" />
+      <text x="25" y="190" fill="#E9EBEF" font-family="monospace" font-size="10">Firestore Rules</text>
+      <text x="25" y="205" fill="#8A93A3" font-family="sans-serif" font-size="9">request.auth.token.role</text>
+
+      <rect x="15" y="228" width="170" height="48" rx="6" fill="#0C101A" />
+      <text x="25" y="248" fill="#E9EBEF" font-family="monospace" font-size="10">App Stores</text>
+      <text x="25" y="263" fill="#8A93A3" font-family="sans-serif" font-size="9">iOS App Store &amp; Google Play</text>
+
+      <rect x="15" y="286" width="170" height="38" rx="6" fill="#F43F5E" fill-opacity="0.1" stroke="#F43F5E" stroke-opacity="0.3" />
+      <text x="25" y="309" fill="#F43F5E" font-family="sans-serif" font-size="10" font-weight="600">Enterprise Cloud Mesh</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(50, 500)">
+    <circle cx="8" cy="-5" r="4" fill="#4A5FBD" />
+    <text x="20" y="-1" fill="#4A5FBD" font-family="sans-serif" font-size="11" font-weight="600">KinetixSoft Architecture Systems</text>
+    <text x="210" y="-1" fill="#475569" font-family="sans-serif" font-size="11">&#8226; Production Reference Specification</text>
+  </g>
+</svg>

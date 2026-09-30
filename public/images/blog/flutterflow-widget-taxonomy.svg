@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 580" width="1000" height="580">
+  <defs>
+    <linearGradient id="wtBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090D16" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <linearGradient id="colGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="580" rx="16" fill="url(#wtBg)" stroke="#1E293B" stroke-width="1.5" />
+
+  <!-- Title and Description -->
+  <g transform="translate(50, 40)">
+    <rect width="180" height="26" rx="13" fill="#6366F1" fill-opacity="0.15" stroke="#6366F1" stroke-opacity="0.4" />
+    <text x="90" y="17" fill="#818CF8" font-family="system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle" letter-spacing="0.5">WIDGET TAXONOMY</text>
+    <text x="0" y="58" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="24" font-weight="800">The FlutterFlow UI Component Architecture</text>
+    <text x="0" y="84" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="13">Mental Model: Layouts frame the room; Base elements are the furniture; Page elements form the walls; Forms capture intent.</text>
+  </g>
+
+  <!-- 4 Columns of Widget Categories -->
+  <!-- Category 1: Layout Elements -->
+  <g transform="translate(50, 150)">
+    <rect width="205" height="380" rx="12" fill="url(#colGrad1)" stroke="#3B82F6" stroke-opacity="0.4" stroke-width="1.5" />
+    <rect x="15" y="15" width="32" height="32" rx="8" fill="#3B82F6" fill-opacity="0.2" />
+    <text x="31" y="36" fill="#60A5FA" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">01</text>
+    <text x="55" y="30" fill="#F1F5F9" font-family="sans-serif" font-size="14" font-weight="700">Layout Elements</text>
+    <text x="55" y="45" fill="#64748B" font-family="sans-serif" font-size="10">Spatial Organizers</text>
+
+    <!-- Items -->
+    <g transform="translate(15, 65)">
+      <rect width="175" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">Row (Horizontal)</text>
+    </g>
+    <g transform="translate(15, 107)">
+      <rect width="175" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">Column (Vertical)</text>
+    </g>
+    <g transform="translate(15, 149)">
+      <rect width="175" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">Stack (Layered Z-Index)</text>
+    </g>
+    <g transform="translate(15, 191)">
+      <rect width="175" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">Container (Box/Styling)</text>
+    </g>
+    <g transform="translate(15, 233)">
+      <rect width="175" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">ListView (1D Scrollable)</text>
+    </g>
+    <g transform="translate(15, 275)">
+      <rect width="175" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">GridView (2D Scrollable)</text>
+    </g>
+    <g transform="translate(15, 317)">
+      <rect width="175" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">Wrap (Multi-Line Flow)</text>
+    </g>
+  </g>
+
+  <!-- Category 2: Base Elements -->
+  <g transform="translate(280, 150)">
+    <rect width="205" height="380" rx="12" fill="url(#colGrad1)" stroke="#10B981" stroke-opacity="0.4" stroke-width="1.5" />
+    <rect x="15" y="15" width="32" height="32" rx="8" fill="#10B981" fill-opacity="0.2" />
+    <text x="31" y="36" fill="#34D399" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">02</text>
+    <text x="55" y="30" fill="#F1F5F9" font-family="sans-serif" font-size="14" font-weight="700">Base Elements</text>
+    <text x="55" y="45" fill="#64748B" font-family="sans-serif" font-size="10">Visual &amp; Interactive</text>
+
+    <g transform="translate(15, 65)">
+      <rect width="175" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">Text (Static / Dynamic)</text>
+    </g>
+    <g transform="translate(15, 107)">
+      <rect width="175" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">Rich Text (Span Styles)</text>
+    </g>
+    <g transform="translate(15, 149)">
+      <rect width="175" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">Image (Asset/Net/GCS)</text>
+    </g>
+    <g transform="translate(15, 191)">
+      <rect width="175" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">Icon (Vector / Material)</text>
+    </g>
+    <g transform="translate(15, 233)">
+      <rect width="175" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">Button (Action Trigger)</text>
+    </g>
+    <g transform="translate(15, 275)">
+      <rect width="175" height="76" rx="6" fill="#10B981" fill-opacity="0.1" stroke="#10B981" stroke-opacity="0.3" />
+      <text x="12" y="22" fill="#34D399" font-family="sans-serif" font-size="10" font-weight="700">GOLDEN RULE:</text>
+      <text x="12" y="38" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">Never hardcode colors (#hex).</text>
+      <text x="12" y="52" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">Always bind to Theme Colors</text>
+      <text x="12" y="66" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">for instant global rebranding.</text>
+    </g>
+  </g>
+
+  <!-- Category 3: Page Elements -->
+  <g transform="translate(510, 150)">
+    <rect width="205" height="380" rx="12" fill="url(#colGrad1)" stroke="#8B5CF6" stroke-opacity="0.4" stroke-width="1.5" />
+    <rect x="15" y="15" width="32" height="32" rx="8" fill="#8B5CF6" fill-opacity="0.2" />
+    <text x="31" y="36" fill="#A78BFA" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">03</text>
+    <text x="55" y="30" fill="#F1F5F9" font-family="sans-serif" font-size="14" font-weight="700">Page Elements</text>
+    <text x="55" y="45" fill="#64748B" font-family="sans-serif" font-size="10">Scaffold Chrome</text>
+
+    <g transform="translate(15, 65)">
+      <rect width="175" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">Scaffold (Root Frame)</text>
+    </g>
+    <g transform="translate(15, 107)">
+      <rect width="175" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">AppBar (Top Nav / Actions)</text>
+    </g>
+    <g transform="translate(15, 149)">
+      <rect width="175" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">NavBar (2-5 Tab Roots)</text>
+    </g>
+    <g transform="translate(15, 191)">
+      <rect width="175" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">Drawer / EndDrawer</text>
+    </g>
+    <g transform="translate(15, 233)">
+      <rect width="175" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">FloatingActionButton</text>
+    </g>
+    <g transform="translate(15, 275)">
+      <rect width="175" height="76" rx="6" fill="#8B5CF6" fill-opacity="0.1" stroke="#8B5CF6" stroke-opacity="0.3" />
+      <text x="12" y="22" fill="#C4B5FD" font-family="sans-serif" font-size="10" font-weight="700">AUTOMATIC ROUTING:</text>
+      <text x="12" y="38" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">NavBar handles page</text>
+      <text x="12" y="52" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">switching natively without</text>
+      <text x="12" y="66" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">manual Action Flow wiring.</text>
+    </g>
+  </g>
+
+  <!-- Category 4: Form Elements -->
+  <g transform="translate(740, 150)">
+    <rect width="210" height="380" rx="12" fill="url(#colGrad1)" stroke="#F59E0B" stroke-opacity="0.4" stroke-width="1.5" />
+    <rect x="15" y="15" width="32" height="32" rx="8" fill="#F59E0B" fill-opacity="0.2" />
+    <text x="31" y="36" fill="#FBBF24" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">04</text>
+    <text x="55" y="30" fill="#F1F5F9" font-family="sans-serif" font-size="14" font-weight="700">Form Elements</text>
+    <text x="55" y="45" fill="#64748B" font-family="sans-serif" font-size="10">Data Capture &amp; Input</text>
+
+    <g transform="translate(15, 65)">
+      <rect width="180" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">TextField (Keyboard input)</text>
+    </g>
+    <g transform="translate(15, 107)">
+      <rect width="180" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">Checkbox (Boolean agree)</text>
+    </g>
+    <g transform="translate(15, 149)">
+      <rect width="180" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">Dropdown (Compact list)</text>
+    </g>
+    <g transform="translate(15, 191)">
+      <rect width="180" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">Toggle/Switch (Live on/off)</text>
+    </g>
+    <g transform="translate(15, 233)">
+      <rect width="180" height="34" rx="6" fill="#1E293B" stroke="#334155" />
+      <text x="12" y="21" fill="#F8FAFC" font-family="monospace" font-size="11">Form (Group Validation)</text>
+    </g>
+    <g transform="translate(15, 275)">
+      <rect width="180" height="76" rx="6" fill="#F59E0B" fill-opacity="0.1" stroke="#F59E0B" stroke-opacity="0.3" />
+      <text x="12" y="22" fill="#FBBF24" font-family="sans-serif" font-size="10" font-weight="700">CHECKBOX VS TOGGLE:</text>
+      <text x="12" y="38" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">Use Toggle for immediate</text>
+      <text x="12" y="52" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">system settings (Dark mode).</text>
+      <text x="12" y="66" fill="#CBD5E1" font-family="sans-serif" font-size="9.5">Use Checkbox for form submit.</text>
+    </g>
+  </g>
+</svg>

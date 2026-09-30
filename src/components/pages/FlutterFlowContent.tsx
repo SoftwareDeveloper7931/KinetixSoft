@@ -6,7 +6,7 @@ import Link from "next/link";
 import {
   Smartphone, Zap, Shield, Code2, Star, ChevronDown, ArrowRight,
   BarChart2, DollarSign, Layers, Users, GraduationCap, ShoppingBag,
-  Home as HomeIcon, Truck, Bot, HeartPulse
+  Home as HomeIcon, Truck, Bot, HeartPulse, BookOpen, ChevronRight, ExternalLink
 } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 
@@ -238,6 +238,80 @@ export default function FlutterFlowContent() {
               <h3 className="text-xl font-semibold" style={{ color: "#E9EBEF" }}>{s.title} <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>{s.accent}</em></h3>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* FLUTTERFLOW LEARNING TUTORIALS SECTION */}
+      <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
+        <div className="p-8 md:p-12 rounded-2xl bg-gradient-to-b from-[#131926] to-[#0E131F] border border-[#232A36]">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#4A5FBD]/10 border border-[#4A5FBD]/30 text-xs font-semibold text-[#7E95F7] mb-3">
+                <BookOpen className="w-3.5 h-3.5" /> FREE ENGINEERING CURRICULUM
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#E9EBEF]">
+                FlutterFlow Learning <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Tutorials &amp; Guides</em>
+              </h2>
+              <p className="text-sm text-[#8A93A3] mt-2 max-w-2xl">
+                Master FlutterFlow visual development with our step-by-step masterclasses: UI widget layout models, state hierarchy, secure Brevo email APIs, OpenAI chatbots, Firebase Custom Claims RBAC, and App Store publishing.
+              </p>
+            </div>
+            <Link href="/flutterflow/tutorials">
+              <button className="h-11 px-6 text-sm font-semibold rounded-md bg-[#4A5FBD] hover:bg-[#5A6FCC] text-[#E9EBEF] flex items-center gap-2 whitespace-nowrap transition-all shadow-lg shadow-[#4A5FBD]/20">
+                Explore All Tutorials <ArrowRight className="w-4 h-4" />
+              </button>
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              {
+                num: "01",
+                badge: "UI Architecture",
+                title: "UI Widget Taxonomy & Layouts",
+                desc: "Rows, Columns, Stacks, Containers, and Form Elements. Master the mental model of the reactive widget tree.",
+                link: "/flutterflow/tutorials#widget-architecture"
+              },
+              {
+                num: "02",
+                badge: "REST APIs & AI",
+                title: "Brevo Email & OpenAI Chatbot",
+                desc: "Zero-leak Private API Groups via Firebase Cloud Functions, multi-turn chat history in App State, and dynamic UI.",
+                link: "/flutterflow/tutorials#brevo-email-api"
+              },
+              {
+                num: "03",
+                badge: "Security & Launch",
+                title: "Custom Claims RBAC & App Stores",
+                desc: "Cryptographic token claims, 0-database read costs, token force refresh, and Apple/Google launch checklists.",
+                link: "/flutterflow/tutorials#firebase-custom-claims"
+              }
+            ].map((t, idx) => (
+              <div key={idx} className="p-6 rounded-xl bg-[#0B0F19] border border-[#1F2937] hover:border-[#4A5FBD]/60 transition-all flex flex-col group">
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[#161F30] text-[#60A5FA] border border-[#23314B]">{t.num}</span>
+                  <span className="text-[11px] text-[#06B6D4] font-medium">{t.badge}</span>
+                </div>
+                <h3 className="text-lg font-bold text-[#E9EBEF] group-hover:text-[#60A5FA] transition-colors mb-2">{t.title}</h3>
+                <p className="text-xs text-[#8A93A3] leading-relaxed mb-6 flex-1">{t.desc}</p>
+                <Link href={t.link} className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#4A5FBD] group-hover:text-[#7E95F7] transition-colors">
+                  View Tutorial <ChevronRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 pt-6 border-t border-[#1F2937] flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-3">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse" />
+              <span className="text-xs text-[#CBD5E1]">
+                Featured Masterclass: <strong className="text-white">The Ultimate FlutterFlow Beginner Guide (2026)</strong> (28 min read)
+              </span>
+            </div>
+            <Link href="/blog/flutterflow-beginner-guide-step-by-step-tutorial-2026" className="text-xs font-semibold text-[#60A5FA] hover:text-[#93C5FD] transition-colors flex items-center gap-1">
+              Read Pillar Guide <ExternalLink className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
       </section>
 

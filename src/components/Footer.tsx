@@ -33,6 +33,7 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li><Link href="/podio" className="hover:text-[#4A5FBD] transition-colors">Podio Solutions</Link></li>
               <li><Link href="/flutterflow" className="hover:text-[#4A5FBD] transition-colors">FlutterFlow Apps</Link></li>
+              <li><Link href="/flutterflow/tutorials" className="hover:text-[#4A5FBD] transition-colors">FlutterFlow Tutorials</Link></li>
               <li><Link href="/retool" className="hover:text-[#4A5FBD] transition-colors">Retool Development</Link></li>
               <li><Link href="/lovable" className="hover:text-[#4A5FBD] transition-colors">Lovable Builds</Link></li>
               <li><Link href="/replit-platform" className="hover:text-[#4A5FBD] transition-colors">Replit Development</Link></li>
