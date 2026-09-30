@@ -854,17 +854,29 @@ export default function FlutterFlowTutorialsContent() {
                     height={225}
                     className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <span className="px-2 py-0.5 text-[10px] font-bold rounded bg-[#0B0F19]/90 border border-[#334155] text-[#93C5FD]">
-                      MODULE {module.number}
-                    </span>
-                    <span className="px-2 py-0.5 text-[10px] font-semibold rounded bg-[#4A5FBD]/20 border border-[#4A5FBD]/40 text-[#7E95F7]">
-                      {module.difficulty}
-                    </span>
-                  </div>
                 </div>
 
                 <div className="p-6 flex-1 flex flex-col">
+                  <div className="flex items-center justify-between gap-2 mb-3">
+                    <div className="flex items-center gap-2">
+                      <span className="px-2.5 py-1 text-xs font-mono font-bold rounded-md bg-[#161F30] border border-[#23314B] text-[#60A5FA]">
+                        MODULE {module.number}
+                      </span>
+                      <span
+                        className={`px-2.5 py-1 text-xs font-bold rounded-md border ${
+                          module.difficulty === "Beginner"
+                            ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-300"
+                            : "bg-blue-500/20 border-blue-500/50 text-blue-300"
+                        }`}
+                      >
+                        {module.difficulty}
+                      </span>
+                    </div>
+                    <span className="text-[11px] font-mono text-[#8A93A3] bg-[#0A0D14] px-2 py-0.5 rounded border border-[#1E293B]">
+                      {module.readTime}
+                    </span>
+                  </div>
+
                   <span className="text-xs font-semibold text-[#06B6D4] mb-1">{module.badge}</span>
                   <h3 className="text-lg font-bold text-[#F8FAFC] mb-2 group-hover:text-[#60A5FA] transition-colors leading-snug">
                     {module.title}
@@ -898,7 +910,7 @@ export default function FlutterFlowTutorialsContent() {
                     >
                       Read Guide <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
-                    <span className="text-[10px] text-[#64748B]">{module.readTime}</span>
+                    <span className="text-xs text-[#10B981] font-medium">Free Access</span>
                   </div>
                 </div>
               </div>
