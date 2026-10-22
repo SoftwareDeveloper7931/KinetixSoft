@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Database, Zap, Shield, Users, Star, ChevronDown, ArrowRight, BarChart2, Settings, Globe, Layers, DollarSign, GraduationCap, ShoppingBag, Home as HomeIcon, Truck, Bot, HeartPulse } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
+import { Card3D } from "@/components/Card3D";
 
 const faqs = [
   { q: "What can you build in Podio?", a: "We build custom CRM systems, project management tools, automated workflows, client portals, and anything that replaces spreadsheets or disconnected tools for your team." },
@@ -19,18 +20,20 @@ const faqs = [
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div style={{ border: "1px solid #232A36", borderRadius: "6px", overflow: "hidden" }}>
-      <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between px-6 py-5 text-left font-semibold" style={{ color: "#E9EBEF" }}
-        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#161B26"; }}
-        onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
+    <div className="rounded-xl overflow-hidden glass-card transition-all">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-white hover:text-[#00A3DE] transition-colors"
       >
         <span>{q}</span>
-        <ChevronDown className={`w-5 h-5 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} style={{ color: "#4A5FBD" }} />
+        <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${open ? "bg-[#FF2D95]/20 text-[#FF5CAE]" : "bg-white/5 text-[#00A3DE]"}`}>
+          <ChevronDown className={`w-4 h-4 transition-transform ${open ? "rotate-180" : ""}`} />
+        </div>
       </button>
       <AnimatePresence initial={false}>
         {open && (
           <motion.div key="body" initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.22 }} className="overflow-hidden">
-            <p className="px-6 pb-5 text-muted-foreground leading-relaxed">{a}</p>
+            <p className="px-6 pb-5 text-sm text-[#94A3B8] leading-relaxed border-t border-white/5 pt-3">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -39,68 +42,85 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 const industries = [
-  { label: "Real Estate & Property", icon: <HomeIcon className="w-5 h-5" /> },
-  { label: "Professional Services", icon: <Users className="w-5 h-5" /> },
-  { label: "Logistics & Operations", icon: <Truck className="w-5 h-5" /> },
-  { label: "SaaS & Technology", icon: <Layers className="w-5 h-5" /> },
-  { label: "Healthcare", icon: <HeartPulse className="w-5 h-5" /> },
-  { label: "Education & Training", icon: <GraduationCap className="w-5 h-5" /> },
-  { label: "E-commerce & Retail", icon: <ShoppingBag className="w-5 h-5" /> },
-  { label: "Financial Services", icon: <DollarSign className="w-5 h-5" /> },
-  { label: "Construction & Contracting", icon: <Settings className="w-5 h-5" /> },
+  { label: "Real Estate & Property", icon: <HomeIcon className="w-5 h-5 text-[#00A3DE]" /> },
+  { label: "Professional Services", icon: <Users className="w-5 h-5 text-[#FF5CAE]" /> },
+  { label: "Logistics & Operations", icon: <Truck className="w-5 h-5 text-[#00A3DE]" /> },
+  { label: "SaaS & Technology", icon: <Layers className="w-5 h-5 text-[#FF5CAE]" /> },
+  { label: "Healthcare", icon: <HeartPulse className="w-5 h-5 text-[#00A3DE]" /> },
+  { label: "Education & Training", icon: <GraduationCap className="w-5 h-5 text-[#FF5CAE]" /> },
+  { label: "E-commerce & Retail", icon: <ShoppingBag className="w-5 h-5 text-[#00A3DE]" /> },
+  { label: "Financial Services", icon: <DollarSign className="w-5 h-5 text-[#FF5CAE]" /> },
+  { label: "Construction & Contracting", icon: <Settings className="w-5 h-5 text-[#00A3DE]" /> },
 ];
 
 export default function PodioContent() {
   return (
-    <div className="min-h-screen bg-[#0B0F19]">
+    <div className="min-h-screen bg-[#0A0A0A] text-[#F3F4F6] relative">
       {/* HERO */}
       <section className="pt-36 pb-24 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 text-sm mb-6 eyebrow" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>
-              <Database className="w-4 h-4" /> Podio Development Studio
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-6" style={{ background: "rgba(0,123,167,0.15)", border: "1px solid rgba(0,123,167,0.35)", color: "#00A3DE" }}>
+              <Database className="w-3.5 h-3.5" /> Podio Architecture Studio
             </div>
-            <h1 className="text-4xl md:text-5xl xl:text-6xl leading-tight mb-6" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
-              Custom <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Podio</em> Workspaces That Replace Spreadsheets
+            <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight mb-6">
+              Custom <span className="text-gradient-cerulean">Podio</span> Workspaces That Replace Spreadsheets
             </h1>
-            <p className="text-lg leading-relaxed mb-8" style={{ color: "#8A93A3" }}>KinetixSoft builds Podio CRM systems, workflow automations, and operational tools for growing teams. We take you from scattered data and manual processes to a structured system your whole team can actually use.</p>
+            <p className="text-lg leading-relaxed mb-8 text-[#94A3B8]">
+              KinetixSoft builds enterprise Podio CRM systems, GlobiFlow workflow automations, and operational command centers for scaling companies. Eliminate manual paperwork and messy tracking.
+            </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/contact"><button className="h-12 px-8 text-sm font-semibold" data-testid="button-podio-start" style={{ background: "#4A5FBD", color: "#E9EBEF", borderRadius: "6px", border: "none", cursor: "pointer" }} onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#5A6FCC"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#4A5FBD"; }}>Start Your Project</button></Link>
-              <Link href="/contact"><button className="h-12 px-8 text-sm font-semibold flex items-center gap-2" style={{ background: "transparent", color: "#E9EBEF", borderRadius: "6px", border: "1px solid #232A36", cursor: "pointer" }} onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#4A5FBD"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#232A36"; }}>Book a Call <ArrowRight className="w-4 h-4" /></button></Link>
+              <Link href="/contact">
+                <button className="h-12 px-8 text-sm font-semibold rounded-lg btn-cerulean" data-testid="button-podio-start">
+                  Start Your Project
+                </button>
+              </Link>
+              <Link href="/contact">
+                <button className="h-12 px-8 text-sm font-semibold flex items-center gap-2 rounded-lg btn-ghost-cyber">
+                  Book a Call <ArrowRight className="w-4 h-4 text-[#FF2D95]" />
+                </button>
+              </Link>
             </div>
           </motion.div>
-          {/* Dashboard mockup */}
+
+          {/* 3D Dashboard Mockup */}
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="relative flex items-center justify-center h-[380px]">
-            <div className="absolute inset-0 rounded-full bg-green-500/10 blur-[80px]" />
-            <div className="relative w-full max-w-sm p-5 z-10" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
+            <div className="absolute inset-0 rounded-full bg-[#007BA7]/20 blur-[90px] pointer-events-none" />
+            <Card3D glowColor="cerulean" className="relative w-full max-w-sm p-6 z-10 rounded-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.7)]">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-2 h-2 rounded-full bg-red-400/60" /><div className="w-2 h-2 rounded-full bg-yellow-400/60" /><div className="w-2 h-2 rounded-full bg-green-400/60" />
-                <span className="text-xs text-white/30 ml-2">OpsFlow · Pipeline</span>
+                <div className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
+                <div className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
+                <span className="text-xs text-white/40 ml-2 font-mono">OpsFlow · Pipeline Automation</span>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-2.5">
                 {["Lead Qualified → Discovery Call", "Discovery Call → Proposal Sent", "Proposal → Contract Signed", "Contract → Onboarding"].map((stage, i) => (
-                  <div key={i} className="flex items-center gap-3 p-2.5" style={{ background: "#161B26", borderRadius: "4px", border: "1px solid #232A36" }}>
-                    <div className="w-2 h-2 rounded-full shrink-0" style={{ background: ["#4A5FBD", "#C9A86A", "#4ABD7A", "#5A6FCC"][i] }} />
-                    <span className="text-xs" style={{ color: "#E9EBEF" }}>{stage}</span>
-                    <span className="ml-auto text-xs" style={{ color: "#8A93A3" }}>{[3, 7, 2, 4][i]}</span>
+                  <div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-[#16181D] border border-white/5">
+                    <div className="w-2 h-2 rounded-full shrink-0" style={{ background: ["#007BA7", "#FF2D95", "#00A3DE", "#FF5CAE"][i] }} />
+                    <span className="text-xs text-white flex-1">{stage}</span>
+                    <span className="text-xs font-mono font-bold text-[#00A3DE]">{[3, 7, 2, 4][i]}</span>
                   </div>
                 ))}
               </div>
-              <div className="mt-4 pt-4" style={{ borderTop: "1px solid #232A36" }}>
-                <div className="flex items-center justify-between text-xs" style={{ color: "#8A93A3" }}>
-                  <span>Pipeline value</span><span style={{ color: "#4A5FBD", fontWeight: 600 }}>$148,500</span>
-                </div>
+              <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-[#94A3B8]">
+                <span>Active Pipeline Value</span>
+                <span className="text-sm font-bold text-[#FF5CAE]">$148,500</span>
               </div>
-            </div>
+            </Card3D>
           </motion.div>
         </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16">
-          {[{ stat: "100%", label: "Founder-Led", sub: "Direct access to your build team" }, { stat: "24/7", label: "Support Mindset", sub: "We don't disappear after delivery" }, { stat: "2025", label: "Studio Launched", sub: "Built for startups and growing teams" }].map((s, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 + i * 0.15 }} className="p-6 text-center" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-              <div className="text-3xl font-bold mb-1" style={{ color: "#4A5FBD" }}>{s.stat}</div>
-              <div className="font-semibold mb-1" style={{ color: "#E9EBEF" }}>{s.label}</div>
-              <div className="text-sm" style={{ color: "#8A93A3" }}>{s.sub}</div>
-            </motion.div>
+          {[
+            { stat: "100%", label: "Founder-Led", sub: "Direct consultation with your workflow engineer", glow: "cerulean" as const },
+            { stat: "24/7", label: "Reliability Mindset", sub: "Automations stress-tested for uninterrupted ops", glow: "rose" as const },
+            { stat: "2025", label: "Studio Launched", sub: "Built for modern agencies and growing teams", glow: "cerulean" as const }
+          ].map((s, i) => (
+            <Card3D key={i} glowColor={s.glow} className="p-6 text-center">
+              <div className={`text-3xl font-extrabold mb-1 ${s.glow === "rose" ? "text-gradient-rose" : "text-gradient-cerulean"}`}>{s.stat}</div>
+              <div className="font-semibold text-white mb-1">{s.label}</div>
+              <div className="text-xs text-[#94A3B8]">{s.sub}</div>
+            </Card3D>
           ))}
         </div>
       </section>
@@ -108,118 +128,100 @@ export default function PodioContent() {
       {/* WHY CHOOSE US */}
       <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="text-3xl md:text-4xl mb-4" style={{ color: "#E9EBEF" }}>Why Choose KinetixSoft for Your <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Podio Build</em></h2>
-          <p className="text-lg" style={{ color: "#8A93A3" }}>A Podio workspace is only as good as the person who built it. Here's how we approach every Podio project.</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Why Choose KinetixSoft for Your <span className="text-gradient-cerulean">Podio Build</span>
+          </h2>
+          <p className="text-lg text-[#94A3B8]">A Podio workspace is only as effective as the architectural logic behind it. Here is our delivery framework.</p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
-            { icon: <Database className="w-6 h-6" />, title: "Real Podio Depth", desc: "We don't just create apps and fields — we design data models that make sense for your actual workflows, so your team uses the system instead of going back to email." },
-            { icon: <Zap className="w-6 h-6" />, title: "Automation That Works", desc: "Manual tasks slow teams down. We build Podio automations and GlobiFlow/Citrix workflows that eliminate repetitive work without adding fragility." },
-            { icon: <Shield className="w-6 h-6" />, title: "Secure by Default", desc: "User roles, permissions, and access controls are part of every build — not an afterthought — so your data stays with the right people." },
-            { icon: <Globe className="w-6 h-6" />, title: "Connected to Your Stack", desc: "Podio doesn't live in isolation. We connect it to your CRM, email, calendar, accounting software, and any other tool your team depends on." },
+            { icon: <Database className="w-6 h-6 text-[#00A3DE]" />, title: "Structured Relational Modeling", desc: "We design clean app hierarchies and bidirectional calculation fields, preventing clutter and keeping team workflows intuitive." },
+            { icon: <Zap className="w-6 h-6 text-[#FF5CAE]" />, title: "GlobiFlow & Citrix Automations", desc: "Automate contract triggers, dynamic PDF generations, task dispatching, and email sequences without brittle failures." },
+            { icon: <Shield className="w-6 h-6 text-[#00A3DE]" />, title: "Security & Role Governance", desc: "Multi-workspace segmentation and field-level permissions ensure team members and contractors only access permitted records." },
+            { icon: <Globe className="w-6 h-6 text-[#FF5CAE]" />, title: "Connected to Your Stack", desc: "Integrate Podio with QuickBooks, Stripe, DocuSign, Slack, and your external databases through secure webhooks." },
           ].map((f, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} className="p-7 card-hover" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-              <div className="w-12 h-12 flex items-center justify-center mb-5" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>{f.icon}</div>
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "#E9EBEF" }}>{f.title}</h3>
-              <p className="leading-relaxed" style={{ color: "#8A93A3" }}>{f.desc}</p>
-            </motion.div>
+            <Card3D key={i} glowColor={i % 2 === 0 ? "cerulean" : "rose"} className="p-8">
+              <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-5">
+                {f.icon}
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">{f.title}</h3>
+              <p className="text-sm text-[#94A3B8] leading-relaxed">{f.desc}</p>
+            </Card3D>
           ))}
         </div>
       </section>
 
       {/* CASE STUDY */}
       <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl mb-14 text-center" style={{ color: "#E9EBEF" }}>Work We've <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Shipped</em></motion.h2>
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="overflow-hidden max-w-4xl mx-auto" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold">Work We've <span className="text-gradient-rose">Shipped</span></h2>
+        </div>
+        <Card3D glowColor="dual" className="overflow-hidden max-w-4xl mx-auto border border-white/10">
           <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="relative p-10 flex items-center justify-center min-h-[260px]" style={{ background: "#161B26" }}>
+            <div className="relative p-10 flex items-center justify-center min-h-[260px] bg-[#111215]">
               <div className="w-full max-w-[220px] space-y-2">
                 {["Prospect", "Discovery", "Proposal", "Negotiation", "Won"].map((stage, i) => (
-                  <div key={i} className="flex items-center gap-3 p-2" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "4px" }}>
-                    <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#4A5FBD" }} />
-                    <span className="text-xs" style={{ color: "#E9EBEF" }}>{stage}</span>
-                    <div className="ml-auto flex gap-1">{Array(Math.max(1, 5 - i)).fill(0).map((_, j) => <div key={j} className="w-1 h-4 rounded-sm" style={{ background: j === 0 ? "#4A5FBD" : "#232A36" }} />)}</div>
+                  <div key={i} className="flex items-center gap-3 p-2.5 rounded-lg bg-[#16181D] border border-white/5">
+                    <div className="w-2 h-2 rounded-full" style={{ background: i === 4 ? "#FF2D95" : "#007BA7" }} />
+                    <span className="text-xs text-white">{stage}</span>
+                    <div className="ml-auto flex gap-1">
+                      {Array(Math.max(1, 5 - i)).fill(0).map((_, j) => (
+                        <div key={j} className="w-1.5 h-4 rounded-sm" style={{ background: j === 0 ? "#00A3DE" : "#222630" }} />
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
             <div className="p-8 flex flex-col justify-center">
-              <div className="flex flex-wrap gap-2 mb-4">{["CRM", "Podio", "Workflow Automation"].map(t => <span key={t} className="text-xs px-3 py-1 eyebrow" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>{t}</span>)}</div>
-              <h3 className="text-2xl font-semibold mb-3" style={{ color: "#E9EBEF" }}>OpsFlow</h3>
-              <p className="text-sm mb-5 leading-relaxed" style={{ color: "#8A93A3" }}>A fully custom Podio CRM and operations hub built for a professional services firm managing 80+ active clients. Automated onboarding, deal tracking, invoicing triggers, and client communication — all in one place.</p>
-              <blockquote className="pl-4 italic text-sm mb-5" style={{ borderLeft: "2px solid #4A5FBD", color: "#E9EBEF" }}>"Before KinetixSoft, we were running the whole business out of spreadsheets. Now everything lives in Podio and actually gets done."</blockquote>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {["CRM", "Podio", "Automation"].map(t => (
+                  <span key={t} className="text-xs px-3 py-1 rounded-full font-mono text-[#00A3DE] bg-[#007BA7]/15 border border-[#007BA7]/30">
+                    {t}
+                  </span>
+                ))}
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-3">OpsFlow</h3>
+              <p className="text-sm mb-5 leading-relaxed text-[#94A3B8]">
+                A custom Podio CRM and operations hub for a professional services firm managing 80+ active client accounts. Automated client onboarding, project milestone billing, and contract signatures.
+              </p>
+              <blockquote className="pl-4 italic text-sm mb-5 border-l-2 border-[#007BA7] text-[#E2E8F0]">
+                "Before KinetixSoft, we were running the whole business out of spreadsheets. Now everything lives in Podio and actually gets done."
+              </blockquote>
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 flex items-center justify-center font-bold text-sm" style={{ borderRadius: "6px", background: "#4A5FBD", color: "#E9EBEF" }}>S</div>
-                <div><div className="text-sm font-semibold" style={{ color: "#E9EBEF" }}>Sarah Malik</div><div className="text-xs eyebrow">Operations Director, OpsFlow</div></div>
-                <div className="ml-auto flex gap-0.5">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4" style={{ fill: "#C9A86A", color: "#C9A86A" }} />)}</div>
+                <div className="w-9 h-9 rounded-lg flex items-center justify-center font-bold text-sm bg-gradient-to-r from-[#007BA7] to-[#FF2D95] text-white">
+                  S
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-white">Sarah Malik</div>
+                  <div className="text-xs text-[#00A3DE]">Operations Director, OpsFlow</div>
+                </div>
+                <div className="ml-auto flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-[#FF2D95] text-[#FF2D95]" />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </motion.div>
-      </section>
-
-      {/* SERVICES */}
-      <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl mb-14 text-center" style={{ color: "#E9EBEF" }}>How We <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Help</em></motion.h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {[
-            { n: "01", eyebrow: "Turn Requirements Into Structure", title: "Podio Workspace", accent: "Architecture" },
-            { n: "02", eyebrow: "Eliminate Manual Work", title: "Workflow &", accent: "Automation Setup" },
-            { n: "03", eyebrow: "Bring Your Data In", title: "Data Migration", accent: "& Import" },
-            { n: "04", eyebrow: "Connect Your Full Stack", title: "Third-Party", accent: "Integrations" },
-            { n: "05", eyebrow: "We Stay Accountable", title: "Training &", accent: "Team Onboarding" },
-            { n: "06", eyebrow: "We Don't Disappear", title: "Ongoing Support", accent: "& Expansion" },
-          ].map((s, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }} viewport={{ once: true }} className="p-6 card-hover" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-              <span className="text-xs font-bold px-2 py-1" style={{ color: "#4A5FBD", background: "rgba(74,95,189,0.12)", borderRadius: "4px" }}>{s.n}</span>
-              <p className="text-muted-foreground text-xs mt-4 mb-2">{s.eyebrow}</p>
-              <h3 className="text-xl font-semibold" style={{ color: "#E9EBEF" }}>{s.title} <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>{s.accent}</em></h3>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* INDUSTRIES + CTA */}
-      <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-        <div style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px", overflow: "hidden" }}>
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="p-10 flex flex-col justify-center">
-              <h2 className="text-3xl mb-5" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>Have You <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Outgrown</em> Spreadsheets?</h2>
-              <p className="mb-6 leading-relaxed" style={{ color: "#8A93A3" }}>If your team is managing clients, projects, or operations out of Excel, you're already slowing down. Podio gives you structure without the rigidity of enterprise software — and we'll build it around the way your team already works.</p>
-              <Link href="/contact">
-                <button className="h-11 px-6 text-sm font-semibold w-fit flex items-center gap-2" style={{ background: "#4A5FBD", color: "#E9EBEF", borderRadius: "6px", border: "none", cursor: "pointer" }} onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#5A6FCC"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#4A5FBD"; }}>
-                  Get a Free Consultation <ArrowRight className="w-4 h-4" />
-                </button>
-              </Link>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="p-10" style={{ background: "#161B26", borderLeft: "1px solid #232A36" }}>
-              <h3 className="text-lg font-semibold mb-5" style={{ color: "#E9EBEF" }}>Industries We've Built For</h3>
-              <div className="space-y-2">
-                {industries.map((ind, i) => (
-                  <div key={i} className="flex items-center gap-3 py-2" style={{ borderBottom: i < industries.length - 1 ? "1px solid #232A36" : "none" }}>
-                    <span className="flex items-center justify-center w-7 h-7 shrink-0" style={{ background: "rgba(74,95,189,0.12)", borderRadius: "4px", color: "#4A5FBD" }}>{ind.icon}</span>
-                    <span className="text-sm" style={{ color: "#E9EBEF" }}>{ind.label}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
+        </Card3D>
       </section>
 
       {/* FAQ */}
-      <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl mb-12" style={{ color: "#E9EBEF" }}>Common <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Questions</em></motion.h2>
+      <section className="py-20 px-4 md:px-6 max-w-4xl mx-auto relative z-10">
+        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
+          Common <span className="text-gradient-cerulean">Questions</span>
+        </h2>
         <div className="space-y-3">{faqs.map((f, i) => <FAQItem key={i} q={f.q} a={f.a} />)}</div>
       </section>
 
       {/* CONTACT */}
-      <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10 mb-8">
-        <div className="p-8 md:p-10" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-          <h2 className="text-3xl mb-2 text-center" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>Start Your <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Podio Project</em></h2>
-          <p className="text-center text-sm mb-8" style={{ color: "#8A93A3" }}>Tell us about your team and we'll get back to you within one business day.</p>
+      <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10 mb-12">
+        <Card3D glowColor="dual" className="p-8 sm:p-12">
+          <h2 className="text-3xl font-bold mb-2 text-center">Start Your <span className="text-gradient-duo">Podio Project</span></h2>
+          <p className="text-center text-sm text-[#94A3B8] mb-8">Tell us about your team and we'll scope your workspace within one business day.</p>
           <ContactForm defaultService="podio" />
-        </div>
+        </Card3D>
       </section>
     </div>
   );

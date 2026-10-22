@@ -2,108 +2,136 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { MapPin, Clock, ArrowRight } from "lucide-react";
+import { MapPin, Clock, ArrowRight, Sparkles, Briefcase, CheckCircle2 } from "lucide-react";
+import { Card3D } from "@/components/Card3D";
 
 const jobs = [
   {
     title: "Senior FlutterFlow Developer",
     type: "Full-time",
-    location: "Remote (Pakistan preferred)",
-    description: "We're looking for an experienced FlutterFlow developer who understands data modelling, Firebase/Supabase integration, and can build production-ready apps — not just prototypes.",
-    requirements: ["2+ years FlutterFlow experience", "Strong Firebase or Supabase knowledge", "Experience shipping to App Store / Play Store", "Comfortable with REST API integration"],
+    location: "Remote (Global / Pakistan)",
+    glow: "cerulean" as const,
+    description: "We're looking for an experienced FlutterFlow developer who understands complex data modelling, Firebase/Supabase rule architectures, and builds production-ready mobile apps with custom Dart code.",
+    requirements: ["2+ years active FlutterFlow experience", "Strong Firebase or Supabase backend skills", "Experience deploying to Apple App Store & Google Play", "Comfortable with custom APIs & payment webhooks"],
   },
   {
-    title: "Podio Architect",
+    title: "Podio Solutions Architect",
     type: "Full-time",
-    location: "Remote (Pakistan preferred)",
-    description: "Join our Podio practice and help growing companies move from spreadsheets to structured Podio workspaces. You'll own the architecture, automation, and client delivery from start to finish.",
-    requirements: ["3+ years Podio development", "Experience with GlobiFlow or Podio workflow automation", "Strong process mapping and client communication skills", "Data migration experience"],
+    location: "Remote (Global / Pakistan)",
+    glow: "neon-rose" as const,
+    description: "Join our core Podio practice and help enterprise clients transition from chaotic spreadsheets into structured Podio workspaces. You'll architect schema, GlobiFlow rules, and client integrations.",
+    requirements: ["3+ years architecting Podio environments", "Mastery of GlobiFlow / Citrix workflow automation", "Strong process mapping and client communication skills", "Data migration & database integrity experience"],
   },
   {
     title: "Internal Tools Engineer (Retool)",
     type: "Full-time",
-    location: "Remote (Pakistan preferred)",
-    description: "Build admin dashboards and operational tools on Retool that replace manual workflows for our clients' operations teams. You'll work across SQL, REST APIs, and Retool's component system.",
-    requirements: ["Strong SQL knowledge (PostgreSQL preferred)", "Retool or comparable internal tools experience", "REST API integration experience", "Ability to translate ops requirements into working tools"],
+    location: "Remote (Global / Pakistan)",
+    glow: "cerulean" as const,
+    description: "Build custom administrative dashboards, operational portals, and customer success workflows on Retool. You'll write performant SQL, handle REST/GraphQL APIs, and configure role-based access.",
+    requirements: ["Advanced SQL knowledge (PostgreSQL preferred)", "Deep experience with Retool components & transformers", "REST / GraphQL API integration experience", "Ability to translate complex ops requirements into slick UIs"],
   },
 ];
 
 export default function CareersContent() {
   return (
-    <div className="min-h-screen bg-[#0B0F19]">
+    <div className="min-h-screen bg-jet text-white">
       {/* HERO */}
       <section className="pt-36 pb-16 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <span className="inline-block px-4 py-1 text-xs font-semibold uppercase tracking-widest mb-6" style={{ border: "1px solid #232A36", borderRadius: "6px", color: "#8A93A3", background: "rgba(74,95,189,0.08)" }}>We're Hiring</span>
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-mono uppercase tracking-widest mb-6 rounded-full border border-cerulean/30 bg-cerulean/10 text-cerulean shadow-sm shadow-cerulean/20">
+              <Sparkles className="w-3.5 h-3.5 text-neon-rose" /> We Are Hiring
+            </span>
           </motion.div>
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl mb-6" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6"
           >
-            Join the <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Team</em>
+            Build With Purpose.{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean via-sky-400 to-neon-rose">
+              Join Our Engineering Studio.
+            </span>
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-            className="text-lg" style={{ color: "#8A93A3" }}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed"
           >
-            We're a small, founder-led team that builds real products and takes pride in the quality of what we ship. If that sounds like where you want to work, we'd like to hear from you.
+            We're a high-velocity, founder-led engineering studio building production apps for worldwide clients. We value craftsmanship, clean systems, and direct autonomy.
           </motion.p>
         </div>
       </section>
 
       {/* JOB LISTINGS */}
-      <section className="py-16 px-4 md:px-6 max-w-4xl mx-auto relative z-10 space-y-6">
+      <section className="py-12 px-4 md:px-6 max-w-4xl mx-auto relative z-10 space-y-8">
         {jobs.map((job, i) => (
-          <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }}
-            className="p-8 card-hover" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1 }}
+            viewport={{ once: true }}
           >
-            <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-              <h2 className="text-xl font-semibold" style={{ color: "#E9EBEF" }}>{job.title}</h2>
-              <div className="flex items-center gap-3">
-                <span className="flex items-center gap-1.5 text-xs eyebrow" style={{ color: "#8A93A3" }}>
-                  <Clock className="w-3.5 h-3.5" />{job.type}
-                </span>
-                <span className="flex items-center gap-1.5 text-xs eyebrow" style={{ color: "#8A93A3" }}>
-                  <MapPin className="w-3.5 h-3.5" />{job.location}
-                </span>
+            <Card3D glowColor={job.glow} maxTilt={4} className="w-full">
+              <div className="p-8 md:p-10 rounded-2xl bg-jet-surface/90 border border-jet-border hover:border-cerulean/40 transition-colors">
+                <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+                  <h2 className="text-2xl font-bold tracking-tight text-white/95">{job.title}</h2>
+                  <div className="flex items-center gap-3">
+                    <span className="flex items-center gap-1.5 text-xs font-mono px-3 py-1 rounded-full bg-cerulean/10 text-cerulean border border-cerulean/20">
+                      <Clock className="w-3.5 h-3.5" /> {job.type}
+                    </span>
+                    <span className="flex items-center gap-1.5 text-xs font-mono px-3 py-1 rounded-full bg-neon-rose/10 text-neon-rose border border-neon-rose/20">
+                      <MapPin className="w-3.5 h-3.5" /> {job.location}
+                    </span>
+                  </div>
+                </div>
+
+                <p className="text-sm mb-6 leading-relaxed text-white/65">{job.description}</p>
+
+                <div className="mb-8">
+                  <h4 className="text-xs font-mono uppercase tracking-wider text-white/50 mb-3">Key Requirements:</h4>
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+                    {job.requirements.map((r, j) => (
+                      <li key={j} className="flex items-center gap-2.5 text-sm text-white/80">
+                        <CheckCircle2 className={`w-4 h-4 shrink-0 ${job.glow === "neon-rose" ? "text-neon-rose" : "text-cerulean"}`} />
+                        <span>{r}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <Link href="/contact">
+                  <button className={job.glow === "neon-rose" ? "btn-neon-rose" : "btn-cerulean"}>
+                    Apply for this Role <ArrowRight className="w-4 h-4" />
+                  </button>
+                </Link>
               </div>
-            </div>
-            <p className="text-sm mb-5 leading-relaxed" style={{ color: "#8A93A3" }}>{job.description}</p>
-            <div className="mb-6">
-              <h4 className="text-sm font-semibold mb-3" style={{ color: "#E9EBEF" }}>What we're looking for:</h4>
-              <ul className="space-y-2">
-                {job.requirements.map((r, j) => (
-                  <li key={j} className="flex items-center gap-2 text-sm" style={{ color: "#8A93A3" }}>
-                    <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: "#4A5FBD" }} />{r}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <Link href="/contact">
-              <button className="h-10 px-6 text-sm font-semibold flex items-center gap-2 w-fit"
-                style={{ background: "#4A5FBD", color: "#E9EBEF", borderRadius: "6px", border: "none", cursor: "pointer" }}
-                onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#5A6FCC"; }}
-                onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#4A5FBD"; }}
-              >Apply for this Role <ArrowRight className="w-4 h-4" /></button>
-            </Link>
+            </Card3D>
           </motion.div>
         ))}
       </section>
 
       {/* OPEN APPLICATION */}
       <section className="py-16 px-4 md:px-6 max-w-4xl mx-auto relative z-10 mb-8">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="p-8 text-center" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}
-        >
-          <h3 className="text-xl font-semibold mb-3" style={{ color: "#E9EBEF" }}>Don't See Your Role?</h3>
-          <p className="text-sm mb-6" style={{ color: "#8A93A3" }}>We're always interested in people who are great at what they do. Send us a message introducing yourself and the kind of work you'd like to do.</p>
-          <Link href="/contact">
-            <button className="h-10 px-6 text-sm font-semibold"
-              style={{ background: "transparent", color: "#4A5FBD", borderRadius: "6px", border: "1px solid rgba(74,95,189,0.3)", cursor: "pointer" }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#4A5FBD"; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(74,95,189,0.3)"; }}
-            >Get in Touch</button>
-          </Link>
-        </motion.div>
+        <Card3D glowColor="cerulean" maxTilt={3}>
+          <div className="p-8 md:p-12 text-center rounded-3xl bg-jet-surface/90 border border-jet-border">
+            <div className="w-12 h-12 rounded-xl bg-cerulean/10 text-cerulean border border-cerulean/30 flex items-center justify-center mx-auto mb-4">
+              <Briefcase className="w-6 h-6" />
+            </div>
+            <h3 className="text-2xl font-bold mb-3 text-white/95">Don't See Your Exact Role?</h3>
+            <p className="text-sm mb-8 text-white/60 max-w-xl mx-auto leading-relaxed">
+              We're always scouting for extraordinary engineers, technical project managers, and UI/UX designers. Drop us a note with your portfolio and GitHub profile.
+            </p>
+            <Link href="/contact">
+              <button className="btn-duo mx-auto flex items-center gap-2">
+                Send Open Application <ArrowRight className="w-4 h-4" />
+              </button>
+            </Link>
+          </div>
+        </Card3D>
       </section>
     </div>
   );

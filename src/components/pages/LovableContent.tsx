@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Globe, Zap, Shield, Code2, Star, ChevronDown, ArrowRight, BarChart2, DollarSign, Layers, Users, GraduationCap, ShoppingBag, Bot, HeartPulse, Truck, Home as HomeIcon } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
+import { Card3D } from "@/components/Card3D";
 
 const faqs = [
   { q: "What kind of apps can you build with Lovable?", a: "SaaS dashboards, marketplaces, client portals, internal apps, AI-powered tools, and any web app that needs auth, database storage, payments, and API integrations." },
@@ -19,18 +20,20 @@ const faqs = [
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div style={{ border: "1px solid #232A36", borderRadius: "6px", overflow: "hidden" }}>
-      <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between px-6 py-5 text-left font-semibold" style={{ color: "#E9EBEF" }}
-        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#161B26"; }}
-        onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
+    <div className="rounded-xl overflow-hidden glass-card transition-all">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-white hover:text-[#FF5CAE] transition-colors"
       >
         <span>{q}</span>
-        <ChevronDown className={`w-5 h-5 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} style={{ color: "#4A5FBD" }} />
+        <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${open ? "bg-[#FF2D95]/20 text-[#FF5CAE]" : "bg-white/5 text-[#00A3DE]"}`}>
+          <ChevronDown className={`w-4 h-4 transition-transform ${open ? "rotate-180" : ""}`} />
+        </div>
       </button>
       <AnimatePresence initial={false}>
         {open && (
           <motion.div key="body" initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.22 }} className="overflow-hidden">
-            <p className="px-6 pb-5 text-muted-foreground leading-relaxed">{a}</p>
+            <p className="px-6 pb-5 text-sm text-[#94A3B8] leading-relaxed border-t border-white/5 pt-3">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -39,72 +42,91 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 const industries = [
-  { label: "SaaS Platforms", icon: <Layers className="w-5 h-5" /> },
-  { label: "AI-Powered Tools", icon: <Bot className="w-5 h-5" /> },
-  { label: "Marketplaces", icon: <ShoppingBag className="w-5 h-5" /> },
-  { label: "Fintech Apps", icon: <DollarSign className="w-5 h-5" /> },
-  { label: "Client Portals", icon: <Users className="w-5 h-5" /> },
-  { label: "Education Platforms", icon: <GraduationCap className="w-5 h-5" /> },
-  { label: "Healthcare Apps", icon: <HeartPulse className="w-5 h-5" /> },
-  { label: "Real Estate Tools", icon: <HomeIcon className="w-5 h-5" /> },
-  { label: "Logistics & Delivery", icon: <Truck className="w-5 h-5" /> },
+  { label: "SaaS Platforms", icon: <Layers className="w-5 h-5 text-[#FF5CAE]" /> },
+  { label: "AI-Powered Tools", icon: <Bot className="w-5 h-5 text-[#00A3DE]" /> },
+  { label: "Marketplaces", icon: <ShoppingBag className="w-5 h-5 text-[#FF5CAE]" /> },
+  { label: "Fintech Apps", icon: <DollarSign className="w-5 h-5 text-[#00A3DE]" /> },
+  { label: "Client Portals", icon: <Users className="w-5 h-5 text-[#FF5CAE]" /> },
+  { label: "Education Platforms", icon: <GraduationCap className="w-5 h-5 text-[#00A3DE]" /> },
+  { label: "Healthcare Apps", icon: <HeartPulse className="w-5 h-5 text-[#FF5CAE]" /> },
+  { label: "Real Estate Tools", icon: <HomeIcon className="w-5 h-5 text-[#00A3DE]" /> },
+  { label: "Logistics & Delivery", icon: <Truck className="w-5 h-5 text-[#FF5CAE]" /> },
 ];
 
 export default function LovableContent() {
   return (
-    <div className="min-h-screen bg-[#0B0F19]">
+    <div className="min-h-screen bg-[#0A0A0A] text-[#F3F4F6] relative">
       {/* HERO */}
       <section className="pt-36 pb-24 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 text-sm mb-6 eyebrow" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>
-              <span className="text-base">♥</span> Lovable Development Studio
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-6" style={{ background: "rgba(255,45,149,0.15)", border: "1px solid rgba(255,45,149,0.35)", color: "#FF5CAE" }}>
+              <span className="w-2 h-2 rounded-full bg-[#FF2D95] animate-pulse" />
+              Lovable AI Full-Stack Studio
             </div>
-            <h1 className="text-4xl md:text-5xl xl:text-6xl leading-tight mb-6" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
-              SaaS Apps That <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Ship Fast</em> and Scale
+            <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight mb-6">
+              SaaS Apps That <span className="text-gradient-rose">Ship Fast</span> and Scale
             </h1>
-            <p className="text-lg leading-relaxed mb-8" style={{ color: "#8A93A3" }}>KinetixSoft builds production-ready web apps and SaaS products on Lovable. From idea validation to a fully working product with auth, payments, and real users — without the typical timeline or cost of a full engineering team.</p>
+            <p className="text-lg leading-relaxed mb-8 text-[#94A3B8]">
+              KinetixSoft builds production-ready web applications and scalable SaaS products on Lovable. From validated MVP to live paying customers with Supabase auth, Stripe payments, and PostgreSQL architecture.
+            </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/contact"><button className="h-12 px-8 text-sm font-semibold" data-testid="button-lovable-start" style={{ background: "#4A5FBD", color: "#E9EBEF", borderRadius: "6px", border: "none", cursor: "pointer" }} onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#5A6FCC"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#4A5FBD"; }}>Start Your Project</button></Link>
-              <Link href="/contact"><button className="h-12 px-8 text-sm font-semibold flex items-center gap-2" style={{ background: "transparent", color: "#E9EBEF", borderRadius: "6px", border: "1px solid #232A36", cursor: "pointer" }} onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#4A5FBD"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#232A36"; }}>Book a Call <ArrowRight className="w-4 h-4" /></button></Link>
+              <Link href="/contact">
+                <button className="h-12 px-8 text-sm font-semibold rounded-lg btn-neon-rose" data-testid="button-lovable-start">
+                  Start Your Project
+                </button>
+              </Link>
+              <Link href="/contact">
+                <button className="h-12 px-8 text-sm font-semibold flex items-center gap-2 rounded-lg btn-ghost-cyber">
+                  Book a Scoping Call <ArrowRight className="w-4 h-4 text-[#00A3DE]" />
+                </button>
+              </Link>
             </div>
           </motion.div>
-          {/* SaaS dashboard mockup */}
+
+          {/* 3D Dashboard Mockup */}
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="relative flex items-center justify-center h-[380px]">
-            <div className="absolute inset-0 rounded-full bg-rose-500/10 blur-[80px]" />
-            <div className="relative w-full max-w-sm z-10" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px", overflow: "hidden" }}>
-              <div className="flex items-center gap-2 px-4 py-3" style={{ background: "#161B26", borderBottom: "1px solid #232A36" }}>
-                <div className="w-2 h-2 rounded-full bg-red-400/60" /><div className="w-2 h-2 rounded-full bg-yellow-400/60" /><div className="w-2 h-2 rounded-full bg-green-400/60" />
-                <span className="text-xs text-white/30 ml-2">Pitchloop · Dashboard</span>
+            <div className="absolute inset-0 rounded-full bg-[#FF2D95]/20 blur-[90px] pointer-events-none" />
+            <Card3D glowColor="rose" className="relative w-full max-w-sm z-10 rounded-2xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.7)]">
+              <div className="flex items-center gap-2 px-4 py-3 bg-[#16181D] border-b border-white/5">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
+                <div className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
+                <span className="text-xs text-white/40 ml-2 font-mono">Pitchloop · Analytics</span>
               </div>
-              <div className="p-4 space-y-3">
-                <div className="grid grid-cols-2 gap-2">
+              <div className="p-5 space-y-3 bg-[#111215]">
+                <div className="grid grid-cols-2 gap-2.5">
                   {[{ l: "Active Decks", v: "24" }, { l: "Views Today", v: "189" }, { l: "Investors", v: "7" }, { l: "Avg. Time", v: "4:32" }].map((s, i) => (
-                    <div key={i} className="p-2" style={{ background: "#161B26", borderRadius: "4px" }}>
-                      <div className="text-sm font-bold" style={{ color: "#4A5FBD" }}>{s.v}</div>
-                      <div className="text-[10px]" style={{ color: "#8A93A3" }}>{s.l}</div>
+                    <div key={i} className="p-3 rounded-lg bg-[#16181D] border border-white/5">
+                      <div className="text-sm font-bold text-[#FF5CAE]">{s.v}</div>
+                      <div className="text-[10px] text-[#94A3B8]">{s.l}</div>
                     </div>
                   ))}
                 </div>
-                <div className="space-y-1.5">
+                <div className="space-y-2 pt-1">
                   {["Seed Round Deck · 12 views", "Series A Pitch · 5 views", "Demo Day 2025 · 47 views"].map((r, i) => (
-                    <div key={i} className="flex items-center gap-2 px-3 py-2" style={{ background: "#161B26", borderRadius: "4px" }}>
-                      <div className="w-1.5 h-1.5 rounded-full bg-rose-400" />
-                      <span className="text-xs" style={{ color: "#E9EBEF" }}>{r}</span>
+                    <div key={i} className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-[#16181D] border border-white/5 text-xs text-[#F3F4F6]">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#FF2D95]" />
+                      <span>{r}</span>
                     </div>
                   ))}
                 </div>
               </div>
-            </div>
+            </Card3D>
           </motion.div>
         </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16">
-          {[{ stat: "100%", label: "Founder-Led", sub: "Direct access to your build team" }, { stat: "24/7", label: "Support Mindset", sub: "We don't disappear after delivery" }, { stat: "2025", label: "Studio Launched", sub: "Built for startups and growing teams" }].map((s, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 + i * 0.15 }} className="p-6 text-center" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-              <div className="text-3xl font-bold mb-1" style={{ color: "#4A5FBD" }}>{s.stat}</div>
-              <div className="font-semibold mb-1" style={{ color: "#E9EBEF" }}>{s.label}</div>
-              <div className="text-sm" style={{ color: "#8A93A3" }}>{s.sub}</div>
-            </motion.div>
+          {[
+            { stat: "100%", label: "Founder-Led", sub: "Direct access to senior full-stack developers", glow: "rose" as const },
+            { stat: "24/7", label: "Production Delivery", sub: "Clean code structure that doesn't collapse", glow: "cerulean" as const },
+            { stat: "2025", label: "Studio Launched", sub: "Built for ambitious founders and scaleups", glow: "rose" as const }
+          ].map((s, i) => (
+            <Card3D key={i} glowColor={s.glow} className="p-6 text-center">
+              <div className={`text-3xl font-extrabold mb-1 ${s.glow === "rose" ? "text-gradient-rose" : "text-gradient-cerulean"}`}>{s.stat}</div>
+              <div className="font-semibold text-white mb-1">{s.label}</div>
+              <div className="text-xs text-[#94A3B8]">{s.sub}</div>
+            </Card3D>
           ))}
         </div>
       </section>
@@ -112,119 +134,105 @@ export default function LovableContent() {
       {/* WHY CHOOSE US */}
       <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="text-3xl md:text-4xl mb-4" style={{ color: "#E9EBEF" }}>What Makes KinetixSoft a Strong <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Lovable Partner</em></h2>
-          <p className="text-lg" style={{ color: "#8A93A3" }}>Lovable is powerful — but only if the person building knows what they're doing. Here's how we approach every build.</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            What Makes KinetixSoft a Strong <span className="text-gradient-rose">Lovable Partner</span>
+          </h2>
+          <p className="text-lg text-[#94A3B8]">Lovable is extraordinarily fast — but only if the engineering team understands data modeling and production security. Here is our blueprint.</p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
-            { icon: <Globe className="w-6 h-6" />, title: "Full-Stack, Not Just UI", desc: "We build complete Lovable apps — auth, database, payments, API integrations, and the business logic that makes them useful to real users." },
-            { icon: <Zap className="w-6 h-6" />, title: "Fast Without the Shortcuts", desc: "Lovable's AI-first approach lets us ship in weeks, not months — without skipping the design decisions and data architecture that matter post-launch." },
-            { icon: <Shield className="w-6 h-6" />, title: "Production-Ready Architecture", desc: "Every app we build is structured around Supabase and PostgreSQL, designed to handle real traffic without requiring a rebuild once users arrive." },
-            { icon: <Code2 className="w-6 h-6" />, title: "You Own the Code", desc: "Lovable generates clean, exportable code. We document what we build so you're never locked in — to us or the platform." },
+            { icon: <Globe className="w-6 h-6 text-[#FF5CAE]" />, title: "Full-Stack, Not Just Prototypes", desc: "We build complete Lovable apps — auth, database, payments, and custom API connections that support real business logic." },
+            { icon: <Zap className="w-6 h-6 text-[#00A3DE]" />, title: "Fast Without Fragile Code", desc: "Lovable's AI-assisted model lets us ship in weeks, not quarters — with clean modular code and proper tests." },
+            { icon: <Shield className="w-6 h-6 text-[#FF5CAE]" />, title: "Supabase & PostgreSQL Scalability", desc: "Relational database modeling with Row-Level Security (RLS) configured to protect user data from day one." },
+            { icon: <Code2 className="w-6 h-6 text-[#00A3DE]" />, title: "Full Source Code Ownership", desc: "Lovable generates clean, exportable code. You own 100% of your repository with zero lock-in." },
           ].map((f, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} className="p-7 card-hover" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-              <div className="w-12 h-12 flex items-center justify-center mb-5" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>{f.icon}</div>
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "#E9EBEF" }}>{f.title}</h3>
-              <p className="leading-relaxed" style={{ color: "#8A93A3" }}>{f.desc}</p>
-            </motion.div>
+            <Card3D key={i} glowColor={i % 2 === 0 ? "rose" : "cerulean"} className="p-8">
+              <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-5">
+                {f.icon}
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">{f.title}</h3>
+              <p className="text-sm text-[#94A3B8] leading-relaxed">{f.desc}</p>
+            </Card3D>
           ))}
         </div>
       </section>
 
       {/* CASE STUDY */}
       <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl mb-14 text-center" style={{ color: "#E9EBEF" }}>Work We've <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Shipped</em></motion.h2>
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="overflow-hidden max-w-4xl mx-auto" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold">Work We've <span className="text-gradient-duo">Shipped</span></h2>
+        </div>
+        <Card3D glowColor="dual" className="overflow-hidden max-w-4xl mx-auto border border-white/10">
           <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="relative p-10 flex items-center justify-center min-h-[260px]" style={{ background: "#161B26" }}>
+            <div className="relative p-10 flex items-center justify-center min-h-[260px] bg-[#111215]">
               <div className="w-full max-w-[220px] space-y-2">
-                <div className="p-3" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-                  <div className="text-xs font-semibold mb-2" style={{ color: "#E9EBEF" }}>Investor Views</div>
-                  <div className="flex items-end gap-1 h-12">{[30, 60, 45, 80, 55, 90, 70].map((h, i) => <div key={i} className="flex-1 rounded-sm" style={{ height: `${h}%`, background: i === 5 ? "#4A5FBD" : "rgba(74,95,189,0.3)" }} />)}</div>
+                <div className="p-4 rounded-xl bg-[#16181D] border border-white/5">
+                  <div className="text-xs font-semibold mb-3 text-white">Investor Views</div>
+                  <div className="flex items-end gap-1.5 h-14">
+                    {[30, 60, 45, 80, 55, 95, 70].map((h, i) => (
+                      <div key={i} className="flex-1 rounded-sm" style={{ height: `${h}%`, background: i === 5 ? "#FF2D95" : "#007BA7" }} />
+                    ))}
+                  </div>
                 </div>
                 <div className="grid grid-cols-2 gap-2">
                   {[{ l: "Decks", v: "24" }, { l: "Views", v: "891" }].map((s, i) => (
-                    <div key={i} className="p-2 text-center" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "4px" }}>
-                      <div className="text-sm font-bold" style={{ color: "#4A5FBD" }}>{s.v}</div>
-                      <div className="text-[10px]" style={{ color: "#8A93A3" }}>{s.l}</div>
+                    <div key={i} className="p-3 text-center rounded-lg bg-[#16181D] border border-white/5">
+                      <div className="text-sm font-bold text-[#FF5CAE]">{s.v}</div>
+                      <div className="text-[10px] text-[#94A3B8]">{s.l}</div>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
             <div className="p-8 flex flex-col justify-center">
-              <div className="flex flex-wrap gap-2 mb-4">{["SaaS", "Lovable", "Pitch Analytics"].map(t => <span key={t} className="text-xs px-3 py-1 eyebrow" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>{t}</span>)}</div>
-              <h3 className="text-2xl font-semibold mb-3" style={{ color: "#E9EBEF" }}>Pitchloop</h3>
-              <p className="text-sm mb-5 leading-relaxed" style={{ color: "#8A93A3" }}>A SaaS platform for founders that tracks investor engagement with pitch decks — who opened it, how long they spent on each slide, and which sections drove interest. Built on Lovable with Supabase and PDF analytics.</p>
-              <blockquote className="pl-4 italic text-sm mb-5" style={{ borderLeft: "2px solid #4A5FBD", color: "#E9EBEF" }}>"KinetixSoft shipped a working product in three weeks. It's already the tool I show founders when they ask how to pitch smarter."</blockquote>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {["SaaS", "Lovable", "Analytics"].map(t => (
+                  <span key={t} className="text-xs px-3 py-1 rounded-full font-mono text-[#FF5CAE] bg-[#FF2D95]/15 border border-[#FF2D95]/30">
+                    {t}
+                  </span>
+                ))}
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-3">Pitchloop</h3>
+              <p className="text-sm mb-5 leading-relaxed text-[#94A3B8]">
+                A SaaS platform for startup founders that monitors investor slide engagement and reading duration, built on Lovable with Supabase and PDF analytics.
+              </p>
+              <blockquote className="pl-4 italic text-sm mb-5 border-l-2 border-[#FF2D95] text-[#E2E8F0]">
+                "KinetixSoft shipped a working product in three weeks. It's already the tool I show founders when they ask how to pitch smarter."
+              </blockquote>
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 flex items-center justify-center font-bold text-sm" style={{ borderRadius: "6px", background: "#4A5FBD", color: "#E9EBEF" }}>K</div>
-                <div><div className="text-sm font-semibold" style={{ color: "#E9EBEF" }}>Kamran Siddiqui</div><div className="text-xs eyebrow">Founder of Pitchloop</div></div>
-                <div className="ml-auto flex gap-0.5">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4" style={{ fill: "#C9A86A", color: "#C9A86A" }} />)}</div>
+                <div className="w-9 h-9 rounded-lg flex items-center justify-center font-bold text-sm bg-gradient-to-r from-[#FF2D95] to-[#007BA7] text-white">
+                  K
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-white">Kamran Siddiqui</div>
+                  <div className="text-xs text-[#FF5CAE]">Founder of Pitchloop</div>
+                </div>
+                <div className="ml-auto flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-[#FF2D95] text-[#FF2D95]" />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </motion.div>
-      </section>
-
-      {/* HOW WE HELP */}
-      <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl mb-14 text-center" style={{ color: "#E9EBEF" }}>How We <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Help</em></motion.h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {[
-            { n: "01", eyebrow: "Know Before You Build", title: "Product Strategy", accent: "& Scoping" },
-            { n: "02", eyebrow: "UI That Earns Users", title: "UX Design", accent: "in Lovable" },
-            { n: "03", eyebrow: "Secure, Real Auth", title: "Authentication", accent: "& User Management" },
-            { n: "04", eyebrow: "Take Payments from Day One", title: "Payments &", accent: "Subscription Logic" },
-            { n: "05", eyebrow: "Connect Your Stack", title: "API &", accent: "Third-Party Integrations" },
-            { n: "06", eyebrow: "After Launch, Not After You Pay", title: "Post-Launch", accent: "Support" },
-          ].map((s, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }} viewport={{ once: true }} className="p-6 card-hover" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-              <span className="text-xs font-bold px-2 py-1" style={{ color: "#4A5FBD", background: "rgba(74,95,189,0.12)", borderRadius: "4px" }}>{s.n}</span>
-              <p className="text-muted-foreground text-xs mt-4 mb-2">{s.eyebrow}</p>
-              <h3 className="text-xl font-semibold" style={{ color: "#E9EBEF" }}>{s.title} <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>{s.accent}</em></h3>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* INDUSTRIES + CTA */}
-      <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-        <div style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px", overflow: "hidden" }}>
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="p-10 flex flex-col justify-center">
-              <h2 className="text-3xl mb-5" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>Built for <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Founders Who Need to Ship</em></h2>
-              <p className="mb-6 leading-relaxed" style={{ color: "#8A93A3" }}>If you're a founder with a working idea but no development team, Lovable is often the fastest path to a real product. We'll take your requirements from concept to launched app — with real users, real data, and real infrastructure behind it.</p>
-              <Link href="/contact"><button className="h-11 px-6 text-sm font-semibold w-fit flex items-center gap-2" style={{ background: "#4A5FBD", color: "#E9EBEF", borderRadius: "6px", border: "none", cursor: "pointer" }} onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#5A6FCC"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#4A5FBD"; }}>Start a Conversation <ArrowRight className="w-4 h-4" /></button></Link>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="p-10" style={{ background: "#161B26", borderLeft: "1px solid #232A36" }}>
-              <h3 className="text-lg font-semibold mb-5" style={{ color: "#E9EBEF" }}>Industries We've Built For</h3>
-              <div className="space-y-2">
-                {industries.map((ind, i) => (
-                  <div key={i} className="flex items-center gap-3 py-2" style={{ borderBottom: i < industries.length - 1 ? "1px solid #232A36" : "none" }}>
-                    <span className="flex items-center justify-center w-7 h-7 shrink-0" style={{ background: "rgba(74,95,189,0.12)", borderRadius: "4px", color: "#4A5FBD" }}>{ind.icon}</span>
-                    <span className="text-sm" style={{ color: "#E9EBEF" }}>{ind.label}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </div>
+        </Card3D>
       </section>
 
       {/* FAQ */}
-      <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl mb-12" style={{ color: "#E9EBEF" }}>Common <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Questions</em></motion.h2>
+      <section className="py-20 px-4 md:px-6 max-w-4xl mx-auto relative z-10">
+        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
+          Common <span className="text-gradient-rose">Questions</span>
+        </h2>
         <div className="space-y-3">{faqs.map((f, i) => <FAQItem key={i} q={f.q} a={f.a} />)}</div>
       </section>
 
       {/* CONTACT */}
-      <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10 mb-8">
-        <div className="p-8 md:p-10" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-          <h2 className="text-3xl mb-2 text-center" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>Start Your <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Lovable Project</em></h2>
-          <p className="text-center text-sm mb-8" style={{ color: "#8A93A3" }}>Tell us your idea and we'll scope it out in 24 hours.</p>
+      <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10 mb-12">
+        <Card3D glowColor="rose" className="p-8 sm:p-12">
+          <h2 className="text-3xl font-bold mb-2 text-center">Start Your <span className="text-gradient-rose">Lovable Project</span></h2>
+          <p className="text-center text-sm text-[#94A3B8] mb-8">Tell us your vision and we'll map out the architecture within 24 hours.</p>
           <ContactForm defaultService="lovable" />
-        </div>
+        </Card3D>
       </section>
     </div>
   );

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Layout, Zap, Shield, Database, Star, ChevronDown, ArrowRight, BarChart2, Settings, Users, Layers, DollarSign, Globe, Bot } from "lucide-react";
 import { SiRetool } from "react-icons/si";
 import { ContactForm } from "@/components/ContactForm";
+import { Card3D } from "@/components/Card3D";
 
 const faqs = [
   { q: "What kinds of tools can you build with Retool?", a: "Admin panels, ops dashboards, claims processors, order management tools, customer support UIs, data pipelines, approval workflows — anything that your internal team uses to run the business." },
@@ -20,18 +21,20 @@ const faqs = [
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div style={{ border: "1px solid #232A36", borderRadius: "6px", overflow: "hidden" }}>
-      <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between px-6 py-5 text-left font-semibold" style={{ color: "#E9EBEF" }}
-        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#161B26"; }}
-        onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
+    <div className="rounded-xl overflow-hidden glass-card transition-all">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-white hover:text-[#00A3DE] transition-colors"
       >
         <span>{q}</span>
-        <ChevronDown className={`w-5 h-5 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} style={{ color: "#4A5FBD" }} />
+        <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${open ? "bg-[#FF2D95]/20 text-[#FF5CAE]" : "bg-white/5 text-[#00A3DE]"}`}>
+          <ChevronDown className={`w-4 h-4 transition-transform ${open ? "rotate-180" : ""}`} />
+        </div>
       </button>
       <AnimatePresence initial={false}>
         {open && (
           <motion.div key="body" initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.22 }} className="overflow-hidden">
-            <p className="px-6 pb-5 text-muted-foreground leading-relaxed">{a}</p>
+            <p className="px-6 pb-5 text-sm text-[#94A3B8] leading-relaxed border-t border-white/5 pt-3">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -41,57 +44,75 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 
 export default function RetoolContent() {
   return (
-    <div className="min-h-screen bg-[#0B0F19]">
+    <div className="min-h-screen bg-[#0A0A0A] text-[#F3F4F6] relative">
       {/* HERO */}
       <section className="pt-36 pb-24 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 text-sm mb-6 eyebrow" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>
-              <SiRetool className="w-4 h-4" /> Retool Development Studio
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-6" style={{ background: "rgba(0,123,167,0.15)", border: "1px solid rgba(0,123,167,0.35)", color: "#00A3DE" }}>
+              <SiRetool className="w-3.5 h-3.5" /> Retool Internal Systems Studio
             </div>
-            <h1 className="text-4xl md:text-5xl xl:text-6xl leading-tight mb-6" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
-              Internal Tools That <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Actually Get Used</em>
+            <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight mb-6">
+              Internal Tools That <span className="text-gradient-cerulean">Actually Get Used</span>
             </h1>
-            <p className="text-lg leading-relaxed mb-8" style={{ color: "#8A93A3" }}>KinetixSoft builds admin dashboards, ops tools, and data interfaces on Retool for teams that have outgrown spreadsheets. Purpose-built software that your team can actually operate — without needing a developer nearby.</p>
+            <p className="text-lg leading-relaxed mb-8 text-[#94A3B8]">
+              KinetixSoft builds custom admin dashboards, operations portals, and database interfaces on Retool for teams that have outgrown manual spreadsheets. High-speed, secure, and production-tested.
+            </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/contact"><button className="h-12 px-8 text-sm font-semibold" data-testid="button-retool-start" style={{ background: "#4A5FBD", color: "#E9EBEF", borderRadius: "6px", border: "none", cursor: "pointer" }} onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#5A6FCC"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#4A5FBD"; }}>Start Your Project</button></Link>
-              <Link href="/contact"><button className="h-12 px-8 text-sm font-semibold flex items-center gap-2" style={{ background: "transparent", color: "#E9EBEF", borderRadius: "6px", border: "1px solid #232A36", cursor: "pointer" }} onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#4A5FBD"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#232A36"; }}>Book a Call <ArrowRight className="w-4 h-4" /></button></Link>
+              <Link href="/contact">
+                <button className="h-12 px-8 text-sm font-semibold rounded-lg btn-cerulean" data-testid="button-retool-start">
+                  Start Your Project
+                </button>
+              </Link>
+              <Link href="/contact">
+                <button className="h-12 px-8 text-sm font-semibold flex items-center gap-2 rounded-lg btn-ghost-cyber">
+                  Book a Scoping Call <ArrowRight className="w-4 h-4 text-[#FF2D95]" />
+                </button>
+              </Link>
             </div>
           </motion.div>
-          {/* Admin panel mockup */}
+
+          {/* 3D Admin Panel Mockup */}
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="relative flex items-center justify-center h-[380px]">
-            <div className="absolute inset-0 rounded-full bg-yellow-500/10 blur-[80px]" />
-            <div className="relative w-full max-w-sm z-10" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px", overflow: "hidden" }}>
-              <div className="flex items-center gap-2 px-4 py-3" style={{ background: "#161B26", borderBottom: "1px solid #232A36" }}>
-                <div className="w-2 h-2 rounded-full bg-red-400/60" /><div className="w-2 h-2 rounded-full bg-yellow-400/60" /><div className="w-2 h-2 rounded-full bg-green-400/60" />
-                <span className="text-xs text-white/30 ml-2">ClaimDesk · Admin</span>
+            <div className="absolute inset-0 rounded-full bg-[#007BA7]/20 blur-[90px] pointer-events-none" />
+            <Card3D glowColor="cerulean" className="relative w-full max-w-sm z-10 rounded-2xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.7)]">
+              <div className="flex items-center gap-2 px-4 py-3 bg-[#16181D] border-b border-white/5">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
+                <div className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
+                <span className="text-xs text-white/40 ml-2 font-mono">ClaimDesk · Internal Ops</span>
               </div>
-              <div className="p-4 space-y-2">
-                <div className="grid grid-cols-3 gap-1.5 mb-3">
+              <div className="p-5 space-y-3 bg-[#111215]">
+                <div className="grid grid-cols-3 gap-2 mb-3">
                   {[{ l: "Open Claims", v: "47" }, { l: "Processing", v: "12" }, { l: "Resolved", v: "203" }].map((s, i) => (
-                    <div key={i} className="p-2 text-center" style={{ background: "#161B26", borderRadius: "4px" }}>
-                      <div className="text-sm font-bold" style={{ color: "#4A5FBD" }}>{s.v}</div>
-                      <div className="text-[10px]" style={{ color: "#8A93A3" }}>{s.l}</div>
+                    <div key={i} className="p-2.5 text-center rounded-lg bg-[#16181D] border border-white/5">
+                      <div className="text-sm font-bold text-[#00A3DE]">{s.v}</div>
+                      <div className="text-[10px] text-[#94A3B8]">{s.l}</div>
                     </div>
                   ))}
                 </div>
-                {["CLM-0041 · Pending Review", "CLM-0040 · Approved", "CLM-0039 · Rejected", "CLM-0038 · Pending Review"].map((row, i) => (
-                  <div key={i} className="flex items-center gap-2 px-3 py-2" style={{ background: "#161B26", borderRadius: "4px" }}>
-                    <div className="w-1.5 h-1.5 rounded-full" style={{ background: ["#C9A86A", "#4ABD7A", "#E55353", "#C9A86A"][i] }} />
-                    <span className="text-xs" style={{ color: "#E9EBEF" }}>{row}</span>
+                {["CLM-0041 · Pending Review", "CLM-0040 · Approved ($12.5k)", "CLM-0039 · Rejected", "CLM-0038 · In Review"].map((row, i) => (
+                  <div key={i} className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-[#16181D] border border-white/5 text-xs text-[#F3F4F6]">
+                    <div className="w-1.5 h-1.5 rounded-full" style={{ background: ["#FF2D95", "#00A3DE", "#E55353", "#00A3DE"][i] }} />
+                    <span>{row}</span>
                   </div>
                 ))}
               </div>
-            </div>
+            </Card3D>
           </motion.div>
         </div>
+
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16">
-          {[{ stat: "100%", label: "Founder-Led", sub: "Direct access to your build team" }, { stat: "24/7", label: "Support Mindset", sub: "We don't disappear after delivery" }, { stat: "2025", label: "Studio Launched", sub: "Built for startups and growing teams" }].map((s, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 + i * 0.15 }} className="p-6 text-center" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-              <div className="text-3xl font-bold mb-1" style={{ color: "#4A5FBD" }}>{s.stat}</div>
-              <div className="font-semibold mb-1" style={{ color: "#E9EBEF" }}>{s.label}</div>
-              <div className="text-sm" style={{ color: "#8A93A3" }}>{s.sub}</div>
-            </motion.div>
+          {[
+            { stat: "100%", label: "Founder-Led", sub: "Direct access to your internal tools architect", glow: "cerulean" as const },
+            { stat: "24/7", label: "Operational Mindset", sub: "Built for zero downtime and data integrity", glow: "rose" as const },
+            { stat: "2025", label: "Studio Launched", sub: "Specialized in high-density data systems", glow: "cerulean" as const }
+          ].map((s, i) => (
+            <Card3D key={i} glowColor={s.glow} className="p-6 text-center">
+              <div className={`text-3xl font-extrabold mb-1 ${s.glow === "rose" ? "text-gradient-rose" : "text-gradient-cerulean"}`}>{s.stat}</div>
+              <div className="font-semibold text-white mb-1">{s.label}</div>
+              <div className="text-xs text-[#94A3B8]">{s.sub}</div>
+            </Card3D>
           ))}
         </div>
       </section>
@@ -99,93 +120,99 @@ export default function RetoolContent() {
       {/* WHY CHOOSE US */}
       <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="text-3xl md:text-4xl mb-4" style={{ color: "#E9EBEF" }}>Why Build Internal Tools with <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>KinetixSoft</em></h2>
-          <p className="text-lg" style={{ color: "#8A93A3" }}>Internal tools fail when they're hard to use or don't connect to the right data. Here's how we avoid that.</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Why Build Internal Tools with <span className="text-gradient-cerulean">KinetixSoft</span>
+          </h2>
+          <p className="text-lg text-[#94A3B8]">Internal tools fail when they're clunky or disconnected from source-of-truth databases. Here is how we engineer them to succeed.</p>
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
-            { icon: <Layout className="w-6 h-6" />, title: "Real Retool Depth", desc: "We write proper SQL and REST queries — not just point-and-click. Every tool we build is connected to real data sources and built to handle edge cases." },
-            { icon: <Zap className="w-6 h-6" />, title: "Fast to Deploy", desc: "Retool's component model lets us ship working internal tools in days, not sprints. You'll be using the tool before you've forgotten what you asked for." },
-            { icon: <Shield className="w-6 h-6" />, title: "Secure for Operations", desc: "Role-based access, audit logs, and data masking are included in every build — not optional extras." },
-            { icon: <Database className="w-6 h-6" />, title: "Connected to Your Data", desc: "Whether your data lives in Postgres, Airtable, an API, or a spreadsheet, we'll connect Retool to it and make it useful." },
+            { icon: <Layout className="w-6 h-6 text-[#00A3DE]" />, title: "Real SQL & API Depth", desc: "We write optimized PostgreSQL, MySQL, and REST queries — connecting directly to production databases with parameterized security." },
+            { icon: <Zap className="w-6 h-6 text-[#FF5CAE]" />, title: "Rapid Operational Velocity", desc: "Retool's component model lets us ship working internal tools in days or weeks, giving your operations immediate leverage." },
+            { icon: <Shield className="w-6 h-6 text-[#00A3DE]" />, title: "Enterprise Access Control", desc: "Granular RBAC permissions, audit logging, and sensitive data masking are built into every tool by default." },
+            { icon: <Database className="w-6 h-6 text-[#FF5CAE]" />, title: "Unified Data Orchestration", desc: "Seamlessly merge data from PostgreSQL, Stripe, Salesforce, Google Sheets, and custom microservices into one screen." },
           ].map((f, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} className="p-7 card-hover" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-              <div className="w-12 h-12 flex items-center justify-center mb-5" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>{f.icon}</div>
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "#E9EBEF" }}>{f.title}</h3>
-              <p className="leading-relaxed" style={{ color: "#8A93A3" }}>{f.desc}</p>
-            </motion.div>
+            <Card3D key={i} glowColor={i % 2 === 0 ? "cerulean" : "rose"} className="p-8">
+              <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-5">
+                {f.icon}
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">{f.title}</h3>
+              <p className="text-sm text-[#94A3B8] leading-relaxed">{f.desc}</p>
+            </Card3D>
           ))}
         </div>
       </section>
 
       {/* CASE STUDY */}
       <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl mb-14 text-center" style={{ color: "#E9EBEF" }}>Work We've <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Shipped</em></motion.h2>
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="overflow-hidden max-w-4xl mx-auto" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold">Work We've <span className="text-gradient-duo">Shipped</span></h2>
+        </div>
+        <Card3D glowColor="cerulean" className="overflow-hidden max-w-4xl mx-auto border border-white/10">
           <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="relative p-10 flex items-center justify-center min-h-[260px]" style={{ background: "#161B26" }}>
+            <div className="relative p-10 flex items-center justify-center min-h-[260px] bg-[#111215]">
               <div className="w-full max-w-[220px] space-y-2">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-semibold" style={{ color: "#E9EBEF" }}>Claims Queue</span>
-                  <span className="text-xs" style={{ color: "#4A5FBD" }}>47 open</span>
+                  <span className="text-xs font-semibold text-white">Claims Queue</span>
+                  <span className="text-xs text-[#00A3DE] font-mono">47 open</span>
                 </div>
-                {["#CLM-041 · Auto Claim", "#CLM-040 · Home Fire", "#CLM-039 · Vehicle", "#CLM-038 · Medical"].map((c, i) => (
-                  <div key={i} className="flex items-center gap-2 p-2" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "4px" }}>
-                    <div className="w-1.5 h-1.5 rounded-full" style={{ background: ["#C9A86A", "#4ABD7A", "#E55353", "#C9A86A"][i] }} />
-                    <span className="text-[10px]" style={{ color: "#E9EBEF" }}>{c}</span>
+                {["#CLM-041 · Auto Claim", "#CLM-040 · Property Damage", "#CLM-039 · Equipment", "#CLM-038 · Medical Review"].map((c, i) => (
+                  <div key={i} className="flex items-center gap-2 p-2.5 rounded-lg bg-[#16181D] border border-white/5">
+                    <div className="w-1.5 h-1.5 rounded-full" style={{ background: ["#FF2D95", "#00A3DE", "#E55353", "#00A3DE"][i] }} />
+                    <span className="text-[10px] text-white">{c}</span>
                   </div>
                 ))}
               </div>
             </div>
             <div className="p-8 flex flex-col justify-center">
-              <div className="flex flex-wrap gap-2 mb-4">{["InsurTech", "Retool", "Admin Dashboard"].map(t => <span key={t} className="text-xs px-3 py-1 eyebrow" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>{t}</span>)}</div>
-              <h3 className="text-2xl font-semibold mb-3" style={{ color: "#E9EBEF" }}>ClaimDesk</h3>
-              <p className="text-sm mb-5 leading-relaxed" style={{ color: "#8A93A3" }}>A claims management dashboard built on Retool for an insurance operations team. Handlers can review, approve, reject, and escalate claims from a single interface connected to their PostgreSQL backend — replacing a slow, email-based process.</p>
-              <blockquote className="pl-4 italic text-sm mb-5" style={{ borderLeft: "2px solid #4A5FBD", color: "#E9EBEF" }}>"Claims that used to take 3 days to process now get handled in the same morning. KinetixSoft built exactly what we needed."</blockquote>
+              <div className="flex flex-wrap gap-2 mb-4">
+                {["InsurTech", "Retool", "Admin Portal"].map(t => (
+                  <span key={t} className="text-xs px-3 py-1 rounded-full font-mono text-[#00A3DE] bg-[#007BA7]/15 border border-[#007BA7]/30">
+                    {t}
+                  </span>
+                ))}
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-3">ClaimDesk</h3>
+              <p className="text-sm mb-5 leading-relaxed text-[#94A3B8]">
+                A claims management portal built on Retool for an insurance operations team. Handlers review, approve, reject, and trigger automated payouts directly connected to PostgreSQL.
+              </p>
+              <blockquote className="pl-4 italic text-sm mb-5 border-l-2 border-[#007BA7] text-[#E2E8F0]">
+                "Claims that used to take 3 days to process now get handled in the same morning. KinetixSoft built exactly what we needed."
+              </blockquote>
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 flex items-center justify-center font-bold text-sm" style={{ borderRadius: "6px", background: "#4A5FBD", color: "#E9EBEF" }}>R</div>
-                <div><div className="text-sm font-semibold" style={{ color: "#E9EBEF" }}>Raza Ahmed</div><div className="text-xs eyebrow">Head of Operations, ClaimDesk</div></div>
-                <div className="ml-auto flex gap-0.5">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4" style={{ fill: "#C9A86A", color: "#C9A86A" }} />)}</div>
+                <div className="w-9 h-9 rounded-lg flex items-center justify-center font-bold text-sm bg-gradient-to-r from-[#007BA7] to-[#FF2D95] text-white">
+                  R
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-white">Raza Ahmed</div>
+                  <div className="text-xs text-[#00A3DE]">Head of Operations, ClaimDesk</div>
+                </div>
+                <div className="ml-auto flex gap-0.5">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-[#FF2D95] text-[#FF2D95]" />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </motion.div>
-      </section>
-
-      {/* HOW WE HELP */}
-      <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl mb-14 text-center" style={{ color: "#E9EBEF" }}>How We <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Help</em></motion.h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {[
-            { n: "01", eyebrow: "Map Before You Build", title: "Discovery &", accent: "Scoping" },
-            { n: "02", eyebrow: "Hook Into Your Data", title: "Database &", accent: "API Connections" },
-            { n: "03", eyebrow: "UI That Makes Sense", title: "Admin UI", accent: "Development" },
-            { n: "04", eyebrow: "From Simple to Complex", title: "Workflow", accent: "Automation" },
-            { n: "05", eyebrow: "Right People, Right Access", title: "Role & Permission", accent: "Setup" },
-            { n: "06", eyebrow: "We Stay After Launch", title: "Ongoing Support", accent: "& Expansion" },
-          ].map((s, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }} viewport={{ once: true }} className="p-6 card-hover" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-              <span className="text-xs font-bold px-2 py-1" style={{ color: "#4A5FBD", background: "rgba(74,95,189,0.12)", borderRadius: "4px" }}>{s.n}</span>
-              <p className="text-muted-foreground text-xs mt-4 mb-2">{s.eyebrow}</p>
-              <h3 className="text-xl font-semibold" style={{ color: "#E9EBEF" }}>{s.title} <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>{s.accent}</em></h3>
-            </motion.div>
-          ))}
-        </div>
+        </Card3D>
       </section>
 
       {/* FAQ */}
-      <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl mb-12" style={{ color: "#E9EBEF" }}>Common <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Questions</em></motion.h2>
+      <section className="py-20 px-4 md:px-6 max-w-4xl mx-auto relative z-10">
+        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
+          Common <span className="text-gradient-cerulean">Questions</span>
+        </h2>
         <div className="space-y-3">{faqs.map((f, i) => <FAQItem key={i} q={f.q} a={f.a} />)}</div>
       </section>
 
       {/* CONTACT */}
-      <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10 mb-8">
-        <div className="p-8 md:p-10" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-          <h2 className="text-3xl mb-2 text-center" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>Start Your <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Retool Project</em></h2>
-          <p className="text-center text-sm mb-8" style={{ color: "#8A93A3" }}>Tell us what your team needs and we'll scope it out in 24 hours.</p>
+      <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10 mb-12">
+        <Card3D glowColor="cerulean" className="p-8 sm:p-12">
+          <h2 className="text-3xl font-bold mb-2 text-center">Start Your <span className="text-gradient-cerulean">Retool Project</span></h2>
+          <p className="text-center text-sm text-[#94A3B8] mb-8">Tell us what internal tools your team needs and we'll scope it out within 24 hours.</p>
           <ContactForm defaultService="retool" />
-        </div>
+        </Card3D>
       </section>
     </div>
   );

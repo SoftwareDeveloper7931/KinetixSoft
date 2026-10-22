@@ -2,43 +2,49 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, Sparkles, Layers } from "lucide-react";
 import { SiFlutter, SiReplit, SiRetool } from "react-icons/si";
+import { Card3D } from "@/components/Card3D";
 
 function PodioLogo() {
   return (
-    <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center bg-white">
-      <img src="/podio-logo.jfif" alt="Podio" className="w-10 h-10 object-cover" />
+    <div className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center bg-white shadow-md p-1 border border-jet-border">
+      <img src="/podio-logo.jfif" alt="Podio" className="w-full h-full object-cover rounded-lg" />
     </div>
   );
 }
 function BubbleLogo() {
   return (
-    <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center bg-white">
-      <img src="/bubble-logo.png" alt="Bubble" className="w-9 h-9 object-contain" />
+    <div className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center bg-white shadow-md p-1 border border-jet-border">
+      <img src="/bubble-logo.png" alt="Bubble" className="w-10 h-10 object-contain" />
     </div>
   );
 }
 
 function LovableLogo() {
-  return <svg viewBox="0 0 60 60" className="w-10 h-10" fill="none"><rect width="60" height="60" rx="12" fill="#FFF0F0" /><text x="50%" y="38%" dominantBaseline="middle" textAnchor="middle" fontSize="18" fill="#E53935">♥</text><text x="50%" y="70%" dominantBaseline="middle" textAnchor="middle" fontSize="9" fontWeight="bold" fill="#E53935" fontFamily="sans-serif">lovable</text></svg>;
+  return (
+    <div className="w-12 h-12 rounded-xl bg-neon-rose/10 border border-neon-rose/30 flex items-center justify-center">
+      <span className="text-neon-rose text-2xl font-bold">♥</span>
+    </div>
+  );
 }
 
 const services = [
   {
     href: "/podio",
-    badge: "CRM & Ops",
+    badge: "CRM & Ops Architecture",
     logo: <PodioLogo />,
     name: "Podio",
-    headline: "CRM & Workflow Automation",
-    body: "Custom Podio workspaces, CRM systems, and automated workflows for teams that have outgrown spreadsheets.",
-    bullets: ["Custom workspace architecture", "Workflow & GlobiFlow automation", "Data migration & import", "Third-party integrations"],
+    headline: "CRM & Automated Workflow Systems",
+    body: "Custom Podio workspaces, high-velocity CRM pipelines, and GlobiFlow/Make automated workflows engineered for teams outgrowing spreadsheets.",
+    bullets: ["Custom workspace architecture", "Workflow & GlobiFlow automation", "Data migration & import pipelines", "Third-party webhook integrations"],
+    glowColor: "cerulean" as const,
     mockup: (
-      <div className="space-y-2 w-full">
+      <div className="space-y-2.5 w-full max-w-[260px]">
         {["Lead Qualified", "Discovery Call", "Proposal Sent", "Contract Signed"].map((s, i) => (
-          <div key={i} className="flex items-center gap-2 px-3 py-2" style={{ background: "#0A0E14", borderRadius: "4px", border: "1px solid #232A36" }}>
-            <div className="w-1.5 h-1.5 rounded-full" style={{ background: ["#4A5FBD", "#C9A86A", "#4ABD7A", "#4A5FBD"][i] }} />
-            <span className="text-xs" style={{ color: "#E9EBEF" }}>{s}</span>
+          <div key={i} className="flex items-center gap-3 px-3 py-2 bg-jet/90 rounded-lg border border-jet-border text-xs">
+            <div className={`w-2 h-2 rounded-full ${i === 3 ? "bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" : i === 2 ? "bg-neon-rose" : "bg-cerulean"}`} />
+            <span className="text-white/80 font-mono">{s}</span>
           </div>
         ))}
       </div>
@@ -46,113 +52,162 @@ const services = [
   },
   {
     href: "/flutterflow",
-    badge: "Mobile & Web",
-    logo: <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center"><SiFlutter className="w-6 h-6 text-blue-500" /></div>,
+    badge: "Native Mobile & Web",
+    logo: (
+      <div className="w-12 h-12 rounded-xl bg-cerulean/10 border border-cerulean/30 flex items-center justify-center">
+        <SiFlutter className="w-6 h-6 text-cerulean" />
+      </div>
+    ),
     name: "FlutterFlow",
     headline: "Mobile & Web App Development",
-    body: "Production-ready mobile and web apps built on FlutterFlow with Firebase, custom APIs, and full UI/UX design.",
-    bullets: ["iOS & Android apps", "Web app builds", "Firebase / Supabase integration", "Custom logic & API connections"],
+    body: "Cross-platform iOS and Android mobile apps alongside responsive web applications built on FlutterFlow, powered by Firebase & Supabase backends.",
+    bullets: ["App Store & Play Store ready", "Realtime Firebase / Supabase data", "Custom Flutter action code & APIs", "High-performance responsive UI"],
+    glowColor: "neon-rose" as const,
     mockup: (
-      <div className="flex justify-center gap-4">
-        <div className="w-[80px] h-[155px] rounded-[18px] border border-white/10" style={{ background: "#12161F" }}>
-          <div className="h-20 m-2 rounded-lg" style={{ background: "rgba(74,95,189,0.2)" }} />
-          <div className="space-y-1.5 mx-2"><div className="h-1.5 rounded" style={{ background: "#232A36" }} /><div className="h-1.5 rounded w-2/3" style={{ background: "#232A36" }} /></div>
+      <div className="flex justify-center gap-3">
+        <div className="w-[85px] h-[160px] rounded-[18px] border border-cerulean/40 bg-jet p-2 flex flex-col justify-between shadow-lg shadow-cerulean/20">
+          <div className="h-16 rounded-lg bg-cerulean/20 border border-cerulean/30 flex items-center justify-center">
+            <div className="w-4 h-4 rounded-full bg-cerulean animate-pulse" />
+          </div>
+          <div className="space-y-1.5">
+            <div className="h-2 rounded bg-jet-border" />
+            <div className="h-2 rounded w-3/4 bg-cerulean/30" />
+          </div>
         </div>
-        <div className="w-[80px] h-[155px] rounded-[18px] border border-white/20" style={{ background: "#161B26" }}>
-          <div className="h-20 m-2 rounded-lg" style={{ background: "rgba(74,189,180,0.2)" }} />
-          <div className="space-y-1.5 mx-2"><div className="h-1.5 rounded" style={{ background: "#232A36" }} /><div className="h-1.5 rounded w-3/4" style={{ background: "#232A36" }} /></div>
+        <div className="w-[85px] h-[160px] rounded-[18px] border border-neon-rose/40 bg-jet p-2 flex flex-col justify-between shadow-lg shadow-neon-rose/20">
+          <div className="h-16 rounded-lg bg-neon-rose/20 border border-neon-rose/30 flex items-center justify-center">
+            <div className="w-4 h-4 rounded-full bg-neon-rose animate-pulse" />
+          </div>
+          <div className="space-y-1.5">
+            <div className="h-2 rounded bg-jet-border" />
+            <div className="h-2 rounded w-2/3 bg-neon-rose/30" />
+          </div>
         </div>
       </div>
     ),
   },
   {
     href: "/retool",
-    badge: "Internal Tools",
-    logo: <div className="w-10 h-10 rounded-xl bg-yellow-50 flex items-center justify-center"><SiRetool className="w-6 h-6 text-yellow-600" /></div>,
+    badge: "Internal Ops Tools",
+    logo: (
+      <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center">
+        <SiRetool className="w-6 h-6 text-amber-400" />
+      </div>
+    ),
     name: "Retool",
-    headline: "Admin Dashboards & Internal Tools",
-    body: "Purpose-built admin panels, ops dashboards, and data interfaces for teams that need real tools — not spreadsheets.",
-    bullets: ["Admin panel development", "Database & API connections", "Role-based access control", "Workflow automation"],
+    headline: "Admin Dashboards & Internal Tooling",
+    body: "Purpose-built operational portals, customer support admin interfaces, and real-time database CRUD viewers with strict enterprise permission controls.",
+    bullets: ["Direct Postgres & MongoDB queries", "Granular role-based permissions", "Multi-step approval workflows", "Enterprise audit log trails"],
+    glowColor: "cerulean" as const,
     mockup: (
-      <div className="w-full space-y-2">
-        <div className="grid grid-cols-3 gap-1.5">
-          {["47 Open", "12 Proc.", "203 Done"].map((s, i) => (
-            <div key={i} className="p-2 text-center" style={{ background: "#0A0E14", borderRadius: "4px" }}>
-              <div className="text-xs font-bold" style={{ color: "#4A5FBD" }}>{s.split(" ")[0]}</div>
-              <div className="text-[9px]" style={{ color: "#8A93A3" }}>{s.split(" ")[1]}</div>
+      <div className="w-full max-w-[260px] space-y-2.5">
+        <div className="grid grid-cols-3 gap-2">
+          {[{ v: "47", l: "Open" }, { v: "12", l: "Active" }, { v: "203", l: "Resolved" }].map((s, i) => (
+            <div key={i} className="p-2 text-center bg-jet rounded-lg border border-jet-border">
+              <div className="text-xs font-bold text-cerulean">{s.v}</div>
+              <div className="text-[10px] text-white/50">{s.l}</div>
             </div>
           ))}
         </div>
-        {["CLM-041 · Pending", "CLM-040 · Approved"].map((r, i) => (
-          <div key={i} className="flex items-center gap-2 px-2 py-1.5" style={{ background: "#0A0E14", borderRadius: "4px" }}>
-            <div className="w-1.5 h-1.5 rounded-full" style={{ background: i === 0 ? "#C9A86A" : "#4ABD7A" }} />
-            <span className="text-[10px]" style={{ color: "#E9EBEF" }}>{r}</span>
+        <div className="space-y-1.5">
+          <div className="flex items-center justify-between px-3 py-1.5 bg-jet rounded border border-jet-border text-[11px]">
+            <span className="font-mono text-white/80">#ORD-9021</span>
+            <span className="text-emerald-400 text-[10px] font-bold">APPROVED</span>
           </div>
-        ))}
+          <div className="flex items-center justify-between px-3 py-1.5 bg-jet rounded border border-jet-border text-[11px]">
+            <span className="font-mono text-white/80">#ORD-9022</span>
+            <span className="text-neon-rose text-[10px] font-bold">REVIEW</span>
+          </div>
+        </div>
       </div>
     ),
   },
   {
     href: "/lovable",
-    badge: "SaaS & Web",
+    badge: "AI-Generated SaaS",
     logo: <LovableLogo />,
     name: "Lovable",
-    headline: "AI-Powered SaaS & Web Apps",
-    body: "Full-stack web apps and SaaS products built on Lovable with auth, payments, database, and third-party integrations.",
-    bullets: ["SaaS dashboard builds", "Auth & user management", "Stripe payment integration", "Supabase / PostgreSQL backend"],
+    headline: "Modern AI-Assisted SaaS & Web Apps",
+    body: "Rapidly engineered modern web products built on Lovable with Supabase backend, Stripe billing subscriptions, and responsive Tailwind UI.",
+    bullets: ["SaaS web app architecture", "Supabase authentication & RLS", "Stripe subscription billing", "Production CI/CD deployment"],
+    glowColor: "neon-rose" as const,
     mockup: (
-      <div className="w-full space-y-2">
+      <div className="w-full max-w-[260px] space-y-3">
         <div className="grid grid-cols-2 gap-2">
-          {[{ l: "Users", v: "847" }, { l: "MRR", v: "$12k" }].map((s, i) => (
-            <div key={i} className="p-2" style={{ background: "#0A0E14", borderRadius: "4px" }}>
-              <div className="text-sm font-bold" style={{ color: "#4A5FBD" }}>{s.v}</div>
-              <div className="text-[9px]" style={{ color: "#8A93A3" }}>{s.l}</div>
+          {[{ l: "Active Users", v: "1,248" }, { l: "MRR Growth", v: "+38%" }].map((s, i) => (
+            <div key={i} className="p-2.5 bg-jet rounded-lg border border-jet-border">
+              <div className="text-xs font-bold text-neon-rose">{s.v}</div>
+              <div className="text-[10px] text-white/50">{s.l}</div>
             </div>
           ))}
         </div>
-        <div className="h-12 flex items-end gap-1 px-1">
-          {[40, 55, 45, 70, 60, 85].map((h, i) => <div key={i} className="flex-1 rounded-sm" style={{ height: `${h}%`, background: i === 5 ? "#4A5FBD" : "rgba(74,95,189,0.3)" }} />)}
+        <div className="h-12 flex items-end gap-1.5 px-1 bg-jet p-2 rounded-lg border border-jet-border">
+          {[35, 55, 45, 75, 60, 92].map((h, i) => (
+            <div
+              key={i}
+              className="flex-1 rounded-sm transition-all"
+              style={{
+                height: `${h}%`,
+                background: i === 5 ? "var(--neon-rose)" : "rgba(255, 45, 149, 0.3)",
+              }}
+            />
+          ))}
         </div>
       </div>
     ),
   },
   {
     href: "/replit-platform",
-    badge: "Full-Stack & AI",
-    logo: <div className="w-10 h-10 rounded-xl bg-orange-100 flex items-center justify-center"><SiReplit className="w-6 h-6 text-orange-500" /></div>,
+    badge: "Full-Stack & Multi-Agent",
+    logo: (
+      <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center">
+        <SiReplit className="w-6 h-6 text-orange-400" />
+      </div>
+    ),
     name: "Replit",
-    headline: "Full-Stack Apps & AI Agents",
-    body: "Full-stack apps, AI agents, and automation tools built on Replit using Python, Node.js, and modern AI APIs.",
-    bullets: ["Full-stack app development", "AI agent & LLM integration", "REST API & webhook builds", "Replit deployment & hosting"],
+    headline: "Full-Stack Cloud Apps & AI Agents",
+    body: "Custom Python & TypeScript microservices, automated scraping pipelines, and LLM orchestration agents hosted on Replit Deployments.",
+    bullets: ["Autonomous AI agent pipelines", "FastAPI / Node.js backend services", "Webhook integrations & bots", "Instant cloud deployments"],
+    glowColor: "cerulean" as const,
     mockup: (
-      <div className="font-mono text-[10px] space-y-1" style={{ color: "#4A5FBD" }}>
-        <div style={{ color: "#8A93A3" }}>$ python agent.py</div>
-        <div>{">"} Connecting...</div>
-        <div>{">"} Analysing queue...</div>
-        <div style={{ color: "#4ABD7A" }}>{">"} Done ✓</div>
+      <div className="font-mono text-[11px] space-y-1.5 p-3 rounded-lg bg-jet border border-jet-border w-full max-w-[260px]">
+        <div className="text-white/40">$ python agent.py</div>
+        <div className="text-cerulean">{">"} Syncing LLM pipeline...</div>
+        <div className="text-white/70">{">"} Processing 84 requests</div>
+        <div className="text-emerald-400">{">"} Live Deployment ✓</div>
       </div>
     ),
   },
   {
     href: "/bubble",
-    badge: "No-Code Web Apps",
+    badge: "No-Code Enterprise Web Apps",
     logo: <BubbleLogo />,
     name: "Bubble",
     headline: "Full-Stack Web Apps Without Code",
-    body: "Production-ready web apps built on Bubble with proper data architecture, workflow logic, and third-party API integrations.",
-    bullets: ["Custom Bubble app builds", "Data & workflow architecture", "API & plugin integrations", "App audits & ongoing support"],
+    body: "Complex multi-tenant web applications, marketplace platforms, and user portals built with battle-tested database schemas on Bubble.",
+    bullets: ["Multi-tenant portals & marketplaces", "Complex database schema design", "External REST API connectors", "Full performance optimization audits"],
+    glowColor: "neon-rose" as const,
     mockup: (
-      <div className="space-y-2">
+      <div className="space-y-2.5 w-full max-w-[260px]">
         <div className="grid grid-cols-2 gap-2">
-          {[{ l: "Users", v: "1.2k" }, { l: "Workflows", v: "86" }].map((s, i) => (
-            <div key={i} className="p-2 text-center" style={{ background: "#161B26", border: "1px solid #232A36", borderRadius: "4px" }}>
-              <div className="text-sm font-bold" style={{ color: "#4A5FBD" }}>{s.v}</div>
-              <div className="text-[10px]" style={{ color: "#8A93A3" }}>{s.l}</div>
+          {[{ l: "Active Portals", v: "24" }, { l: "API Calls / day", v: "150k" }].map((s, i) => (
+            <div key={i} className="p-2 text-center bg-jet border border-jet-border rounded-lg">
+              <div className="text-xs font-bold text-cerulean">{s.v}</div>
+              <div className="text-[10px] text-white/50">{s.l}</div>
             </div>
           ))}
         </div>
-        <div className="h-10 flex items-end gap-1 px-1">
-          {[35, 50, 42, 65, 58, 80].map((h, i) => <div key={i} className="flex-1 rounded-sm" style={{ height: `${h}%`, background: i === 5 ? "#4A5FBD" : "rgba(74,95,189,0.3)" }} />)}
+        <div className="h-10 flex items-end gap-1.5 px-2 bg-jet rounded-lg border border-jet-border">
+          {[40, 60, 50, 70, 65, 88].map((h, i) => (
+            <div
+              key={i}
+              className="flex-1 rounded-sm"
+              style={{
+                height: `${h}%`,
+                background: i === 5 ? "var(--cerulean)" : "rgba(0, 123, 167, 0.3)",
+              }}
+            />
+          ))}
         </div>
       </div>
     ),
@@ -161,81 +216,127 @@ const services = [
 
 export default function ServicesContent() {
   return (
-    <div className="min-h-screen bg-[#0B0F19]">
+    <div className="min-h-screen bg-jet text-white">
       {/* HERO */}
       <section className="pt-36 pb-16 px-4 md:px-6 max-w-7xl mx-auto relative z-10 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <span className="inline-block px-4 py-1 text-xs font-semibold uppercase tracking-widest mb-6" style={{ border: "1px solid #232A36", borderRadius: "6px", color: "#8A93A3", background: "rgba(74,95,189,0.08)" }}>Our Platforms</span>
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-mono uppercase tracking-widest mb-6 rounded-full border border-cerulean/30 bg-cerulean/10 text-cerulean shadow-sm shadow-cerulean/20">
+            <Layers className="w-3.5 h-3.5 text-neon-rose" /> 6 Supported Platforms
+          </span>
         </motion.div>
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-          className="text-4xl md:text-6xl mb-6" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6"
         >
-          6 Platforms. <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>One Studio.</em>
+          6 Platforms.{" "}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean via-sky-400 to-neon-rose">
+            One Dedicated Studio.
+          </span>
         </motion.h1>
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-          className="text-lg max-w-2xl mx-auto" style={{ color: "#8A93A3" }}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-lg max-w-2xl mx-auto text-white/70 leading-relaxed"
         >
-          We choose the platform that actually fits your product — not whichever one we default to. Here's what we build on and why.
+          We choose the technology that truly fits your product needs — not whichever one we default to. Explore our specialised engineering across mobile, web, and internal ops.
         </motion.p>
       </section>
 
       {/* SERVICE CARDS */}
-      <section className="py-16 px-4 md:px-6 max-w-7xl mx-auto relative z-10 space-y-6">
+      <section className="py-12 px-4 md:px-6 max-w-7xl mx-auto relative z-10 space-y-8">
         {services.map((svc, i) => (
-          <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }} viewport={{ once: true }}
-            style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px", overflow: "hidden" }}
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.08 }}
+            viewport={{ once: true }}
           >
-            <div className="grid grid-cols-1 lg:grid-cols-3">
-              {/* Visual mockup */}
-              <div className="p-8 flex items-center justify-center min-h-[180px]" style={{ background: "#161B26", borderRight: "1px solid #232A36" }}>
-                {svc.mockup}
-              </div>
-              {/* Content */}
-              <div className="p-8 lg:col-span-2 flex flex-col justify-center">
-                <div className="flex items-center gap-3 mb-4">
-                  {svc.logo}
-                  <div>
-                    <div className="text-xs eyebrow mb-0.5" style={{ color: "#8A93A3" }}>{svc.badge}</div>
-                    <h2 className="text-2xl font-semibold" style={{ color: "#E9EBEF" }}>{svc.name}</h2>
+            <Card3D glowColor={svc.glowColor} maxTilt={4} className="w-full">
+              <div className="rounded-2xl bg-jet-surface/90 border border-jet-border overflow-hidden backdrop-blur-xl shadow-xl">
+                <div className="grid grid-cols-1 lg:grid-cols-3">
+                  {/* Visual mockup panel */}
+                  <div className="p-8 flex items-center justify-center min-h-[220px] bg-jet border-b lg:border-b-0 lg:border-r border-jet-border relative overflow-hidden">
+                    <div className="absolute inset-0 bg-radial-gradient from-cerulean/5 to-transparent pointer-events-none" />
+                    {svc.mockup}
+                  </div>
+
+                  {/* Content panel */}
+                  <div className="p-8 lg:p-10 lg:col-span-2 flex flex-col justify-center">
+                    <div className="flex items-center gap-4 mb-4">
+                      {svc.logo}
+                      <div>
+                        <div className="text-xs font-mono uppercase tracking-wider text-cerulean mb-1 font-semibold">
+                          {svc.badge}
+                        </div>
+                        <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-white/95">
+                          {svc.name}
+                        </h2>
+                      </div>
+                    </div>
+
+                    <h3 className="text-lg font-semibold mb-3 text-white/85">
+                      {svc.headline}
+                    </h3>
+                    <p className="text-sm mb-6 leading-relaxed text-white/60">
+                      {svc.body}
+                    </p>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+                      {svc.bullets.map((b, j) => (
+                        <div key={j} className="flex items-center gap-2.5 text-sm text-white/80">
+                          <CheckCircle className={`w-4 h-4 shrink-0 ${svc.glowColor === "neon-rose" ? "text-neon-rose" : "text-cerulean"}`} />
+                          <span>{b}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    <Link href={svc.href} className="w-fit">
+                      <button
+                        data-testid={`button-service-${svc.name.toLowerCase()}`}
+                        className={svc.glowColor === "neon-rose" ? "btn-neon-rose" : "btn-cerulean"}
+                      >
+                        Explore {svc.name} Services <ArrowRight className="w-4 h-4" />
+                      </button>
+                    </Link>
                   </div>
                 </div>
-                <h3 className="text-lg mb-2" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)" }}>{svc.headline}</h3>
-                <p className="text-sm mb-5 leading-relaxed" style={{ color: "#8A93A3" }}>{svc.body}</p>
-                <div className="grid grid-cols-2 gap-2 mb-6">
-                  {svc.bullets.map((b, j) => (
-                    <div key={j} className="flex items-center gap-2 text-sm" style={{ color: "#E9EBEF" }}>
-                      <CheckCircle className="w-4 h-4 shrink-0" style={{ color: "#4A5FBD" }} />{b}
-                    </div>
-                  ))}
-                </div>
-                <Link href={svc.href}>
-                  <button className="h-10 px-6 text-sm font-semibold flex items-center gap-2 w-fit" data-testid={`button-service-${svc.name.toLowerCase()}`}
-                    style={{ background: "#4A5FBD", color: "#E9EBEF", borderRadius: "6px", border: "none", cursor: "pointer" }}
-                    onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#5A6FCC"; }}
-                    onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#4A5FBD"; }}
-                  >View {svc.name} Services <ArrowRight className="w-4 h-4" /></button>
-                </Link>
               </div>
-            </div>
+            </Card3D>
           </motion.div>
         ))}
       </section>
 
       {/* BOTTOM CTA */}
       <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10 mb-8 text-center">
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="p-12" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="p-10 md:p-14 rounded-3xl bg-jet-surface/90 border border-jet-border backdrop-blur-xl shadow-2xl relative overflow-hidden"
         >
-          <h2 className="text-3xl mb-4" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
-            Not Sure Which <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Platform Fits?</em>
+          <div className="absolute top-0 right-0 w-64 h-64 bg-cerulean/15 blur-[80px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-neon-rose/15 blur-[80px] pointer-events-none" />
+
+          <div className="inline-flex items-center gap-2 px-3 py-1 text-xs font-mono tracking-wider uppercase mb-4 rounded-full border border-cerulean/30 bg-cerulean/10 text-cerulean">
+            <Sparkles className="w-3.5 h-3.5" /> Tailored Architecture
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
+            Not Sure Which{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean to-neon-rose">
+              Platform Fits?
+            </span>
           </h2>
-          <p className="mb-8" style={{ color: "#8A93A3" }}>Tell us what you're building and we'll recommend the right platform — and explain why.</p>
+          <p className="mb-8 text-white/60 max-w-lg mx-auto text-sm leading-relaxed">
+            Tell us about your product roadmap, scale expectations, and timeline. We will recommend the right stack with zero bias.
+          </p>
           <Link href="/contact">
-            <button className="h-12 px-8 text-sm font-semibold mx-auto flex items-center gap-2"
-              style={{ background: "#4A5FBD", color: "#E9EBEF", borderRadius: "6px", border: "none", cursor: "pointer" }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#5A6FCC"; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#4A5FBD"; }}
-            >Get a Recommendation <ArrowRight className="w-4 h-4" /></button>
+            <button className="btn-duo mx-auto flex items-center gap-2">
+              Get an Architecture Recommendation <ArrowRight className="w-4 h-4" />
+            </button>
           </Link>
         </motion.div>
       </section>

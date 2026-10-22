@@ -3,8 +3,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { Database, Zap, Globe, Shield, Star, ChevronDown, ArrowRight, Layers, Users, ShoppingBag, DollarSign, GraduationCap, Bot, HeartPulse, Truck, Home as HomeIcon } from "lucide-react";
+import { Database, Zap, Globe, Shield, Star, ChevronDown, ArrowRight, Layers, Users, ShoppingBag, DollarSign, GraduationCap, Bot, HeartPulse, Truck, Home as HomeIcon, Sparkles } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
+import { Card3D } from "@/components/Card3D";
 
 const faqs = [
   { q: "What makes KinetixSoft different from other Bubble developers?", a: "We don't just use Bubble's drag-and-drop defaults. We design proper data structures, workflows, and API integrations upfront — so the app holds up when real users arrive, not just in a demo." },
@@ -19,18 +20,21 @@ const faqs = [
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div style={{ border: "1px solid #232A36", borderRadius: "6px", overflow: "hidden" }}>
-      <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between px-6 py-5 text-left font-semibold" style={{ color: "#E9EBEF" }} data-testid={`faq-bubble-${q.slice(0, 20).replace(/\s+/g, "-").toLowerCase()}`}
-        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#161B26"; }}
-        onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
+    <div className="rounded-xl overflow-hidden glass-card transition-all">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-white hover:text-[#00A3DE] transition-colors"
+        data-testid={`faq-bubble-${q.slice(0, 20).replace(/\s+/g, "-").toLowerCase()}`}
       >
         <span>{q}</span>
-        <ChevronDown className={`w-5 h-5 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} style={{ color: "#4A5FBD" }} />
+        <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${open ? "bg-[#FF2D95]/20 text-[#FF5CAE]" : "bg-white/5 text-[#00A3DE]"}`}>
+          <ChevronDown className={`w-4 h-4 transition-transform ${open ? "rotate-180" : ""}`} />
+        </div>
       </button>
       <AnimatePresence initial={false}>
         {open && (
           <motion.div key="body" initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.22 }} className="overflow-hidden">
-            <p className="px-6 pb-5 text-muted-foreground leading-relaxed">{a}</p>
+            <p className="px-6 pb-5 text-sm text-[#94A3B8] leading-relaxed border-t border-white/5 pt-3">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -39,15 +43,15 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 const industries = [
-  { label: "SaaS Platforms", icon: <Layers className="w-5 h-5" /> },
-  { label: "Marketplaces", icon: <ShoppingBag className="w-5 h-5" /> },
-  { label: "Client Portals", icon: <Users className="w-5 h-5" /> },
-  { label: "Fintech Apps", icon: <DollarSign className="w-5 h-5" /> },
-  { label: "AI-Powered Tools", icon: <Bot className="w-5 h-5" /> },
-  { label: "Education Platforms", icon: <GraduationCap className="w-5 h-5" /> },
-  { label: "Healthcare Apps", icon: <HeartPulse className="w-5 h-5" /> },
-  { label: "Logistics & Delivery", icon: <Truck className="w-5 h-5" /> },
-  { label: "Real Estate Tools", icon: <HomeIcon className="w-5 h-5" /> },
+  { label: "SaaS Platforms", icon: <Layers className="w-5 h-5 text-[#00A3DE]" /> },
+  { label: "Marketplaces", icon: <ShoppingBag className="w-5 h-5 text-[#FF5CAE]" /> },
+  { label: "Client Portals", icon: <Users className="w-5 h-5 text-[#00A3DE]" /> },
+  { label: "Fintech Apps", icon: <DollarSign className="w-5 h-5 text-[#FF5CAE]" /> },
+  { label: "AI-Powered Tools", icon: <Bot className="w-5 h-5 text-[#00A3DE]" /> },
+  { label: "Education Platforms", icon: <GraduationCap className="w-5 h-5 text-[#FF5CAE]" /> },
+  { label: "Healthcare Apps", icon: <HeartPulse className="w-5 h-5 text-[#00A3DE]" /> },
+  { label: "Logistics & Delivery", icon: <Truck className="w-5 h-5 text-[#FF5CAE]" /> },
+  { label: "Real Estate Tools", icon: <HomeIcon className="w-5 h-5 text-[#00A3DE]" /> },
 ];
 
 const process = [
@@ -60,59 +64,79 @@ const process = [
 
 export default function BubbleContent() {
   return (
-    <div className="min-h-screen bg-[#0B0F19]">
+    <div className="min-h-screen bg-[#0A0A0A] text-[#F3F4F6] relative">
       {/* HERO */}
       <section className="pt-36 pb-24 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 text-sm mb-6 eyebrow" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>
-              <span className="text-base">◉</span> Bubble Development Studio
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-6" style={{ background: "rgba(0,123,167,0.15)", border: "1px solid rgba(0,123,167,0.35)", color: "#00A3DE" }}>
+              <span className="w-2 h-2 rounded-full bg-[#00A3DE] animate-pulse" />
+              Bubble No-Code Engineering Studio
             </div>
-            <h1 className="text-4xl md:text-5xl xl:text-6xl leading-tight mb-6" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
-              Full-Stack Web Apps Built <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Without Code</em>
+            <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight mb-6">
+              Full-Stack Web Apps Built <span className="text-gradient-duo">Without Code</span>
             </h1>
-            <p className="text-lg leading-relaxed mb-8" style={{ color: "#8A93A3" }}>KinetixSoft builds production-ready web applications on Bubble — with proper data architecture, workflow logic, and third-party integrations — so what launches is ready for real users, not just a prototype.</p>
+            <p className="text-lg leading-relaxed mb-8 text-[#94A3B8]">
+              KinetixSoft builds production-ready web applications on Bubble with proper relational data architecture, workflow logic, and third-party integrations — designed to scale gracefully from prototype to live commercial platform.
+            </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/contact"><button className="h-12 px-8 text-sm font-semibold" data-testid="button-bubble-start" style={{ background: "#4A5FBD", color: "#E9EBEF", borderRadius: "6px", border: "none", cursor: "pointer" }} onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#5A6FCC"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#4A5FBD"; }}>Start Your Project</button></Link>
-              <Link href="/contact"><button className="h-12 px-8 text-sm font-semibold flex items-center gap-2" data-testid="button-bubble-call" style={{ background: "transparent", color: "#E9EBEF", borderRadius: "6px", border: "1px solid #232A36", cursor: "pointer" }} onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#4A5FBD"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#232A36"; }}>Book a Call <ArrowRight className="w-4 h-4" /></button></Link>
+              <Link href="/contact">
+                <button className="h-12 px-8 text-sm font-semibold rounded-lg btn-cerulean" data-testid="button-bubble-start">
+                  Start Your Project
+                </button>
+              </Link>
+              <Link href="/contact">
+                <button className="h-12 px-8 text-sm font-semibold flex items-center gap-2 rounded-lg btn-ghost-cyber" data-testid="button-bubble-call">
+                  Book a Scoping Call <ArrowRight className="w-4 h-4 text-[#FF2D95]" />
+                </button>
+              </Link>
             </div>
           </motion.div>
-          {/* Bubble app mockup */}
+
+          {/* Bubble App Mockup with 3D Depth */}
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="relative flex items-center justify-center h-[380px]">
-            <div className="absolute inset-0 rounded-full bg-indigo-500/10 blur-[80px]" />
-            <div className="relative w-full max-w-sm z-10" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px", overflow: "hidden" }}>
-              <div className="flex items-center gap-2 px-4 py-3" style={{ background: "#161B26", borderBottom: "1px solid #232A36" }}>
-                <div className="w-2 h-2 rounded-full bg-red-400/60" /><div className="w-2 h-2 rounded-full bg-yellow-400/60" /><div className="w-2 h-2 rounded-full bg-green-400/60" />
-                <span className="text-xs text-white/30 ml-2">ClientHub · Workspace</span>
+            <div className="absolute inset-0 rounded-full bg-[#007BA7]/20 blur-[90px] pointer-events-none" />
+            <Card3D glowColor="dual" className="relative w-full max-w-sm z-10 rounded-2xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
+              <div className="flex items-center gap-2 px-4 py-3 bg-[#16181D] border-b border-white/5">
+                <div className="w-2.5 h-2.5 rounded-full bg-red-400/70" />
+                <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/70" />
+                <div className="w-2.5 h-2.5 rounded-full bg-green-400/70" />
+                <span className="text-xs text-white/40 ml-2 font-mono">ClientHub · Workspace</span>
               </div>
-              <div className="p-4 space-y-3">
-                <div className="grid grid-cols-2 gap-2">
+              <div className="p-5 space-y-3 bg-[#111215]">
+                <div className="grid grid-cols-2 gap-2.5">
                   {[{ l: "Active Clients", v: "38" }, { l: "Open Tasks", v: "112" }, { l: "Invoices Sent", v: "26" }, { l: "Paid This Month", v: "$18.4k" }].map((s, i) => (
-                    <div key={i} className="p-2" style={{ background: "#161B26", borderRadius: "4px" }}>
-                      <div className="text-sm font-bold" style={{ color: "#4A5FBD" }}>{s.v}</div>
-                      <div className="text-[10px]" style={{ color: "#8A93A3" }}>{s.l}</div>
+                    <div key={i} className="p-3 rounded-lg bg-[#16181D] border border-white/5">
+                      <div className="text-sm font-bold text-[#00A3DE]">{s.v}</div>
+                      <div className="text-[10px] text-[#94A3B8]">{s.l}</div>
                     </div>
                   ))}
                 </div>
-                <div className="space-y-1.5">
-                  {["Acme Co · 4 deliverables due", "Northwind · invoice paid", "Globex · new client onboarded"].map((r, i) => (
-                    <div key={i} className="flex items-center gap-2 px-3 py-2" style={{ background: "#161B26", borderRadius: "4px" }}>
-                      <div className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
-                      <span className="text-xs" style={{ color: "#E9EBEF" }}>{r}</span>
+                <div className="space-y-2 pt-1">
+                  {["Acme Co · 4 deliverables due", "Northwind · invoice paid ($4.2k)", "Globex · new client onboarded"].map((r, i) => (
+                    <div key={i} className="flex items-center gap-2.5 px-3 py-2.5 rounded-lg bg-[#16181D] border border-white/5 text-xs text-[#F3F4F6]">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#FF2D95]" />
+                      <span>{r}</span>
                     </div>
                   ))}
                 </div>
               </div>
-            </div>
+            </Card3D>
           </motion.div>
         </div>
+
+        {/* 3 Metrics */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16">
-          {[{ stat: "100%", label: "Founder-Led", sub: "Direct access to the people building your app" }, { stat: "24/7", label: "Support Mindset", sub: "We don't disappear after launch" }, { stat: "2025", label: "Studio Launched", sub: "Built for startups and scaleups" }].map((s, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 + i * 0.15 }} className="p-6 text-center" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-              <div className="text-3xl font-bold mb-1" style={{ color: "#4A5FBD" }}>{s.stat}</div>
-              <div className="font-semibold mb-1" style={{ color: "#E9EBEF" }}>{s.label}</div>
-              <div className="text-sm" style={{ color: "#8A93A3" }}>{s.sub}</div>
-            </motion.div>
+          {[
+            { stat: "100%", label: "Founder-Led", sub: "Direct senior architect access on every project", glow: "cerulean" as const },
+            { stat: "24/7", label: "Reliability Mindset", sub: "Clean workflows that don't stall post-launch", glow: "rose" as const },
+            { stat: "2025", label: "Studio Launched", sub: "Built for rapid venture & SaaS deployment", glow: "cerulean" as const }
+          ].map((s, i) => (
+            <Card3D key={i} glowColor={s.glow} className="p-6 text-center">
+              <div className={`text-3xl font-extrabold mb-1 ${s.glow === "rose" ? "text-gradient-rose" : "text-gradient-cerulean"}`}>{s.stat}</div>
+              <div className="font-semibold text-white mb-1">{s.label}</div>
+              <div className="text-xs text-[#94A3B8]">{s.sub}</div>
+            </Card3D>
           ))}
         </div>
       </section>
@@ -120,99 +144,97 @@ export default function BubbleContent() {
       {/* WHY CHOOSE US */}
       <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="text-3xl md:text-4xl mb-4" style={{ color: "#E9EBEF" }}>What Makes KinetixSoft a Strong <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Bubble Partner</em></h2>
-          <p className="text-lg" style={{ color: "#8A93A3" }}>Bubble is powerful enough to build real production apps — which also means it's easy to build something that breaks under load. Here's how we keep it solid.</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            What Makes KinetixSoft a Strong <span className="text-gradient-cerulean">Bubble Partner</span>
+          </h2>
+          <p className="text-lg text-[#94A3B8]">Bubble is powerful enough to build real production apps — which also means it's easy to build something that breaks under load. Here's how we keep it rock-solid.</p>
         </motion.div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
-            { icon: <Database className="w-6 h-6" />, title: "Data Structure First", desc: "We design your database schema before touching the canvas, so the app's foundation holds up as data grows." },
-            { icon: <Zap className="w-6 h-6" />, title: "Workflows That Actually Work", desc: "Bubble workflows can get messy fast. We keep them clean, documented, and debuggable from day one." },
-            { icon: <Globe className="w-6 h-6" />, title: "Real API Integrations", desc: "Stripe, Brevo, OpenAI, Zapier — we connect the tools your business already uses, not just what's in the plugin store." },
-            { icon: <Shield className="w-6 h-6" />, title: "Privacy Rules Done Right", desc: "Bubble's privacy and access rules are powerful and easy to get wrong. We configure them correctly from the start." },
+            { icon: <Database className="w-6 h-6 text-[#00A3DE]" />, title: "Data Structure First", desc: "We design your database schema before touching the visual canvas, so the app's foundation handles thousands of live records cleanly." },
+            { icon: <Zap className="w-6 h-6 text-[#FF5CAE]" />, title: "Workflows That Actually Scale", desc: "Bubble workflows can easily get tangled and slow. We organize custom events and backend workflows to keep latency low." },
+            { icon: <Globe className="w-6 h-6 text-[#00A3DE]" />, title: "Production API Integrations", desc: "Stripe billing, Brevo transactional emails, OpenAI models, and webhooks integrated with proper authentication and error handling." },
+            { icon: <Shield className="w-6 h-6 text-[#FF5CAE]" />, title: "Privacy Rules Done Right", desc: "Bubble's privacy and access rules are critical for data security. We enforce zero-trust privacy rules across all data types." },
           ].map((f, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} className="p-7 card-hover" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-              <div className="w-12 h-12 flex items-center justify-center mb-5" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>{f.icon}</div>
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "#E9EBEF" }}>{f.title}</h3>
-              <p className="leading-relaxed" style={{ color: "#8A93A3" }}>{f.desc}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* HOW WE HELP */}
-      <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl mb-14 text-center" style={{ color: "#E9EBEF" }}>Our Bubble Development <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Services</em></motion.h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {[
-            { n: "01", eyebrow: "Validate Before You Build", title: "Product Strategy", accent: "& Scoping" },
-            { n: "02", eyebrow: "Interfaces People Enjoy", title: "Bubble UI/UX", accent: "Design" },
-            { n: "03", eyebrow: "No Code, Real Logic", title: "Custom Bubble", accent: "App Builds" },
-            { n: "04", eyebrow: "Connect Your Stack", title: "API & Third-Party", accent: "Integrations" },
-            { n: "05", eyebrow: "A Second Opinion", title: "Bubble App", accent: "Audits" },
-            { n: "06", eyebrow: "We Stay After Launch", title: "Ongoing Support", accent: "& Maintenance" },
-          ].map((s, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }} viewport={{ once: true }} className="p-6 card-hover" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-              <span className="text-xs font-bold px-2 py-1" style={{ color: "#4A5FBD", background: "rgba(74,95,189,0.12)", borderRadius: "4px" }}>{s.n}</span>
-              <p className="text-muted-foreground text-xs mt-4 mb-2">{s.eyebrow}</p>
-              <h3 className="text-xl font-semibold" style={{ color: "#E9EBEF" }}>{s.title} <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>{s.accent}</em></h3>
-            </motion.div>
+            <Card3D key={i} glowColor={i % 2 === 0 ? "cerulean" : "rose"} className="p-8">
+              <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-5">
+                {f.icon}
+              </div>
+              <h3 className="text-xl font-bold text-white mb-2">{f.title}</h3>
+              <p className="text-sm text-[#94A3B8] leading-relaxed">{f.desc}</p>
+            </Card3D>
           ))}
         </div>
       </section>
 
       {/* PROCESS */}
       <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl mb-12" style={{ color: "#E9EBEF" }}>How a Bubble <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Build</em> Runs</motion.h2>
-        <div>
+        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-bold mb-12 text-center">
+          How a Bubble <span className="text-gradient-rose">Build Runs</span>
+        </motion.h2>
+        <div className="space-y-4">
           {process.map((step, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} className="grid gap-5 py-8" style={{ gridTemplateColumns: "40px 1fr", borderBottom: i < process.length - 1 ? "1px solid #232A36" : "none" }}>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: 28, color: "#4A5FBD", opacity: 0.5, paddingTop: 2 }}>0{i + 1}</div>
-              <div>
-                <h3 className="font-semibold text-lg mb-2" style={{ color: "#E9EBEF" }}>{step.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#8A93A3" }}>{step.body}</p>
+            <div key={i} className="p-6 rounded-xl glass-card flex items-start gap-5">
+              <div className="text-2xl font-mono font-bold text-[#00A3DE] opacity-60">
+                0{i + 1}
               </div>
-            </motion.div>
+              <div>
+                <h3 className="font-bold text-lg text-white mb-1.5">{step.title}</h3>
+                <p className="text-sm text-[#94A3B8] leading-relaxed">{step.body}</p>
+              </div>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* INDUSTRIES + CTA */}
+      {/* INDUSTRIES */}
       <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-        <div style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px", overflow: "hidden" }}>
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="p-10 flex flex-col justify-center">
-              <h2 className="text-3xl mb-5" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>Built for Founders Who Need to <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Move Fast</em></h2>
-              <p className="mb-6 leading-relaxed" style={{ color: "#8A93A3" }}>KinetixSoft works with founders validating a first idea and with growing teams that need a scalable web product without a full engineering hire. Either way, you get a working web app in weeks — with proper data structure that won't need a rebuild, at a lower cost than custom-coded development.</p>
-              <Link href="/contact"><button className="h-11 px-6 text-sm font-semibold w-fit flex items-center gap-2" data-testid="button-bubble-conversation" style={{ background: "#4A5FBD", color: "#E9EBEF", borderRadius: "6px", border: "none", cursor: "pointer" }} onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#5A6FCC"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#4A5FBD"; }}>Start a Conversation <ArrowRight className="w-4 h-4" /></button></Link>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="p-10" style={{ background: "#161B26", borderLeft: "1px solid #232A36" }}>
-              <h3 className="text-lg font-semibold mb-5" style={{ color: "#E9EBEF" }}>Industries We Build For</h3>
-              <div className="space-y-2">
-                {industries.map((ind, i) => (
-                  <div key={i} className="flex items-center gap-3 py-2" style={{ borderBottom: i < industries.length - 1 ? "1px solid #232A36" : "none" }}>
-                    <span className="flex items-center justify-center w-7 h-7 shrink-0" style={{ background: "rgba(74,95,189,0.12)", borderRadius: "4px", color: "#4A5FBD" }}>{ind.icon}</span>
-                    <span className="text-sm" style={{ color: "#E9EBEF" }}>{ind.label}</span>
+        <div className="rounded-2xl glass-card p-10 md:p-14 border border-white/10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-4">
+                Built for Founders Who Need to <span className="text-gradient-duo">Move Fast</span>
+              </h2>
+              <p className="text-[#94A3B8] leading-relaxed mb-6">
+                KinetixSoft works with founders validating an early vision and growing teams that need custom SaaS tools without months of engineering overhead. You get working, scalable software in weeks.
+              </p>
+              <Link href="/contact">
+                <button className="h-11 px-6 text-sm font-semibold rounded-lg btn-duo flex items-center gap-2" data-testid="button-bubble-conversation">
+                  Start a Conversation <ArrowRight className="w-4 h-4" />
+                </button>
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {industries.map((ind, i) => (
+                <div key={i} className="flex items-center gap-3 p-3 rounded-lg bg-[#111215] border border-white/5">
+                  <div className="w-8 h-8 rounded-md bg-white/5 flex items-center justify-center shrink-0">
+                    {ind.icon}
                   </div>
-                ))}
-              </div>
-            </motion.div>
+                  <span className="text-xs font-medium text-white">{ind.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl mb-12" style={{ color: "#E9EBEF" }}>Common <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Questions</em></motion.h2>
+      <section className="py-20 px-4 md:px-6 max-w-4xl mx-auto relative z-10">
+        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
+          Common <span className="text-gradient-cerulean">Questions</span>
+        </h2>
         <div className="space-y-3">{faqs.map((f, i) => <FAQItem key={i} q={f.q} a={f.a} />)}</div>
       </section>
 
       {/* CONTACT */}
-      <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10 mb-8">
-        <div className="p-8 md:p-10" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-          <h2 className="text-3xl mb-2 text-center" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>Start Your <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Bubble Project</em></h2>
-          <p className="text-center text-sm mb-8" style={{ color: "#8A93A3" }}>Tell us your idea and we'll scope it out in 24 hours.</p>
+      <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10 mb-12">
+        <Card3D glowColor="dual" className="p-8 sm:p-12">
+          <h2 className="text-3xl font-bold mb-2 text-center">Start Your <span className="text-gradient-duo">Bubble Project</span></h2>
+          <p className="text-center text-sm text-[#94A3B8] mb-8">Tell us your idea and we'll scope it out within 24 hours.</p>
           <ContactForm defaultService="bubble" />
-        </div>
+        </Card3D>
       </section>
     </div>
   );

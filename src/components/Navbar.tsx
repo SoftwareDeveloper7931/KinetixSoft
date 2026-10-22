@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sparkles, ArrowRight } from "lucide-react";
 import { useState } from "react";
 
 const links = [
@@ -21,61 +21,63 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-2 md:px-6">
+    <nav className="fixed top-0 left-0 right-0 z-50 px-4 py-3 md:px-6">
       <div
-        className="max-w-7xl mx-auto px-5 h-14 flex items-center justify-between overflow-visible"
+        className="max-w-7xl mx-auto px-5 h-16 flex items-center justify-between rounded-xl transition-all"
         style={{
-          background: "rgba(10,14,20,0.92)",
-          border: "1px solid #232A36",
-          borderRadius: "6px",
-          backdropFilter: "blur(16px)",
+          background: "rgba(10, 10, 10, 0.82)",
+          border: "1px solid rgba(255, 255, 255, 0.08)",
+          backdropFilter: "blur(20px)",
+          WebkitBackdropFilter: "blur(20px)",
+          boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
         }}
       >
-        <Link href="/" className="flex items-center z-50 relative group">
-          <Image
-            src="/logo.png"
-            alt="KinetixSoft Logo"
-            width={72}
-            height={72}
-            priority
-            className="object-contain"
-            style={{ width: 72, height: 72 }}
-          />
-          <span
-            className="text-xl font-semibold tracking-tight -ml-2"
-            style={{ color: "#E9EBEF", fontFamily: "var(--font-body)" }}
-          >
-            KinetixSoft
+        <Link href="/" className="flex items-center gap-2.5 z-50 relative group">
+          <div className="relative flex items-center justify-center">
+            <div className="absolute inset-0 bg-[#007BA7]/30 blur-md rounded-full group-hover:bg-[#FF2D95]/40 transition-colors" />
+            <Image
+              src="/logo.png"
+              alt="KinetixSoft Logo"
+              width={48}
+              height={48}
+              priority
+              className="object-contain relative z-10 transition-transform group-hover:scale-105"
+            />
+          </div>
+          <span className="text-xl font-bold tracking-tight text-white flex items-center gap-1">
+            Kinetix<span className="text-gradient-rose">Soft</span>
           </span>
         </Link>
 
+        {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
-          {links.map((link) =>
-            link.cta ? (
+          {links.map((link) => {
+            const isActive =
+              pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+
+            return link.cta ? (
               <Link key={link.href} href={link.href}>
                 <button
                   data-testid="nav-cta-contact"
+                  className="relative group px-5 h-10 rounded-lg text-sm font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300"
                   style={{
-                    background: "#4A5FBD",
-                    color: "#E9EBEF",
-                    borderRadius: "6px",
-                    padding: "0 20px",
-                    height: "36px",
-                    fontSize: "14px",
-                    fontWeight: 600,
-                    border: "none",
-                    cursor: "pointer",
-                    transition: "background 0.2s ease",
-                    fontFamily: "var(--font-body)",
+                    background: "linear-gradient(135deg, #007BA7 0%, #FF2D95 100%)",
+                    color: "#FFFFFF",
+                    boxShadow: "0 0 20px rgba(0, 123, 167, 0.45)",
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.background = "#5A6FCC";
+                    (e.currentTarget as HTMLButtonElement).style.boxShadow =
+                      "0 0 30px rgba(255, 45, 149, 0.65)";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.background = "#4A5FBD";
+                    (e.currentTarget as HTMLButtonElement).style.boxShadow =
+                      "0 0 20px rgba(0, 123, 167, 0.45)";
                   }}
                 >
-                  {link.label}
+                  <span className="relative z-10 flex items-center gap-1.5">
+                    {link.label}
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                  </span>
                 </button>
               </Link>
             ) : (
@@ -83,55 +85,70 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 data-testid={`nav-link-${link.label.toLowerCase()}`}
-                className="text-sm font-medium transition-colors"
+                className="relative text-sm font-medium transition-colors py-1 group"
                 style={{
-                  color:
-                    pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href))
-                      ? "#4A5FBD"
-                      : "#8A93A3",
-                  fontFamily: "var(--font-body)",
+                  color: isActive ? "#00A3DE" : "#94A3B8",
                 }}
               >
-                {link.label}
+                <span>{link.label}</span>
+                {isActive && (
+                  <motion.div
+                    layoutId="activeNavIndicator"
+                    className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full"
+                    style={{
+                      background: "linear-gradient(90deg, #007BA7, #FF2D95)",
+                      boxShadow: "0 0 8px #FF2D95",
+                    }}
+                  />
+                )}
+                {!isActive && (
+                  <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#007BA7] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                )}
               </Link>
-            )
-          )}
+            );
+          })}
         </div>
 
+        {/* Mobile Toggle */}
         <button
-          className="md:hidden z-50 relative"
-          style={{ color: "#E9EBEF" }}
+          className="md:hidden z-50 p-2 text-white hover:text-[#00A3DE] transition-colors"
           data-testid="nav-mobile-toggle"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle Navigation Menu"
         >
-          {isOpen ? <X /> : <Menu />}
+          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
 
+        {/* Mobile Menu Dropdown */}
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="absolute inset-x-0 top-0 pt-16 pb-8 px-6 md:hidden flex flex-col gap-4"
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute inset-x-0 top-0 pt-20 pb-8 px-6 md:hidden flex flex-col gap-4 rounded-b-2xl"
             style={{
-              background: "rgba(10,14,20,0.97)",
-              borderBottom: "1px solid #232A36",
-              borderRadius: "0 0 6px 6px",
-              backdropFilter: "blur(16px)",
+              background: "rgba(10, 10, 10, 0.98)",
+              borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+              backdropFilter: "blur(24px)",
+              boxShadow: "0 20px 40px rgba(0,0,0,0.8)",
             }}
           >
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-lg font-medium py-2"
+                className="text-lg font-medium py-2.5 flex items-center justify-between border-b border-white/5"
                 style={{
-                  color: "#E9EBEF",
-                  borderBottom: "1px solid #232A36",
-                  fontFamily: "var(--font-body)",
+                  color: pathname === link.href ? "#FF2D95" : "#E2E8F0",
                 }}
                 onClick={() => setIsOpen(false)}
               >
-                {link.label}
+                <span>{link.label}</span>
+                {link.cta && (
+                  <span className="text-xs px-2.5 py-1 rounded bg-[#007BA7]/20 text-[#00A3DE] border border-[#007BA7]/40">
+                    Get in touch
+                  </span>
+                )}
               </Link>
             ))}
           </motion.div>

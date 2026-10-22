@@ -19,6 +19,7 @@ import {
   WalletCards,
 } from "lucide-react";
 import JsonLd from "@/components/JsonLd";
+import { Card3D } from "@/components/Card3D";
 
 export const metadata: Metadata = {
   title: "Cashnix — Financial Forecasting App Case Study",
@@ -104,14 +105,7 @@ const tags = ["FinTech", "FlutterFlow", "Forecasting"];
 
 function Tag({ children }: { children: React.ReactNode }) {
   return (
-    <span
-      className="inline-flex items-center rounded-md border px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em]"
-      style={{
-        background: "rgba(74,95,189,0.12)",
-        borderColor: "rgba(74,95,189,0.28)",
-        color: "#8798F4",
-      }}
-    >
+    <span className="inline-flex items-center rounded-full border border-cerulean/30 bg-cerulean/10 px-3 py-1 text-xs font-mono font-semibold uppercase tracking-wider text-cerulean">
       {children}
     </span>
   );
@@ -119,9 +113,11 @@ function Tag({ children }: { children: React.ReactNode }) {
 
 function SectionMarker({ number }: { number: string }) {
   return (
-    <div className="ledger-rule mb-6">
-      <span className="ledger-index">{number}</span>
-      <span className="ledger-line" />
+    <div className="flex items-center gap-3 mb-6">
+      <span className="text-xs font-mono font-bold px-2.5 py-1 rounded bg-cerulean/15 text-cerulean border border-cerulean/25">
+        PHASE {number}
+      </span>
+      <div className="h-px flex-1 bg-jet-border" />
     </div>
   );
 }
@@ -130,11 +126,11 @@ function CashnixDeviceMockup() {
   return (
     <div className="relative mx-auto w-full max-w-[500px] flex items-center justify-center py-6">
       {/* Background glow effects */}
-      <div className="absolute -top-10 -right-10 w-72 h-72 rounded-full bg-[#4A5FBD]/20 blur-[100px] pointer-events-none" />
-      <div className="absolute -bottom-10 -left-10 w-72 h-72 rounded-full bg-cyan-500/15 blur-[100px] pointer-events-none" />
+      <div className="absolute -top-10 -right-10 w-72 h-72 rounded-full bg-cerulean/20 blur-[100px] pointer-events-none" />
+      <div className="absolute -bottom-10 -left-10 w-72 h-72 rounded-full bg-neon-rose/20 blur-[100px] pointer-events-none" />
 
       {/* Floating Secondary Screen (Analytics & Forecasting) */}
-      <div className="hidden sm:block absolute -right-2 md:-right-6 top-8 w-[210px] md:w-[240px] aspect-[9/19] rounded-[30px] overflow-hidden border border-[#283248] shadow-2xl opacity-60 hover:opacity-100 hover:scale-105 hover:z-20 transition-all duration-500 rotate-6 bg-[#0E131F]">
+      <div className="hidden sm:block absolute -right-2 md:-right-6 top-8 w-[210px] md:w-[240px] aspect-[9/19] rounded-[30px] overflow-hidden border border-jet-border shadow-2xl opacity-60 hover:opacity-100 hover:scale-105 hover:z-20 transition-all duration-500 rotate-6 bg-jet-surface">
         <img
           src="/images/cashnix/cashnix-screen-2.png"
           alt="Cashnix Cash Flow Forecasting Analytics"
@@ -143,8 +139,7 @@ function CashnixDeviceMockup() {
       </div>
 
       {/* Primary Hero Screen (Live App Dashboard) */}
-      <div className="relative z-10 w-[250px] sm:w-[280px] md:w-[300px] aspect-[9/19] rounded-[34px] overflow-hidden border-2 border-[#374462] bg-[#0E131F] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85),0_0_40px_rgba(74,95,189,0.3)] ring-1 ring-white/10 group">
-        {/* Phone Notch/Island */}
+      <div className="relative z-10 w-[250px] sm:w-[280px] md:w-[300px] aspect-[9/19] rounded-[34px] overflow-hidden border-2 border-cerulean/50 bg-jet shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85),0_0_40px_rgba(0,123,167,0.4)] ring-1 ring-white/10 group">
         <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-3.5 bg-black/80 rounded-full z-20 backdrop-blur-sm" />
         <img
           src="/images/cashnix/cashnix-screen-1.png"
@@ -203,20 +198,19 @@ const caseStudySchema = {
 
 export default function CashnixCaseStudyPage() {
   return (
-    <div className="min-h-screen overflow-hidden bg-[#0A0E14]">
+    <div className="min-h-screen overflow-hidden bg-jet text-white">
       <JsonLd data={caseStudySchema} />
 
       <main className="relative">
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-[620px] bg-[radial-gradient(circle_at_70%_16%,rgba(74,95,189,0.2),transparent_38%),linear-gradient(180deg,rgba(10,14,20,0)_0%,#0A0E14_100%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[620px] bg-[radial-gradient(circle_at_70%_16%,rgba(0,123,167,0.2),transparent_40%),linear-gradient(180deg,rgba(10,10,10,0)_0%,#0A0A0A_100%)]" />
 
         <section className="relative px-4 pb-24 pt-36 md:px-6 md:pb-32 md:pt-44">
           <div className="mx-auto max-w-7xl">
             <Link
               href="/"
-              className="mb-12 inline-flex items-center gap-2 text-sm transition-colors hover:text-white"
-              style={{ color: "#8A93A3" }}
+              className="mb-12 inline-flex items-center gap-2 text-sm transition-colors text-white/50 hover:text-cerulean"
             >
-              <ArrowLeft className="h-4 w-4" /> Back to home
+              <ArrowLeft className="h-4 w-4" /> Back to Home
             </Link>
 
             <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
@@ -225,7 +219,7 @@ export default function CashnixCaseStudyPage() {
                   <img
                     src="/images/cashnix/cashnix-icon.png"
                     alt="Cashnix App Icon"
-                    className="w-14 h-14 rounded-2xl border border-[#232A36] shadow-xl shadow-blue-500/10 object-cover"
+                    className="w-14 h-14 rounded-2xl border border-jet-border shadow-xl shadow-cerulean/10 object-cover"
                   />
                   <div>
                     <div className="flex flex-wrap gap-2 mb-1.5">
@@ -242,38 +236,35 @@ export default function CashnixCaseStudyPage() {
                     </a>
                   </div>
                 </div>
-                <h1
-                  className="mb-6 max-w-2xl text-5xl leading-[1.02] md:text-7xl"
-                  style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}
-                >
-                  Cashnix: financial clarity,{" "}
-                  <em style={{ color: "#7185E4", fontStyle: "italic" }}>forecast forward.</em>
+                <h1 className="mb-6 max-w-2xl text-4xl leading-tight md:text-6xl font-bold tracking-tight">
+                  Cashnix: Financial Clarity,{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean via-sky-400 to-neon-rose">
+                    Forecast Forward.
+                  </span>
                 </h1>
-                <p className="mb-8 max-w-xl text-lg leading-relaxed md:text-xl" style={{ color: "#A7AFBD" }}>
-                  A personal finance app that turns income, expenses, and future decisions into a plan people can actually understand.
+                <p className="mb-8 max-w-xl text-lg leading-relaxed text-white/70">
+                  A modern personal finance app that turns income, expenses, and future decisions into a clear plan people can actually understand.
                 </p>
                 <div className="flex flex-col gap-3 sm:flex-row">
                   <a
                     href={playStoreUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex h-12 items-center justify-center gap-2 rounded-md px-6 text-sm font-semibold transition-colors shadow-lg shadow-blue-600/20"
-                    style={{ background: "#4A5FBD", color: "#E9EBEF" }}
+                    className="btn-duo inline-flex items-center gap-2"
                   >
                     View on Google Play <ArrowRight className="h-4 w-4" />
                   </a>
                   <Link
                     href="/flutterflow"
-                    className="inline-flex h-12 items-center justify-center gap-2 rounded-md border px-6 text-sm font-semibold transition-colors hover:border-[#4A5FBD]"
-                    style={{ borderColor: "#2A3342", color: "#D7DBE5" }}
+                    className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-jet-border bg-jet-surface/80 hover:bg-jet-elevated hover:border-cerulean/50 px-6 text-sm font-semibold transition-all text-white/90"
                   >
-                    Explore FlutterFlow
+                    Explore FlutterFlow Services
                   </Link>
                 </div>
-                <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-xs uppercase tracking-[0.16em]" style={{ color: "#707B8C" }}>
-                  <span>Mobile app</span>
-                  <span>Custom logic</span>
-                  <span>Production shipped</span>
+                <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-xs font-mono uppercase tracking-wider text-white/40">
+                  <span>Mobile App</span>
+                  <span>Custom Dart Engine</span>
+                  <span>Production Deployed</span>
                 </div>
               </div>
 
@@ -282,40 +273,41 @@ export default function CashnixCaseStudyPage() {
           </div>
         </section>
 
-        <section className="relative border-y px-4 py-20 md:px-6 md:py-24" style={{ borderColor: "#1D2531", background: "#0D121A" }}>
+        {/* CHALLENGE */}
+        <section className="relative border-y border-jet-border px-4 py-20 md:px-6 md:py-24 bg-jet-surface/40">
           <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-2 lg:gap-24">
             <div>
               <SectionMarker number="01" />
-              <h2 className="mb-6 text-4xl md:text-5xl" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
-                The <em style={{ color: "#7185E4", fontStyle: "italic" }}>challenge</em>
+              <h2 className="mb-6 text-3xl md:text-5xl font-bold tracking-tight">
+                The <span className="text-cerulean">Challenge</span>
               </h2>
-              <p className="mb-5 text-base leading-relaxed" style={{ color: "#9BA5B5" }}>
-                Cashnix started with a complicated financial forecasting model. It could represent the relationships between income, expenses, recurring commitments, and future decisions, but the raw model was not a product people could comfortably use every day.
+              <p className="mb-5 text-base leading-relaxed text-white/70">
+                Cashnix started with an intricate financial forecasting model. It could represent the relationships between income, expenses, recurring commitments, and future decisions, but the raw model was not a product people could comfortably use every day.
               </p>
-              <p className="text-base leading-relaxed" style={{ color: "#9BA5B5" }}>
+              <p className="text-base leading-relaxed text-white/70">
                 The challenge was to make the underlying logic feel simple without making it shallow. Users needed to record what was happening now, explore what might happen next, and understand the result quickly enough to make a better decision.
               </p>
             </div>
-            <div className="flex flex-col justify-end">
-              <div className="mb-5 flex items-start gap-4 rounded-xl border p-5" style={{ borderColor: "#283243", background: "#121923" }}>
-                <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-500/15 text-blue-300">
-                  <Target className="h-4 w-4" />
+            <div className="flex flex-col justify-end space-y-4">
+              <div className="flex items-start gap-4 rounded-2xl border border-jet-border p-6 bg-jet-surface/80">
+                <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-cerulean/10 text-cerulean border border-cerulean/30">
+                  <Target className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="mb-2 font-semibold text-white">Keep the model honest</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#8A93A3" }}>
-                    The interface had to preserve the integrity of the forecasting engine while giving users a clear path from action to outcome.
+                  <h3 className="mb-2 font-bold text-white/95">Keep the Model Rigorous</h3>
+                  <p className="text-sm leading-relaxed text-white/60">
+                    The interface had to preserve the mathematical integrity of the forecasting engine while giving users a clear path from input to projection.
                   </p>
                 </div>
               </div>
-              <div className="flex items-start gap-4 rounded-xl border p-5" style={{ borderColor: "#283243", background: "#121923" }}>
-                <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-500/15 text-blue-300">
-                  <LineChart className="h-4 w-4" />
+              <div className="flex items-start gap-4 rounded-2xl border border-jet-border p-6 bg-jet-surface/80">
+                <div className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-neon-rose/10 text-neon-rose border border-neon-rose/30">
+                  <LineChart className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="mb-2 font-semibold text-white">Make the future visible</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#8A93A3" }}>
-                    Forecasts, KPIs, and what-if scenarios needed to feel like useful guidance rather than a spreadsheet with a prettier skin.
+                  <h3 className="mb-2 font-bold text-white/95">Make the Future Intuitive</h3>
+                  <p className="text-sm leading-relaxed text-white/60">
+                    Forecasts, KPIs, and what-if scenarios needed to feel like empowering guidance rather than a spreadsheet with a darker coat of paint.
                   </p>
                 </div>
               </div>
@@ -323,90 +315,101 @@ export default function CashnixCaseStudyPage() {
           </div>
         </section>
 
+        {/* APPROACH */}
         <section className="relative px-4 py-20 md:px-6 md:py-28">
           <div className="mx-auto max-w-7xl">
             <div className="mb-12 max-w-2xl">
               <SectionMarker number="02" />
-              <h2 className="mb-6 text-4xl md:text-5xl" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
-                The <em style={{ color: "#7185E4", fontStyle: "italic" }}>approach</em>
+              <h2 className="mb-6 text-3xl md:text-5xl font-bold tracking-tight">
+                The <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean to-neon-rose">Approach</span>
               </h2>
-              <p className="text-lg leading-relaxed" style={{ color: "#9BA5B5" }}>
-                We used FlutterFlow where it created speed and clarity, then added custom logic where the product needed depth. The result was not a compromise between low-code and custom development — it was a deliberate combination of both.
+              <p className="text-lg leading-relaxed text-white/70">
+                We used FlutterFlow where it created speed and clarity, then wrote custom Dart logic where the product needed depth. The result was not a compromise — it was a deliberate pairing of visual velocity and native code.
               </p>
             </div>
 
-            <div className="grid gap-5 md:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-3">
               {[
                 {
                   number: "01",
-                  title: "Build the product surface",
+                  title: "Build the Product Surface",
+                  glow: "cerulean" as const,
                   description:
                     "FlutterFlow gave us a fast, flexible way to shape the mobile experience: onboarding, transaction entry, navigation, goal tracking, chart layouts, and the dark-mode visual system.",
                 },
                 {
                   number: "02",
-                  title: "Layer in the hard parts",
+                  title: "Layer in the Hard Math",
+                  glow: "neon-rose" as const,
                   description:
-                    "Custom Dart and API logic handled the what-if forecasting engine, recurring transaction behaviour, balance projections, and KPI calculations that made Cashnix more than a simple ledger.",
+                    "Custom Dart algorithms handled the what-if forecasting simulator, recurring transaction behaviour, rolling balance projections, and KPI calculations.",
                 },
                 {
                   number: "03",
-                  title: "Test decisions, not just screens",
+                  title: "Validate Real Scenarios",
+                  glow: "cerulean" as const,
                   description:
                     "We validated the product around real financial questions: Can a user understand a forecast? Can they compare scenarios? Can they trust the number and know what to do next?",
                 },
               ].map((item) => (
-                <div key={item.number} className="rounded-xl border p-7" style={{ borderColor: "#232A36", background: "#12161F" }}>
-                  <div className="mb-10 text-sm font-semibold tracking-[0.18em]" style={{ color: "#7185E4" }}>{item.number}</div>
-                  <h3 className="mb-3 text-xl font-semibold" style={{ color: "#E9EBEF" }}>{item.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: "#8A93A3" }}>{item.description}</p>
-                </div>
+                <Card3D key={item.number} glowColor={item.glow} maxTilt={6}>
+                  <div className="rounded-2xl border border-jet-border p-8 bg-jet-surface/90 h-full flex flex-col justify-between">
+                    <div>
+                      <div className="mb-6 text-xs font-mono font-bold tracking-wider text-cerulean">{item.number}</div>
+                      <h3 className="mb-3 text-xl font-bold text-white/95">{item.title}</h3>
+                      <p className="text-sm leading-relaxed text-white/60">{item.description}</p>
+                    </div>
+                  </div>
+                </Card3D>
               ))}
             </div>
 
-            <div className="mt-7 flex flex-col gap-4 rounded-xl border p-6 md:flex-row md:items-center md:justify-between md:p-8" style={{ borderColor: "rgba(74,95,189,0.3)", background: "linear-gradient(100deg,rgba(74,95,189,0.12),rgba(18,22,31,0.8))" }}>
+            <div className="mt-8 flex flex-col gap-4 rounded-2xl border border-cerulean/30 bg-gradient-to-r from-cerulean/10 via-jet-surface to-neon-rose/10 p-6 md:flex-row md:items-center md:justify-between md:p-8">
               <div className="flex items-start gap-4">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-blue-500/15 text-blue-300">
-                  <Sparkles className="h-5 w-5" />
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-cerulean/15 text-cerulean border border-cerulean/30">
+                  <Sparkles className="h-5 w-5 text-neon-rose" />
                 </div>
                 <div>
-                  <div className="mb-1 text-sm font-semibold text-white">The right tool for each layer</div>
-                  <p className="max-w-2xl text-sm leading-relaxed" style={{ color: "#9BA5B5" }}>
-                    FlutterFlow accelerated the product surface. Custom code protected the product&apos;s unique value. Together, they let us move quickly without flattening the forecasting model into a generic budgeting app.
+                  <div className="mb-1 text-sm font-bold text-white">The Right Tool for Each Layer</div>
+                  <p className="max-w-2xl text-sm leading-relaxed text-white/70">
+                    FlutterFlow accelerated the interface design. Custom code protected the product's unique value. Together, they allowed us to ship on schedule without diluting the forecasting algorithm.
                   </p>
                 </div>
               </div>
-              <Link href="/flutterflow" className="inline-flex shrink-0 items-center gap-2 text-sm font-semibold" style={{ color: "#8798F4" }}>
-                See our FlutterFlow services <ArrowRight className="h-4 w-4" />
+              <Link href="/flutterflow" className="btn-cerulean shrink-0">
+                See FlutterFlow Services <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
         </section>
 
-        <section className="relative border-y px-4 py-20 md:px-6 md:py-28" style={{ borderColor: "#1D2531", background: "#0D121A" }}>
+        {/* KEY FEATURES */}
+        <section className="relative border-y border-jet-border px-4 py-20 md:px-6 md:py-28 bg-jet-surface/40">
           <div className="mx-auto max-w-7xl">
             <div className="mb-12 flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <div className="max-w-2xl">
                 <SectionMarker number="03" />
-                <h2 className="text-4xl md:text-5xl" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
-                  Key features <em style={{ color: "#7185E4", fontStyle: "italic" }}>built</em>
+                <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+                  Key Features <span className="text-cerulean">Engineered</span>
                 </h2>
               </div>
-              <p className="max-w-sm text-sm leading-relaxed md:text-right" style={{ color: "#8A93A3" }}>
-                Every feature supports the same goal: helping people make a decision with more confidence.
+              <p className="max-w-sm text-sm leading-relaxed text-white/50 md:text-right font-mono">
+                Every feature was built to empower user decision-making.
               </p>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {features.map((feature) => {
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {features.map((feature, idx) => {
                 const Icon = feature.icon;
                 return (
-                  <div key={feature.title} className="card-hover rounded-xl border p-6" style={{ borderColor: "#232A36", background: "#12161F" }}>
-                    <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg border text-blue-300" style={{ background: "rgba(74,95,189,0.12)", borderColor: "rgba(74,95,189,0.2)" }}>
-                      <Icon className="h-5 w-5" />
+                  <Card3D key={feature.title} glowColor={idx % 2 === 0 ? "cerulean" : "neon-rose"} maxTilt={5}>
+                    <div className="rounded-2xl border border-jet-border p-6 bg-jet-surface/80 hover:border-cerulean/40 transition-colors h-full">
+                      <div className={`mb-5 flex h-11 w-11 items-center justify-center rounded-xl border ${idx % 2 === 0 ? "bg-cerulean/10 text-cerulean border-cerulean/30" : "bg-neon-rose/10 text-neon-rose border-neon-rose/30"}`}>
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <h3 className="mb-2 font-bold text-white/95">{feature.title}</h3>
+                      <p className="text-sm leading-relaxed text-white/60">{feature.description}</p>
                     </div>
-                    <h3 className="mb-2 font-semibold" style={{ color: "#E9EBEF" }}>{feature.title}</h3>
-                    <p className="text-sm leading-relaxed" style={{ color: "#8A93A3" }}>{feature.description}</p>
-                  </div>
+                  </Card3D>
                 );
               })}
             </div>
@@ -414,52 +417,47 @@ export default function CashnixCaseStudyPage() {
         </section>
 
         {/* PRODUCTION APP SCREENSHOTS GALLERY */}
-        <section className="relative px-4 py-20 md:px-6 md:py-28" style={{ background: "#0B0F17" }}>
+        <section className="relative px-4 py-20 md:px-6 md:py-28">
           <div className="mx-auto max-w-7xl">
             <div className="mb-12 max-w-2xl">
-              <div className="ledger-rule mb-6">
-                <span className="ledger-index">04</span>
-                <span className="ledger-line" />
-              </div>
-              <h2 className="mb-4 text-4xl md:text-5xl" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
-                Published App <em style={{ color: "#7185E4", fontStyle: "italic" }}>Screenshots</em>
+              <SectionMarker number="04" />
+              <h2 className="mb-4 text-3xl md:text-5xl font-bold tracking-tight">
+                Published App <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean to-neon-rose">Screenshots</span>
               </h2>
-              <p className="text-base md:text-lg leading-relaxed" style={{ color: "#9BA5B5" }}>
-                Direct captures from the published Google Play release, demonstrating FlutterFlow&apos;s UI capabilities combined with custom financial calculation routines.
+              <p className="text-base leading-relaxed text-white/70">
+                Direct captures from the live Google Play release, demonstrating FlutterFlow's UI capabilities combined with custom financial calculation routines.
               </p>
             </div>
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {appScreenshots.map((screen, idx) => (
-                <div
-                  key={idx}
-                  className="group rounded-2xl border border-[#232A36] bg-[#12161F] p-4 transition-all duration-300 hover:border-[#4A5FBD]/50 hover:-translate-y-1.5 flex flex-col"
-                >
-                  <div className="relative aspect-[9/18] w-full rounded-xl overflow-hidden border border-[#2A3448] bg-[#0A0E15] mb-4">
-                    <img
-                      src={screen.src}
-                      alt={screen.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
+                <Card3D key={idx} glowColor={idx % 2 === 0 ? "cerulean" : "neon-rose"} maxTilt={5}>
+                  <div className="group rounded-2xl border border-jet-border bg-jet-surface/90 p-4 transition-all flex flex-col h-full shadow-xl">
+                    <div className="relative aspect-[9/18] w-full rounded-xl overflow-hidden border border-jet-border bg-jet mb-4">
+                      <img
+                        src={screen.src}
+                        alt={screen.title}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    </div>
+                    <h3 className="text-base font-bold text-white/95 mb-1 group-hover:text-cerulean transition-colors">
+                      {screen.title}
+                    </h3>
+                    <p className="text-xs leading-relaxed text-white/60">
+                      {screen.subtitle}
+                    </p>
                   </div>
-                  <h3 className="text-base font-semibold text-[#E9EBEF] mb-1 group-hover:text-[#7185E4] transition-colors">
-                    {screen.title}
-                  </h3>
-                  <p className="text-xs leading-relaxed text-[#8A93A3]">
-                    {screen.subtitle}
-                  </p>
-                </div>
+                </Card3D>
               ))}
             </div>
 
-            <div className="mt-12 text-center">
+            <div className="mt-14 text-center">
               <a
                 href={playStoreUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-md px-8 text-sm font-semibold transition-all hover:brightness-110 shadow-lg shadow-blue-500/20"
-                style={{ background: "#4A5FBD", color: "#E9EBEF" }}
+                className="btn-duo inline-flex items-center gap-2"
               >
                 Download Cashnix on Google Play <ArrowRight className="h-4 w-4" />
               </a>
@@ -467,85 +465,92 @@ export default function CashnixCaseStudyPage() {
           </div>
         </section>
 
-        <section className="relative px-4 py-20 md:px-6 md:py-28">
+        {/* OUTCOME */}
+        <section className="relative border-t border-jet-border px-4 py-20 md:px-6 md:py-28 bg-jet-surface/40">
           <div className="mx-auto max-w-7xl">
             <div className="mb-12 max-w-2xl">
               <SectionMarker number="05" />
-              <h2 className="mb-6 text-4xl md:text-5xl" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
-                The <em style={{ color: "#7185E4", fontStyle: "italic" }}>outcome</em>
+              <h2 className="mb-6 text-3xl md:text-5xl font-bold tracking-tight">
+                The <span className="text-cerulean">Outcome</span>
               </h2>
-              <p className="text-lg leading-relaxed" style={{ color: "#9BA5B5" }}>
+              <p className="text-lg leading-relaxed text-white/70">
                 Cashnix shipped as a production-ready financial app on Google Play. More importantly, the complexity that existed in the original model became a product experience users could navigate, understand, and enjoy.
               </p>
             </div>
 
-            <div className="mb-8 grid gap-4 sm:grid-cols-3">
+            <div className="mb-10 grid gap-6 sm:grid-cols-3">
               {[
                 { value: "Google Play", label: "Store Status", note: "Production Release Live" },
                 { value: "5.0 ★", label: "Client Rating", note: "Verified Client Review" },
                 { value: "Full Stack", label: "Architecture", note: "FlutterFlow + Custom Logic" },
-              ].map((stat) => (
-                <div key={stat.label} className="rounded-xl border p-6" style={{ borderColor: "#232A36", background: "#12161F" }}>
-                  <div className="mb-3 text-3xl md:text-4xl" style={{ color: "#7185E4", fontFamily: "var(--font-display)" }}>{stat.value}</div>
-                  <div className="mb-1 font-semibold" style={{ color: "#E9EBEF" }}>{stat.label}</div>
-                  <div className="text-xs uppercase tracking-[0.12em]" style={{ color: "#687486" }}>{stat.note}</div>
-                </div>
+              ].map((stat, i) => (
+                <Card3D key={stat.label} glowColor={i === 1 ? "neon-rose" : "cerulean"} maxTilt={6}>
+                  <div className="rounded-2xl border border-jet-border p-6 bg-jet-surface/90 text-center">
+                    <div className={`mb-3 text-3xl md:text-4xl font-extrabold font-mono ${i === 1 ? "text-neon-rose" : "text-cerulean"}`}>
+                      {stat.value}
+                    </div>
+                    <div className="mb-1 font-bold text-white/95">{stat.label}</div>
+                    <div className="text-xs font-mono uppercase tracking-wider text-white/40">{stat.note}</div>
+                  </div>
+                </Card3D>
               ))}
             </div>
 
-            <div className="grid gap-5 md:grid-cols-2">
-              <div className="rounded-xl border p-7" style={{ borderColor: "#232A36", background: "#12161F" }}>
-                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-300">
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="rounded-2xl border border-jet-border p-8 bg-jet-surface/80">
+                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
                   <Check className="h-5 w-5" />
                 </div>
-                <h3 className="mb-3 text-xl font-semibold" style={{ color: "#E9EBEF" }}>A real product, not a prototype</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#8A93A3" }}>
-                  The app made it through the journey that matters: architecture, build, custom logic, testing, and production release. It is available for users to download and use on Google Play today.
+                <h3 className="mb-3 text-xl font-bold text-white/95">A Real Product, Not a Prototype</h3>
+                <p className="text-sm leading-relaxed text-white/60">
+                  The app made it through the complete lifecycle: architectural design, visual builds, custom algorithms, security rules, and production deployment on Google Play.
                 </p>
               </div>
-              <div className="rounded-xl border p-7" style={{ borderColor: "#232A36", background: "#12161F" }}>
-                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg bg-blue-500/10 text-blue-300">
+              <div className="rounded-2xl border border-jet-border p-8 bg-jet-surface/80">
+                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-xl bg-cerulean/10 text-cerulean border border-cerulean/30">
                   <Download className="h-5 w-5" />
                 </div>
-                <h3 className="mb-3 text-xl font-semibold" style={{ color: "#E9EBEF" }}>Clarity users can feel</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#8A93A3" }}>
-                  The founder&apos;s feedback captured the outcome best: the app preserved a complex forecasting model while making it understandable and genuinely enjoyable for users.
+                <h3 className="mb-3 text-xl font-bold text-white/95">Clarity Users Can Feel</h3>
+                <p className="text-sm leading-relaxed text-white/60">
+                  The client's feedback was unequivocal: the application converted a dense financial spreadsheet model into a clean, intuitive, and trustworthy tool.
                 </p>
               </div>
             </div>
           </div>
         </section>
 
+        {/* TESTIMONIAL */}
         <section className="relative px-4 pb-24 md:px-6 md:pb-32">
-          <div className="mx-auto max-w-4xl rounded-2xl border p-8 text-center md:p-16" style={{ borderColor: "rgba(74,95,189,0.35)", background: "linear-gradient(145deg,rgba(74,95,189,0.16),rgba(18,22,31,0.86))" }}>
-            <div className="mx-auto mb-7 flex h-12 w-12 items-center justify-center rounded-full border text-3xl" style={{ borderColor: "rgba(135,152,244,0.4)", color: "#8798F4", fontFamily: "Georgia, serif" }}>
+          <div className="mx-auto max-w-4xl rounded-3xl border border-cerulean/30 bg-gradient-to-br from-cerulean/15 via-jet-surface to-neon-rose/15 p-8 text-center md:p-16 backdrop-blur-xl shadow-2xl relative overflow-hidden">
+            <div className="mx-auto mb-7 flex h-12 w-12 items-center justify-center rounded-full border border-cerulean/40 text-2xl text-cerulean font-mono">
               “
             </div>
-            <blockquote className="mx-auto max-w-3xl text-2xl leading-relaxed md:text-4xl" style={{ color: "#F0F2F7", fontFamily: "var(--font-display)" }}>
+            <blockquote className="mx-auto max-w-3xl text-2xl leading-relaxed md:text-3xl font-semibold text-white/95">
               “We came in with a complicated forecasting model and KinetixSoft shipped something our users genuinely understand and enjoy using.”
             </blockquote>
-            <div className="mt-7 text-sm font-semibold uppercase tracking-[0.14em]" style={{ color: "#8798F4" }}>
+            <div className="mt-7 text-xs font-mono font-bold uppercase tracking-widest text-neon-rose">
               A Fintech Founder, US
             </div>
           </div>
         </section>
 
-        <section className="relative border-t px-4 py-24 md:px-6 md:py-32" style={{ borderColor: "#1D2531", background: "#0D121A" }}>
+        {/* BOTTOM CTA */}
+        <section className="relative border-t border-jet-border px-4 py-24 md:px-6 md:py-32 bg-jet-surface/60">
           <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
-            <div className="mb-5 text-xs font-semibold uppercase tracking-[0.2em]" style={{ color: "#7185E4" }}>Have a complex idea?</div>
-            <h2 className="mb-6 text-4xl md:text-6xl" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
-              Have an idea like this?{" "}
-              <em style={{ color: "#7185E4", fontStyle: "italic" }}>Let&apos;s build it.</em>
+            <div className="mb-4 text-xs font-mono uppercase tracking-widest text-cerulean font-bold">Have a Complex Idea?</div>
+            <h2 className="mb-6 text-4xl md:text-6xl font-bold tracking-tight">
+              Have an Idea Like This?{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean to-neon-rose">
+                Let's Build It.
+              </span>
             </h2>
-            <p className="mb-9 max-w-xl text-lg leading-relaxed" style={{ color: "#8A93A3" }}>
-              Tell us what you&apos;re building, what makes it complicated, and where you want to go. We&apos;ll help you choose the right balance of speed, flexibility, and custom engineering.
+            <p className="mb-9 max-w-xl text-lg leading-relaxed text-white/60">
+              Tell us what you're building, what makes it complex, and where you want to go. We'll help you engineer the right architecture.
             </p>
-            <Link
-              href="/contact"
-              className="inline-flex h-12 items-center gap-2 rounded-md px-7 text-sm font-semibold transition-colors"
-              style={{ background: "#4A5FBD", color: "#E9EBEF" }}
-            >
-              Start a conversation <ArrowRight className="h-4 w-4" />
+            <Link href="/contact">
+              <button className="btn-duo">
+                Start a Conversation <ArrowRight className="h-4 w-4 ml-1" />
+              </button>
             </Link>
           </div>
         </section>

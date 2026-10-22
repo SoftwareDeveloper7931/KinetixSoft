@@ -3,9 +3,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { Code2, Zap, Shield, Bot, Star, ChevronDown, ArrowRight, Database, Globe, Layers, DollarSign, Users, GraduationCap, ShoppingBag, HeartPulse, Truck, Home as HomeIcon } from "lucide-react";
+import { Code2, Zap, Shield, Bot, Star, ChevronDown, ArrowRight, Terminal, Sparkles } from "lucide-react";
 import { SiReplit } from "react-icons/si";
 import { ContactForm } from "@/components/ContactForm";
+import { Card3D } from "@/components/Card3D";
 
 const faqs = [
   { q: "What can you build with Replit?", a: "Full-stack web apps, AI agents, automation scripts, REST APIs, bots, and internal tools using Python, Node.js, or any modern language Replit supports." },
@@ -20,18 +21,25 @@ const faqs = [
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div style={{ border: "1px solid #232A36", borderRadius: "6px", overflow: "hidden" }}>
-      <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between px-6 py-5 text-left font-semibold" style={{ color: "#E9EBEF" }}
-        onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#161B26"; }}
-        onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "transparent"; }}
+    <div className="border border-jet-border rounded-xl overflow-hidden bg-jet-surface/70 transition-colors hover:border-cerulean/40">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-white/90 hover:bg-jet-surface transition-colors"
       >
-        <span>{q}</span>
-        <ChevronDown className={`w-5 h-5 shrink-0 transition-transform ${open ? "rotate-180" : ""}`} style={{ color: "#4A5FBD" }} />
+        <span className="text-base">{q}</span>
+        <ChevronDown className={`w-5 h-5 shrink-0 text-cerulean transition-transform duration-300 ${open ? "rotate-180 text-neon-rose" : ""}`} />
       </button>
       <AnimatePresence initial={false}>
         {open && (
-          <motion.div key="body" initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.22 }} className="overflow-hidden">
-            <p className="px-6 pb-5 text-muted-foreground leading-relaxed">{a}</p>
+          <motion.div
+            key="body"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.24 }}
+            className="overflow-hidden"
+          >
+            <p className="px-6 pb-5 text-white/60 leading-relaxed text-sm border-t border-jet-border/50 pt-3">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -40,114 +48,219 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 const terminalLines = [
-  { text: "$ python triage_agent.py", color: "#8A93A3" },
-  { text: "> Connecting to support queue...", color: "#4A5FBD" },
-  { text: "> Analysing 47 open tickets...", color: "#8A93A3" },
-  { text: "> Priority: URGENT — API timeout (x3)", color: "#E55353" },
-  { text: "> Assigning to: @backend-team", color: "#4ABD7A" },
-  { text: "> Slack notification sent ✓", color: "#4ABD7A" },
+  { text: "$ python triage_agent.py", color: "#9CA3AF" },
+  { text: "> Connecting to support queue...", color: "#00A3DE" },
+  { text: "> Analysing 47 open tickets...", color: "#9CA3AF" },
+  { text: "> Priority: URGENT — API timeout (x3)", color: "#FF2D95" },
+  { text: "> Assigning to: @backend-team", color: "#00E5A3" },
+  { text: "> Slack notification sent ✓", color: "#00E5A3" },
 ];
 
 export default function ReplitContent() {
   return (
-    <div className="min-h-screen bg-[#0B0F19]">
+    <div className="min-h-screen bg-jet text-white">
       {/* HERO */}
       <section className="pt-36 pb-24 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 text-sm mb-6 eyebrow" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>
-              <SiReplit className="w-4 h-4" /> Replit Development Studio
+            <div className="inline-flex items-center gap-2 px-4 py-2 text-xs font-mono tracking-wider uppercase mb-6 rounded-full border border-cerulean/30 bg-cerulean/10 text-cerulean shadow-sm shadow-cerulean/20">
+              <SiReplit className="w-4 h-4 text-neon-rose" /> Replit Development Studio
             </div>
-            <h1 className="text-4xl md:text-5xl xl:text-6xl leading-tight mb-6" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>
-              Full-Stack Apps and <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>AI Tools</em> Built Fast on Replit
+            <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight leading-tight mb-6">
+              Full-Stack Apps &{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean via-sky-400 to-neon-rose">
+                AI Agents
+              </span>{" "}
+              Built on Replit
             </h1>
-            <p className="text-lg leading-relaxed mb-8" style={{ color: "#8A93A3" }}>KinetixSoft builds production-ready full-stack apps, AI agents, and automation tools on Replit. From a simple API to a multi-agent pipeline — we ship working code, not demos.</p>
+            <p className="text-lg leading-relaxed mb-8 text-white/70">
+              KinetixSoft builds production-ready full-stack applications, intelligent multi-agent pipelines, and automation tools on Replit. From serverless scripts to high-scale SaaS — we ship working code.
+            </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/contact"><button className="h-12 px-8 text-sm font-semibold" data-testid="button-replit-start" style={{ background: "#4A5FBD", color: "#E9EBEF", borderRadius: "6px", border: "none", cursor: "pointer" }} onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#5A6FCC"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.background = "#4A5FBD"; }}>Start Your Project</button></Link>
-              <Link href="/contact"><button className="h-12 px-8 text-sm font-semibold flex items-center gap-2" style={{ background: "transparent", color: "#E9EBEF", borderRadius: "6px", border: "1px solid #232A36", cursor: "pointer" }} onMouseEnter={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#4A5FBD"; }} onMouseLeave={(e) => { (e.currentTarget as HTMLButtonElement).style.borderColor = "#232A36"; }}>Book a Call <ArrowRight className="w-4 h-4" /></button></Link>
+              <Link href="/contact">
+                <button data-testid="button-replit-start" className="btn-duo">
+                  Start Your Project
+                </button>
+              </Link>
+              <Link href="/contact">
+                <button className="h-12 px-7 rounded-xl font-medium text-sm border border-jet-border bg-jet-surface/80 hover:bg-jet-elevated hover:border-cerulean/50 transition-all flex items-center gap-2 text-white/90">
+                  Book a Scoping Call <ArrowRight className="w-4 h-4 text-cerulean" />
+                </button>
+              </Link>
             </div>
           </motion.div>
-          {/* Terminal mockup */}
-          <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }} className="relative flex items-center justify-center h-[380px]">
-            <div className="absolute inset-0 rounded-full bg-orange-500/10 blur-[80px]" />
-            <div className="relative w-full max-w-sm z-10 font-mono text-xs" style={{ background: "#0A0E14", border: "1px solid #232A36", borderRadius: "6px", overflow: "hidden" }}>
-              <div className="flex items-center gap-2 px-4 py-3" style={{ background: "#12161F", borderBottom: "1px solid #232A36" }}>
-                <div className="w-2 h-2 rounded-full bg-red-400/60" /><div className="w-2 h-2 rounded-full bg-yellow-400/60" /><div className="w-2 h-2 rounded-full bg-green-400/60" />
-                <span className="text-white/30 ml-2">triage_agent.py</span>
+
+          {/* 3D Terminal Mockup */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="relative flex items-center justify-center"
+          >
+            <div className="absolute inset-0 rounded-full bg-cerulean/15 blur-[100px] pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-neon-rose/15 blur-[90px] pointer-events-none" />
+
+            <Card3D glowColor="cerulean" maxTilt={8} className="w-full max-w-md">
+              <div className="relative font-mono text-xs bg-jet-surface/95 border border-jet-border rounded-2xl overflow-hidden shadow-2xl backdrop-blur-xl">
+                <div className="flex items-center justify-between px-4 py-3 bg-jet/90 border-b border-jet-border">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-neon-rose/80" />
+                    <div className="w-3 h-3 rounded-full bg-yellow-400/80" />
+                    <div className="w-3 h-3 rounded-full bg-cerulean/80" />
+                    <span className="text-white/40 ml-2 text-[11px] flex items-center gap-1">
+                      <Terminal className="w-3 h-3 text-cerulean" /> triage_agent.py
+                    </span>
+                  </div>
+                  <span className="text-[10px] px-2 py-0.5 rounded bg-cerulean/10 text-cerulean border border-cerulean/20">
+                    REPLIT CLOUD
+                  </span>
+                </div>
+                <div className="p-5 space-y-2.5 min-h-[220px]">
+                  {terminalLines.map((line, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.4 + i * 0.25 }}
+                      style={{ color: line.color }}
+                    >
+                      {line.text}
+                    </motion.div>
+                  ))}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: [0, 1, 0] }}
+                    transition={{ delay: 2.2, repeat: Infinity, duration: 1 }}
+                    className="text-neon-rose font-bold text-sm"
+                  >
+                    ▋
+                  </motion.div>
+                </div>
+                <div className="px-5 py-3 bg-jet/60 border-t border-jet-border/60 flex items-center justify-between text-[11px] text-white/50">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" /> Status: Live Deploy
+                  </span>
+                  <span className="text-cerulean font-mono">0.02s latency</span>
+                </div>
               </div>
-              <div className="p-4 space-y-1.5">
-                {terminalLines.map((line, i) => (
-                  <motion.div key={i} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 + i * 0.3 }} style={{ color: line.color }}>{line.text}</motion.div>
-                ))}
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: [0, 1, 0] }} transition={{ delay: 2.5, repeat: Infinity, duration: 1 }} style={{ color: "#4A5FBD" }}>▋</motion.div>
-              </div>
-            </div>
+            </Card3D>
           </motion.div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16">
-          {[{ stat: "100%", label: "Founder-Led", sub: "Direct access to your build team" }, { stat: "24/7", label: "Support Mindset", sub: "We don't disappear after delivery" }, { stat: "2025", label: "Studio Launched", sub: "Built for startups and growing teams" }].map((s, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 + i * 0.15 }} className="p-6 text-center" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-              <div className="text-3xl font-bold mb-1" style={{ color: "#4A5FBD" }}>{s.stat}</div>
-              <div className="font-semibold mb-1" style={{ color: "#E9EBEF" }}>{s.label}</div>
-              <div className="text-sm" style={{ color: "#8A93A3" }}>{s.sub}</div>
-            </motion.div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-20">
+          {[
+            { stat: "100%", label: "Founder-Led", sub: "Direct collaboration with senior engineers" },
+            { stat: "24/7", label: "Production Mindset", sub: "Built for continuous reliability & alerts" },
+            { stat: "Instant", label: "Cloud Deployments", sub: "Zero devops bottlenecks via Replit" },
+          ].map((s, i) => (
+            <Card3D key={i} glowColor={i === 1 ? "neon-rose" : "cerulean"} maxTilt={6}>
+              <div className="p-6 text-center rounded-2xl bg-jet-surface/70 border border-jet-border backdrop-blur-md h-full">
+                <div className={`text-3xl font-extrabold mb-1 ${i === 1 ? "text-neon-rose" : "text-cerulean"}`}>{s.stat}</div>
+                <div className="font-semibold text-white/90 mb-1">{s.label}</div>
+                <div className="text-xs text-white/50">{s.sub}</div>
+              </div>
+            </Card3D>
           ))}
         </div>
       </section>
 
       {/* WHY CHOOSE US */}
       <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-3xl mx-auto mb-14">
-          <h2 className="text-3xl md:text-4xl mb-4" style={{ color: "#E9EBEF" }}>Why Build on <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Replit with KinetixSoft</em></h2>
-          <p className="text-lg" style={{ color: "#8A93A3" }}>Replit gives us the development speed of a full cloud IDE with instant deployment. Here's how we use it to ship faster without cutting corners.</p>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 text-xs font-mono tracking-wider uppercase mb-3 rounded-full border border-neon-rose/30 bg-neon-rose/10 text-neon-rose">
+            <Sparkles className="w-3.5 h-3.5" /> High-Velocity Engineering
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+            Why Build on Replit with{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean to-neon-rose">
+              KinetixSoft
+            </span>
+          </h2>
+          <p className="text-lg text-white/60">Replit gives us the development velocity of a cloud IDE with instant deployments. Here is how we turn it into production software.</p>
         </motion.div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
-            { icon: <Bot className="w-6 h-6" />, title: "AI-Native by Default", desc: "We build with LLM integrations (OpenAI, Anthropic, custom) as first-class features — not bolt-ons — so AI features are stable, not just demos." },
-            { icon: <Zap className="w-6 h-6" />, title: "Rapid Deployment", desc: "Replit Deployments gives us production hosting in minutes. We ship to real infrastructure from day one, not just localhost." },
-            { icon: <Code2 className="w-6 h-6" />, title: "Real Engineering", desc: "We write clean Python, TypeScript, or Node.js — not just prompts. The code is maintainable, tested, and yours to own." },
-            { icon: <Shield className="w-6 h-6" />, title: "Secure & Observable", desc: "Environment secrets, error logging, and health checks are part of every build — so you're not flying blind in production." },
+            { icon: <Bot className="w-6 h-6" />, title: "AI-Native by Default", desc: "We architect LLM systems (OpenAI, Claude, custom agents) as core components — with prompt defenses, token budgeting, and fallbacks." },
+            { icon: <Zap className="w-6 h-6" />, title: "Rapid Deployments", desc: "Replit Deployments yields scalable production hosting in minutes. We deploy live staging links from day one." },
+            { icon: <Code2 className="w-6 h-6" />, title: "Clean, Scalable Code", desc: "We write clean Python, FastAPI, TypeScript, or Node.js. Fully documented, modular, and 100% owned by your company." },
+            { icon: <Shield className="w-6 h-6" />, title: "Secure & Observable", desc: "Integrated secrets management, health checks, Sentry logging, and uptime monitors safeguard your production workloads." },
           ].map((f, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} viewport={{ once: true }} className="p-7 card-hover" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-              <div className="w-12 h-12 flex items-center justify-center mb-5" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>{f.icon}</div>
-              <h3 className="text-xl font-semibold mb-3" style={{ color: "#E9EBEF" }}>{f.title}</h3>
-              <p className="leading-relaxed" style={{ color: "#8A93A3" }}>{f.desc}</p>
-            </motion.div>
+            <Card3D key={i} glowColor={i % 2 === 0 ? "cerulean" : "neon-rose"} maxTilt={6}>
+              <div className="p-8 rounded-2xl bg-jet-surface/80 border border-jet-border hover:border-cerulean/40 transition-colors h-full">
+                <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-cerulean/10 border border-cerulean/30 text-cerulean mb-5 shadow-sm shadow-cerulean/20">
+                  {f.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-3 text-white/95">{f.title}</h3>
+                <p className="text-sm leading-relaxed text-white/60">{f.desc}</p>
+              </div>
+            </Card3D>
           ))}
         </div>
       </section>
 
       {/* CASE STUDY */}
       <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl mb-14 text-center" style={{ color: "#E9EBEF" }}>Work We've <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Shipped</em></motion.h2>
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="overflow-hidden max-w-4xl mx-auto" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="relative p-8 flex items-center justify-center min-h-[260px]" style={{ background: "#0A0E14" }}>
-              <div className="font-mono text-xs space-y-1.5 w-full max-w-[240px]">
-                {terminalLines.slice(0, 5).map((line, i) => (
-                  <div key={i} style={{ color: line.color }}>{line.text}</div>
-                ))}
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+            Work We've <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean to-neon-rose">Shipped</span>
+          </h2>
+        </motion.div>
+
+        <Card3D glowColor="neon-rose" maxTilt={4} className="max-w-4xl mx-auto">
+          <div className="overflow-hidden rounded-2xl bg-jet-surface/90 border border-jet-border shadow-2xl">
+            <div className="grid grid-cols-1 md:grid-cols-2">
+              <div className="relative p-8 flex items-center justify-center min-h-[280px] bg-jet border-b md:border-b-0 md:border-r border-jet-border">
+                <div className="font-mono text-xs space-y-2 w-full max-w-[260px]">
+                  {terminalLines.slice(0, 5).map((line, i) => (
+                    <div key={i} style={{ color: line.color }}>{line.text}</div>
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className="p-8 flex flex-col justify-center">
-              <div className="flex flex-wrap gap-2 mb-4">{["Customer Support", "Replit", "AI Agent"].map(t => <span key={t} className="text-xs px-3 py-1 eyebrow" style={{ background: "rgba(74,95,189,0.12)", border: "1px solid rgba(74,95,189,0.2)", borderRadius: "6px", color: "#4A5FBD" }}>{t}</span>)}</div>
-              <h3 className="text-2xl font-semibold mb-3" style={{ color: "#E9EBEF" }}>QueueSense</h3>
-              <p className="text-sm mb-5 leading-relaxed" style={{ color: "#8A93A3" }}>An AI triage agent built on Replit for a SaaS support team. QueueSense reads incoming Zendesk tickets, categorises them by severity and topic, assigns priority scores, and routes them to the right team — all without a human touching the queue.</p>
-              <blockquote className="pl-4 italic text-sm mb-5" style={{ borderLeft: "2px solid #4A5FBD", color: "#E9EBEF" }}>"Our support queue was a mess. KinetixSoft built an AI agent that handles the triage we were doing manually every morning."</blockquote>
-              <div className="flex items-center gap-3">
-                <div className="w-9 h-9 flex items-center justify-center font-bold text-sm" style={{ borderRadius: "6px", background: "#4A5FBD", color: "#E9EBEF" }}>F</div>
-                <div><div className="text-sm font-semibold" style={{ color: "#E9EBEF" }}>Fatima Noor</div><div className="text-xs eyebrow">CTO, QueueSense</div></div>
-                <div className="ml-auto flex gap-0.5">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4" style={{ fill: "#C9A86A", color: "#C9A86A" }} />)}</div>
+              <div className="p-8 flex flex-col justify-center">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {["Customer Support", "Replit", "AI Agent"].map((t) => (
+                    <span key={t} className="text-xs px-3 py-1 font-mono rounded-full bg-cerulean/10 border border-cerulean/20 text-cerulean">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <h3 className="text-2xl font-bold mb-3 text-white/95">QueueSense</h3>
+                <p className="text-sm mb-5 leading-relaxed text-white/60">
+                  An AI triage agent built on Replit for a SaaS support team. QueueSense reads incoming Zendesk tickets, categorises them by severity and topic, assigns priority scores, and routes them to the right team.
+                </p>
+                <blockquote className="pl-4 italic text-sm mb-5 border-l-2 border-neon-rose text-white/80">
+                  "Our support queue was overflowing. KinetixSoft built an AI agent on Replit that cut our initial response time by 80%."
+                </blockquote>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cerulean to-neon-rose flex items-center justify-center font-bold text-sm text-white">
+                    F
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-white/90">Fatima Noor</div>
+                    <div className="text-xs text-white/40">CTO, QueueSense</div>
+                  </div>
+                  <div className="ml-auto flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </motion.div>
+        </Card3D>
       </section>
 
       {/* HOW WE HELP */}
       <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl mb-14 text-center" style={{ color: "#E9EBEF" }}>How We <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Help</em></motion.h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
+            How We <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean to-neon-rose">Help</span>
+          </h2>
+        </motion.div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             { n: "01", eyebrow: "Scope It Right", title: "Architecture", accent: "& Tech Stack Design" },
             { n: "02", eyebrow: "Working Builds Fast", title: "Full-Stack App", accent: "Development" },
@@ -156,26 +269,44 @@ export default function ReplitContent() {
             { n: "05", eyebrow: "Hook Into Everything", title: "API & Webhook", accent: "Integrations" },
             { n: "06", eyebrow: "After Launch", title: "Ongoing Support", accent: "& Maintenance" },
           ].map((s, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.08 }} viewport={{ once: true }} className="p-6 card-hover" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-              <span className="text-xs font-bold px-2 py-1" style={{ color: "#4A5FBD", background: "rgba(74,95,189,0.12)", borderRadius: "4px" }}>{s.n}</span>
-              <p className="text-muted-foreground text-xs mt-4 mb-2">{s.eyebrow}</p>
-              <h3 className="text-xl font-semibold" style={{ color: "#E9EBEF" }}>{s.title} <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>{s.accent}</em></h3>
-            </motion.div>
+            <Card3D key={i} glowColor={i % 2 === 0 ? "cerulean" : "neon-rose"} maxTilt={6}>
+              <div className="p-7 rounded-2xl bg-jet-surface/80 border border-jet-border hover:border-cerulean/40 transition-colors h-full flex flex-col justify-between">
+                <div>
+                  <span className="text-xs font-mono font-bold px-2.5 py-1 rounded bg-cerulean/15 text-cerulean border border-cerulean/25">
+                    {s.n}
+                  </span>
+                  <p className="text-white/40 text-xs font-mono mt-4 mb-2">{s.eyebrow}</p>
+                  <h3 className="text-lg font-bold text-white/90">
+                    {s.title} <span className="text-neon-rose">{s.accent}</span>
+                  </h3>
+                </div>
+              </div>
+            </Card3D>
           ))}
         </div>
       </section>
 
       {/* FAQ */}
       <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10">
-        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl mb-12" style={{ color: "#E9EBEF" }}>Common <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Questions</em></motion.h2>
-        <div className="space-y-3">{faqs.map((f, i) => <FAQItem key={i} q={f.q} a={f.a} />)}</div>
+        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-3xl md:text-4xl font-bold tracking-tight mb-10 text-center">
+          Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean to-neon-rose">Questions</span>
+        </motion.h2>
+        <div className="space-y-4">
+          {faqs.map((f, i) => (
+            <FAQItem key={i} q={f.q} a={f.a} />
+          ))}
+        </div>
       </section>
 
       {/* CONTACT */}
       <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10 mb-8">
-        <div className="p-8 md:p-10" style={{ background: "#12161F", border: "1px solid #232A36", borderRadius: "6px" }}>
-          <h2 className="text-3xl mb-2 text-center" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>Start Your <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Replit Project</em></h2>
-          <p className="text-center text-sm mb-8" style={{ color: "#8A93A3" }}>Tell us what you need and we'll scope it out in 24 hours.</p>
+        <div className="p-8 md:p-12 rounded-3xl bg-jet-surface/90 border border-jet-border backdrop-blur-xl shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-cerulean/10 blur-[80px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-neon-rose/10 blur-[80px] pointer-events-none" />
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-center tracking-tight">
+            Start Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean to-neon-rose">Replit Project</span>
+          </h2>
+          <p className="text-center text-sm mb-10 text-white/60">Tell us what you need and we will scope it out in 24 hours.</p>
           <ContactForm defaultService="replit" />
         </div>
       </section>

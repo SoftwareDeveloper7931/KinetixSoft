@@ -1,32 +1,52 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FileText, Sparkles } from "lucide-react";
 
 export default function TermsContent() {
   return (
-    <div className="min-h-screen bg-[#0B0F19]">
-      <section className="pt-36 pb-24 px-4 md:px-6 max-w-3xl mx-auto relative z-10">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <h1 className="text-4xl md:text-5xl mb-4" style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}>Terms of Service</h1>
-          <p className="text-sm mb-12" style={{ color: "#8A93A3" }}>Last updated: January 2025</p>
+    <div className="min-h-screen bg-jet text-white">
+      <section className="pt-36 pb-24 px-4 md:px-6 max-w-4xl mx-auto relative z-10">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 text-xs font-mono uppercase tracking-widest mb-4 rounded-full border border-cerulean/30 bg-cerulean/10 text-cerulean">
+            <FileText className="w-3.5 h-3.5 text-neon-rose" /> Terms of Engagement
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-3">
+            Terms of <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean to-neon-rose">Service</span>
+          </h1>
+          <p className="text-xs font-mono text-white/50">Last updated: 2026 Edition</p>
         </motion.div>
 
-        <div className="space-y-8" style={{ color: "#8A93A3" }}>
+        <div className="p-8 md:p-12 rounded-3xl bg-jet-surface/90 border border-jet-border space-y-8 backdrop-blur-md">
           {[
-            { title: "Agreement to Terms", body: "By engaging KinetixSoft for development services or accessing our website, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, please do not use our services." },
-            { title: "Services", body: "KinetixSoft provides app development services on platforms including FlutterFlow, Lovable, Retool, Podio, and Replit. The specific scope, timeline, and deliverables for each engagement are defined in the project agreement or Statement of Work (SOW) provided before work commences." },
-            { title: "Intellectual Property & Ownership", body: "Upon full payment for services, you own all custom work product created specifically for your project. KinetixSoft retains the right to display project work in our portfolio (without sharing proprietary business information) unless you request otherwise in writing. Pre-existing tools, libraries, and frameworks used in your build remain the property of their respective owners." },
-            { title: "Payment Terms", body: "Payment terms are agreed upon in the project agreement. We typically require a deposit before work begins, with remaining payments tied to project milestones. Late payments may result in project work being paused. All prices are quoted in USD unless otherwise agreed." },
-            { title: "Revisions & Change Requests", body: "Our project agreements include a defined number of revision rounds. Requests that materially change the agreed scope will be quoted as separate work and require a new agreement or change order before proceeding." },
-            { title: "Limitation of Liability", body: "KinetixSoft's liability in connection with any project is limited to the total amount paid for that engagement. We are not liable for indirect, incidental, or consequential damages, including lost profits, data loss, or business interruption." },
-            { title: "Disclaimer", body: "Our services and deliverables are provided as-is. While we take quality seriously and stand behind our work, we cannot guarantee specific business outcomes, app store approval, or revenue results from any app we build." },
-            { title: "Governing Law", body: "These terms are governed by the laws of Pakistan. Any disputes arising from our engagement will be resolved through good-faith negotiation first, and if necessary, through mediation." },
-            { title: "Changes to These Terms", body: "We may update these terms from time to time. The most current version will always be published on this page with the updated date shown above." },
-            { title: "Contact", body: "Questions about these terms? Reach us at info@kinetixsoft.com." },
+            {
+              title: "Agreement to Terms",
+              body: "By commissioning KinetixSoft for engineering work or accessing this website, you agree to these Terms of Service. If you disagree with any terms, please do not engage our services.",
+            },
+            {
+              title: "Engineering Services & SOW",
+              body: "KinetixSoft builds production mobile applications, web platforms, and internal tools on FlutterFlow, Lovable, Retool, Podio, and Replit. Deliverables, milestones, and timelines are codified in individual Statements of Work (SOW).",
+            },
+            {
+              title: "Intellectual Property Ownership",
+              body: "Upon complete settlement of project invoices, you own 100% of custom code, designs, and architectural artifacts created specifically for your build. KinetixSoft retains portfolio exhibition rights unless governed by an explicit mutual NDA.",
+            },
+            {
+              title: "Payment Milestones",
+              body: "Standard builds are structured across phased milestones (e.g. Kickoff, Staging Alpha, Production Cutover). Work commences upon initial deposit. All pricing is invoiced in USD unless otherwise documented.",
+            },
+            {
+              title: "Scope & Engineering Changes",
+              body: "Any material expansion beyond the approved SOW is handled transparently through documented change orders with clear schedule and cost impact estimates before implementation.",
+            },
+            {
+              title: "Contact & Legal Notices",
+              body: "For all contractual notices, reach our engineering leadership at info@kinetixsoft.com.",
+            },
           ].map((section, i) => (
             <section key={i}>
-              <h2 style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontSize: "1.5rem", marginBottom: "0.75rem" }}>{section.title}</h2>
-              <p className="leading-relaxed">{section.body}</p>
+              <h2 className="text-xl font-bold mb-3 text-white/95">{section.title}</h2>
+              <p className="text-sm leading-relaxed text-white/65">{section.body}</p>
             </section>
           ))}
         </div>

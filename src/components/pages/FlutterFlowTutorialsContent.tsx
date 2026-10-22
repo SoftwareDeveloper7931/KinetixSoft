@@ -743,29 +743,29 @@ export default function FlutterFlowTutorialsContent() {
   });
 
   return (
-    <div className="min-h-screen bg-[#0B0F19] text-[#E9EBEF]">
+    <div className="min-h-screen bg-jet text-white">
       {/* HERO SECTION */}
       <section className="pt-36 pb-16 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 text-xs md:text-sm font-semibold mb-6 rounded-full bg-[#4A5FBD]/10 border border-[#4A5FBD]/30 text-[#7E95F7]">
-              <Sparkles className="w-4 h-4 text-[#06B6D4]" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 text-xs md:text-sm font-semibold mb-6 rounded-full bg-cerulean/10 border border-cerulean/30 text-cerulean shadow-sm shadow-cerulean/20">
+              <Sparkles className="w-4 h-4 text-neon-rose" />
               The Complete FlutterFlow Technical Knowledge Base (2026)
             </div>
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
               Every Widget. Every Integration. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7E95F7] via-[#06B6D4] to-[#10B981]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean via-sky-400 to-neon-rose">
                 Zero Compromise.
               </span>
             </h1>
-            <p className="text-base md:text-lg text-[#8A93A3] leading-relaxed mb-8 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-white/70 leading-relaxed mb-8 max-w-3xl mx-auto">
               The definitive developer manual for FlutterFlow. Deep-dive into all 30+ UI widgets, complete Stripe scenario architectures (one-time, subscriptions, marketplace splits, pre-auth holds), RevenueCat, AdMob, Google Maps PostGIS, DocuSeal, GoHighLevel, offline chat, and custom Dart code.
             </p>
           </motion.div>
         </div>
 
         {/* PRIMARY HUB NAVIGATION TABS */}
-        <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 rounded-xl bg-[#12161F] border border-[#232A36] max-w-3xl mx-auto shadow-2xl">
+        <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 rounded-xl bg-jet-surface border border-jet-border max-w-3xl mx-auto shadow-2xl">
           {[
             { id: "modules", label: "Tutorial Modules", icon: <BookOpen className="w-4 h-4" /> },
             { id: "widgets", label: "Widget Encyclopedia", icon: <Layers className="w-4 h-4" /> },
@@ -776,10 +776,10 @@ export default function FlutterFlowTutorialsContent() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
-              className={`px-4 py-2.5 rounded-lg text-xs md:text-sm font-semibold flex items-center gap-2 transition-all ${
+              className={`px-4 py-2.5 rounded-lg text-xs md:text-sm font-semibold flex items-center gap-2 transition-all cursor-pointer ${
                 activeTab === tab.id
-                  ? "bg-[#4A5FBD] text-white shadow-lg shadow-[#4A5FBD]/30"
-                  : "text-[#8A93A3] hover:text-[#E9EBEF] hover:bg-[#1A2232]"
+                  ? "bg-gradient-to-r from-cerulean to-neon-rose text-white shadow-lg shadow-cerulean/30"
+                  : "text-white/60 hover:text-white hover:bg-jet-elevated"
               }`}
             >
               {tab.icon}
@@ -795,37 +795,37 @@ export default function FlutterFlowTutorialsContent() {
       {activeTab === "modules" && (
         <section className="px-4 md:px-6 max-w-7xl mx-auto mb-24">
           {/* Featured Pillar Banner */}
-          <div className="p-1 rounded-2xl bg-gradient-to-r from-[#4A5FBD]/40 via-[#06B6D4]/30 to-[#10B981]/30 mb-12">
-            <div className="bg-[#101522] rounded-2xl p-6 md:p-10 border border-[#232A36] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="p-1 rounded-3xl bg-gradient-to-r from-cerulean/40 via-sky-500/20 to-neon-rose/40 mb-12 shadow-2xl">
+            <div className="bg-jet-surface rounded-[22px] p-6 md:p-10 border border-jet-border grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-7">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="px-2.5 py-1 text-xs font-bold rounded bg-[#10B981]/15 text-[#34D399] border border-[#10B981]/30">
+                  <span className="px-2.5 py-1 text-xs font-mono font-bold rounded-full bg-cerulean/15 text-cerulean border border-cerulean/30">
                     FEATURED MASTERCLASS 2026
                   </span>
-                  <span className="text-xs text-[#8A93A3]">28 min comprehensive read</span>
+                  <span className="text-xs text-white/50 font-mono">28 min comprehensive read</span>
                 </div>
-                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-[#F8FAFC]">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white tracking-tight">
                   The Ultimate FlutterFlow Beginner Guide: Build, Secure &amp; Publish from Scratch
                 </h2>
-                <p className="text-sm md:text-base text-[#94A3B8] leading-relaxed mb-6">
+                <p className="text-sm md:text-base text-white/70 leading-relaxed mb-6">
                   Complete end-to-end masterclass: reactive widget trees, in-memory App State, Brevo transactional email APIs, conversational OpenAI ChatGPT assistants, Firebase Custom Claims RBAC, and the full App Store &amp; Google Play checklist.
                 </p>
                 <div className="flex flex-wrap gap-2.5 mb-6">
                   {["4 Widget Categories", "Zero-Leak APIs", "OpenAI Chatbot", "Custom Claims RBAC", "App Store Checklist"].map((t, idx) => (
-                    <span key={idx} className="text-xs px-2.5 py-1 rounded bg-[#1E293B] text-[#93C5FD] border border-[#334155]">
+                    <span key={idx} className="text-xs font-mono px-2.5 py-1 rounded-md bg-jet text-white/80 border border-jet-border">
                       ✓ {t}
                     </span>
                   ))}
                 </div>
                 <Link href="/blog/flutterflow-beginner-guide-step-by-step-tutorial-2026">
-                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#60A5FA] hover:text-[#93C5FD] transition-colors cursor-pointer">
+                  <span className="inline-flex items-center gap-2 text-sm font-semibold text-cerulean hover:text-neon-rose transition-colors cursor-pointer">
                     Read Masterclass Guide <ArrowRight className="w-4 h-4" />
                   </span>
                 </Link>
               </div>
               <div className="lg:col-span-5">
                 <Link href="/blog/flutterflow-beginner-guide-step-by-step-tutorial-2026" className="block group">
-                  <div className="relative rounded-xl overflow-hidden border border-[#232A36] group-hover:border-[#4A5FBD] transition-all shadow-xl">
+                  <div className="relative rounded-2xl overflow-hidden border border-jet-border group-hover:border-cerulean/60 transition-all shadow-xl">
                     <Image
                       src="/images/blog/flutterflow-beginner-guide-hero.svg"
                       alt="FlutterFlow Beginner Guide Hero"
@@ -844,9 +844,9 @@ export default function FlutterFlowTutorialsContent() {
             {tutorialModules.map((module) => (
               <div
                 key={module.id}
-                className="bg-[#12161F] rounded-xl border border-[#232A36] overflow-hidden flex flex-col hover:border-[#4A5FBD]/60 transition-all hover:shadow-xl group"
+                className="bg-jet-surface/90 rounded-2xl border border-jet-border overflow-hidden flex flex-col hover:border-cerulean/50 transition-all hover:shadow-xl group"
               >
-                <div className="relative aspect-video w-full overflow-hidden bg-[#0A0E17] border-b border-[#1F2937]">
+                <div className="relative aspect-video w-full overflow-hidden bg-jet border-b border-jet-border">
                   <Image
                     src={module.image}
                     alt={module.title}
@@ -859,58 +859,58 @@ export default function FlutterFlowTutorialsContent() {
                 <div className="p-6 flex-1 flex flex-col">
                   <div className="flex items-center justify-between gap-2 mb-3">
                     <div className="flex items-center gap-2">
-                      <span className="px-2.5 py-1 text-xs font-mono font-bold rounded-md bg-[#161F30] border border-[#23314B] text-[#60A5FA]">
+                      <span className="px-2.5 py-1 text-xs font-mono font-bold rounded-md bg-cerulean/15 border border-cerulean/30 text-cerulean">
                         MODULE {module.number}
                       </span>
                       <span
                         className={`px-2.5 py-1 text-xs font-bold rounded-md border ${
                           module.difficulty === "Beginner"
-                            ? "bg-emerald-500/20 border-emerald-500/50 text-emerald-300"
-                            : "bg-blue-500/20 border-blue-500/50 text-blue-300"
+                            ? "bg-emerald-500/15 border-emerald-500/40 text-emerald-300"
+                            : "bg-cerulean/15 border-cerulean/40 text-cerulean"
                         }`}
                       >
                         {module.difficulty}
                       </span>
                     </div>
-                    <span className="text-[11px] font-mono text-[#8A93A3] bg-[#0A0D14] px-2 py-0.5 rounded border border-[#1E293B]">
+                    <span className="text-[11px] font-mono text-white/50 bg-jet px-2 py-0.5 rounded border border-jet-border">
                       {module.readTime}
                     </span>
                   </div>
 
-                  <span className="text-xs font-semibold text-[#06B6D4] mb-1">{module.badge}</span>
-                  <h3 className="text-lg font-bold text-[#F8FAFC] mb-2 group-hover:text-[#60A5FA] transition-colors leading-snug">
+                  <span className="text-xs font-semibold text-cerulean mb-1 font-mono uppercase tracking-wider">{module.badge}</span>
+                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-cerulean transition-colors leading-snug">
                     {module.title}
                   </h3>
-                  <p className="text-xs text-[#8A93A3] mb-4 leading-relaxed line-clamp-3">
+                  <p className="text-xs text-white/60 mb-4 leading-relaxed line-clamp-3">
                     {module.description}
                   </p>
 
                   <div className="space-y-1.5 mb-5 flex-1">
                     {module.highlights.slice(0, 3).map((hl, i) => (
-                      <div key={i} className="flex items-start gap-2 text-xs text-[#CBD5E1]">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-[#10B981] shrink-0 mt-0.5" />
+                      <div key={i} className="flex items-start gap-2 text-xs text-white/70">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
                         <span className="line-clamp-1">{hl}</span>
                       </div>
                     ))}
                   </div>
 
                   {module.keySnippet && (
-                    <div className="mb-4 rounded-md bg-[#0A0D14] border border-[#1E293B] p-2.5">
-                      <div className="text-[10px] font-mono text-[#64748B] mb-1">{module.keySnippet.label}</div>
-                      <pre className="text-[10px] font-mono text-[#38BDF8] overflow-x-auto whitespace-pre leading-tight">
+                    <div className="mb-4 rounded-xl bg-jet border border-jet-border p-3">
+                      <div className="text-[10px] font-mono text-white/40 mb-1">{module.keySnippet.label}</div>
+                      <pre className="text-[10px] font-mono text-cerulean overflow-x-auto whitespace-pre leading-tight">
                         <code>{module.keySnippet.code}</code>
                       </pre>
                     </div>
                   )}
 
-                  <div className="pt-4 border-t border-[#1F2937] mt-auto flex items-center justify-between">
+                  <div className="pt-4 border-t border-jet-border mt-auto flex items-center justify-between">
                     <Link
                       href={module.deepLink || "/blog/flutterflow-beginner-guide-step-by-step-tutorial-2026"}
-                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#60A5FA] hover:text-[#93C5FD] transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-cerulean hover:text-neon-rose transition-colors"
                     >
                       Read Guide <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
-                    <span className="text-xs text-[#10B981] font-medium">Free Access</span>
+                    <span className="text-xs text-emerald-400 font-medium">Free Access</span>
                   </div>
                 </div>
               </div>
@@ -926,20 +926,20 @@ export default function FlutterFlowTutorialsContent() {
         <section className="px-4 md:px-6 max-w-7xl mx-auto mb-24">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
             <div>
-              <h2 className="text-2xl font-bold text-[#F8FAFC]">FlutterFlow Widget Encyclopedia</h2>
-              <p className="text-xs text-[#8A93A3] mt-1">
+              <h2 className="text-2xl font-bold text-white tracking-tight">FlutterFlow Widget Encyclopedia</h2>
+              <p className="text-xs text-white/50 mt-1">
                 Detailed architecture, properties, layout rules, and gotchas for every single FlutterFlow UI primitive.
               </p>
             </div>
             {/* Search input */}
             <div className="relative w-full md:w-72">
-              <Search className="w-4 h-4 text-[#64748B] absolute left-3 top-3" />
+              <Search className="w-4 h-4 text-cerulean absolute left-3 top-3" />
               <input
                 type="text"
                 value={widgetSearch}
                 onChange={(e) => setWidgetSearch(e.target.value)}
                 placeholder="Search widgets (e.g. Column, Wrap)..."
-                className="w-full pl-9 pr-4 py-2 bg-[#12161F] border border-[#232A36] rounded-lg text-xs text-[#E9EBEF] focus:outline-none focus:border-[#4A5FBD]"
+                className="w-full pl-9 pr-4 py-2 bg-jet-surface border border-jet-border rounded-xl text-xs text-white focus:outline-none focus:border-cerulean focus:ring-1 focus:ring-cerulean/30"
               />
             </div>
           </div>
@@ -958,10 +958,10 @@ export default function FlutterFlowTutorialsContent() {
               <button
                 key={cat.id}
                 onClick={() => setWidgetFilter(cat.id)}
-                className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all ${
+                className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer ${
                   widgetFilter === cat.id
-                    ? "bg-[#4A5FBD] text-white"
-                    : "bg-[#12161F] text-[#8A93A3] hover:text-[#E9EBEF] border border-[#232A36]"
+                    ? "bg-gradient-to-r from-cerulean to-neon-rose text-white shadow-md shadow-cerulean/30"
+                    : "bg-jet-surface text-white/60 hover:text-white border border-jet-border hover:border-cerulean/40"
                 }`}
               >
                 {cat.label}
@@ -974,38 +974,38 @@ export default function FlutterFlowTutorialsContent() {
             {filteredWidgets.map((widget, i) => (
               <div
                 key={i}
-                className="bg-[#12161F] rounded-xl border border-[#232A36] p-6 hover:border-[#4A5FBD]/60 transition-all flex flex-col"
+                className="bg-jet-surface/90 rounded-2xl border border-jet-border p-6 hover:border-cerulean/50 transition-all flex flex-col"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs px-2.5 py-0.5 rounded bg-[#1E293B] text-[#60A5FA] font-mono font-bold">
+                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-cerulean/15 text-cerulean font-mono font-bold border border-cerulean/25">
                     {widget.name}
                   </span>
-                  <span className="text-[11px] text-[#94A3B8]">{widget.categoryLabel}</span>
+                  <span className="text-[11px] text-white/40 font-mono">{widget.categoryLabel}</span>
                 </div>
 
-                <p className="text-xs text-[#CBD5E1] leading-relaxed mb-4 flex-1">
+                <p className="text-xs text-white/70 leading-relaxed mb-4 flex-1">
                   {widget.description}
                 </p>
 
                 <div className="mb-4">
-                  <span className="text-[11px] font-bold text-[#A78BFA] uppercase tracking-wider block mb-1.5">
+                  <span className="text-[11px] font-bold text-neon-rose uppercase tracking-wider block mb-1.5 font-mono">
                     Key Config Properties:
                   </span>
                   <ul className="space-y-1">
                     {widget.keyProperties.map((prop, idx) => (
-                      <li key={idx} className="text-[11px] text-[#94A3B8] flex items-center gap-1.5">
-                        <span className="w-1 h-1 rounded-full bg-[#4A5FBD]" />
+                      <li key={idx} className="text-[11px] text-white/60 flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cerulean" />
                         {prop}
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="p-3 rounded-lg bg-[#0E131E] border border-[#1E2638] text-[11px] space-y-2 mt-auto">
-                  <div className="text-[#34D399]">
+                <div className="p-3.5 rounded-xl bg-jet border border-jet-border text-[11px] space-y-2 mt-auto">
+                  <div className="text-emerald-400">
                     <strong>Best Practice:</strong> {widget.bestPractice}
                   </div>
-                  <div className="text-[#FBBF24]">
+                  <div className="text-amber-300">
                     <strong>Common Gotcha:</strong> {widget.gotcha}
                   </div>
                 </div>
@@ -1021,19 +1021,19 @@ export default function FlutterFlowTutorialsContent() {
       {activeTab === "integrations" && (
         <section className="px-4 md:px-6 max-w-7xl mx-auto mb-24">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#10B981]/15 text-[#34D399] border border-[#10B981]/30 uppercase tracking-wider">
+            <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-cerulean/15 text-cerulean border border-cerulean/30 uppercase tracking-wider">
               Battle-Tested Architectures
             </span>
-            <h2 className="text-3xl font-extrabold text-[#F8FAFC] mt-3 mb-2">
+            <h2 className="text-3xl font-extrabold text-white mt-3 mb-2 tracking-tight">
               Major FlutterFlow Third-Party Integrations
             </h2>
-            <p className="text-sm text-[#8A93A3]">
+            <p className="text-sm text-white/60">
               Step-by-step production implementations for Stripe (all scenarios), RevenueCat, AdMob, Google Maps PostGIS, DocuSeal, and GoHighLevel.
             </p>
           </div>
 
           {/* Stripe Scenarios Visual Infographic */}
-          <div className="mb-14 rounded-2xl overflow-hidden border border-[#232A36] bg-[#12161F] p-4 shadow-2xl">
+          <div className="mb-14 rounded-2xl overflow-hidden border border-jet-border bg-jet-surface p-4 shadow-2xl">
             <Image
               src="/images/blog/flutterflow-stripe-scenarios.svg"
               alt="Stripe All Scenarios Architecture Matrix"
@@ -1041,7 +1041,7 @@ export default function FlutterFlowTutorialsContent() {
               height={580}
               className="w-full h-auto rounded-xl"
             />
-            <p className="text-xs text-center text-[#64748B] mt-3">
+            <p className="text-xs text-center text-white/40 mt-3 font-mono">
               Figure 1: Complete Stripe integration matrix in FlutterFlow: One-time checkout, recurring subscriptions, Stripe Connect marketplace splits, and pre-auth holds.
             </p>
           </div>
@@ -1051,33 +1051,33 @@ export default function FlutterFlowTutorialsContent() {
             {majorIntegrationsData.map((item) => (
               <div
                 key={item.id}
-                className="bg-[#12161F] rounded-2xl border border-[#232A36] p-6 md:p-8 hover:border-[#4A5FBD]/40 transition-all"
+                className="bg-jet-surface/90 rounded-2xl border border-jet-border p-6 md:p-8 hover:border-cerulean/50 transition-all shadow-xl"
               >
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
                   <div>
-                    <span className="text-xs font-bold px-2.5 py-0.5 rounded bg-[#4A5FBD]/20 text-[#7E95F7] border border-[#4A5FBD]/40">
+                    <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-cerulean/15 text-cerulean border border-cerulean/30">
                       {item.badge}
                     </span>
-                    <h3 className="text-2xl font-bold text-[#F8FAFC] mt-2">{item.title}</h3>
+                    <h3 className="text-2xl font-bold text-white mt-2 tracking-tight">{item.title}</h3>
                   </div>
-                  <div className="text-xs text-[#64748B] font-mono bg-[#0B0F19] px-3 py-1.5 rounded-lg border border-[#1E293B]">
+                  <div className="text-xs text-white/50 font-mono bg-jet px-3 py-1.5 rounded-lg border border-jet-border">
                     {item.architecture}
                   </div>
                 </div>
 
-                <p className="text-sm text-[#CBD5E1] mb-6 leading-relaxed">
+                <p className="text-sm text-white/70 mb-6 leading-relaxed">
                   {item.scenario}
                 </p>
 
                 {/* Workflow steps */}
                 <div className="mb-6">
-                  <h4 className="text-xs font-bold text-[#93C5FD] uppercase tracking-wider mb-3">
+                  <h4 className="text-xs font-mono font-bold text-cerulean uppercase tracking-wider mb-3">
                     Implementation Execution Steps:
                   </h4>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
                     {item.workflowSteps.map((step, idx) => (
-                      <div key={idx} className="p-3 rounded-lg bg-[#0B0F19] border border-[#1F2937] text-xs text-[#E2E8F0] flex items-start gap-2.5">
-                        <span className="w-5 h-5 rounded-full bg-[#1E293B] text-[#60A5FA] font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5">
+                      <div key={idx} className="p-3 rounded-xl bg-jet border border-jet-border text-xs text-white/80 flex items-start gap-2.5">
+                        <span className="w-5 h-5 rounded-full bg-cerulean/20 text-cerulean font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5 border border-cerulean/30">
                           {idx + 1}
                         </span>
                         <span>{step}</span>
@@ -1087,16 +1087,16 @@ export default function FlutterFlowTutorialsContent() {
                 </div>
 
                 {/* Code Snippet Box */}
-                <div className="rounded-xl bg-[#090D15] border border-[#1E293B] overflow-hidden mb-6">
-                  <div className="flex items-center justify-between px-4 py-2.5 bg-[#101622] border-b border-[#1E293B]">
-                    <span className="text-xs font-mono text-[#94A3B8]">{item.codeSnippet.title}</span>
+                <div className="rounded-xl bg-jet border border-jet-border overflow-hidden mb-6">
+                  <div className="flex items-center justify-between px-4 py-2.5 bg-jet-elevated border-b border-jet-border">
+                    <span className="text-xs font-mono text-white/60">{item.codeSnippet.title}</span>
                     <button
                       onClick={() => handleCopy(item.id, item.codeSnippet.code)}
-                      className="inline-flex items-center gap-1.5 text-xs text-[#60A5FA] hover:text-[#93C5FD] transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs text-cerulean hover:text-neon-rose transition-colors cursor-pointer"
                     >
                       {copiedCodeId === item.id ? (
                         <>
-                          <Check className="w-3.5 h-3.5 text-[#10B981]" /> Copied!
+                          <Check className="w-3.5 h-3.5 text-emerald-400" /> Copied!
                         </>
                       ) : (
                         <>
@@ -1105,14 +1105,14 @@ export default function FlutterFlowTutorialsContent() {
                       )}
                     </button>
                   </div>
-                  <pre className="p-4 text-xs font-mono text-[#38BDF8] overflow-x-auto whitespace-pre leading-relaxed">
+                  <pre className="p-4 text-xs font-mono text-cerulean overflow-x-auto whitespace-pre leading-relaxed">
                     <code>{item.codeSnippet.code}</code>
                   </pre>
                 </div>
 
                 {/* Common Gotcha Box */}
-                <div className="p-3.5 rounded-lg bg-[#F59E0B]/10 border border-[#F59E0B]/25 text-xs text-[#FBBF24] flex items-start gap-2">
-                  <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                <div className="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/25 text-xs text-amber-300 flex items-start gap-2">
+                  <AlertCircle className="w-4 h-4 shrink-0 mt-0.5 text-amber-400" />
                   <div>
                     <strong>Production Warning:</strong> {item.commonErrors}
                   </div>
@@ -1129,19 +1129,19 @@ export default function FlutterFlowTutorialsContent() {
       {activeTab === "custom-code" && (
         <section className="px-4 md:px-6 max-w-7xl mx-auto mb-24">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#8B5CF6]/15 text-[#C4B5FD] border border-[#8B5CF6]/30 uppercase tracking-wider">
+            <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-neon-rose/15 text-neon-rose border border-neon-rose/30 uppercase tracking-wider">
               Engineering Extensibility
             </span>
-            <h2 className="text-3xl font-extrabold text-[#F8FAFC] mt-3 mb-2">
+            <h2 className="text-3xl font-extrabold text-white mt-3 mb-2 tracking-tight">
               Custom Code, Widgets, Actions &amp; Offline Sync
             </h2>
-            <p className="text-sm text-[#8A93A3]">
+            <p className="text-sm text-white/60">
               Break free from visual limitations with custom Dart code, pub.dev packages, and offline-first queue synchronization.
             </p>
           </div>
 
           {/* Offline Chat Architecture Infographic */}
-          <div className="mb-14 rounded-2xl overflow-hidden border border-[#232A36] bg-[#12161F] p-4 shadow-2xl">
+          <div className="mb-14 rounded-2xl overflow-hidden border border-jet-border bg-jet-surface p-4 shadow-2xl">
             <Image
               src="/images/blog/flutterflow-offline-chat-architecture.svg"
               alt="FlutterFlow Offline Chat Pipeline"
@@ -1149,22 +1149,22 @@ export default function FlutterFlowTutorialsContent() {
               height={550}
               className="w-full h-auto rounded-xl"
             />
-            <p className="text-xs text-center text-[#64748B] mt-3">
+            <p className="text-xs text-center text-white/40 mt-3 font-mono">
               Figure 2: Real-time and offline chat pipeline: Zero-latency optimistic UI writes, local SQLite queue, reconnection stream listener, and cloud delivery.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             {/* Custom Functions */}
-            <div className="bg-[#12161F] rounded-xl border border-[#232A36] p-6">
-              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[#3B82F6]/20 text-[#60A5FA] border border-[#3B82F6]/40">
+            <div className="bg-jet-surface/90 rounded-2xl border border-jet-border p-6 shadow-xl">
+              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-cerulean/15 text-cerulean border border-cerulean/30">
                 Custom Functions
               </span>
-              <h3 className="text-lg font-bold text-[#F8FAFC] mt-3 mb-2">Pure Computational Logic</h3>
-              <p className="text-xs text-[#8A93A3] leading-relaxed mb-4">
+              <h3 className="text-lg font-bold text-white mt-3 mb-2">Pure Computational Logic</h3>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">
                 Synchronous pure Dart functions. Ideal for calculating taxes, formatting currency, parsing dates, and filtering arrays. Must return immediately without async/await.
               </p>
-              <pre className="p-3 rounded-lg bg-[#090D15] text-[11px] font-mono text-[#38BDF8] overflow-x-auto leading-relaxed border border-[#1E293B]">
+              <pre className="p-3.5 rounded-xl bg-jet text-[11px] font-mono text-cerulean overflow-x-auto leading-relaxed border border-jet-border">
 {`String formatCurrency(double amount) {
   return "\\$" + amount.toStringAsFixed(2);
 }`}
@@ -1172,15 +1172,15 @@ export default function FlutterFlowTutorialsContent() {
             </div>
 
             {/* Custom Actions */}
-            <div className="bg-[#12161F] rounded-xl border border-[#232A36] p-6">
-              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[#10B981]/20 text-[#34D399] border border-[#10B981]/40">
+            <div className="bg-jet-surface/90 rounded-2xl border border-jet-border p-6 shadow-xl">
+              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">
                 Custom Actions
               </span>
-              <h3 className="text-lg font-bold text-[#F8FAFC] mt-3 mb-2">Asynchronous Side-Effects</h3>
-              <p className="text-xs text-[#8A93A3] leading-relaxed mb-4">
+              <h3 className="text-lg font-bold text-white mt-3 mb-2">Asynchronous Side-Effects</h3>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">
                 Asynchronous Dart functions that execute in Action Flow Editor chains. Ideal for device hardware (NFC, Bluetooth, Camera), native SDKs, and custom network requests.
               </p>
-              <pre className="p-3 rounded-lg bg-[#090D15] text-[11px] font-mono text-[#34D399] overflow-x-auto leading-relaxed border border-[#1E293B]">
+              <pre className="p-3.5 rounded-xl bg-jet text-[11px] font-mono text-emerald-400 overflow-x-auto leading-relaxed border border-jet-border">
 {`Future<String> triggerVibration() async {
   HapticFeedback.heavyImpact();
   return 'vibrated';
@@ -1189,15 +1189,15 @@ export default function FlutterFlowTutorialsContent() {
             </div>
 
             {/* Custom Widgets */}
-            <div className="bg-[#12161F] rounded-xl border border-[#232A36] p-6">
-              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-[#8B5CF6]/20 text-[#C4B5FD] border border-[#8B5CF6]/40">
+            <div className="bg-jet-surface/90 rounded-2xl border border-jet-border p-6 shadow-xl">
+              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-neon-rose/15 text-neon-rose border border-neon-rose/30">
                 Custom Widgets
               </span>
-              <h3 className="text-lg font-bold text-[#F8FAFC] mt-3 mb-2">Visual Component Libraries</h3>
-              <p className="text-xs text-[#8A93A3] leading-relaxed mb-4">
+              <h3 className="text-lg font-bold text-white mt-3 mb-2">Visual Component Libraries</h3>
+              <p className="text-xs text-white/60 leading-relaxed mb-4">
                 Full Flutter StatefulWidget components. Import any package from pub.dev to render signature pads, audio spectrum visualizers, or custom 3D carousels.
               </p>
-              <pre className="p-3 rounded-lg bg-[#090D15] text-[11px] font-mono text-[#C4B5FD] overflow-x-auto leading-relaxed border border-[#1E293B]">
+              <pre className="p-3.5 rounded-xl bg-jet text-[11px] font-mono text-neon-rose overflow-x-auto leading-relaxed border border-jet-border">
 {`class SignatureCanvas extends 
     StatefulWidget { ... }`}
               </pre>
@@ -1212,28 +1212,28 @@ export default function FlutterFlowTutorialsContent() {
       {activeTab === "database" && (
         <section className="px-4 md:px-6 max-w-7xl mx-auto mb-24">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-bold px-3 py-1 rounded-full bg-[#F59E0B]/15 text-[#FBBF24] border border-[#F59E0B]/30 uppercase tracking-wider">
+            <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 uppercase tracking-wider">
               Data Architecture
             </span>
-            <h2 className="text-3xl font-extrabold text-[#F8FAFC] mt-3 mb-2">
+            <h2 className="text-3xl font-extrabold text-white mt-3 mb-2 tracking-tight">
               Choosing Your Database: Firestore NoSQL vs. Supabase PostgreSQL
             </h2>
-            <p className="text-sm text-[#8A93A3]">
+            <p className="text-sm text-white/60">
               Understanding document vs relational schemas, composite indexing, and row-level security tradeoffs.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {/* Firestore */}
-            <div className="p-8 rounded-2xl bg-[#12161F] border border-[#232A36]">
+            <div className="p-8 rounded-2xl bg-jet-surface/90 border border-jet-border shadow-xl">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-2xl font-bold text-[#F8FAFC]">Cloud Firestore (NoSQL)</h3>
-                <span className="text-xs px-2.5 py-1 rounded bg-[#3B82F6]/20 text-[#60A5FA]">Document Store</span>
+                <h3 className="text-2xl font-bold text-white">Cloud Firestore (NoSQL)</h3>
+                <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-cerulean/15 text-cerulean border border-cerulean/25">Document Store</span>
               </div>
-              <p className="text-xs text-[#8A93A3] mb-6 leading-relaxed">
+              <p className="text-xs text-white/60 mb-6 leading-relaxed">
                 Collection and document-based JSON tree. Excellent for rapid prototyping, real-time listeners, and automatic horizontal scaling with zero infrastructure setup.
               </p>
-              <ul className="space-y-2.5 text-xs text-[#CBD5E1] mb-6">
+              <ul className="space-y-2.5 text-xs text-white/70 mb-6">
                 <li>• <strong>Data Structure:</strong> Hierarchical documents and subcollections.</li>
                 <li>• <strong>Query Model:</strong> Shallow queries without table joins. Denormalization is expected.</li>
                 <li>• <strong>Real-time Sync:</strong> Built-in out of the box with <code>snapshots()</code> stream.</li>
@@ -1243,15 +1243,15 @@ export default function FlutterFlowTutorialsContent() {
             </div>
 
             {/* Supabase */}
-            <div className="p-8 rounded-2xl bg-[#12161F] border border-[#232A36]">
+            <div className="p-8 rounded-2xl bg-jet-surface/90 border border-jet-border shadow-xl">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-2xl font-bold text-[#F8FAFC]">Supabase (PostgreSQL)</h3>
-                <span className="text-xs px-2.5 py-1 rounded bg-[#10B981]/20 text-[#34D399]">Relational SQL</span>
+                <h3 className="text-2xl font-bold text-white">Supabase (PostgreSQL)</h3>
+                <span className="text-xs font-mono px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/25">Relational SQL</span>
               </div>
-              <p className="text-xs text-[#8A93A3] mb-6 leading-relaxed">
+              <p className="text-xs text-white/60 mb-6 leading-relaxed">
                 Full open-source PostgreSQL database. Unmatched for relational foreign keys, complex joins, PostGIS spatial queries, and pgvector embeddings.
               </p>
-              <ul className="space-y-2.5 text-xs text-[#CBD5E1] mb-6">
+              <ul className="space-y-2.5 text-xs text-white/70 mb-6">
                 <li>• <strong>Data Structure:</strong> Strict relational tables with typed columns &amp; foreign keys.</li>
                 <li>• <strong>Query Model:</strong> Full SQL syntax, foreign table joins, aggregates, and stored procedures (RPC).</li>
                 <li>• <strong>Geospatial &amp; AI:</strong> PostGIS (<code>ST_DWithin</code>) and <code>pgvector</code> extensions.</li>
@@ -1265,11 +1265,14 @@ export default function FlutterFlowTutorialsContent() {
 
       {/* CALL TO ACTION */}
       <section className="px-4 md:px-6 max-w-3xl mx-auto pb-24">
-        <div className="p-8 md:p-10 rounded-2xl bg-[#12161F] border border-[#232A36]">
-          <h2 className="text-3xl font-bold mb-2 text-center text-[#E9EBEF]">
-            Want KinetixSoft to Architect Your App?
+        <div className="p-8 md:p-12 rounded-3xl bg-jet-surface/90 border border-jet-border backdrop-blur-xl shadow-2xl relative overflow-hidden text-center">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-cerulean/15 blur-[80px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-neon-rose/15 blur-[80px] pointer-events-none" />
+
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 tracking-tight text-white">
+            Want KinetixSoft to <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean to-neon-rose">Architect Your App?</span>
           </h2>
-          <p className="text-center text-sm mb-8 text-[#8A93A3] max-w-lg mx-auto">
+          <p className="text-sm mb-10 text-white/60 max-w-lg mx-auto leading-relaxed">
             Skip the trial and error. Partner with KinetixSoft for turnkey FlutterFlow mobile development, custom API integrations, and enterprise security.
           </p>
           <ContactForm defaultService="flutterflow" />

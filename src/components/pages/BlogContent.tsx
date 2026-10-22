@@ -3,8 +3,9 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Calendar, Clock, ArrowRight, Search } from "lucide-react";
+import { Calendar, Clock, ArrowRight, Search, Sparkles } from "lucide-react";
 import { BLOG_SUMMARIES, CATEGORIES } from "@/data/blog-posts";
+import { Card3D } from "@/components/Card3D";
 
 export default function BlogContent() {
   const [active, setActive] = useState("All");
@@ -22,39 +23,46 @@ export default function BlogContent() {
   }, [active, searchQuery]);
 
   return (
-    <div className="min-h-screen bg-[#0B0F19]">
+    <div className="min-h-screen bg-jet text-white">
       <main className="pt-36 pb-24 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-mono uppercase tracking-widest mb-6 rounded-full border border-cerulean/30 bg-cerulean/10 text-cerulean shadow-sm shadow-cerulean/20">
+              <Sparkles className="w-3.5 h-3.5 text-neon-rose" /> Engineering Knowledge Base
+            </span>
+          </motion.div>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl mb-5"
-            style={{ color: "#E9EBEF", fontFamily: "var(--font-display)", fontWeight: 500 }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-5"
           >
-            Low-Code <em style={{ color: "#4A5FBD", fontStyle: "italic" }}>Insights</em>
+            Studio Insights &{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean via-sky-400 to-neon-rose">
+              Technical Blueprints
+            </span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-lg"
-            style={{ color: "#8A93A3" }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed"
           >
-            Practical guides, case studies, and engineering breakdowns for FlutterFlow, Bubble, Retool, Lovable, Podio, and Replit.
+            Practical architecture breakdowns, benchmark case studies, and engineering deep-dives across FlutterFlow, Bubble, Retool, Lovable, Podio, and Replit.
           </motion.p>
         </div>
 
         {/* Search bar & Category filters */}
-        <div className="max-w-2xl mx-auto mb-10">
+        <div className="max-w-2xl mx-auto mb-12">
           <div className="relative mb-6">
-            <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-[#8A93A3]" />
+            <Search className="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-cerulean" />
             <input
               type="text"
-              placeholder="Search guides (e.g. wellness, car booking, fintech, delivery, Bubble)..."
+              placeholder="Search guides (e.g. FlutterFlow, Supabase, Retool, CRM, AI agents)..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 text-sm rounded-lg bg-[#12161F] text-[#E9EBEF] border border-[#232A36] focus:border-[#4A5FBD] focus:outline-none transition-colors placeholder:text-[#8A93A3]/60"
+              className="w-full pl-12 pr-4 py-3.5 text-sm rounded-xl bg-jet-surface border border-jet-border text-white placeholder:text-white/40 focus:border-cerulean focus:ring-2 focus:ring-cerulean/30 focus:outline-none transition-all shadow-inner"
             />
           </div>
 
@@ -64,33 +72,35 @@ export default function BlogContent() {
             transition={{ delay: 0.15 }}
             className="flex flex-wrap justify-center gap-2"
           >
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActive(cat)}
-                data-testid={`filter-${cat.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
-                className="px-4 py-2 text-xs md:text-sm font-semibold transition-colors"
-                style={{
-                  background: active === cat ? "#4A5FBD" : "#12161F",
-                  color: active === cat ? "#E9EBEF" : "#8A93A3",
-                  border: active === cat ? "1px solid #4A5FBD" : "1px solid #232A36",
-                  borderRadius: "6px",
-                  cursor: "pointer",
-                }}
-              >
-                {cat}
-              </button>
-            ))}
+            {CATEGORIES.map((cat) => {
+              const isSelected = active === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActive(cat)}
+                  data-testid={`filter-${cat.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
+                  className={`px-4 py-2 text-xs md:text-sm font-semibold rounded-lg transition-all cursor-pointer ${
+                    isSelected
+                      ? "bg-gradient-to-r from-cerulean to-neon-rose text-white shadow-lg shadow-cerulean/30 border-transparent"
+                      : "bg-jet-surface text-white/70 border border-jet-border hover:border-cerulean/50 hover:text-white"
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
           </motion.div>
         </div>
 
         {/* Results count */}
-        <div className="text-xs text-[#8A93A3] mb-6 px-1 flex items-center justify-between">
-          <span>Showing {filtered.length} {filtered.length === 1 ? "article" : "articles"}</span>
+        <div className="text-xs text-white/50 mb-6 px-1 flex items-center justify-between font-mono">
+          <span>
+            Showing <strong className="text-cerulean">{filtered.length}</strong> {filtered.length === 1 ? "article" : "articles"}
+          </span>
           {searchQuery && (
             <button
               onClick={() => setSearchQuery("")}
-              className="text-[#4A5FBD] hover:underline cursor-pointer"
+              className="text-neon-rose hover:underline cursor-pointer"
             >
               Clear search
             </button>
@@ -98,7 +108,7 @@ export default function BlogContent() {
         </div>
 
         {/* Posts grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((post, i) => (
             <motion.div
               key={post.slug}
@@ -106,76 +116,68 @@ export default function BlogContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: Math.min(i * 0.03, 0.3) }}
             >
-              <Link href={`/blog/${post.slug}`} className="block h-full group">
-                <div
-                  className="h-full flex flex-col transition-all duration-300 group-hover:border-[#4A5FBD]/40 group-hover:-translate-y-1 overflow-hidden"
-                  style={{
-                    background: "#12161F",
-                    border: "1px solid #232A36",
-                    borderRadius: "8px",
-                  }}
-                >
-                  {post.heroImage && (
-                    <div className="relative w-full h-44 overflow-hidden bg-[#0B0F19] border-b border-[#232A36]">
-                      <img
-                        src={`${post.heroImage}?v=2`}
-                        alt={post.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                        onError={(e) => {
-                          const target = e.currentTarget;
-                          if (!target.src.includes('og-default.png')) {
-                            target.src = '/og-default.png';
-                          }
-                        }}
-                      />
-                    </div>
-                  )}
-                  <div className="p-6 flex-1 flex flex-col">
-                    <div className="flex items-center gap-2 mb-4">
-                      <span className={`text-xs px-3 py-1 rounded-full border font-semibold ${post.categoryColor}`}>
-                        {post.category}
-                      </span>
-                    </div>
-                    <h2
-                      className="text-lg font-semibold mb-3 leading-snug group-hover:text-[#4A5FBD] transition-colors"
-                      style={{ color: "#E9EBEF" }}
-                    >
-                      {post.title}
-                    </h2>
-                    <p className="text-sm leading-relaxed mb-5 flex-1" style={{ color: "#8A93A3" }}>
-                      {post.excerpt}
-                    </p>
-                    <div className="flex items-center justify-between pt-4 border-t border-[#232A36]/60">
-                      <div className="flex items-center gap-3 text-xs" style={{ color: "#8A93A3" }}>
-                        <span className="flex items-center gap-1">
-                          <Calendar className="w-3.5 h-3.5" />
-                          {post.date}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Clock className="w-3.5 h-3.5" />
-                          {post.readTime}
+              <Card3D glowColor={i % 2 === 0 ? "cerulean" : "neon-rose"} maxTilt={5} className="h-full">
+                <Link href={`/blog/${post.slug}`} className="block h-full group">
+                  <div className="h-full flex flex-col rounded-2xl bg-jet-surface/90 border border-jet-border group-hover:border-cerulean/50 transition-colors overflow-hidden backdrop-blur-md">
+                    {post.heroImage && (
+                      <div className="relative w-full h-44 overflow-hidden bg-jet border-b border-jet-border">
+                        <img
+                          src={`${post.heroImage}?v=2`}
+                          alt={post.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                          onError={(e) => {
+                            const target = e.currentTarget;
+                            if (!target.src.includes('og-default.png')) {
+                              target.src = '/og-default.png';
+                            }
+                          }}
+                        />
+                      </div>
+                    )}
+                    <div className="p-6 flex-1 flex flex-col">
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-xs font-mono px-2.5 py-1 rounded-full border border-cerulean/30 bg-cerulean/10 text-cerulean font-semibold">
+                          {post.category}
                         </span>
                       </div>
-                      <ArrowRight className="w-4 h-4 text-[#4A5FBD] group-hover:translate-x-1 transition-transform" />
+                      <h2 className="text-lg font-bold mb-3 leading-snug group-hover:text-cerulean transition-colors text-white/95">
+                        {post.title}
+                      </h2>
+                      <p className="text-sm leading-relaxed mb-6 flex-1 text-white/60">
+                        {post.excerpt}
+                      </p>
+                      <div className="flex items-center justify-between pt-4 border-t border-jet-border">
+                        <div className="flex items-center gap-3 text-xs text-white/50 font-mono">
+                          <span className="flex items-center gap-1">
+                            <Calendar className="w-3.5 h-3.5 text-cerulean" />
+                            {post.date}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Clock className="w-3.5 h-3.5 text-neon-rose" />
+                            {post.readTime}
+                          </span>
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-cerulean group-hover:translate-x-1 transition-transform" />
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </Card3D>
             </motion.div>
           ))}
         </div>
 
         {filtered.length === 0 && (
-          <div className="text-center py-20 bg-[#12161F]/50 rounded-lg border border-[#232A36]">
-            <p className="text-base text-[#E9EBEF] mb-2 font-medium">No matching guides found</p>
-            <p className="text-sm text-[#8A93A3] mb-4">Try clearing your search query or selecting a different category.</p>
+          <div className="text-center py-20 bg-jet-surface/50 rounded-2xl border border-jet-border">
+            <p className="text-lg text-white mb-2 font-semibold">No matching guides found</p>
+            <p className="text-sm text-white/50 mb-6">Try clearing your search query or choosing another category.</p>
             <button
               onClick={() => {
                 setActive("All");
                 setSearchQuery("");
               }}
-              className="px-4 py-2 text-xs font-semibold rounded bg-[#4A5FBD] text-white hover:bg-[#5A6FCC] transition-colors cursor-pointer"
+              className="btn-cerulean"
             >
               Reset Filters
             </button>

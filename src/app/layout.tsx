@@ -3,6 +3,7 @@ import { Inter, Newsreader } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { BackgroundElements } from "@/components/BackgroundElements";
 import JsonLd from "@/components/JsonLd";
 
 const inter = Inter({
@@ -184,11 +185,12 @@ const websiteSchema = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${newsreader.variable}`}>
-      <body>
+      <body className="relative bg-[#0A0A0A] text-[#F3F4F6] min-h-screen">
+        <BackgroundElements />
         <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />
         <Navbar />
-        {children}
+        <main className="relative z-10">{children}</main>
         <Footer />
       </body>
     </html>

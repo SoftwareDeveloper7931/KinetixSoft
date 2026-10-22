@@ -1,57 +1,34 @@
 "use client";
 
 import { useState } from "react";
-import { Loader2, Send, CheckCircle } from "lucide-react";
+import { Loader2, Send, CheckCircle, Sparkles } from "lucide-react";
 
 const SERVICE_OPTIONS = [
-  { value: "flutterflow", label: "FlutterFlow App" },
-  { value: "podio", label: "Podio Solutions" },
-  { value: "retool", label: "Retool Development" },
-  { value: "lovable", label: "Lovable Builds" },
-  { value: "replit", label: "Replit Development" },
-  { value: "bubble", label: "Bubble Web Apps" },
-  { value: "custom-api", label: "Custom API Integration" },
-  { value: "other", label: "Other / Not Sure" },
+  { value: "flutterflow", label: "FlutterFlow App Development" },
+  { value: "lovable", label: "Lovable AI Web App" },
+  { value: "retool", label: "Retool Internal Tools & Dashboards" },
+  { value: "podio", label: "Podio CRM & Workflow Systems" },
+  { value: "replit", label: "Replit Full-Stack AI Development" },
+  { value: "bubble", label: "Bubble No-Code Web App" },
+  { value: "custom-api", label: "Custom API & Cloud Integration" },
+  { value: "other", label: "Other / Custom Software Build" },
 ];
 
 const BUDGET_OPTIONS = [
-  { value: "<5k", label: "Less than $5k" },
-  { value: "5k-10k", label: "$5k – $10k" },
-  { value: "10k-25k", label: "$10k – $25k" },
-  { value: "25k+", label: "$25k+" },
+  { value: "<5k", label: "Less than $5,000" },
+  { value: "5k-10k", label: "$5,000 – $10,000" },
+  { value: "10k-25k", label: "$10,000 – $25,000" },
+  { value: "25k+", label: "$25,000+" },
 ];
 
-const inputStyle: React.CSSProperties = {
-  width: "100%",
-  height: "44px",
-  background: "#12161F",
-  border: "1px solid #232A36",
-  borderRadius: "6px",
-  color: "#E9EBEF",
-  padding: "0 14px",
-  fontSize: "14px",
-  fontFamily: "var(--font-body)",
-  outline: "none",
-};
+const inputClass =
+  "w-full h-11 px-4 text-sm rounded-lg bg-[#111215] border border-[#222630] text-[#F3F4F6] placeholder-gray-500 focus:border-[#007BA7] focus:ring-2 focus:ring-[#007BA7]/20 outline-none transition-all";
 
-const selectStyle: React.CSSProperties = {
-  ...inputStyle,
-  cursor: "pointer",
-};
+const selectClass =
+  "w-full h-11 px-4 text-sm rounded-lg bg-[#111215] border border-[#222630] text-[#F3F4F6] focus:border-[#007BA7] focus:ring-2 focus:ring-[#007BA7]/20 outline-none transition-all cursor-pointer";
 
-const textareaStyle: React.CSSProperties = {
-  width: "100%",
-  minHeight: "100px",
-  background: "#12161F",
-  border: "1px solid #232A36",
-  borderRadius: "6px",
-  color: "#E9EBEF",
-  padding: "12px 14px",
-  fontSize: "14px",
-  fontFamily: "var(--font-body)",
-  outline: "none",
-  resize: "vertical",
-};
+const textareaClass =
+  "w-full min-h-[110px] p-4 text-sm rounded-lg bg-[#111215] border border-[#222630] text-[#F3F4F6] placeholder-gray-500 focus:border-[#007BA7] focus:ring-2 focus:ring-[#007BA7]/20 outline-none transition-all resize-y";
 
 export function ContactForm({ defaultService }: { defaultService?: string }) {
   const [formData, setFormData] = useState({
@@ -75,7 +52,7 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.service || !formData.budget || !formData.message) {
-      setErrorMsg("Please fill in all required fields.");
+      setErrorMsg("Please fill in all required fields marked with *.");
       return;
     }
     setStatus("loading");
@@ -91,25 +68,37 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
         throw new Error(body.message ?? "Submission failed");
       }
       setStatus("success");
-      setFormData({ name: "", email: "", phone: "", company: "", service: defaultService ?? "", budget: "", message: "" });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        service: defaultService ?? "",
+        budget: "",
+        message: "",
+      });
     } catch (err: any) {
       setStatus("error");
-      setErrorMsg(err.message ?? "Something went wrong. Please try again.");
+      setErrorMsg(err.message ?? "Something went wrong. Please reach us at info@kinetixsoft.com.");
     }
   };
 
   if (status === "success") {
     return (
-      <div className="flex flex-col items-center justify-center py-12 gap-4 text-center">
-        <CheckCircle className="w-12 h-12" style={{ color: "#4A5FBD" }} />
-        <h3 className="text-xl font-semibold" style={{ color: "#E9EBEF" }}>Message received!</h3>
-        <p style={{ color: "#8A93A3" }}>We'll be in touch within one business day.</p>
+      <div className="p-8 rounded-xl glass-card border border-[#007BA7]/40 text-center relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF2D95]/10 rounded-full blur-2xl" />
+        <div className="w-14 h-14 mx-auto rounded-full bg-[#007BA7]/20 border border-[#007BA7]/40 flex items-center justify-center text-[#00A3DE] mb-4">
+          <CheckCircle className="w-8 h-8" />
+        </div>
+        <h3 className="text-xl font-bold text-white mb-2">Message Received!</h3>
+        <p className="text-sm text-muted-foreground max-w-md mx-auto mb-6">
+          Thank you for reaching out. A senior engineer from our team will review your requirements and respond within one business day.
+        </p>
         <button
           onClick={() => setStatus("idle")}
-          className="text-sm underline"
-          style={{ color: "#4A5FBD" }}
+          className="px-6 py-2 rounded-lg text-sm font-semibold bg-[#111215] border border-white/10 hover:border-[#007BA7] text-white transition-colors"
         >
-          Send another message
+          Send Another Message
         </button>
       </div>
     );
@@ -117,99 +106,161 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input
-          name="name"
-          placeholder="Name *"
-          value={formData.name}
-          onChange={handleChange}
-          style={inputStyle}
-          data-testid="input-name"
-        />
-        <input
-          name="email"
-          type="email"
-          placeholder="Email *"
-          value={formData.email}
-          onChange={handleChange}
-          style={inputStyle}
-          data-testid="input-email"
-        />
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input
-          name="phone"
-          placeholder="Phone"
-          value={formData.phone}
-          onChange={handleChange}
-          style={inputStyle}
-          data-testid="input-phone"
-        />
-        <input
-          name="company"
-          placeholder="Company"
-          value={formData.company}
-          onChange={handleChange}
-          style={inputStyle}
-          data-testid="input-company"
-        />
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <select
-          name="service"
-          value={formData.service}
-          onChange={handleChange}
-          style={selectStyle}
-          data-testid="select-service"
-        >
-          <option value="" disabled>Service *</option>
-          {SERVICE_OPTIONS.map((o) => (
-            <option key={o.value} value={o.value}>{o.label}</option>
-          ))}
-        </select>
-        <select
-          name="budget"
-          value={formData.budget}
-          onChange={handleChange}
-          style={selectStyle}
-          data-testid="select-budget"
-        >
-          <option value="" disabled>Budget *</option>
-          {BUDGET_OPTIONS.map((o) => (
-            <option key={o.value} value={o.value}>{o.label}</option>
-          ))}
-        </select>
-      </div>
-      <textarea
-        name="message"
-        placeholder="Tell us about your project *"
-        value={formData.message}
-        onChange={handleChange}
-        style={textareaStyle}
-        data-testid="textarea-message"
-      />
       {errorMsg && (
-        <p className="text-sm" style={{ color: "#E53935" }}>{errorMsg}</p>
+        <div className="p-3.5 rounded-lg bg-red-950/40 border border-red-500/30 text-red-300 text-xs font-medium">
+          {errorMsg}
+        </div>
       )}
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-xs font-medium text-gray-300 mb-1.5">
+            Your Name <span className="text-[#FF2D95]">*</span>
+          </label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="e.g. Alex Morgan"
+            required
+            className={inputClass}
+          />
+        </div>
+        <div>
+          <label className="block text-xs font-medium text-gray-300 mb-1.5">
+            Work Email <span className="text-[#FF2D95]">*</span>
+          </label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="alex@company.com"
+            required
+            className={inputClass}
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-xs font-medium text-gray-300 mb-1.5">Phone / WhatsApp</label>
+          <input
+            type="tel"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="+1 (555) 000-0000"
+            className={inputClass}
+          />
+        </div>
+        <div>
+          <label className="block text-xs font-medium text-gray-300 mb-1.5">Company / Project Name</label>
+          <input
+            type="text"
+            name="company"
+            value={formData.company}
+            onChange={handleChange}
+            placeholder="Acme Ventures"
+            className={inputClass}
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label className="block text-xs font-medium text-gray-300 mb-1.5">
+            Primary Service Needed <span className="text-[#FF2D95]">*</span>
+          </label>
+          <select
+            name="service"
+            value={formData.service}
+            onChange={handleChange}
+            required
+            className={selectClass}
+          >
+            <option value="" disabled>Select platform / service</option>
+            {SERVICE_OPTIONS.map((opt) => (
+              <option key={opt.value} value={opt.value} className="bg-[#111215]">
+                {opt.label}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div>
+          <label className="block text-xs font-medium text-gray-300 mb-1.5">
+            Estimated Budget <span className="text-[#FF2D95]">*</span>
+          </label>
+          <select
+            name="budget"
+            value={formData.budget}
+            onChange={handleChange}
+            required
+            className={selectClass}
+          >
+            <option value="" disabled>Select budget bracket</option>
+            {BUDGET_OPTIONS.map((opt) => (
+              <option key={opt.value} value={opt.value} className="bg-[#111215]">
+                {opt.label}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label className="block text-xs font-medium text-gray-300 mb-1.5">
+          Project Summary & Requirements <span className="text-[#FF2D95]">*</span>
+        </label>
+        <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          rows={3}
+          placeholder="Tell us about the user flows, target timeline, features, or integrations needed..."
+          required
+          className={textareaClass}
+        />
+      </div>
+
       <button
         type="submit"
         disabled={status === "loading"}
-        data-testid="button-submit-contact"
-        className="w-full h-11 flex items-center justify-center gap-2 font-semibold text-sm transition-colors"
+        data-testid="contact-form-submit"
+        className="w-full h-12 rounded-lg font-semibold text-sm flex items-center justify-center gap-2 text-white transition-all duration-300"
         style={{
-          background: status === "loading" ? "#3A4FAD" : "#4A5FBD",
-          color: "#E9EBEF",
-          borderRadius: "6px",
-          border: "none",
-          cursor: status === "loading" ? "not-allowed" : "pointer",
+          background: "linear-gradient(135deg, #007BA7 0%, #FF2D95 100%)",
+          boxShadow: "0 4px 20px rgba(0, 123, 167, 0.45), 0 4px 20px rgba(255, 45, 149, 0.3)",
+        }}
+        onMouseEnter={(e) => {
+          (e.currentTarget as HTMLButtonElement).style.boxShadow =
+            "0 6px 30px rgba(0, 123, 167, 0.6), 0 6px 30px rgba(255, 45, 149, 0.5)";
+          (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-1px)";
+        }}
+        onMouseLeave={(e) => {
+          (e.currentTarget as HTMLButtonElement).style.boxShadow =
+            "0 4px 20px rgba(0, 123, 167, 0.45), 0 4px 20px rgba(255, 45, 149, 0.3)";
+          (e.currentTarget as HTMLButtonElement).style.transform = "none";
         }}
       >
         {status === "loading" ? (
-          <Loader2 className="h-4 w-4 animate-spin" />
+          <>
+            <Loader2 className="w-4 h-4 animate-spin" />
+            <span>Transmitting Request...</span>
+          </>
         ) : (
-          <>Send Message <Send className="h-4 w-4" /></>
+          <>
+            <Send className="w-4 h-4" />
+            <span>Send Project Brief</span>
+          </>
         )}
       </button>
+
+      <p className="text-[11px] text-center text-muted-foreground mt-2">
+        🔒 Confidential scoping · Direct senior engineer response in &lt; 24h
+      </p>
     </form>
   );
 }
