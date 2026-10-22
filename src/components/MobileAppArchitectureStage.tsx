@@ -19,7 +19,7 @@ import {
   Search,
   Bot
 } from "lucide-react";
-import { Card3D } from "./Card3D";
+import { RealisticSmartphone } from "./RealisticSmartphone";
 
 interface ArchNode {
   id: string;
@@ -162,93 +162,89 @@ export function MobileAppArchitectureStage() {
             })}
           </div>
 
-          {/* CENTER COLUMN: Floating 3D Phone with Live Layer Visual (Pin 4 & Pin 2) */}
+          {/* CENTER COLUMN: Hyper-Realistic Flagship Smartphone with Live Layer Visual (Pin 4 & Pin 2) */}
           <div className="lg:col-span-4 flex flex-col items-center justify-center relative">
             
-            {/* Floating 3D Device Frame */}
+            {/* Realistic Flagship Smartphone Hardware Frame */}
             <motion.div
-              animate={{ y: [-8, 8, -8], rotateZ: [-1, 1, -1] }}
+              animate={{ y: [-8, 8, -8], rotateZ: [-0.5, 0.5, -0.5] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              className="w-full max-w-[280px] sm:max-w-[300px] rounded-[42px] p-3 bg-gradient-to-b from-white/25 via-white/5 to-white/15 border-2 border-white/20 shadow-[0_30px_90px_rgba(0,0,0,0.9),0_0_60px_rgba(0,123,167,0.4)] relative overflow-hidden backdrop-blur-2xl"
+              className="w-full max-w-[320px] flex justify-center"
             >
-              
-              {/* Dynamic Island Notch */}
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-28 h-5 bg-black rounded-full flex items-center justify-between px-3 z-30 border border-white/10">
-                <span className="w-2 h-2 rounded-full bg-cerulean animate-ping" />
-                <span className="text-[9px] font-mono text-white/80">KINETIX APP</span>
-                <span className="w-2 h-2 rounded-full bg-neon-rose" />
-              </div>
+              <RealisticSmartphone
+                glowColor={activeNode.glow === "rose" ? "rose" : "cerulean"}
+                className="w-full max-w-[310px]"
+              >
+                {/* Screen Content Inside Realistic Flagship Display */}
+                <div className="p-4 pt-3 flex-1 flex flex-col justify-between text-white">
+                  
+                  {/* App Screen Header */}
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div>
+                        <div className="text-[10px] font-mono text-cerulean uppercase tracking-wider">Architecture Layer</div>
+                        <div className="text-sm font-bold text-white flex items-center gap-1.5">
+                          <span>{activeNode.title}</span>
+                        </div>
+                      </div>
+                      <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-neon-rose/20 text-neon-rose border border-neon-rose/40 font-bold">
+                        120 FPS
+                      </span>
+                    </div>
 
-              {/* Screen Content */}
-              <div className="rounded-[34px] bg-[#090B10] p-4 pt-11 border border-white/10 min-h-[460px] flex flex-col justify-between text-white">
-                
-                {/* App Screen Header */}
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div>
-                      <div className="text-[10px] font-mono text-cerulean uppercase">Architecture Layer</div>
-                      <div className="text-base font-bold text-white flex items-center gap-1.5">
-                        <span>{activeNode.title}</span>
+                    {/* Active Architectural Layer Inspector Banner */}
+                    <div className="p-2.5 rounded-xl bg-white/5 border border-cerulean/30 mb-3 shadow-[0_0_15px_rgba(0,123,167,0.15)]">
+                      <div className="text-[9px] font-mono text-white/50 mb-0.5">HARDWARE TELEMETRY</div>
+                      <div className="text-xs font-mono text-emerald-400 font-bold flex items-center gap-1.5">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                        <span className="truncate">{activeNode.screenSnippet}</span>
                       </div>
                     </div>
-                    <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-neon-rose/20 text-neon-rose border border-neon-rose/40 font-bold">
-                      120 FPS
-                    </span>
+
+                    {/* Mobile App Active Modules Feed */}
+                    <div className="space-y-2">
+                      <div className="p-2.5 rounded-xl bg-jet/90 border border-white/10 flex items-center justify-between shadow-sm">
+                        <div className="flex items-center gap-2">
+                          <div className="w-7 h-7 rounded-lg bg-cerulean/20 text-cerulean flex items-center justify-center text-xs">
+                            <Bot className="w-3.5 h-3.5" />
+                          </div>
+                          <span className="text-xs font-medium">Edge AI Copilot</span>
+                        </div>
+                        <span className="text-[10px] font-mono text-cerulean font-bold">4ms ONNX</span>
+                      </div>
+
+                      <div className="p-2.5 rounded-xl bg-jet/90 border border-white/10 flex items-center justify-between shadow-sm">
+                        <div className="flex items-center gap-2">
+                          <div className="w-7 h-7 rounded-lg bg-neon-rose/20 text-neon-rose flex items-center justify-center text-xs">
+                            <CreditCard className="w-3.5 h-3.5" />
+                          </div>
+                          <span className="text-xs font-medium">Apple Pay / Stripe</span>
+                        </div>
+                        <span className="text-[10px] font-mono text-emerald-400 font-bold">Instant</span>
+                      </div>
+
+                      <div className="p-2.5 rounded-xl bg-jet/90 border border-white/10 flex items-center justify-between shadow-sm">
+                        <div className="flex items-center gap-2">
+                          <div className="w-7 h-7 rounded-lg bg-amber-400/20 text-amber-400 flex items-center justify-center text-xs">
+                            <Shield className="w-3.5 h-3.5" />
+                          </div>
+                          <span className="text-xs font-medium">Biometric Secure Enclave</span>
+                        </div>
+                        <span className="text-[10px] font-mono text-white/70">Hardware Locked</span>
+                      </div>
+                    </div>
                   </div>
 
-                  {/* Active Architectural Layer Inspector Banner */}
-                  <div className="p-3 rounded-xl bg-white/5 border border-cerulean/30 mb-4">
-                    <div className="text-[10px] font-mono text-white/50 mb-1">HARDWARE TELEMETRY</div>
-                    <div className="text-xs font-mono text-emerald-400 font-bold flex items-center gap-1.5">
-                      <CheckCircle2 className="w-3.5 h-3.5" />
-                      {activeNode.screenSnippet}
-                    </div>
+                  {/* Bottom App Nav Bar */}
+                  <div className="pt-2.5 border-t border-white/10 flex items-center justify-around text-[11px] font-mono text-white/50">
+                    <span className="text-cerulean font-bold">Home</span>
+                    <span>Swarm</span>
+                    <span>Wallet</span>
+                    <span>Profile</span>
                   </div>
 
-                  {/* Mock Mobile Commerce / AI Feed */}
-                  <div className="space-y-2">
-                    <div className="p-2.5 rounded-xl bg-jet border border-white/5 flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <div className="w-7 h-7 rounded-lg bg-cerulean/20 text-cerulean flex items-center justify-center text-xs">
-                          <Bot className="w-3.5 h-3.5" />
-                        </div>
-                        <span className="text-xs font-medium">AI Copilot Search</span>
-                      </div>
-                      <span className="text-[10px] font-mono text-cerulean">4ms</span>
-                    </div>
-
-                    <div className="p-2.5 rounded-xl bg-jet border border-white/5 flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <div className="w-7 h-7 rounded-lg bg-neon-rose/20 text-neon-rose flex items-center justify-center text-xs">
-                          <CreditCard className="w-3.5 h-3.5" />
-                        </div>
-                        <span className="text-xs font-medium">Stripe PaymentSheet</span>
-                      </div>
-                      <span className="text-[10px] font-mono text-emerald-400">Ready</span>
-                    </div>
-
-                    <div className="p-2.5 rounded-xl bg-jet border border-white/5 flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <div className="w-7 h-7 rounded-lg bg-amber-400/20 text-amber-400 flex items-center justify-center text-xs">
-                          <Shield className="w-3.5 h-3.5" />
-                        </div>
-                        <span className="text-xs font-medium">Enclave Biometrics</span>
-                      </div>
-                      <span className="text-[10px] font-mono text-white/60">Active</span>
-                    </div>
-                  </div>
                 </div>
-
-                {/* Bottom App Nav Bar */}
-                <div className="pt-3 border-t border-white/10 flex items-center justify-around text-xs font-mono text-white/40">
-                  <span className="text-cerulean font-bold">Home</span>
-                  <span>Swarm</span>
-                  <span>Wallet</span>
-                  <span>Settings</span>
-                </div>
-
-              </div>
-
+              </RealisticSmartphone>
             </motion.div>
 
             {/* Orbit Selector Dots */}

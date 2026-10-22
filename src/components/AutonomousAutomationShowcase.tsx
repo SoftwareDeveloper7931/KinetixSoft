@@ -21,6 +21,7 @@ import {
   Activity
 } from "lucide-react";
 import { Card3D } from "./Card3D";
+import { RealisticSmartphone } from "./RealisticSmartphone";
 
 interface TriggerFlow {
   id: string;
@@ -217,65 +218,59 @@ export function AutonomousAutomationShowcase() {
             <div className="absolute w-72 h-72 sm:w-80 sm:h-80 rounded-full border border-cerulean/30 animate-pulse pointer-events-none" />
             <div className="absolute w-88 h-88 sm:w-96 sm:h-96 rounded-full border border-neon-rose/20 animate-spin-slow pointer-events-none" />
 
-            {/* Floating 3D Phone Shell */}
-            <div className="w-full max-w-[320px] rounded-[36px] p-3.5 bg-gradient-to-b from-white/20 via-white/5 to-white/10 border-2 border-white/20 shadow-[0_25px_70px_rgba(0,0,0,0.8),0_0_50px_rgba(0,123,167,0.35)] relative overflow-hidden backdrop-blur-2xl">
-              
-              {/* Dynamic Island Notch */}
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-full flex items-center justify-between px-2.5 z-30 border border-white/10">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                <span className="text-[9px] font-mono text-white/70">AGENT v2.4</span>
-              </div>
+            {/* Hyper-Realistic Flagship Smartphone Frame */}
+            <div className="w-full max-w-[320px] flex justify-center">
+              <RealisticSmartphone glowColor="duo" className="w-full max-w-[310px]">
+                {/* Internal Screen Content */}
+                <div className="p-4 pt-2 flex-1 flex flex-col justify-between text-xs font-mono">
+                  
+                  {/* Header */}
+                  <div className="border-b border-white/10 pb-2.5 mb-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-white font-bold flex items-center gap-1.5">
+                        <Bot className="w-3.5 h-3.5 text-neon-rose" />
+                        Claude-3.5 Swarm
+                      </span>
+                      <span className="text-[10px] text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded-full border border-emerald-400/30">
+                        AUTONOMOUS
+                      </span>
+                    </div>
+                    <div className="text-[10px] text-white/50 mt-1">Status: Reasoning & Tool Dispatch</div>
+                  </div>
 
-              {/* Internal Screen Content */}
-              <div className="rounded-[28px] bg-[#07090E] p-4 pt-10 border border-white/10 min-h-[380px] flex flex-col justify-between text-xs font-mono">
-                
-                {/* Header */}
-                <div className="border-b border-white/10 pb-3 mb-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-white font-bold flex items-center gap-1.5">
-                      <Bot className="w-3.5 h-3.5 text-neon-rose" />
-                      Claude-3.5 Swarm
+                  {/* Live Agent Thought Bubble */}
+                  <div className="space-y-2 flex-1 py-1">
+                    <div className="p-2.5 rounded-xl bg-cerulean/10 border border-cerulean/30 text-white/90">
+                      <div className="text-[10px] text-cerulean font-bold mb-1 uppercase flex items-center gap-1">
+                        <Sparkles className="w-3 h-3 text-neon-rose" /> Semantic Intent
+                      </div>
+                      <p className="text-[11px] leading-relaxed text-white/80">{activeFlow.intent}</p>
+                    </div>
+
+                    {/* Active Tool-Calling Loop */}
+                    <div className="p-2.5 rounded-xl bg-jet border border-white/10 space-y-1.5 text-[11px]">
+                      <div className="text-[10px] text-white/40 flex items-center justify-between">
+                        <span>TOOL CALL EXECUTION</span>
+                        <span className="text-emerald-400 font-bold">{activeFlow.duration}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-white/70">
+                        <span className="w-1.5 h-1.5 rounded-full bg-neon-rose animate-ping" />
+                        <span className="truncate">{activeFlow.outputs[Math.min(completedStep, activeFlow.outputs.length - 1)]}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Footer Telemetry */}
+                  <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[10px] text-white/50">
+                    <span>Latency: <strong className="text-emerald-400">{activeFlow.duration}</strong></span>
+                    <span className="text-cerulean flex items-center gap-1">
+                      <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+                      Zero Friction
                     </span>
-                    <span className="text-[10px] text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded-full border border-emerald-400/30">
-                      AUTONOMOUS
-                    </span>
-                  </div>
-                  <div className="text-[10px] text-white/40 mt-1">Status: Reasoning & Tool Dispatch</div>
-                </div>
-
-                {/* Live Agent Thought Bubble */}
-                <div className="space-y-2.5 flex-1 py-1">
-                  <div className="p-2.5 rounded-xl bg-cerulean/10 border border-cerulean/30 text-white/90">
-                    <div className="text-[10px] text-cerulean font-bold mb-1 uppercase flex items-center gap-1">
-                      <Sparkles className="w-3 h-3 text-neon-rose" /> Semantic Intent
-                    </div>
-                    <p className="text-[11px] leading-relaxed text-white/80">{activeFlow.intent}</p>
                   </div>
 
-                  {/* Active Tool-Calling Loop */}
-                  <div className="p-2.5 rounded-xl bg-jet border border-white/10 space-y-1.5 text-[11px]">
-                    <div className="text-[10px] text-white/40 flex items-center justify-between">
-                      <span>TOOL CALL EXECUTION</span>
-                      <span className="text-emerald-400 font-bold">{activeFlow.duration}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-white/70">
-                      <span className="w-1.5 h-1.5 rounded-full bg-neon-rose animate-ping" />
-                      <span>{activeFlow.outputs[Math.min(completedStep, activeFlow.outputs.length - 1)]}</span>
-                    </div>
-                  </div>
                 </div>
-
-                {/* Footer Telemetry */}
-                <div className="pt-3 border-t border-white/10 flex items-center justify-between text-[10px] text-white/50">
-                  <span>Latency: <strong className="text-emerald-400">{activeFlow.duration}</strong></span>
-                  <span className="text-cerulean flex items-center gap-1">
-                    <CheckCircle2 className="w-3 h-3 text-emerald-400" />
-                    Zero Human In-Loop
-                  </span>
-                </div>
-
-              </div>
-
+              </RealisticSmartphone>
             </div>
 
             {/* Trigger Simulation Button */}

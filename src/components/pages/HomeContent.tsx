@@ -631,6 +631,95 @@ export default function HomeContent() {
         </div>
       </section>
 
+      {/* PHYSICAL ENGINEERING STUDIO & CULTURE (REQUESTED BY USER) */}
+      <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          {/* Left: Studio Workspace Image with Glass Badges */}
+          <div className="lg:col-span-7 relative group">
+            <div className="relative rounded-3xl overflow-hidden border-2 border-white/15 shadow-[0_30px_90px_rgba(0,0,0,0.9),0_0_60px_rgba(0,123,167,0.3)]">
+              <img
+                src="/studio-workspace.jpg"
+                alt="KinetixSoft Engineering Studio & Collaborative Workspace"
+                className="w-full h-[400px] sm:h-[480px] object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-jet via-transparent to-black/30 pointer-events-none" />
+
+              {/* Floating Live Telemetry Badge */}
+              <div className="absolute top-5 left-5 px-3.5 py-2 rounded-xl bg-jet-surface/85 border border-white/20 backdrop-blur-xl flex items-center gap-2.5 shadow-xl">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
+                <span className="text-xs font-mono font-bold text-white">Engineering Studio HQ</span>
+                <span className="text-[10px] font-mono text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded-full border border-emerald-400/30">Live Lab</span>
+              </div>
+
+              {/* Floating Bottom Card */}
+              <div className="absolute bottom-5 left-5 right-5 p-4 sm:p-5 rounded-2xl bg-jet-surface/85 border border-white/20 backdrop-blur-2xl flex flex-wrap items-center justify-between gap-4 shadow-2xl">
+                <div>
+                  <div className="text-sm font-bold text-white flex items-center gap-2">
+                    <span>100% In-House Senior Builders & AI Swarm Directors</span>
+                  </div>
+                  <div className="text-xs text-white/70 font-mono mt-0.5">
+                    Open Collaborative Lofts • Direct Slack Channels • 0% Middlemen
+                  </div>
+                </div>
+                <span className="text-xs font-mono px-3 py-1 rounded-full bg-cerulean/20 text-cerulean border border-cerulean/40 font-bold">
+                  Physical Hub
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Studio Culture & Human-Agent Synergy */}
+          <div className="lg:col-span-5 text-left space-y-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase text-[#00A3DE] bg-cerulean/10 border border-cerulean/30">
+              <Users className="w-3.5 h-3.5 text-neon-rose" /> Inside KinetixSoft Studio
+            </div>
+            
+            <h2 className="text-3xl sm:text-5xl font-black text-white leading-tight">
+              Real Senior Architects. <br />
+              <span className="text-gradient-duo">Agentic Velocity.</span>
+            </h2>
+
+            <p className="text-base text-white/75 leading-relaxed">
+              We aren’t an anonymous freelancer broker. Our physical engineering studio houses senior full-stack engineers, UI/UX designers, and systems architects working alongside autonomous AI swarms to ship production software with zero lag.
+            </p>
+
+            <div className="space-y-3 pt-2">
+              {[
+                {
+                  title: "Collaborative Open Studio",
+                  desc: "Rapid pair programming, whiteboarding, and hardware test rigs for FlutterFlow 120 FPS mobile apps.",
+                  icon: <Sparkles className="w-4 h-4 text-neon-rose" />,
+                },
+                {
+                  title: "Human + Agentic Synergy",
+                  desc: "Senior engineers architect the foundation; autonomous Claude-3.5 agent swarms synthesize boilerplate, tests, and API connectors.",
+                  icon: <Bot className="w-4 h-4 text-cerulean" />,
+                },
+                {
+                  title: "Direct Access To Your Builders",
+                  desc: "No middlemen or junior account managers. You speak directly to the engineers pushing code to your production repo.",
+                  icon: <CheckCircle2 className="w-4 h-4 text-emerald-400" />,
+                },
+              ].map((item, idx) => (
+                <div key={idx} className="p-3.5 rounded-xl bg-jet-surface/60 border border-white/10 hover:border-cerulean/30 transition-all flex items-start gap-3">
+                  <div className="p-2 rounded-lg bg-white/5 shrink-0 mt-0.5">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-white mb-0.5">{item.title}</h4>
+                    <p className="text-xs text-white/65 leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
       {/* CONTACT SECTION */}
       <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

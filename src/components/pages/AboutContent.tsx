@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Zap, Users, Target, ArrowRight, ShieldCheck, Sparkles, Award } from "lucide-react";
 import { Card3D } from "@/components/Card3D";
+import { Hero3DVisual } from "@/components/Hero3DVisual";
+import { CyberGrid3D } from "@/components/CyberGrid3D";
 
 const coreValues = [
   {
@@ -179,30 +181,119 @@ export default function AboutContent() {
         </Card3D>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10 mb-8 text-center">
+      {/* PHYSICAL ENGINEERING STUDIO & CULTURE SHOWCASE */}
+      <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          {/* Left: Studio Photo */}
+          <div className="lg:col-span-7 relative group">
+            <div className="relative rounded-3xl overflow-hidden border-2 border-white/15 shadow-[0_30px_90px_rgba(0,0,0,0.9),0_0_50px_rgba(0,123,167,0.3)]">
+              <img
+                src="/studio-workspace.jpg"
+                alt="KinetixSoft Engineering Studio & Open Collaborative Workspace"
+                className="w-full h-[380px] sm:h-[460px] object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-jet via-transparent to-black/30 pointer-events-none" />
+
+              {/* Floating Badge */}
+              <div className="absolute top-5 left-5 px-3.5 py-2 rounded-xl bg-jet-surface/80 border border-white/15 backdrop-blur-xl flex items-center gap-2.5 shadow-xl">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
+                <span className="text-xs font-mono font-bold text-white">Engineering Studio Floor</span>
+              </div>
+
+              {/* Bottom Info Bar */}
+              <div className="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-jet-surface/85 border border-white/20 backdrop-blur-2xl flex flex-wrap items-center justify-between gap-4 shadow-2xl">
+                <div>
+                  <div className="text-sm font-bold text-white">In-House Architects & Developers</div>
+                  <div className="text-xs text-white/70 font-mono mt-0.5">
+                    Lahore Tech Hub • Direct Collaboration • Senior Led
+                  </div>
+                </div>
+                <span className="text-xs font-mono px-3 py-1 rounded-full bg-cerulean/20 text-cerulean border border-cerulean/40 font-bold">
+                  Physical HQ
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Studio Culture */}
+          <div className="lg:col-span-5 text-left space-y-5">
+            <div className="inline-flex items-center gap-2 px-3 py-1 text-xs font-mono uppercase tracking-wider text-cerulean bg-cerulean/10 border border-cerulean/30 rounded-full">
+              <Users className="w-3.5 h-3.5 text-neon-rose" /> Our Studio Space
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+              Where Engineering <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean via-sky-400 to-neon-rose">Meets Execution</span>
+            </h2>
+            <p className="text-white/70 text-sm md:text-base leading-relaxed">
+              We operate from a high-energy collaborative studio where senior software engineers, system architects, and UI/UX designers pair program, whiteboard complex data models, and deploy production software daily.
+            </p>
+            <div className="space-y-3 pt-2">
+              <div className="p-3.5 rounded-xl bg-jet-surface/70 border border-white/10 flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-cerulean mt-1.5 shrink-0" />
+                <div>
+                  <div className="text-sm font-bold text-white">100% In-House Team</div>
+                  <div className="text-xs text-white/60">Every line of code is designed and reviewed by our own engineering team.</div>
+                </div>
+              </div>
+              <div className="p-3.5 rounded-xl bg-jet-surface/70 border border-white/10 flex items-start gap-3">
+                <div className="w-2 h-2 rounded-full bg-neon-rose mt-1.5 shrink-0" />
+                <div>
+                  <div className="text-sm font-bold text-white">Human Architecture + Agentic AI</div>
+                  <div className="text-xs text-white/60">Combining deep technical discernment with autonomous agents for 10x delivery speed.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* CTA SECTION: 3D HOLOGRAPHIC LASER VISUAL BROUGHT DIRECTLY TO THE FRONT */}
+      <section className="py-20 px-4 md:px-6 max-w-5xl mx-auto relative z-10 mb-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="p-10 md:p-14 rounded-3xl bg-jet-surface/90 border border-jet-border backdrop-blur-xl shadow-2xl relative overflow-hidden"
+          className="p-8 sm:p-12 md:p-14 rounded-3xl bg-jet-surface/60 border border-white/10 backdrop-blur-2xl shadow-[0_30px_100px_rgba(0,123,167,0.35),0_15px_50px_rgba(255,45,149,0.25)] relative overflow-hidden"
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-cerulean/15 blur-[80px] pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-neon-rose/15 blur-[80px] pointer-events-none" />
+          {/* Ambient Cyber Backlight */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-cerulean/20 blur-[100px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-neon-rose/20 blur-[100px] pointer-events-none" />
 
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
-            Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean to-neon-rose">Build Something Great?</span>
-          </h2>
-          <p className="mb-8 text-white/60 text-sm max-w-lg mx-auto leading-relaxed">
-            Tell us about your product roadmap and timeline. We'll deliver an actionable architectural blueprint — zero fluff, zero sales pressure.
-          </p>
-          <Link href="/contact">
-            <button data-testid="button-about-cta" className="btn-duo mx-auto flex items-center gap-2">
-              Get in Touch <ArrowRight className="w-4 h-4" />
-            </button>
-          </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            {/* Left Column: 3D Holographic Element Brought to Front */}
+            <div className="lg:col-span-5 flex items-center justify-center relative">
+              <Hero3DVisual />
+            </div>
+
+            {/* Right Column: CTA Copy & Action */}
+            <div className="lg:col-span-7 text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 text-xs font-mono tracking-wider uppercase mb-4 rounded-full border border-cerulean/30 bg-cerulean/10 text-cerulean">
+                <Sparkles className="w-3.5 h-3.5 text-neon-rose" /> Ready to Deploy
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-white">
+                Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean to-neon-rose">Build Something Great?</span>
+              </h2>
+              <p className="mb-8 text-white/70 text-sm md:text-base leading-relaxed">
+                Tell us about your product roadmap and timeline. We'll deliver an actionable architectural blueprint — zero fluff, zero sales pressure.
+              </p>
+              <Link href="/contact" className="inline-flex group">
+                <button data-testid="button-about-cta" className="btn-duo flex items-center gap-2 shadow-[0_0_30px_rgba(255,45,149,0.4)]">
+                  <span>Get In Touch</span>
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                </button>
+              </Link>
+            </div>
+
+          </div>
         </motion.div>
       </section>
+
+      {/* Cyber Grid Horizon Transition into Footer */}
+      <CyberGrid3D />
     </div>
   );
 }
