@@ -195,63 +195,125 @@
     box-shadow: 0 0 35px rgba(0, 123, 167, 0.3), 0 0 60px rgba(255, 45, 149, 0.2);
   }
 
-  /* Buttons */
+  /* High-Performance Cyber Buttons */
+  .btn-cerulean,
+  .btn-neon-rose,
+  .btn-duo,
+  .btn-ghost-cyber,
+  .btn-cyber {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    padding: 0.8125rem 1.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    cursor: pointer;
+    overflow: hidden;
+    user-select: none;
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+  }
+
+  .btn-cerulean::after,
+  .btn-neon-rose::after,
+  .btn-duo::after,
+  .btn-cyber::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+
+  .btn-cerulean:hover::after,
+  .btn-neon-rose:hover::after,
+  .btn-duo:hover::after,
+  .btn-cyber:hover::after {
+    left: 140%;
+  }
+
   .btn-cerulean {
     background: linear-gradient(135deg, #007BA7 0%, #005E80 100%);
     color: #FFFFFF;
-    border: 1px solid rgba(0, 163, 222, 0.3);
-    box-shadow: 0 4px 20px -2px rgba(0, 123, 167, 0.4);
-    transition: all 0.25s ease;
+    border: 1px solid rgba(0, 163, 222, 0.4);
+    box-shadow: 0 4px 20px -2px rgba(0, 123, 167, 0.45);
   }
 
   .btn-cerulean:hover {
-    background: linear-gradient(135deg, #0099D0 0%, #007BA7 100%);
-    box-shadow: 0 6px 28px rgba(0, 123, 167, 0.6);
+    background: linear-gradient(135deg, #00A3DE 0%, #007BA7 100%);
+    border-color: #00A3DE;
+    box-shadow: 0 8px 32px rgba(0, 123, 167, 0.7);
     transform: translateY(-2px);
   }
 
   .btn-neon-rose {
-    background: linear-gradient(135deg, #FF2D95 0%, #D81774 100%);
+    background: linear-gradient(135deg, #FF2D95 0%, #CC1870 100%);
     color: #FFFFFF;
-    border: 1px solid rgba(255, 92, 174, 0.4);
-    box-shadow: 0 4px 20px -2px rgba(255, 45, 149, 0.45);
-    transition: all 0.25s ease;
+    border: 1px solid rgba(255, 92, 174, 0.45);
+    box-shadow: 0 4px 20px -2px rgba(255, 45, 149, 0.5);
   }
 
   .btn-neon-rose:hover {
-    background: linear-gradient(135deg, #FF4DA6 0%, #FF2D95 100%);
-    box-shadow: 0 6px 28px rgba(255, 45, 149, 0.65);
+    background: linear-gradient(135deg, #FF5CAE 0%, #FF2D95 100%);
+    border-color: #FF5CAE;
+    box-shadow: 0 8px 32px rgba(255, 45, 149, 0.75);
     transform: translateY(-2px);
   }
 
   .btn-duo {
     background: linear-gradient(135deg, #007BA7 0%, #FF2D95 100%);
     color: #FFFFFF;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 25px rgba(0, 123, 167, 0.35), 0 4px 25px rgba(255, 45, 149, 0.35);
-    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 25px rgba(0, 123, 167, 0.4), 0 4px 25px rgba(255, 45, 149, 0.4);
   }
 
   .btn-duo:hover {
-    background: linear-gradient(135deg, #0099D0 0%, #FF4DA6 100%);
-    box-shadow: 0 6px 35px rgba(0, 123, 167, 0.5), 0 6px 35px rgba(255, 45, 149, 0.5);
+    background: linear-gradient(135deg, #00A3DE 0%, #FF5CAE 100%);
+    border-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 8px 40px rgba(0, 123, 167, 0.6), 0 8px 40px rgba(255, 45, 149, 0.6);
     transform: translateY(-2px) scale(1.02);
   }
 
   .btn-ghost-cyber {
-    background: rgba(18, 19, 23, 0.6);
+    background: rgba(17, 18, 21, 0.75);
     color: #F3F4F6;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(12px);
-    transition: all 0.25s ease;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
   }
 
   .btn-ghost-cyber:hover {
-    border-color: #007BA7;
-    background: rgba(0, 123, 167, 0.12);
+    border-color: #00A3DE;
+    background: rgba(0, 123, 167, 0.18);
     color: #FFFFFF;
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(0, 123, 167, 0.25);
+    box-shadow: 0 4px 24px rgba(0, 123, 167, 0.35);
+  }
+
+  .btn-cyber {
+    background: linear-gradient(135deg, rgba(0, 123, 167, 0.16) 0%, rgba(255, 45, 149, 0.16) 100%);
+    color: #FFFFFF;
+    border: 1px solid rgba(0, 163, 222, 0.55);
+    box-shadow: 0 0 24px rgba(0, 123, 167, 0.28), inset 0 0 16px rgba(0, 123, 167, 0.15);
+    backdrop-filter: blur(12px);
+  }
+
+  .btn-cyber:hover {
+    border-color: #FF2D95;
+    background: linear-gradient(135deg, rgba(0, 123, 167, 0.28) 0%, rgba(255, 45, 149, 0.28) 100%);
+    box-shadow: 0 0 35px rgba(255, 45, 149, 0.5), inset 0 0 20px rgba(255, 45, 149, 0.25);
+    transform: translateY(-2px);
   }
 
   /* Micro Elements */

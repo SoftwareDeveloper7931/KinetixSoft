@@ -103,11 +103,18 @@ export default function CareersContent() {
                   </ul>
                 </div>
 
-                <Link href="/contact">
-                  <button className={job.glow === "neon-rose" ? "btn-neon-rose" : "btn-cerulean"}>
-                    Apply for this Role <ArrowRight className="w-4 h-4" />
-                  </button>
-                </Link>
+                <div className="pt-4 flex flex-wrap items-center justify-between gap-4 border-t border-jet-border/60">
+                  <span className="text-xs font-mono text-white/50 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+                    Accepting Applications
+                  </span>
+                  <Link href="/contact" className="group inline-flex">
+                    <button className={job.glow === "neon-rose" ? "btn-neon-rose group" : "btn-cerulean group"}>
+                      <span>Apply for this Role</span>
+                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </button>
+                  </Link>
+                </div>
               </div>
             </Card3D>
           </motion.div>
@@ -125,9 +132,10 @@ export default function CareersContent() {
             <p className="text-sm mb-8 text-white/60 max-w-xl mx-auto leading-relaxed">
               We're always scouting for extraordinary engineers, technical project managers, and UI/UX designers. Drop us a note with your portfolio and GitHub profile.
             </p>
-            <Link href="/contact">
-              <button className="btn-duo mx-auto flex items-center gap-2">
-                Send Open Application <ArrowRight className="w-4 h-4" />
+            <Link href="/contact" className="inline-flex group">
+              <button className="btn-duo mx-auto px-8 py-3.5 text-sm font-bold flex items-center gap-2 group shadow-[0_0_30px_rgba(255,45,149,0.35)]">
+                <span>Send Open Application</span>
+                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
               </button>
             </Link>
           </div>

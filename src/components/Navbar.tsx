@@ -59,25 +59,10 @@ export function Navbar() {
               <Link key={link.href} href={link.href}>
                 <button
                   data-testid="nav-cta-contact"
-                  className="relative group px-5 h-10 rounded-lg text-sm font-semibold flex items-center gap-2 overflow-hidden transition-all duration-300"
-                  style={{
-                    background: "linear-gradient(135deg, #007BA7 0%, #FF2D95 100%)",
-                    color: "#FFFFFF",
-                    boxShadow: "0 0 20px rgba(0, 123, 167, 0.45)",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.boxShadow =
-                      "0 0 30px rgba(255, 45, 149, 0.65)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLButtonElement).style.boxShadow =
-                      "0 0 20px rgba(0, 123, 167, 0.45)";
-                  }}
+                  className="btn-duo px-5 py-2 text-xs sm:text-sm font-bold flex items-center gap-1.5 cursor-pointer shadow-[0_0_20px_rgba(0,123,167,0.45)] group"
                 >
-                  <span className="relative z-10 flex items-center gap-1.5">
-                    {link.label}
-                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                  </span>
+                  <span>{link.label}</span>
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                 </button>
               </Link>
             ) : (

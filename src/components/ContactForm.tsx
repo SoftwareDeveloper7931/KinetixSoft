@@ -229,21 +229,7 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
         type="submit"
         disabled={status === "loading"}
         data-testid="contact-form-submit"
-        className="w-full h-12 rounded-lg font-semibold text-sm flex items-center justify-center gap-2 text-white transition-all duration-300"
-        style={{
-          background: "linear-gradient(135deg, #007BA7 0%, #FF2D95 100%)",
-          boxShadow: "0 4px 20px rgba(0, 123, 167, 0.45), 0 4px 20px rgba(255, 45, 149, 0.3)",
-        }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLButtonElement).style.boxShadow =
-            "0 6px 30px rgba(0, 123, 167, 0.6), 0 6px 30px rgba(255, 45, 149, 0.5)";
-          (e.currentTarget as HTMLButtonElement).style.transform = "translateY(-1px)";
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLButtonElement).style.boxShadow =
-            "0 4px 20px rgba(0, 123, 167, 0.45), 0 4px 20px rgba(255, 45, 149, 0.3)";
-          (e.currentTarget as HTMLButtonElement).style.transform = "none";
-        }}
+        className="w-full btn-duo py-3.5 text-sm sm:text-base font-bold flex items-center justify-center gap-2 cursor-pointer shadow-[0_4px_25px_rgba(255,45,149,0.45)]"
       >
         {status === "loading" ? (
           <>

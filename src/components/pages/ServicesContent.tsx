@@ -294,12 +294,13 @@ export default function ServicesContent() {
                       ))}
                     </div>
 
-                    <Link href={svc.href} className="w-fit">
+                    <Link href={svc.href} className="w-fit inline-flex group">
                       <button
                         data-testid={`button-service-${svc.name.toLowerCase()}`}
-                        className={svc.glowColor === "neon-rose" ? "btn-neon-rose" : "btn-cerulean"}
+                        className={`${svc.glowColor === "neon-rose" ? "btn-neon-rose" : "btn-cerulean"} group`}
                       >
-                        Explore {svc.name} Services <ArrowRight className="w-4 h-4" />
+                        <span>Explore {svc.name} Services</span>
+                        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
                       </button>
                     </Link>
                   </div>
