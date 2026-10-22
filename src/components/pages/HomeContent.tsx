@@ -14,6 +14,7 @@ import { ContactForm } from "@/components/ContactForm";
 import { Card3D } from "@/components/Card3D";
 import { CyberGrid3D } from "@/components/CyberGrid3D";
 import { Agency3DStage } from "@/components/Agency3DStage";
+import { Scroll3DDeviceFrame } from "@/components/Scroll3DDeviceFrame";
 import { ProjectScopeEstimator } from "@/components/ProjectScopeEstimator";
 import { SiFlutter, SiReplit, SiRetool } from "react-icons/si";
 
@@ -232,8 +233,14 @@ export default function HomeContent() {
           </motion.div>
         </div>
 
-        {/* 3D INTERACTIVE AGENCY STAGE (CRAZY CENTERPIECE) */}
-        <Agency3DStage />
+        {/* 3D SCROLL-DRIVEN DEVICE REVEAL (REVERSIBLE ON SCROLL TOP) */}
+        <Scroll3DDeviceFrame
+          title="KinetixSoft Studio Engine"
+          badge="Impeller 120 FPS Native"
+          subtitle="kinetixsoft.dev/studio/engine"
+        >
+          <Agency3DStage />
+        </Scroll3DDeviceFrame>
 
       </section>
 
