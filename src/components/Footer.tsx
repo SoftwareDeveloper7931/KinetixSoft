@@ -7,7 +7,7 @@ import { SiInstagram, SiWhatsapp } from "react-icons/si";
 
 export function Footer() {
   return (
-    <footer className="relative pt-24 pb-12 overflow-hidden bg-[#0A0A0A] border-t border-white/5">
+    <footer className="relative pt-12 pb-12 overflow-hidden bg-[#0A0A0A] border-t border-white/5">
       {/* Top glowing laser line */}
       <div 
         className="absolute top-0 left-0 right-0 h-[1.5px]"
@@ -16,6 +16,24 @@ export function Footer() {
           boxShadow: "0 0 15px rgba(255, 45, 149, 0.4), 0 0 25px rgba(0, 123, 167, 0.4)",
         }}
       />
+
+      {/* AGENTIC MESH LIVE TELEMETRY STRIP */}
+      <div className="border-b border-white/5 bg-jet-surface/40 py-3 px-4 mb-14 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+          <div className="flex items-center gap-2.5">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+            <span className="text-white font-semibold">Agentic Mesh v2.4</span>
+            <span className="text-white/20">|</span>
+            <span className="text-cerulean font-medium">16 Autonomous Agents Running</span>
+          </div>
+          <div className="hidden sm:flex items-center gap-4 text-white/50 text-[11px]">
+            <span>Latency: <strong className="text-emerald-400 font-mono font-normal">24ms</strong></span>
+            <span>Orchestration: <strong className="text-white font-normal">Claude 3.5 Sonnet & GPT-4o</strong></span>
+            <span>Vector Engine: <strong className="text-neon-rose font-normal">pgvector / HNSW</strong></span>
+            <span className="text-emerald-400 flex items-center gap-1 font-semibold">● Operational</span>
+          </div>
+        </div>
+      </div>
 
       {/* Atmospheric glow */}
       <div 
@@ -46,26 +64,26 @@ export function Footer() {
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-              KinetixSoft is a next-generation engineering studio building production-ready mobile,
-              web, and internal systems on FlutterFlow, Lovable, Retool, Podio, Replit, and Bubble.
+              KinetixSoft is an autonomous agentic AI and engineering studio building production-ready multi-agent swarms,
+              mobile apps, web SaaS, and self-healing systems on FlutterFlow, Lovable, Retool, Podio, Replit, and Bubble.
             </p>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono" style={{ background: "rgba(0, 123, 167, 0.1)", border: "1px solid rgba(0, 123, 167, 0.3)", color: "#00A3DE" }}>
               <span className="w-1.5 h-1.5 rounded-full bg-[#00A3DE] animate-pulse" />
-              Worldwide Studio · Lahore PK
+              Autonomous Studio · Global Delivery
             </div>
           </div>
 
           <div>
             <h4 className="font-semibold text-white mb-6 text-sm uppercase tracking-wider text-gradient-cerulean">Services</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><Link href="/flutterflow" className="hover:text-[#00A3DE] transition-colors flex items-center gap-1 group">FlutterFlow Apps <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
+              <li><Link href="/replit-platform" className="hover:text-[#00A3DE] transition-colors flex items-center gap-1 group font-medium text-white/90">Autonomous Agent Swarms <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
+              <li><Link href="/flutterflow" className="hover:text-[#00A3DE] transition-colors flex items-center gap-1 group">FlutterFlow Native Apps <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
               <li><Link href="/flutterflow/tutorials" className="hover:text-[#00A3DE] transition-colors flex items-center gap-1 group">FlutterFlow Tutorials <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
-              <li><Link href="/lovable" className="hover:text-[#FF2D95] transition-colors flex items-center gap-1 group">Lovable Web Apps <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
-              <li><Link href="/retool" className="hover:text-[#00A3DE] transition-colors flex items-center gap-1 group">Retool Dashboards <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
-              <li><Link href="/podio" className="hover:text-[#00A3DE] transition-colors flex items-center gap-1 group">Podio CRM & Workflows <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
-              <li><Link href="/replit-platform" className="hover:text-[#00A3DE] transition-colors flex items-center gap-1 group">Replit Development <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
+              <li><Link href="/lovable" className="hover:text-[#FF2D95] transition-colors flex items-center gap-1 group">Lovable Agentic SaaS <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
+              <li><Link href="/retool" className="hover:text-[#00A3DE] transition-colors flex items-center gap-1 group">Retool Command Centers <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
+              <li><Link href="/podio" className="hover:text-[#00A3DE] transition-colors flex items-center gap-1 group">Podio Self-Healing CRM <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
               <li><Link href="/bubble" className="hover:text-[#00A3DE] transition-colors flex items-center gap-1 group">Bubble Web Apps <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
-              <li><Link href="/services/custom-api" className="hover:text-[#FF2D95] transition-colors flex items-center gap-1 group">Custom API Integration <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
+              <li><Link href="/services/custom-api" className="hover:text-[#FF2D95] transition-colors flex items-center gap-1 group">Custom API & AI Integrations <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></Link></li>
             </ul>
           </div>
 

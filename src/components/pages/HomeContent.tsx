@@ -15,6 +15,7 @@ import { Card3D } from "@/components/Card3D";
 import { CyberGrid3D } from "@/components/CyberGrid3D";
 import { Agency3DStage } from "@/components/Agency3DStage";
 import { Scroll3DDeviceFrame } from "@/components/Scroll3DDeviceFrame";
+import { AgenticSwarmVisualizer } from "@/components/AgenticSwarmVisualizer";
 import { ProjectScopeEstimator } from "@/components/ProjectScopeEstimator";
 import { SiFlutter, SiReplit, SiRetool } from "react-icons/si";
 
@@ -110,12 +111,12 @@ const platforms = [
 ];
 
 const comparisonMatrix = [
-  { feature: "Typical Delivery Speed", us: "4 to 10 Weeks", agency: "6 to 12 Months", freelancer: "Unpredictable" },
-  { feature: "Architect Access", us: "Direct Senior Architect", agency: "Junior Account Manager", freelancer: "Single Freelancer" },
-  { feature: "Code & IP Ownership", us: "100% Client Owned", agency: "Often Proprietary Lock-in", freelancer: "Varies" },
-  { feature: "Security & Role Architecture", us: "Cryptographic Custom Claims & Proxies", agency: "Basic or Generic", freelancer: "Frequently Compromised" },
-  { feature: "Scale Readiness", us: "Built for 100k+ Users Day 1", agency: "Billed as Phase 2", freelancer: "Hits Immediate Wall" },
-  { feature: "Cloud Billing Markup", us: "0% Markup (You Own Accounts)", agency: "20-40% Hidden Margin", freelancer: "N/A" },
+  { feature: "Engineering Engine", us: "Autonomous Multi-Agent Swarms + Senior Architect", agency: "Manual Devs & Broken Hand-offs", freelancer: "Single Person Bottleneck" },
+  { feature: "Typical Delivery Speed", us: "4 to 10 Weeks (Self-Verifying PRs)", agency: "6 to 12 Months of Meetings", freelancer: "Unpredictable & Ghost-prone" },
+  { feature: "AI & Vector Capabilities", us: "Production Swarms, pgvector & Tool-Calling", agency: "Basic Bolt-on ChatGPT Wrapper", freelancer: "Superficial API Calls" },
+  { feature: "Code Quality & Healing", us: "Autonomous Synthesizers & Sentinel Verification", agency: "Manual QA & Delayed Patch Cycles", freelancer: "Fragile Hacks & Technical Debt" },
+  { feature: "Code & Model Ownership", us: "100% Client Owned (Weights, Schemas & Repos)", agency: "Often Proprietary Lock-in", freelancer: "Varies & Ambiguous" },
+  { feature: "Scale Readiness", us: "Built for 100k+ Users & Low Latency Day 1", agency: "Billed as Phase 2 Milestone", freelancer: "Hits Immediate Wall" },
 ];
 
 export default function HomeContent() {
@@ -256,7 +257,7 @@ export default function HomeContent() {
           >
             <span className="w-2.5 h-2.5 rounded-full bg-neon-rose animate-ping" />
             <span className="text-xs font-mono uppercase tracking-widest text-[#00A3DE] font-bold">
-              Software Engineering Studio · Global Execution
+              Autonomous Agentic AI & Software Studio · Global Execution
             </span>
           </motion.div>
 
@@ -266,8 +267,8 @@ export default function HomeContent() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-5 leading-[1.04]"
           >
-            Whatever You Envision. <br />
-            <span className="text-gradient-duo">We Engineer It.</span>
+            Autonomous Agentic AI. <br />
+            <span className="text-gradient-duo">Engineered For Any Vision.</span>
           </motion.h1>
 
           <motion.p
@@ -276,7 +277,7 @@ export default function HomeContent() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-base sm:text-lg md:text-xl text-white/75 mb-7 max-w-2xl mx-auto leading-relaxed"
           >
-            Tell us what you want built. From high-velocity <strong className="text-white">Mobile Apps</strong> and scalable <strong className="text-white">SaaS Platforms</strong> to enterprise <strong className="text-white">Podio CRMs</strong> and custom <strong className="text-white">AI Microservices</strong>. KinetixSoft turns ideas into production reality with zero technical debt.
+            Tell us what you want built. From autonomous <strong className="text-white">AI Agent Swarms</strong> and scalable <strong className="text-white">SaaS Platforms</strong> to high-velocity <strong className="text-white">Mobile Apps</strong> and enterprise <strong className="text-white">Self-Healing CRMs</strong>. KinetixSoft turns visionary requirements into production reality with zero technical debt.
           </motion.p>
 
           {/* Quick Capability Tags */}
@@ -286,17 +287,17 @@ export default function HomeContent() {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 text-xs font-mono"
           >
-            <span className="px-3 py-1.5 rounded-full bg-cerulean/15 border border-cerulean/35 text-cerulean font-semibold flex items-center gap-1.5 hover:bg-cerulean/25 transition-colors">
-              <Smartphone className="w-3.5 h-3.5" /> Mobile Apps (iOS & Android)
-            </span>
             <span className="px-3 py-1.5 rounded-full bg-neon-rose/15 border border-neon-rose/35 text-neon-rose font-semibold flex items-center gap-1.5 hover:bg-neon-rose/25 transition-colors">
-              <Globe className="w-3.5 h-3.5" /> Web & SaaS Platforms
+              <Cpu className="w-3.5 h-3.5" /> Autonomous Agent Swarms (Claude & GPT-4o)
             </span>
             <span className="px-3 py-1.5 rounded-full bg-cerulean/15 border border-cerulean/35 text-cerulean font-semibold flex items-center gap-1.5 hover:bg-cerulean/25 transition-colors">
-              <Database className="w-3.5 h-3.5" /> Custom CRMs & GlobiFlow
+              <Smartphone className="w-3.5 h-3.5" /> AI-Native Mobile (Flutter 120 FPS)
             </span>
             <span className="px-3 py-1.5 rounded-full bg-neon-rose/15 border border-neon-rose/35 text-neon-rose font-semibold flex items-center gap-1.5 hover:bg-neon-rose/25 transition-colors">
-              <Cpu className="w-3.5 h-3.5" /> AI Agents & Custom Software
+              <Globe className="w-3.5 h-3.5" /> Agentic Web & SaaS (pgvector)
+            </span>
+            <span className="px-3 py-1.5 rounded-full bg-cerulean/15 border border-cerulean/35 text-cerulean font-semibold flex items-center gap-1.5 hover:bg-cerulean/25 transition-colors">
+              <Database className="w-3.5 h-3.5" /> Self-Healing CRMs (Podio & GlobiFlow)
             </span>
           </motion.div>
 
@@ -387,6 +388,9 @@ export default function HomeContent() {
           ))}
         </div>
       </section>
+
+      {/* AUTONOMOUS AGENTIC SWARM VISUALIZER */}
+      <AgenticSwarmVisualizer />
 
       {/* INTERACTIVE PROJECT SCOPE ESTIMATOR */}
       <ProjectScopeEstimator />

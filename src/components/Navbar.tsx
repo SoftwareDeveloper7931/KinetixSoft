@@ -47,6 +47,10 @@ export function Navbar() {
           <span className="text-xl font-bold tracking-tight text-white flex items-center gap-1">
             Kinetix<span className="text-gradient-rose">Soft</span>
           </span>
+          <div className="hidden xl:flex items-center gap-2 px-2.5 py-1 rounded-full bg-cerulean/15 border border-cerulean/35 text-[10px] font-mono text-cerulean shadow-[0_0_12px_rgba(0,123,167,0.3)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-neon-rose animate-ping" />
+            <span>Agentic AI Studio · v2.4</span>
+          </div>
         </Link>
 
         {/* Desktop Links */}
