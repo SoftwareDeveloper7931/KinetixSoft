@@ -55,62 +55,62 @@ export function Scroll3DDeviceFrame({
   }, [smoothProgress]);
 
   // Transform mappings for scroll down & reverse on scroll up
-  // As the user scrolls into and through the section:
-  // - Starts at 24deg tilt (12deg on mobile), scale 0.88
-  // - Reaches 0deg (flat) and scale 1.0 around the middle of the scroll
+  // Reacts immediately as user begins scrolling down
+  // - Starts at 24deg tilt (14deg on mobile), scale 0.88
+  // - Reaches 0deg (flat) and scale 1.0 smoothly as user scrolls
   // - When scrolling up, it seamlessly reverses back to tilted 24deg and scaled down!
   const scrollRotateX = useTransform(
     smoothProgress,
-    [0.15, 0.48],
+    [0.02, 0.36],
     isMobile ? [14, 0] : [24, 0]
   );
 
   const scrollScale = useTransform(
     smoothProgress,
-    [0.15, 0.48],
+    [0.02, 0.36],
     isMobile ? [0.93, 1] : [0.88, 1]
   );
 
   const scrollTranslateY = useTransform(
     smoothProgress,
-    [0.15, 0.48],
-    [45, 0]
+    [0.02, 0.36],
+    [40, 0]
   );
 
   const screenGlossOpacity = useTransform(
     smoothProgress,
-    [0.15, 0.45],
+    [0.02, 0.32],
     [0.35, 0]
   );
 
   const baseOpacity = useTransform(
     smoothProgress,
-    [0.15, 0.48],
+    [0.02, 0.36],
     [0.95, 0.2]
   );
 
   const baseRotateX = useTransform(
     smoothProgress,
-    [0.15, 0.48],
+    [0.02, 0.36],
     [68, 84]
   );
 
   const baseScaleY = useTransform(
     smoothProgress,
-    [0.15, 0.48],
+    [0.02, 0.36],
     [1, 0.5]
   );
 
   const hintOpacity = useTransform(
     smoothProgress,
-    [0.15, 0.38],
+    [0.02, 0.28],
     [1, 0]
   );
 
   // Computed angles taking manual override buttons into account
   const activeRotateX = manualOverride === "flat" ? 0 : manualOverride === "tilted" ? (isMobile ? 14 : 24) : scrollRotateX;
   const activeScale = manualOverride === "flat" ? 1 : manualOverride === "tilted" ? (isMobile ? 0.93 : 0.88) : scrollScale;
-  const activeTranslateY = manualOverride === "flat" ? 0 : manualOverride === "tilted" ? 45 : scrollTranslateY;
+  const activeTranslateY = manualOverride === "flat" ? 0 : manualOverride === "tilted" ? 40 : scrollTranslateY;
 
   // Approximate tilt degrees for live UI telemetry
   const calculatedAngle = Math.round(
@@ -118,13 +118,13 @@ export function Scroll3DDeviceFrame({
       ? 0
       : manualOverride === "tilted"
       ? (isMobile ? 14 : 24)
-      : Math.max(0, Math.min(24, (1 - Math.min(1, Math.max(0, (currentProgress - 0.15) / 0.33))) * 24))
+      : Math.max(0, Math.min(24, (1 - Math.min(1, Math.max(0, (currentProgress - 0.02) / 0.34))) * 24))
   );
 
   return (
     <div
       ref={containerRef}
-      className="relative w-full py-10 sm:py-16 md:py-20 z-20"
+      className="relative w-full pt-0 pb-10 sm:pb-16 z-20"
       style={{ perspective: "1300px" }}
     >
       {/* Dynamic Ambient Background Glow */}

@@ -123,15 +123,136 @@ export default function HomeContent() {
     <div className="min-h-screen bg-jet text-[#F3F4F6] relative overflow-hidden">
       
       {/* HERO SECTION */}
-      <section className="relative pt-32 pb-20 px-4 md:px-6 max-w-7xl mx-auto z-20">
+      <section className="relative pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 md:px-6 max-w-7xl mx-auto z-20">
         
-        {/* Main Hero Header */}
-        <div className="max-w-4xl mx-auto text-center mb-16">
+        {/* AMBIENT CYBER AURA & 3D HORIZON MATRIX (BEHIND HERO) */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl h-[560px] pointer-events-none -z-10 overflow-hidden">
+          {/* Dual Glow Orbs */}
+          <div className="absolute top-8 left-12 sm:left-24 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-cerulean/25 blur-[130px] animate-pulse" />
+          <div className="absolute top-12 right-12 sm:right-24 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-neon-rose/25 blur-[130px] animate-pulse" style={{ animationDelay: "1.5s" }} />
+          
+          {/* 3D Perspective Matrix Grid */}
+          <div
+            className="absolute inset-0 opacity-30"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, rgba(0, 123, 167, 0.3) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 45, 149, 0.3) 1px, transparent 1px)
+              `,
+              backgroundSize: "44px 44px",
+              maskImage: "radial-gradient(ellipse 70% 60% at 50% 50%, black, transparent 85%)",
+            }}
+          />
+
+          {/* Laser Accent Beam */}
+          <div
+            className="absolute top-1/2 left-0 right-0 h-[1px]"
+            style={{
+              background: "linear-gradient(90deg, transparent 0%, rgba(0,123,167,0.8) 25%, rgba(255,45,149,0.9) 75%, transparent 100%)",
+              boxShadow: "0 0 20px #FF2D95, 0 0 40px #007BA7",
+            }}
+          />
+        </div>
+
+        {/* Main Hero Header Container (With Flanking 3D Telemetry Cards) */}
+        <div className="relative max-w-5xl mx-auto text-center mb-8 sm:mb-12">
+          
+          {/* LEFT FLANKING 3D TELEMETRY CARDS (DESKTOP) */}
+          <div className="absolute -left-6 lg:-left-20 xl:-left-28 top-8 hidden xl:flex flex-col gap-5 z-20 pointer-events-auto">
+            {/* Card 1: Flutter Mobile */}
+            <motion.div
+              animate={{ y: [-7, 7, -7], rotate: [-1.2, 1.2, -1.2] }}
+              transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
+              className="p-3.5 rounded-2xl glass-card border border-cerulean/40 shadow-[0_0_25px_rgba(0,123,167,0.3)] text-left w-56 backdrop-blur-xl group hover:border-cerulean hover:scale-105 transition-all cursor-default"
+            >
+              <div className="flex items-center justify-between mb-2">
+                <div className="w-8 h-8 rounded-xl bg-cerulean/20 border border-cerulean/50 flex items-center justify-center text-cerulean shadow-[0_0_12px_rgba(0,123,167,0.5)]">
+                  <Smartphone className="w-4 h-4" />
+                </div>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cerulean/20 text-cerulean border border-cerulean/40 font-bold">
+                  120 FPS
+                </span>
+              </div>
+              <div className="font-bold text-white text-xs mb-0.5 flex items-center gap-1.5">
+                <span>Native Mobile Apps</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-cerulean animate-ping" />
+              </div>
+              <div className="text-[11px] text-white/60 font-mono">Flutter · iOS & Android</div>
+            </motion.div>
+
+            {/* Card 2: Podio & GlobiFlow */}
+            <motion.div
+              animate={{ y: [7, -7, 7], rotate: [1, -1.2, 1] }}
+              transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+              className="p-3.5 rounded-2xl glass-card border border-neon-rose/40 shadow-[0_0_25px_rgba(255,45,149,0.3)] text-left w-56 backdrop-blur-xl group hover:border-neon-rose hover:scale-105 transition-all cursor-default"
+            >
+              <div className="flex items-center justify-between mb-2">
+                <div className="w-8 h-8 rounded-xl bg-neon-rose/20 border border-neon-rose/50 flex items-center justify-center text-neon-rose shadow-[0_0_12px_rgba(255,45,149,0.5)]">
+                  <Database className="w-4 h-4" />
+                </div>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-neon-rose/20 text-neon-rose border border-neon-rose/40 font-bold">
+                  REAL-TIME
+                </span>
+              </div>
+              <div className="font-bold text-white text-xs mb-0.5 flex items-center gap-1.5">
+                <span>Custom CRMs & Ops</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-neon-rose animate-ping" />
+              </div>
+              <div className="text-[11px] text-white/60 font-mono">Podio · GlobiFlow · Retool</div>
+            </motion.div>
+          </div>
+
+          {/* RIGHT FLANKING 3D TELEMETRY CARDS (DESKTOP) */}
+          <div className="absolute -right-6 lg:-right-20 xl:-right-28 top-8 hidden xl:flex flex-col gap-5 z-20 pointer-events-auto">
+            {/* Card 3: AI Microservices */}
+            <motion.div
+              animate={{ y: [6, -6, 6], rotate: [1.2, -1, 1.2] }}
+              transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+              className="p-3.5 rounded-2xl glass-card border border-neon-rose/40 shadow-[0_0_25px_rgba(255,45,149,0.3)] text-left w-56 backdrop-blur-xl group hover:border-neon-rose hover:scale-105 transition-all cursor-default"
+            >
+              <div className="flex items-center justify-between mb-2">
+                <div className="w-8 h-8 rounded-xl bg-neon-rose/20 border border-neon-rose/50 flex items-center justify-center text-neon-rose shadow-[0_0_12px_rgba(255,45,149,0.5)]">
+                  <Cpu className="w-4 h-4" />
+                </div>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-neon-rose/20 text-neon-rose border border-neon-rose/40 font-bold">
+                  &lt;45MS AVG
+                </span>
+              </div>
+              <div className="font-bold text-white text-xs mb-0.5 flex items-center gap-1.5">
+                <span>Autonomous AI Agents</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-neon-rose animate-ping" />
+              </div>
+              <div className="text-[11px] text-white/60 font-mono">FastAPI · Claude & GPT-4o</div>
+            </motion.div>
+
+            {/* Card 4: Web & SaaS */}
+            <motion.div
+              animate={{ y: [-6, 6, -6], rotate: [-1, 1.2, -1] }}
+              transition={{ duration: 6.4, repeat: Infinity, ease: "easeInOut", delay: 0.9 }}
+              className="p-3.5 rounded-2xl glass-card border border-cerulean/40 shadow-[0_0_25px_rgba(0,123,167,0.3)] text-left w-56 backdrop-blur-xl group hover:border-cerulean hover:scale-105 transition-all cursor-default"
+            >
+              <div className="flex items-center justify-between mb-2">
+                <div className="w-8 h-8 rounded-xl bg-cerulean/20 border border-cerulean/50 flex items-center justify-center text-cerulean shadow-[0_0_12px_rgba(0,123,167,0.5)]">
+                  <Globe className="w-4 h-4" />
+                </div>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cerulean/20 text-cerulean border border-cerulean/40 font-bold">
+                  MULTI-TENANT
+                </span>
+              </div>
+              <div className="font-bold text-white text-xs mb-0.5 flex items-center gap-1.5">
+                <span>Scalable Web & SaaS</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-cerulean animate-ping" />
+              </div>
+              <div className="text-[11px] text-white/60 font-mono">Bubble · Next.js · Postgres</div>
+            </motion.div>
+          </div>
+
+          {/* Studio Tag Badge */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-card border border-cerulean/40 mb-6 shadow-[0_0_25px_rgba(0,123,167,0.3)]"
+            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-card border border-cerulean/40 mb-5 shadow-[0_0_25px_rgba(0,123,167,0.35)]"
           >
             <span className="w-2.5 h-2.5 rounded-full bg-neon-rose animate-ping" />
             <span className="text-xs font-mono uppercase tracking-widest text-[#00A3DE] font-bold">
@@ -143,7 +264,7 @@ export default function HomeContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-6 leading-[1.04]"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-5 leading-[1.04]"
           >
             Whatever You Envision. <br />
             <span className="text-gradient-duo">We Engineer It.</span>
@@ -153,7 +274,7 @@ export default function HomeContent() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-xl text-white/75 mb-10 max-w-3xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-white/75 mb-7 max-w-2xl mx-auto leading-relaxed"
           >
             Tell us what you want built. From high-velocity <strong className="text-white">Mobile Apps</strong> and scalable <strong className="text-white">SaaS Platforms</strong> to enterprise <strong className="text-white">Podio CRMs</strong> and custom <strong className="text-white">AI Microservices</strong>. KinetixSoft turns ideas into production reality with zero technical debt.
           </motion.p>
@@ -163,18 +284,18 @@ export default function HomeContent() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 text-xs font-mono"
+            className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 text-xs font-mono"
           >
-            <span className="px-3 py-1.5 rounded-full bg-cerulean/15 border border-cerulean/35 text-cerulean font-semibold flex items-center gap-1.5">
+            <span className="px-3 py-1.5 rounded-full bg-cerulean/15 border border-cerulean/35 text-cerulean font-semibold flex items-center gap-1.5 hover:bg-cerulean/25 transition-colors">
               <Smartphone className="w-3.5 h-3.5" /> Mobile Apps (iOS & Android)
             </span>
-            <span className="px-3 py-1.5 rounded-full bg-neon-rose/15 border border-neon-rose/35 text-neon-rose font-semibold flex items-center gap-1.5">
+            <span className="px-3 py-1.5 rounded-full bg-neon-rose/15 border border-neon-rose/35 text-neon-rose font-semibold flex items-center gap-1.5 hover:bg-neon-rose/25 transition-colors">
               <Globe className="w-3.5 h-3.5" /> Web & SaaS Platforms
             </span>
-            <span className="px-3 py-1.5 rounded-full bg-cerulean/15 border border-cerulean/35 text-cerulean font-semibold flex items-center gap-1.5">
+            <span className="px-3 py-1.5 rounded-full bg-cerulean/15 border border-cerulean/35 text-cerulean font-semibold flex items-center gap-1.5 hover:bg-cerulean/25 transition-colors">
               <Database className="w-3.5 h-3.5" /> Custom CRMs & GlobiFlow
             </span>
-            <span className="px-3 py-1.5 rounded-full bg-neon-rose/15 border border-neon-rose/35 text-neon-rose font-semibold flex items-center gap-1.5">
+            <span className="px-3 py-1.5 rounded-full bg-neon-rose/15 border border-neon-rose/35 text-neon-rose font-semibold flex items-center gap-1.5 hover:bg-neon-rose/25 transition-colors">
               <Cpu className="w-3.5 h-3.5" /> AI Agents & Custom Software
             </span>
           </motion.div>
@@ -212,7 +333,7 @@ export default function HomeContent() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.45, duration: 0.8 }}
-            className="mt-12 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs text-white/60 font-mono"
+            className="mt-8 flex flex-wrap items-center justify-center gap-5 sm:gap-8 text-xs text-white/60 font-mono"
           >
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-cerulean" />
