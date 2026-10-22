@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 interface Card3DProps {
   children: React.ReactNode;
   className?: string;
-  glowColor?: "cerulean" | "rose" | "dual";
+  glowColor?: "cerulean" | "rose" | "neon-rose" | "dual";
   maxTilt?: number;
   scaleOnHover?: number;
   style?: React.CSSProperties;
@@ -59,7 +59,7 @@ export function Card3D({
     "radial-gradient(circle at 50% 50%, rgba(0, 123, 167, 0.25), transparent 70%)";
   let borderHoverStyle = "rgba(0, 123, 167, 0.45)";
 
-  if (glowColor === "rose") {
+  if (glowColor === "rose" || glowColor === "neon-rose") {
     glareGradient = `radial-gradient(circle at ${glarePos.x}% ${glarePos.y}%, rgba(255, 45, 149, 0.35), transparent 60%)`;
     borderHoverStyle = "rgba(255, 45, 149, 0.5)";
   } else if (glowColor === "dual") {
