@@ -28,8 +28,8 @@ export function BackgroundElements() {
         />
       </div>
 
-      {/* FOREGROUND 3D KINETIC MESH & PARTICLES (IN FRONT OF CONTENT) */}
-      <MotionCanvas3D className="z-30" />
+      {/* DEEP 3D KINETIC MESH & PARTICLES (BEHIND CONTENT, NON-BLOCKING) */}
+      <MotionCanvas3D className="z-0 opacity-60" />
     </>
   );
 }

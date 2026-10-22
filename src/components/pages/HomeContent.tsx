@@ -15,6 +15,9 @@ import { Card3D } from "@/components/Card3D";
 import { CyberGrid3D } from "@/components/CyberGrid3D";
 import { Agency3DStage } from "@/components/Agency3DStage";
 import { Scroll3DDeviceFrame } from "@/components/Scroll3DDeviceFrame";
+import { Hero3DParticleCosmos } from "@/components/Hero3DParticleCosmos";
+import { AutonomousAutomationShowcase } from "@/components/AutonomousAutomationShowcase";
+import { MobileAppArchitectureStage } from "@/components/MobileAppArchitectureStage";
 import { AgenticSwarmVisualizer } from "@/components/AgenticSwarmVisualizer";
 import { ProjectScopeEstimator } from "@/components/ProjectScopeEstimator";
 import { SiFlutter, SiReplit, SiRetool } from "react-icons/si";
@@ -155,204 +158,125 @@ export default function HomeContent() {
           />
         </div>
 
-        {/* Main Hero Header Container (With Flanking 3D Telemetry Cards) */}
-        <div className="relative max-w-5xl mx-auto text-center mb-8 sm:mb-12">
+        {/* 2-COLUMN BALANCED HERO GRID (MATCHING PIN 621989398580723128) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12 sm:mb-16">
           
-          {/* LEFT FLANKING 3D TELEMETRY CARDS (DESKTOP) */}
-          <div className="absolute -left-6 lg:-left-20 xl:-left-28 top-8 hidden xl:flex flex-col gap-5 z-20 pointer-events-auto">
-            {/* Card 1: Flutter Mobile */}
+          {/* LEFT COLUMN: 100% READABLE TYPOGRAPHY (ZERO OVERLAPPING CARDS) */}
+          <div className="lg:col-span-7 text-left">
             <motion.div
-              animate={{ y: [-7, 7, -7], rotate: [-1.2, 1.2, -1.2] }}
-              transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-              className="p-3.5 rounded-2xl glass-card border border-cerulean/40 shadow-[0_0_25px_rgba(0,123,167,0.3)] text-left w-56 backdrop-blur-xl group hover:border-cerulean hover:scale-105 transition-all cursor-default"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-jet-surface/90 border border-cerulean/40 mb-6 shadow-[0_0_25px_rgba(0,123,167,0.3)]"
             >
-              <div className="flex items-center justify-between mb-2">
-                <div className="w-8 h-8 rounded-xl bg-cerulean/20 border border-cerulean/50 flex items-center justify-center text-cerulean shadow-[0_0_12px_rgba(0,123,167,0.5)]">
-                  <Smartphone className="w-4 h-4" />
-                </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cerulean/20 text-cerulean border border-cerulean/40 font-bold">
-                  120 FPS
-                </span>
-              </div>
-              <div className="font-bold text-white text-xs mb-0.5 flex items-center gap-1.5">
-                <span>Native Mobile Apps</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-cerulean animate-ping" />
-              </div>
-              <div className="text-[11px] text-white/60 font-mono">Flutter · iOS & Android</div>
+              <span className="w-2.5 h-2.5 rounded-full bg-neon-rose animate-ping" />
+              <span className="text-xs font-mono uppercase tracking-widest text-[#00A3DE] font-bold">
+                Autonomous Agentic AI · Global Studio
+              </span>
             </motion.div>
 
-            {/* Card 2: Podio & GlobiFlow */}
-            <motion.div
-              animate={{ y: [7, -7, 7], rotate: [1, -1.2, 1] }}
-              transition={{ duration: 6.2, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-              className="p-3.5 rounded-2xl glass-card border border-neon-rose/40 shadow-[0_0_25px_rgba(255,45,149,0.3)] text-left w-56 backdrop-blur-xl group hover:border-neon-rose hover:scale-105 transition-all cursor-default"
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-black tracking-tight mb-5 leading-[1.05] text-white"
             >
-              <div className="flex items-center justify-between mb-2">
-                <div className="w-8 h-8 rounded-xl bg-neon-rose/20 border border-neon-rose/50 flex items-center justify-center text-neon-rose shadow-[0_0_12px_rgba(255,45,149,0.5)]">
-                  <Database className="w-4 h-4" />
-                </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-neon-rose/20 text-neon-rose border border-neon-rose/40 font-bold">
-                  REAL-TIME
-                </span>
+              AUTONOMOUS <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean via-sky-400 to-neon-rose">
+                AGENTIC AI.
+              </span> <br />
+              ENGINEERED FOR ANY VISION.
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-base sm:text-lg md:text-xl text-white/80 mb-7 max-w-xl leading-relaxed font-normal"
+            >
+              Tell us what you want built. From autonomous <strong className="text-white font-semibold">AI Agent Swarms</strong> and scalable <strong className="text-white font-semibold">SaaS Platforms</strong> to high-velocity <strong className="text-white font-semibold">Mobile Apps</strong> and enterprise <strong className="text-white font-semibold">Self-Healing CRMs</strong>. We turn visionary requirements into production reality with zero technical debt.
+            </motion.p>
+
+            {/* Quick Capability Tags */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.25 }}
+              className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-8 text-xs font-mono"
+            >
+              <span className="px-3 py-1.5 rounded-full bg-neon-rose/15 border border-neon-rose/40 text-neon-rose font-semibold flex items-center gap-1.5 hover:bg-neon-rose/25 transition-colors">
+                <Cpu className="w-3.5 h-3.5" /> Agent Swarms (Claude 3.5 & GPT-4o)
+              </span>
+              <span className="px-3 py-1.5 rounded-full bg-cerulean/15 border border-cerulean/40 text-[#00A3DE] font-semibold flex items-center gap-1.5 hover:bg-cerulean/25 transition-colors">
+                <Smartphone className="w-3.5 h-3.5" /> AI Mobile (Flutter 120 FPS)
+              </span>
+              <span className="px-3 py-1.5 rounded-full bg-neon-rose/15 border border-neon-rose/40 text-neon-rose font-semibold flex items-center gap-1.5 hover:bg-neon-rose/25 transition-colors">
+                <Globe className="w-3.5 h-3.5" /> Web & SaaS (pgvector)
+              </span>
+              <span className="px-3 py-1.5 rounded-full bg-cerulean/15 border border-cerulean/40 text-[#00A3DE] font-semibold flex items-center gap-1.5 hover:bg-cerulean/25 transition-colors">
+                <Database className="w-3.5 h-3.5" /> Self-Healing CRMs (Podio & GlobiFlow)
+              </span>
+            </motion.div>
+
+            {/* Primary Action Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-wrap items-center gap-4 mb-8"
+            >
+              <Link href="/contact" className="group">
+                <button
+                  data-testid="button-hero-get-in-touch"
+                  className="btn-duo px-8 py-4 text-base font-bold shadow-[0_0_35px_rgba(255,45,149,0.4)]"
+                >
+                  <span>Start Your Project</span>
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                </button>
+              </Link>
+
+              <Link href="/services">
+                <button
+                  data-testid="button-hero-view-services"
+                  className="btn-ghost-cyber px-8 py-4 text-base font-semibold"
+                >
+                  <Sparkles className="w-4 h-4 text-cerulean" />
+                  <span>Explore All Stacks</span>
+                </button>
+              </Link>
+            </motion.div>
+
+            {/* Micro Proof Trust Row */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.45, duration: 0.8 }}
+              className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-white/70 font-mono"
+            >
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-cerulean" />
+                <span>100% Founder-Led</span>
               </div>
-              <div className="font-bold text-white text-xs mb-0.5 flex items-center gap-1.5">
-                <span>Custom CRMs & Ops</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-neon-rose animate-ping" />
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-neon-rose" />
+                <span>Impeller 120 FPS</span>
               </div>
-              <div className="text-[11px] text-white/60 font-mono">Podio · GlobiFlow · Retool</div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-cerulean" />
+                <span>Zero-Leak Security</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-neon-rose" />
+                <span>100% IP & Code Ownership</span>
+              </div>
             </motion.div>
           </div>
 
-          {/* RIGHT FLANKING 3D TELEMETRY CARDS (DESKTOP) */}
-          <div className="absolute -right-6 lg:-right-20 xl:-right-28 top-8 hidden xl:flex flex-col gap-5 z-20 pointer-events-auto">
-            {/* Card 3: AI Microservices */}
-            <motion.div
-              animate={{ y: [6, -6, 6], rotate: [1.2, -1, 1.2] }}
-              transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-              className="p-3.5 rounded-2xl glass-card border border-neon-rose/40 shadow-[0_0_25px_rgba(255,45,149,0.3)] text-left w-56 backdrop-blur-xl group hover:border-neon-rose hover:scale-105 transition-all cursor-default"
-            >
-              <div className="flex items-center justify-between mb-2">
-                <div className="w-8 h-8 rounded-xl bg-neon-rose/20 border border-neon-rose/50 flex items-center justify-center text-neon-rose shadow-[0_0_12px_rgba(255,45,149,0.5)]">
-                  <Cpu className="w-4 h-4" />
-                </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-neon-rose/20 text-neon-rose border border-neon-rose/40 font-bold">
-                  &lt;45MS AVG
-                </span>
-              </div>
-              <div className="font-bold text-white text-xs mb-0.5 flex items-center gap-1.5">
-                <span>Autonomous AI Agents</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-neon-rose animate-ping" />
-              </div>
-              <div className="text-[11px] text-white/60 font-mono">FastAPI · Claude & GPT-4o</div>
-            </motion.div>
-
-            {/* Card 4: Web & SaaS */}
-            <motion.div
-              animate={{ y: [-6, 6, -6], rotate: [-1, 1.2, -1] }}
-              transition={{ duration: 6.4, repeat: Infinity, ease: "easeInOut", delay: 0.9 }}
-              className="p-3.5 rounded-2xl glass-card border border-cerulean/40 shadow-[0_0_25px_rgba(0,123,167,0.3)] text-left w-56 backdrop-blur-xl group hover:border-cerulean hover:scale-105 transition-all cursor-default"
-            >
-              <div className="flex items-center justify-between mb-2">
-                <div className="w-8 h-8 rounded-xl bg-cerulean/20 border border-cerulean/50 flex items-center justify-center text-cerulean shadow-[0_0_12px_rgba(0,123,167,0.5)]">
-                  <Globe className="w-4 h-4" />
-                </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cerulean/20 text-cerulean border border-cerulean/40 font-bold">
-                  MULTI-TENANT
-                </span>
-              </div>
-              <div className="font-bold text-white text-xs mb-0.5 flex items-center gap-1.5">
-                <span>Scalable Web & SaaS</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-cerulean animate-ping" />
-              </div>
-              <div className="text-[11px] text-white/60 font-mono">Bubble · Next.js · Postgres</div>
-            </motion.div>
+          {/* RIGHT COLUMN: 3D KINETIC PARTICLE SCULPTURE (PIN 621989398580723128) */}
+          <div className="lg:col-span-5 flex items-center justify-center">
+            <Hero3DParticleCosmos />
           </div>
 
-          {/* Studio Tag Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-card border border-cerulean/40 mb-5 shadow-[0_0_25px_rgba(0,123,167,0.35)]"
-          >
-            <span className="w-2.5 h-2.5 rounded-full bg-neon-rose animate-ping" />
-            <span className="text-xs font-mono uppercase tracking-widest text-[#00A3DE] font-bold">
-              Autonomous Agentic AI & Software Studio · Global Execution
-            </span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight mb-5 leading-[1.04]"
-          >
-            Autonomous Agentic AI. <br />
-            <span className="text-gradient-duo">Engineered For Any Vision.</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-base sm:text-lg md:text-xl text-white/75 mb-7 max-w-2xl mx-auto leading-relaxed"
-          >
-            Tell us what you want built. From autonomous <strong className="text-white">AI Agent Swarms</strong> and scalable <strong className="text-white">SaaS Platforms</strong> to high-velocity <strong className="text-white">Mobile Apps</strong> and enterprise <strong className="text-white">Self-Healing CRMs</strong>. KinetixSoft turns visionary requirements into production reality with zero technical debt.
-          </motion.p>
-
-          {/* Quick Capability Tags */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8 text-xs font-mono"
-          >
-            <span className="px-3 py-1.5 rounded-full bg-neon-rose/15 border border-neon-rose/35 text-neon-rose font-semibold flex items-center gap-1.5 hover:bg-neon-rose/25 transition-colors">
-              <Cpu className="w-3.5 h-3.5" /> Autonomous Agent Swarms (Claude & GPT-4o)
-            </span>
-            <span className="px-3 py-1.5 rounded-full bg-cerulean/15 border border-cerulean/35 text-cerulean font-semibold flex items-center gap-1.5 hover:bg-cerulean/25 transition-colors">
-              <Smartphone className="w-3.5 h-3.5" /> AI-Native Mobile (Flutter 120 FPS)
-            </span>
-            <span className="px-3 py-1.5 rounded-full bg-neon-rose/15 border border-neon-rose/35 text-neon-rose font-semibold flex items-center gap-1.5 hover:bg-neon-rose/25 transition-colors">
-              <Globe className="w-3.5 h-3.5" /> Agentic Web & SaaS (pgvector)
-            </span>
-            <span className="px-3 py-1.5 rounded-full bg-cerulean/15 border border-cerulean/35 text-cerulean font-semibold flex items-center gap-1.5 hover:bg-cerulean/25 transition-colors">
-              <Database className="w-3.5 h-3.5" /> Self-Healing CRMs (Podio & GlobiFlow)
-            </span>
-          </motion.div>
-
-          {/* Primary Action Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap items-center justify-center gap-4"
-          >
-            <Link href="/contact" className="group">
-              <button
-                data-testid="button-hero-get-in-touch"
-                className="btn-duo px-8 py-4 text-base font-bold shadow-[0_0_35px_rgba(255,45,149,0.4)]"
-              >
-                <span>Start Your Project</span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
-              </button>
-            </Link>
-
-            <Link href="/services">
-              <button
-                data-testid="button-hero-view-services"
-                className="btn-ghost-cyber px-8 py-4 text-base font-semibold"
-              >
-                <Sparkles className="w-4 h-4 text-cerulean" />
-                <span>Explore All Platforms</span>
-              </button>
-            </Link>
-          </motion.div>
-
-          {/* Micro Proof Trust Row */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.45, duration: 0.8 }}
-            className="mt-8 flex flex-wrap items-center justify-center gap-5 sm:gap-8 text-xs text-white/60 font-mono"
-          >
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-cerulean" />
-              <span>100% Founder-Led Delivery</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-neon-rose" />
-              <span>Impeller 120 FPS Native</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-cerulean" />
-              <span>Zero-Leak Security Hardened</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-neon-rose" />
-              <span>100% IP & Code Ownership</span>
-            </div>
-          </motion.div>
         </div>
 
         {/* 3D SCROLL-DRIVEN DEVICE REVEAL (REVERSIBLE ON SCROLL TOP) */}
@@ -388,6 +312,12 @@ export default function HomeContent() {
           ))}
         </div>
       </section>
+
+      {/* AUTONOMOUS AUTOMATION SHOWCASE (MATCHING PIN 1107815208384805540) */}
+      <AutonomousAutomationShowcase />
+
+      {/* MOBILE APP ARCHITECTURE 3D ORBITAL STAGE (MATCHING PINS 904942118911052510 & 600949144074050374) */}
+      <MobileAppArchitectureStage />
 
       {/* AUTONOMOUS AGENTIC SWARM VISUALIZER */}
       <AgenticSwarmVisualizer />

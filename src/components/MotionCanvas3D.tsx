@@ -25,7 +25,7 @@ interface MotionCanvas3DProps {
   className?: string;
 }
 
-export function MotionCanvas3D({ className = "z-30" }: MotionCanvas3DProps = {}) {
+export function MotionCanvas3D({ className = "z-0" }: MotionCanvas3DProps = {}) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
