@@ -21,7 +21,11 @@ interface Point3D {
   pulsePhase: number;
 }
 
-export function MotionCanvas3D() {
+interface MotionCanvas3DProps {
+  className?: string;
+}
+
+export function MotionCanvas3D({ className = "z-30" }: MotionCanvas3DProps = {}) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -257,8 +261,8 @@ export function MotionCanvas3D() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0"
-      style={{ opacity: 0.85 }}
+      className={`fixed inset-0 pointer-events-none ${className}`}
+      style={{ opacity: 0.9, mixBlendMode: "screen" }}
     />
   );
 }

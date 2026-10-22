@@ -5,6 +5,8 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle, Sparkles, Layers } from "lucide-react";
 import { SiFlutter, SiReplit, SiRetool } from "react-icons/si";
 import { Card3D } from "@/components/Card3D";
+import { Hero3DVisual } from "@/components/Hero3DVisual";
+import { CyberGrid3D } from "@/components/CyberGrid3D";
 
 function PodioLogo() {
   return (
@@ -256,11 +258,11 @@ export default function ServicesContent() {
             viewport={{ once: true }}
           >
             <Card3D glowColor={svc.glowColor} maxTilt={4} className="w-full">
-              <div className="rounded-2xl bg-jet-surface/90 border border-jet-border overflow-hidden backdrop-blur-xl shadow-xl">
+              <div className="rounded-2xl bg-jet-surface/60 border border-white/10 overflow-hidden backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
                 <div className="grid grid-cols-1 lg:grid-cols-3">
                   {/* Visual mockup panel */}
-                  <div className="p-8 flex items-center justify-center min-h-[220px] bg-jet border-b lg:border-b-0 lg:border-r border-jet-border relative overflow-hidden">
-                    <div className="absolute inset-0 bg-radial-gradient from-cerulean/5 to-transparent pointer-events-none" />
+                  <div className="p-8 flex items-center justify-center min-h-[220px] bg-jet/60 border-b lg:border-b-0 lg:border-r border-white/10 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-radial-gradient from-cerulean/10 to-transparent pointer-events-none" />
                     {svc.mockup}
                   </div>
 
@@ -311,36 +313,51 @@ export default function ServicesContent() {
         ))}
       </section>
 
-      {/* BOTTOM CTA */}
-      <section className="py-20 px-4 md:px-6 max-w-3xl mx-auto relative z-10 mb-8 text-center">
+      {/* BOTTOM CTA WITH 3D HOLOGRAPHIC STAGE BROUGHT TO FRONT */}
+      <section className="py-20 px-4 md:px-6 max-w-5xl mx-auto relative z-10 mb-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="p-10 md:p-14 rounded-3xl bg-jet-surface/90 border border-jet-border backdrop-blur-xl shadow-2xl relative overflow-hidden"
+          className="p-8 sm:p-12 md:p-14 rounded-3xl bg-jet-surface/60 border border-white/10 backdrop-blur-2xl shadow-[0_30px_100px_rgba(0,123,167,0.35),0_15px_50px_rgba(255,45,149,0.25)] relative overflow-hidden"
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-cerulean/15 blur-[80px] pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-neon-rose/15 blur-[80px] pointer-events-none" />
+          {/* Ambient Cyber Light Auroras */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-cerulean/20 blur-[100px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-neon-rose/20 blur-[100px] pointer-events-none" />
 
-          <div className="inline-flex items-center gap-2 px-3 py-1 text-xs font-mono tracking-wider uppercase mb-4 rounded-full border border-cerulean/30 bg-cerulean/10 text-cerulean">
-            <Sparkles className="w-3.5 h-3.5" /> Tailored Architecture
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Left Column: 3D Holographic Visual Brought to Front */}
+            <div className="lg:col-span-5 flex items-center justify-center relative">
+              <Hero3DVisual />
+            </div>
+
+            {/* Right Column: Content & Actions */}
+            <div className="lg:col-span-7 text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 text-xs font-mono tracking-wider uppercase mb-4 rounded-full border border-cerulean/30 bg-cerulean/10 text-cerulean">
+                <Sparkles className="w-3.5 h-3.5 text-neon-rose" /> Tailored Architecture
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-white">
+                Not Sure Which{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean via-sky-400 to-neon-rose">
+                  Platform Fits?
+                </span>
+              </h2>
+              <p className="mb-8 text-white/70 text-sm md:text-base leading-relaxed">
+                Tell us about your product roadmap, scale expectations, and timeline. We will recommend the right stack with zero bias.
+              </p>
+              <Link href="/contact" className="inline-flex group">
+                <button className="btn-duo flex items-center gap-2 shadow-[0_0_30px_rgba(255,45,149,0.4)]">
+                  <span>Get an Architecture Recommendation</span>
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                </button>
+              </Link>
+            </div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight">
-            Not Sure Which{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean to-neon-rose">
-              Platform Fits?
-            </span>
-          </h2>
-          <p className="mb-8 text-white/60 max-w-lg mx-auto text-sm leading-relaxed">
-            Tell us about your product roadmap, scale expectations, and timeline. We will recommend the right stack with zero bias.
-          </p>
-          <Link href="/contact">
-            <button className="btn-duo mx-auto flex items-center gap-2">
-              Get an Architecture Recommendation <ArrowRight className="w-4 h-4" />
-            </button>
-          </Link>
         </motion.div>
       </section>
+
+      {/* Cyber Grid Horizon Transition into Footer */}
+      <CyberGrid3D />
     </div>
   );
 }
