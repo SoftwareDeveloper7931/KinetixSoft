@@ -7,6 +7,7 @@ import { SiFlutter, SiReplit, SiRetool } from "react-icons/si";
 import { Card3D } from "@/components/Card3D";
 import { Hero3DVisual } from "@/components/Hero3DVisual";
 import { CyberGrid3D } from "@/components/CyberGrid3D";
+import { HumanAISynergy3D } from "@/components/HumanAISynergy3D";
 
 function PodioLogo() {
   return (
@@ -252,6 +253,16 @@ export default function ServicesContent() {
         >
           From multi-agent LLM swarms orchestrating complex business processes to high-velocity mobile frontends and self-healing CRMs. We architect intelligent, high-throughput digital ecosystems for founders who refuse to settle.
         </motion.p>
+
+        {/* 3D INTERACTIVE AI + HUMAN SYNERGY FLAGSHIP STAGE */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
+          className="mt-14 max-w-5xl mx-auto"
+        >
+          <HumanAISynergy3D />
+        </motion.div>
       </section>
 
       {/* SERVICE CARDS */}
