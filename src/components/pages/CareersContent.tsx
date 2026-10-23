@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { MapPin, Clock, ArrowRight, Sparkles, Briefcase, CheckCircle2 } from "lucide-react";
 import { Card3D } from "@/components/Card3D";
+import { Hero3DVisual } from "@/components/Hero3DVisual";
+import { CyberGrid3D } from "@/components/CyberGrid3D";
 
 const jobs = [
   {
@@ -121,26 +123,48 @@ export default function CareersContent() {
         ))}
       </section>
 
-      {/* OPEN APPLICATION */}
-      <section className="py-16 px-4 md:px-6 max-w-4xl mx-auto relative z-10 mb-8">
-        <Card3D glowColor="cerulean" maxTilt={3}>
-          <div className="p-8 md:p-12 text-center rounded-3xl bg-jet-surface/90 border border-jet-border">
-            <div className="w-12 h-12 rounded-xl bg-cerulean/10 text-cerulean border border-cerulean/30 flex items-center justify-center mx-auto mb-4">
-              <Briefcase className="w-6 h-6" />
+      {/* OPEN APPLICATION: 3D HOLOGRAPHIC STAGE BROUGHT TO FRONT */}
+      <section className="py-20 px-4 md:px-6 max-w-5xl mx-auto relative z-10 mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="p-8 sm:p-12 md:p-14 rounded-3xl bg-jet-surface/60 border border-white/10 backdrop-blur-2xl shadow-[0_30px_100px_rgba(0,123,167,0.35),0_15px_50px_rgba(255,45,149,0.25)] relative overflow-hidden"
+        >
+          {/* Ambient Cyber Light Auroras */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-cerulean/20 blur-[100px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-neon-rose/20 blur-[100px] pointer-events-none" />
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Left Column: 3D Holographic AI + Human Synergy Visual Brought to Front */}
+            <div className="lg:col-span-5 flex items-center justify-center relative">
+              <Hero3DVisual />
             </div>
-            <h3 className="text-2xl font-bold mb-3 text-white/95">Don't See Your Exact Role?</h3>
-            <p className="text-sm mb-8 text-white/60 max-w-xl mx-auto leading-relaxed">
-              We're always scouting for extraordinary engineers, technical project managers, and UI/UX designers. Drop us a note with your portfolio and GitHub profile.
-            </p>
-            <Link href="/contact" className="inline-flex group">
-              <button className="btn-duo mx-auto px-8 py-3.5 text-sm font-bold flex items-center gap-2 group shadow-[0_0_30px_rgba(255,45,149,0.35)]">
-                <span>Send Open Application</span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
-              </button>
-            </Link>
+
+            {/* Right Column: Copy & Action */}
+            <div className="lg:col-span-7 text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 text-xs font-mono uppercase tracking-wider text-cerulean bg-cerulean/10 border border-cerulean/30 rounded-full mb-4">
+                <Briefcase className="w-3.5 h-3.5 text-neon-rose" /> Open Engineering Roles
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-4">
+                Don't See Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean to-neon-rose">Exact Role?</span>
+              </h2>
+              <p className="mb-8 text-white/70 text-sm md:text-base leading-relaxed">
+                We're always scouting for extraordinary senior engineers, AI swarm architects, and technical product designers. Send us your GitHub, live apps, or architecture portfolio.
+              </p>
+              <Link href="/contact" className="inline-flex group">
+                <button className="btn-duo flex items-center gap-2 shadow-[0_0_30px_rgba(255,45,149,0.4)]">
+                  <span>Send Open Application</span>
+                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                </button>
+              </Link>
+            </div>
           </div>
-        </Card3D>
+        </motion.div>
       </section>
+
+      {/* Cyber Grid Horizon Transition into Footer */}
+      <CyberGrid3D />
     </div>
   );
 }

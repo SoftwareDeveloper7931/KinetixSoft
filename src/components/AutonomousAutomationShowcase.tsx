@@ -137,8 +137,8 @@ export function AutonomousAutomationShowcase() {
         </div>
       </div>
 
-      {/* Main 3-Column Automation Pipeline Stage (Directly inspired by Pin 1107815208384805540) */}
-      <div className="rounded-3xl p-6 sm:p-10 bg-jet-surface/60 border border-white/10 backdrop-blur-2xl shadow-[0_30px_100px_rgba(0,123,167,0.25),0_15px_50px_rgba(255,45,149,0.2)] relative">
+      {/* Main 3-Column Automation Pipeline Stage: Seamless Canvas (No Weird Container Edges) */}
+      <div className="relative py-4">
         
         {/* Ambient Backlight Radiance */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-radial-gradient from-cerulean/15 via-neon-rose/10 to-transparent blur-[120px] pointer-events-none" />

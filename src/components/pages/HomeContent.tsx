@@ -13,6 +13,7 @@ import {
 import { ContactForm } from "@/components/ContactForm";
 import { Card3D } from "@/components/Card3D";
 import { CyberGrid3D } from "@/components/CyberGrid3D";
+import { Hero3DVisual } from "@/components/Hero3DVisual";
 import { Agency3DStage } from "@/components/Agency3DStage";
 import { Scroll3DDeviceFrame } from "@/components/Scroll3DDeviceFrame";
 import { Hero3DParticleCosmos } from "@/components/Hero3DParticleCosmos";
@@ -782,35 +783,54 @@ export default function HomeContent() {
         </div>
       </section>
 
-      {/* FINAL CALL TO ACTION */}
-      <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto relative z-10 mb-12">
-        <Card3D glowColor="dual" className="p-12 sm:p-20 text-center relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-cerulean/15 via-transparent to-neon-rose/15 pointer-events-none" />
-          <div className="relative z-10 max-w-2xl mx-auto">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-neon-rose bg-neon-rose/10 border border-neon-rose/30 mb-6">
-              <Star className="w-3.5 h-3.5 fill-neon-rose" />
-              <span>Ready for Immediate Deployment</span>
+      {/* FINAL CALL TO ACTION: 3D HOLOGRAPHIC STAGE BROUGHT TO FRONT */}
+      <section className="py-20 px-4 md:px-6 max-w-5xl mx-auto relative z-10 mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="p-8 sm:p-12 md:p-14 rounded-3xl bg-jet-surface/60 border border-white/10 backdrop-blur-2xl shadow-[0_30px_100px_rgba(0,123,167,0.35),0_15px_50px_rgba(255,45,149,0.25)] relative overflow-hidden"
+        >
+          {/* Ambient Cyber Light Auroras */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-cerulean/20 blur-[100px] pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-neon-rose/20 blur-[100px] pointer-events-none" />
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Left Column: 3D Holographic AI + Human Synergy Visual Brought to Front */}
+            <div className="lg:col-span-5 flex items-center justify-center relative">
+              <Hero3DVisual />
             </div>
-            <h2 className="text-4xl sm:text-6xl font-black text-white mb-5">
-              Let's Bring Your Vision <span className="text-gradient-duo">To Life</span>
-            </h2>
-            <p className="text-base sm:text-lg text-white/70 mb-8 leading-relaxed">
-              Join founders and product teams building scalable software on FlutterFlow, Bubble, Retool, Podio, and Replit.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact" className="group">
-                <button
-                  data-testid="button-cta-getstarted"
-                  className="btn-duo px-9 py-4 text-base font-bold shadow-[0_0_35px_rgba(255,45,149,0.4)] group"
-                >
-                  <span>Book Scoping Session</span>
-                  <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
-                </button>
-              </Link>
+
+            {/* Right Column: Copy & Actions */}
+            <div className="lg:col-span-7 text-left">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold text-neon-rose bg-neon-rose/10 border border-neon-rose/30 mb-4">
+                <Star className="w-3.5 h-3.5 fill-neon-rose" />
+                <span>Ready for Immediate Deployment</span>
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-black text-white mb-4 leading-tight">
+                Let's Bring Your Vision <span className="text-gradient-duo">To Life</span>
+              </h2>
+              <p className="text-base text-white/70 mb-8 leading-relaxed">
+                Join founders and product teams building scalable software on FlutterFlow, Bubble, Retool, Podio, and Replit with senior human architects and autonomous agent swarms.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Link href="/contact" className="group">
+                  <button
+                    data-testid="button-cta-getstarted"
+                    className="btn-duo px-9 py-4 text-base font-bold shadow-[0_0_35px_rgba(255,45,149,0.4)] group"
+                  >
+                    <span>Book Scoping Session</span>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
-        </Card3D>
+        </motion.div>
       </section>
+
+      {/* Cyber Grid Horizon Transition into Footer */}
+      <CyberGrid3D />
 
     </div>
   );

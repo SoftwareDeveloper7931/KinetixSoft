@@ -116,8 +116,8 @@ export function MobileAppArchitectureStage() {
         </p>
       </div>
 
-      {/* Main 3D Orbital & Floating Card Stage (Directly inspired by Pins 904942118911052510 & 600949144074050374) */}
-      <div className="rounded-3xl p-6 sm:p-10 md:p-14 bg-jet-surface/60 border border-white/10 backdrop-blur-2xl shadow-[0_30px_100px_rgba(0,123,167,0.3),0_15px_50px_rgba(255,45,149,0.2)] relative">
+      {/* Main 3D Orbital & Floating Card Stage: Seamless Canvas (No Weird Container Edges) */}
+      <div className="relative py-4">
         
         {/* Holographic Glowing Orbit Ring Behind Phone */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[680px] h-[500px] sm:h-[680px] rounded-full border border-cerulean/20 pointer-events-none" />
