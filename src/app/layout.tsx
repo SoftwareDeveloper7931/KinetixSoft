@@ -32,14 +32,20 @@ export const viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://kinetixsoft.com"),
   title: {
-    default: "KinetixSoft — FlutterFlow, Lovable, Retool, Podio & Replit Development Agency",
+    default: "KinetixSoft — Autonomous Agentic AI, FlutterFlow, Bubble & Full-Stack Studio",
     template: "%s | KinetixSoft",
   },
   description:
-    "KinetixSoft is a founder-led app development studio that builds production-ready mobile apps, web apps, internal tools, and CRM systems using FlutterFlow, Lovable, Retool, Podio, and Replit. Based in Lahore, Pakistan — serving clients worldwide.",
+    "KinetixSoft is a founder-led engineering studio building autonomous agentic AI systems, production-ready mobile apps, web applications, and internal tools using FlutterFlow, Bubble, Lovable, Retool, Podio, and Replit. Based in Lahore, Pakistan — serving founders and startups worldwide.",
   keywords: [
+    "autonomous AI agents",
+    "agentic AI development",
+    "AI workflow automation",
     "FlutterFlow agency",
     "FlutterFlow developer for hire",
+    "Bubble development agency",
+    "Bubble developer for hire",
+    "Bubble web app development",
     "Lovable development agency",
     "Retool internal tools developer",
     "Podio CRM developer",
@@ -47,7 +53,7 @@ export const metadata: Metadata = {
     "Replit full-stack development",
     "no-code app development agency",
     "low-code development studio",
-    "AI app development",
+    "AI app development studio",
     "mobile app development Pakistan",
     "custom API integration",
     "SaaS development agency",
@@ -67,15 +73,15 @@ export const metadata: Metadata = {
         url: "/og-default.png",
         width: 1200,
         height: 630,
-        alt: "KinetixSoft — App Development Studio building on FlutterFlow, Lovable, Retool, Podio and Replit",
+        alt: "KinetixSoft — Autonomous Agentic AI, FlutterFlow, Bubble, Lovable, Retool, Podio and Replit Studio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "KinetixSoft — App Development Studio",
+    title: "KinetixSoft — Autonomous Agentic AI & App Development Studio",
     description:
-      "Production-ready apps on FlutterFlow, Lovable, Retool, Podio & Replit. Founder-led studio, worldwide clients.",
+      "Production-ready autonomous AI agents, mobile & web apps on FlutterFlow, Bubble, Lovable, Retool, Podio & Replit. Founder-led studio, worldwide clients.",
     images: ["/og-default.png"],
   },
   robots: {
@@ -109,9 +115,9 @@ const organizationSchema = {
     height: 200,
   },
   image: "https://kinetixsoft.com/logo-full.png",
-  slogan: "Build Fast. Launch Right.",
+  slogan: "Autonomous Agentic AI. Engineered For Any Vision.",
   description:
-    "KinetixSoft is a founder-led app development studio that builds production-ready mobile apps, web applications, internal tools, and CRM systems using FlutterFlow, Lovable, Retool, Podio, and Replit. Founded in 2025 and based in Lahore, Pakistan, KinetixSoft works with startups and growing teams worldwide who need working software fast without sacrificing scalability or security.",
+    "KinetixSoft is a founder-led engineering studio that builds autonomous agentic AI systems, production-ready mobile apps, web applications, internal tools, and CRM systems using FlutterFlow, Bubble, Lovable, Retool, Podio, and Replit. Founded in 2025 and based in Lahore, Pakistan, KinetixSoft works with startups and growing teams worldwide who need working software fast without sacrificing scalability or security.",
   foundingDate: "2025",
   foundingLocation: {
     "@type": "Place",
@@ -125,7 +131,10 @@ const organizationSchema = {
   },
   areaServed: { "@type": "Place", name: "Worldwide" },
   knowsAbout: [
+    "Autonomous agentic AI systems",
+    "Agentic workflows and cognitive pipelines",
     "FlutterFlow app development",
+    "Bubble web application development",
     "Lovable web application development",
     "Retool internal tools development",
     "Podio CRM development",
@@ -143,9 +152,11 @@ const organizationSchema = {
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "App Development Services",
+    name: "App Development & AI Engineering Services",
     itemListElement: [
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Autonomous Agentic AI Engineering", url: "https://kinetixsoft.com/services" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "FlutterFlow App Development", url: "https://kinetixsoft.com/flutterflow" } },
+      { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bubble Full-Stack Web Apps", url: "https://kinetixsoft.com/bubble" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Lovable Web App Development", url: "https://kinetixsoft.com/lovable" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Retool Internal Tools", url: "https://kinetixsoft.com/retool" } },
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Podio CRM & Workflow", url: "https://kinetixsoft.com/podio" } },
