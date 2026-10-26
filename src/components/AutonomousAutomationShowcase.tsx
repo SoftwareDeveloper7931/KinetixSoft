@@ -111,10 +111,10 @@ export function AutonomousAutomationShowcase() {
           <Workflow className="w-3.5 h-3.5 text-[#00A3DE]" />
           <span>Autonomous Event-Driven Pipeline</span>
         </div>
-        <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
           Watch Autonomous <span className="text-gradient-rose">Automation In Action</span>
         </h2>
-        <p className="text-base sm:text-lg text-white/70 leading-relaxed">
+        <p className="text-sm sm:text-base text-white/70 leading-relaxed">
           From incoming webhooks and unstructured PDFs to self-healing CRM routing. Our multi-agent swarms orchestrate business processes with zero human friction.
         </p>
 

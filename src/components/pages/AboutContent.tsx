@@ -43,7 +43,7 @@ export default function AboutContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-4"
           >
             Engineering What's Next in{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean via-sky-400 to-neon-rose">
@@ -54,7 +54,7 @@ export default function AboutContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-lg leading-relaxed text-white/70"
+            className="text-sm sm:text-base leading-relaxed text-white/70"
           >
             KinetixSoft is an elite app development studio engineering production-ready mobile apps, web platforms, and internal tools across FlutterFlow, Lovable, Retool, Podio, and Replit. Founded in 2025, we partner with venture-backed startups and scaling enterprises to deploy secure, high-scale applications fast.
           </motion.p>

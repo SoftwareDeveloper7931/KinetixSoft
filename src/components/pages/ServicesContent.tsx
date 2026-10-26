@@ -238,7 +238,7 @@ export default function ServicesContent() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight leading-tight mb-6"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-extrabold tracking-tight leading-[1.15] mb-4"
         >
           Autonomous Agentic Stacks.{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean via-sky-400 to-neon-rose">
@@ -249,7 +249,7 @@ export default function ServicesContent() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto text-white/70 leading-relaxed"
+          className="text-sm sm:text-base md:text-[17px] max-w-2xl mx-auto text-white/70 leading-relaxed"
         >
           From multi-agent LLM swarms orchestrating complex business processes to high-velocity mobile frontends and self-healing CRMs. We architect intelligent, high-throughput digital ecosystems for founders who refuse to settle.
         </motion.p>
@@ -292,16 +292,16 @@ export default function ServicesContent() {
                         <div className="text-xs font-mono uppercase tracking-wider text-cerulean mb-1 font-semibold">
                           {svc.badge}
                         </div>
-                        <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-white/95">
+                        <h2 className="text-xl md:text-2xl font-bold tracking-tight text-white/95">
                           {svc.name}
                         </h2>
                       </div>
                     </div>
 
-                    <h3 className="text-lg font-semibold mb-3 text-white/85">
+                    <h3 className="text-base font-semibold mb-2.5 text-white/85">
                       {svc.headline}
                     </h3>
-                    <p className="text-sm mb-6 leading-relaxed text-white/60">
+                    <p className="text-xs sm:text-sm mb-6 leading-relaxed text-white/60">
                       {svc.body}
                     </p>
 
@@ -337,10 +337,10 @@ export default function ServicesContent() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono uppercase text-[#00A3DE] bg-cerulean/10 border border-cerulean/30 mb-4">
             <GitBranch className="w-3.5 h-3.5 text-neon-rose" /> Autonomous Execution Cycle
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black mb-4 text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-white">
             The Agentic <span className="text-gradient-duo">Execution Loop</span>
           </h2>
-          <p className="text-base sm:text-lg text-white/70 leading-relaxed">
+          <p className="text-sm sm:text-base text-white/70 leading-relaxed">
             Every build is orchestrated through collaborative multi-agent swarms combined with senior human oversight.
           </p>
         </div>
@@ -413,17 +413,17 @@ export default function ServicesContent() {
               <div className="inline-flex items-center gap-2 px-3 py-1 text-xs font-mono tracking-wider uppercase mb-4 rounded-full border border-cerulean/30 bg-cerulean/10 text-cerulean">
                 <Sparkles className="w-3.5 h-3.5 text-neon-rose" /> Agentic Architecture
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-white">
+              <h2 className="text-2xl sm:text-3xl md:text-3xl font-bold mb-3 tracking-tight text-white">
                 Architect Your Custom{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean via-sky-400 to-neon-rose">
                   Agentic AI Stack
                 </span>
               </h2>
-              <p className="mb-8 text-white/70 text-sm md:text-base leading-relaxed">
+              <p className="mb-6 text-white/70 text-xs sm:text-sm md:text-[15px] leading-relaxed">
                 Whether you need an autonomous multi-agent swarm, an AI-native mobile app, or a self-healing operational CRM, our principal architects will engineer a bulletproof blueprint.
               </p>
               <Link href="/contact" className="inline-flex group">
-                <button className="btn-duo flex items-center gap-2 shadow-[0_0_30px_rgba(255,45,149,0.4)]">
+                <button className="btn-duo px-7 py-3 text-sm flex items-center gap-2 shadow-[0_0_25px_rgba(255,45,149,0.4)]">
                   <span>Request Agentic Architecture Roadmap</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
                 </button>

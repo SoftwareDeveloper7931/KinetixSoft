@@ -73,10 +73,10 @@ export default function BubbleContent() {
               <span className="w-2 h-2 rounded-full bg-[#00A3DE] animate-pulse" />
               Bubble No-Code Engineering Studio
             </div>
-            <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold leading-tight mb-5">
               Full-Stack Web Apps Built <span className="text-gradient-duo">Without Code</span>
             </h1>
-            <p className="text-lg leading-relaxed mb-8 text-[#94A3B8]">
+            <p className="text-sm sm:text-base leading-relaxed mb-6 text-[#94A3B8]">
               KinetixSoft builds production-ready web applications on Bubble with proper relational data architecture, workflow logic, and third-party integrations — designed to scale gracefully from prototype to live commercial platform.
             </p>
             <div className="flex flex-wrap gap-4">

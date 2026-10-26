@@ -52,10 +52,10 @@ export default function RetoolContent() {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-6" style={{ background: "rgba(0,123,167,0.15)", border: "1px solid rgba(0,123,167,0.35)", color: "#00A3DE" }}>
               <SiRetool className="w-3.5 h-3.5" /> Retool Internal Systems Studio
             </div>
-            <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold leading-tight mb-5">
               Internal Tools That <span className="text-gradient-cerulean">Actually Get Used</span>
             </h1>
-            <p className="text-lg leading-relaxed mb-8 text-[#94A3B8]">
+            <p className="text-sm sm:text-base leading-relaxed mb-6 text-[#94A3B8]">
               KinetixSoft builds custom admin dashboards, operations portals, and database interfaces on Retool for teams that have outgrown manual spreadsheets. High-speed, secure, and production-tested.
             </p>
             <div className="flex flex-wrap gap-4">

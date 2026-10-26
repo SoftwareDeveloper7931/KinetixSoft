@@ -64,10 +64,10 @@ export default function LovableContent() {
               <span className="w-2 h-2 rounded-full bg-[#FF2D95] animate-pulse" />
               Lovable AI Full-Stack Studio
             </div>
-            <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold leading-tight mb-5">
               SaaS Apps That <span className="text-gradient-rose">Ship Fast</span> and Scale
             </h1>
-            <p className="text-lg leading-relaxed mb-8 text-[#94A3B8]">
+            <p className="text-sm sm:text-base leading-relaxed mb-6 text-[#94A3B8]">
               KinetixSoft builds production-ready web applications and scalable SaaS products on Lovable. From validated MVP to live paying customers with Supabase auth, Stripe payments, and PostgreSQL architecture.
             </p>
             <div className="flex flex-wrap gap-4">

@@ -108,10 +108,10 @@ export function MobileAppArchitectureStage() {
           <Smartphone className="w-3.5 h-3.5 text-neon-rose" />
           <span>Mobile App Architecture · Cross-Platform Stacks</span>
         </div>
-        <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
           Engineered For <span className="text-gradient-duo">120 FPS Fluidity & Edge AI</span>
         </h2>
-        <p className="text-base sm:text-lg text-white/70 leading-relaxed">
+        <p className="text-sm sm:text-base text-white/70 leading-relaxed">
           We architect native iOS and Android applications with Google Flutter's Impeller GPU engine, on-device vector intelligence, and bulletproof security.
         </p>
       </div>

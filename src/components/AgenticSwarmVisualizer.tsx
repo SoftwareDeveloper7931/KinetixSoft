@@ -152,10 +152,10 @@ export function AgenticSwarmVisualizer() {
           <Bot className="w-3.5 h-3.5 text-neon-rose animate-pulse" />
           <span>Autonomous Multi-Agent Engineering Architecture</span>
         </div>
-        <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
           How Our <span className="text-gradient-duo">Agentic Swarms</span> Build Software
         </h2>
-        <p className="text-base sm:text-lg text-white/70 leading-relaxed">
+        <p className="text-sm sm:text-base text-white/70 leading-relaxed">
           Traditional dev teams take 6 months of meetings. We deploy autonomous multi-agent pipelines that perceive your business requirements, reason over architecture, write production code, and auto-verify security.
         </p>
       </div>

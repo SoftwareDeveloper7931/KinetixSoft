@@ -101,10 +101,10 @@ export function ProjectScopeEstimator() {
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider text-cerulean bg-cerulean/10 border border-cerulean/30 mb-4">
           <Zap className="w-3.5 h-3.5" /> Interactive Project Architect
         </div>
-        <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4 text-white">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3 text-white">
           Configure Your <span className="text-gradient-duo">Dream Build</span>
         </h2>
-        <p className="text-base sm:text-lg text-white/70 leading-relaxed">
+        <p className="text-sm sm:text-base text-white/70 leading-relaxed">
           Select what you want engineered. Our team delivers custom software tailored exactly to your specification — from early prototypes to high-scale enterprise platforms.
         </p>
       </div>

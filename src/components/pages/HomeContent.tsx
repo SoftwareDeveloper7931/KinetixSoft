@@ -180,7 +180,7 @@ export default function HomeContent() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-4xl sm:text-6xl md:text-7xl lg:text-7xl font-black tracking-tight mb-5 leading-[1.05] text-white"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-extrabold tracking-tight mb-4 leading-[1.12] text-white"
             >
               AUTONOMOUS <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean via-sky-400 to-neon-rose">
@@ -193,7 +193,7 @@ export default function HomeContent() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-base sm:text-lg md:text-xl text-white/80 mb-7 max-w-xl leading-relaxed font-normal"
+              className="text-sm sm:text-base text-white/75 mb-6 max-w-lg leading-relaxed font-normal"
             >
               Tell us what you want built. From autonomous <strong className="text-white font-semibold">AI Agent Swarms</strong> and scalable <strong className="text-white font-semibold">SaaS Platforms</strong> to high-velocity <strong className="text-white font-semibold">Mobile Apps</strong> and enterprise <strong className="text-white font-semibold">Self-Healing CRMs</strong>. We turn visionary requirements into production reality with zero technical debt.
             </motion.p>
@@ -303,12 +303,12 @@ export default function HomeContent() {
             { stat: "50+", label: "Features Shipped", sub: "From complex DB schemas to custom API proxies", glow: "cerulean" as const },
             { stat: "5.0 ★", label: "Client Satisfaction", sub: "Trusted by founders across US, UK & worldwide", glow: "rose" as const },
           ].map((s, i) => (
-            <Card3D key={i} glowColor={s.glow} className="p-7 text-center">
-              <div className={`text-4xl font-extrabold mb-2 font-mono ${s.glow === "rose" ? "text-gradient-rose" : "text-gradient-cerulean"}`}>
+            <Card3D key={i} glowColor={s.glow} className="p-6 text-center">
+              <div className={`text-2xl sm:text-3xl font-extrabold mb-1.5 font-mono ${s.glow === "rose" ? "text-gradient-rose" : "text-gradient-cerulean"}`}>
                 {s.stat}
               </div>
-              <div className="font-bold text-white text-base mb-1.5">{s.label}</div>
-              <div className="text-xs text-white/60 leading-relaxed">{s.sub}</div>
+              <div className="font-semibold text-white text-sm mb-1">{s.label}</div>
+              <div className="text-[11px] text-white/60 leading-relaxed">{s.sub}</div>
             </Card3D>
           ))}
         </div>
@@ -332,10 +332,10 @@ export default function HomeContent() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono uppercase text-cerulean bg-cerulean/10 border border-cerulean/30 mb-4">
             <Cpu className="w-3.5 h-3.5" /> High-Performance Stacks
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold mb-4 text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-white">
             Pick Your <span className="text-gradient-duo">Platform</span>
           </h2>
-          <p className="text-base sm:text-lg text-white/70">
+          <p className="text-sm sm:text-base text-white/70">
             We build on whichever framework actually fits your business model — not a rigid one-size-fits-all default.
           </p>
         </div>
@@ -375,7 +375,7 @@ export default function HomeContent() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono uppercase text-neon-rose bg-neon-rose/10 border border-neon-rose/30 mb-4">
             <Sparkles className="w-3.5 h-3.5" /> Featured Production Build
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
             Work We've <span className="text-gradient-rose">Shipped</span>
           </h2>
         </div>
@@ -429,7 +429,7 @@ export default function HomeContent() {
                     alt="Cashnix App Icon"
                     className="w-10 h-10 rounded-xl border border-white/10 shadow-md object-cover"
                   />
-                  <h3 className="text-3xl font-bold text-white">Cashnix</h3>
+                  <h3 className="text-2xl font-bold text-white">Cashnix</h3>
                 </div>
 
                 <p className="text-sm sm:text-base text-white/70 mb-6 leading-relaxed">
@@ -464,10 +464,10 @@ export default function HomeContent() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono uppercase text-cerulean bg-cerulean/10 border border-cerulean/30 mb-4">
             <Shield className="w-3.5 h-3.5" /> Architectural Rigor
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold mb-4 text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-white">
             What You Actually <span className="text-gradient-cerulean">Get</span>
           </h2>
-          <p className="text-base sm:text-lg text-white/70">
+          <p className="text-sm sm:text-base text-white/70">
             We engineer software designed to scale to tens of thousands of active users without needing an emergency rebuild.
           </p>
         </div>
@@ -516,10 +516,10 @@ export default function HomeContent() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono uppercase text-neon-rose bg-neon-rose/10 border border-neon-rose/30 mb-4">
             <Check className="w-3.5 h-3.5" /> Battle-Tested Advantage
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold mb-4 text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-white">
             Why Working With Us <span className="text-gradient-rose">Actually Works</span>
           </h2>
-          <p className="text-base sm:text-lg text-white/70 leading-relaxed">
+          <p className="text-sm sm:text-base text-white/70 leading-relaxed">
             See how our founder-led engineering studio stacks up against bloated legacy agencies and solo freelancers.
           </p>
         </div>
@@ -560,10 +560,10 @@ export default function HomeContent() {
       {/* WHO WE BUILD FOR */}
       <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="max-w-2xl mb-12 text-left">
-          <h2 className="text-3xl sm:text-4xl font-extrabold mb-3 text-white">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-white">
             Who We <span className="text-gradient-duo">Build For</span>
           </h2>
-          <p className="text-base text-white/70">
+          <p className="text-sm text-white/70">
             Teams and founders who value velocity, craft, and zero operational friction.
           </p>
         </div>
@@ -609,10 +609,10 @@ export default function HomeContent() {
       {/* INDUSTRIES */}
       <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="max-w-2xl mb-12 text-left">
-          <h2 className="text-3xl sm:text-4xl font-extrabold mb-3 text-white">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-white">
             Industries We've <span className="text-gradient-rose">Built For</span>
           </h2>
-          <p className="text-base text-white/70">
+          <p className="text-sm text-white/70">
             Specialized domain logic and battle-tested architectures across high-growth digital sectors.
           </p>
         </div>
@@ -677,12 +677,12 @@ export default function HomeContent() {
               <Users className="w-3.5 h-3.5 text-neon-rose" /> Inside KinetixSoft Studio
             </div>
             
-            <h2 className="text-3xl sm:text-5xl font-black text-white leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight">
               Real Senior Architects. <br />
               <span className="text-gradient-duo">Agentic Velocity.</span>
             </h2>
 
-            <p className="text-base text-white/75 leading-relaxed">
+            <p className="text-sm sm:text-base text-white/70 leading-relaxed">
               We aren’t an anonymous freelancer broker. Our physical engineering studio houses senior full-stack engineers, UI/UX designers, and systems architects working alongside autonomous AI swarms to ship production software with zero lag.
             </p>
 
@@ -729,10 +729,10 @@ export default function HomeContent() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono uppercase text-neon-rose bg-neon-rose/10 border border-neon-rose/30 mb-4">
               <Sparkles className="w-3.5 h-3.5" /> Start A Conversation
             </div>
-            <h2 className="text-3xl sm:text-5xl font-black mb-6 text-white leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-white leading-tight">
               Let's Build An App That <span className="text-gradient-duo">Ships</span>
             </h2>
-            <p className="text-base sm:text-lg text-white/70 mb-8 leading-relaxed">
+            <p className="text-sm sm:text-base text-white/70 mb-6 leading-relaxed">
               Whether you have an early concept wireframe, a Figma prototype, or an existing app needing urgent rescue,
               share your goals. We'll respond with clear feasibility analysis and a concrete roadmap within 24 hours.
             </p>
@@ -769,10 +769,10 @@ export default function HomeContent() {
       {/* FAQS */}
       <section className="py-20 px-4 md:px-6 max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-extrabold mb-3 text-white">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-white">
             Frequently Asked <span className="text-gradient-cerulean">Questions</span>
           </h2>
-          <p className="text-white/60 text-sm">
+          <p className="text-white/60 text-xs sm:text-sm">
             Everything you need to know about partnering with KinetixSoft.
           </p>
         </div>
@@ -807,17 +807,17 @@ export default function HomeContent() {
                 <Star className="w-3.5 h-3.5 fill-neon-rose" />
                 <span>Ready for Immediate Deployment</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-black text-white mb-4 leading-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 leading-tight">
                 Let's Bring Your Vision <span className="text-gradient-duo">To Life</span>
               </h2>
-              <p className="text-base text-white/70 mb-8 leading-relaxed">
+              <p className="text-sm sm:text-base text-white/70 mb-6 leading-relaxed">
                 Join founders and product teams building scalable software on FlutterFlow, Bubble, Retool, Podio, and Replit with senior human architects and autonomous agent swarms.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/contact" className="group">
                   <button
                     data-testid="button-cta-getstarted"
-                    className="btn-duo px-9 py-4 text-base font-bold shadow-[0_0_35px_rgba(255,45,149,0.4)] group"
+                    className="btn-duo px-7 py-3 text-sm font-bold shadow-[0_0_25px_rgba(255,45,149,0.4)] group"
                   >
                     <span>Book Scoping Session</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />

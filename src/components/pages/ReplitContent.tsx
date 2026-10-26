@@ -66,14 +66,14 @@ export default function ReplitContent() {
             <div className="inline-flex items-center gap-2 px-4 py-2 text-xs font-mono tracking-wider uppercase mb-6 rounded-full border border-cerulean/30 bg-cerulean/10 text-cerulean shadow-sm shadow-cerulean/20">
               <SiReplit className="w-4 h-4 text-neon-rose" /> Replit Development Studio
             </div>
-            <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold tracking-tight leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-tight leading-tight mb-5">
               Full-Stack Apps &{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean via-sky-400 to-neon-rose">
                 AI Agents
               </span>{" "}
               Built on Replit
             </h1>
-            <p className="text-lg leading-relaxed mb-8 text-white/70">
+            <p className="text-sm sm:text-base leading-relaxed mb-6 text-white/70">
               KinetixSoft builds production-ready full-stack applications, intelligent multi-agent pipelines, and automation tools on Replit. From serverless scripts to high-scale SaaS — we ship working code.
             </p>
             <div className="flex flex-wrap gap-4">
