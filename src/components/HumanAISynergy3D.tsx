@@ -78,19 +78,26 @@ export function HumanAISynergy3D({
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
 
-  // Mouse 3D tilt tracking with spring feel
+  const rafRef = useRef<number | null>(null);
+
+  // Mouse 3D tilt tracking throttled to display refresh rate
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
-    setTilt({
-      x: -y * 14, // Tilt up/down
-      y: x * 18,  // Tilt left/right
+
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(() => {
+      setTilt({
+        x: -y * 12,
+        y: x * 15,
+      });
     });
   };
 
   const handleMouseLeave = () => {
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
     setIsHovered(false);
     setTilt({ x: 0, y: 0 });
   };
@@ -113,7 +120,6 @@ export function HumanAISynergy3D({
     };
     window.addEventListener("resize", handleResize);
 
-    // Particle pulse stream flowing from Human synapses (left) -> Core (center) -> AI circuits (right)
     interface ImpulseParticle {
       x: number;
       y: number;
@@ -125,24 +131,40 @@ export function HumanAISynergy3D({
       freq: number;
     }
 
-    const impulses: ImpulseParticle[] = Array.from({ length: 42 }, () => ({
+    const impulses: ImpulseParticle[] = Array.from({ length: 28 }, () => ({
       x: Math.random() * (width * 0.4),
       y: height * 0.25 + Math.random() * (height * 0.5),
-      speed: 1.2 + Math.random() * 2.2,
-      size: Math.random() * 2.4 + 1.2,
+      speed: 1.2 + Math.random() * 2.0,
+      size: Math.random() * 2.0 + 1.2,
       opacity: Math.random() * 0.8 + 0.2,
       color: Math.random() > 0.5 ? "#FFB84D" : "#00A3DE",
-      curveAmp: (Math.random() - 0.5) * 35,
+      curveAmp: (Math.random() - 0.5) * 30,
       freq: 0.02 + Math.random() * 0.03,
     }));
 
     let time = 0;
+    let isVisible = true;
+
+    // Pause rendering when scrolled out of view
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          cancelAnimationFrame(animId);
+          animId = requestAnimationFrame(render);
+        }
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(canvas);
 
     const render = () => {
+      if (!isVisible) return;
+
       time += 0.03;
       ctx.clearRect(0, 0, width, height);
 
-      // Render impulses flowing across the fusion core
+      // Render impulses flowing across the fusion core (no expensive shadowBlur)
       for (const p of impulses) {
         p.x += p.speed;
         if (p.x > width * 0.95) {
@@ -153,23 +175,26 @@ export function HumanAISynergy3D({
         const offsetY = Math.sin(time * 2 + p.x * p.freq) * p.curveAmp;
         const currentY = p.y + offsetY;
 
-        // Gradient glow particle
         const isCore = p.x > width * 0.4 && p.x < width * 0.65;
         const pulseColor = isCore ? "#FF2D95" : p.x > width * 0.55 ? "#00A3DE" : "#F59E0B";
 
+        // Outer soft glow halo
         ctx.fillStyle = pulseColor;
-        ctx.shadowColor = pulseColor;
-        ctx.shadowBlur = 8;
-        ctx.globalAlpha = p.opacity;
+        ctx.globalAlpha = p.opacity * 0.35;
+        ctx.beginPath();
+        ctx.arc(p.x, currentY, p.size * 2, 0, Math.PI * 2);
+        ctx.fill();
 
+        // Inner crisp core
+        ctx.globalAlpha = p.opacity;
         ctx.beginPath();
         ctx.arc(p.x, currentY, p.size, 0, Math.PI * 2);
         ctx.fill();
 
-        // Draw faint electric trail
+        // Faint electric trail
         ctx.strokeStyle = pulseColor;
         ctx.lineWidth = 0.8;
-        ctx.globalAlpha = p.opacity * 0.4;
+        ctx.globalAlpha = p.opacity * 0.35;
         ctx.beginPath();
         ctx.moveTo(p.x, currentY);
         ctx.lineTo(p.x - p.speed * 4, currentY - offsetY * 0.1);
@@ -177,8 +202,6 @@ export function HumanAISynergy3D({
       }
 
       ctx.globalAlpha = 1;
-      ctx.shadowBlur = 0;
-
       animId = requestAnimationFrame(render);
     };
 
@@ -186,6 +209,7 @@ export function HumanAISynergy3D({
 
     return () => {
       cancelAnimationFrame(animId);
+      observer.disconnect();
       window.removeEventListener("resize", handleResize);
     };
   }, []);

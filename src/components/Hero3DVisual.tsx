@@ -15,19 +15,26 @@ export function Hero3DVisual({ className = "" }: Hero3DVisualProps) {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
 
-  // 3D Perspective Tilt on Mouse Movement
+  const rafRef = useRef<number | null>(null);
+
+  // 3D Perspective Tilt on Mouse Movement throttled to display refresh
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
-    setTilt({
-      x: -y * 16,
-      y: x * 20,
+
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(() => {
+      setTilt({
+        x: -y * 14,
+        y: x * 16,
+      });
     });
   };
 
   const handleMouseLeave = () => {
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
     setIsHovered(false);
     setTilt({ x: 0, y: 0 });
   };
@@ -50,7 +57,7 @@ export function Hero3DVisual({ className = "" }: Hero3DVisualProps) {
       radius: number;
       color: string;
       alpha: number;
-    }[] = Array.from({ length: 30 }, () => ({
+    }[] = Array.from({ length: 22 }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
       speed: 0.8 + Math.random() * 1.5,
@@ -60,27 +67,49 @@ export function Hero3DVisual({ className = "" }: Hero3DVisualProps) {
     }));
 
     let time = 0;
+    let isVisible = true;
+
+    // Pause rendering when offscreen
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          cancelAnimationFrame(animId);
+          animId = requestAnimationFrame(render);
+        }
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(canvas);
+
     const render = () => {
+      if (!isVisible) return;
+
       time += 0.02;
       ctx.clearRect(0, 0, width, height);
 
-      // Draw flowing synapses
+      // Fast hardware-accelerated particle drawing
       for (const p of particles) {
         p.x += p.speed;
         if (p.x > width) p.x = 0;
 
-        ctx.fillStyle = p.color;
-        ctx.globalAlpha = p.alpha;
-        ctx.shadowColor = p.color;
-        ctx.shadowBlur = 6;
+        const py = p.y + Math.sin(time + p.x * 0.05) * 8;
 
+        // Outer glow halo
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = p.alpha * 0.35;
         ctx.beginPath();
-        ctx.arc(p.x, p.y + Math.sin(time + p.x * 0.05) * 10, p.radius, 0, Math.PI * 2);
+        ctx.arc(p.x, py, p.radius * 2, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Core dot
+        ctx.globalAlpha = p.alpha;
+        ctx.beginPath();
+        ctx.arc(p.x, py, p.radius, 0, Math.PI * 2);
         ctx.fill();
       }
 
       ctx.globalAlpha = 1;
-      ctx.shadowBlur = 0;
       animId = requestAnimationFrame(render);
     };
 
@@ -88,6 +117,7 @@ export function Hero3DVisual({ className = "" }: Hero3DVisualProps) {
 
     return () => {
       cancelAnimationFrame(animId);
+      observer.disconnect();
     };
   }, []);
 

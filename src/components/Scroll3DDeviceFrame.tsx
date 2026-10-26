@@ -20,7 +20,6 @@ export function Scroll3DDeviceFrame({
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [manualOverride, setManualOverride] = useState<"auto" | "flat" | "tilted">("auto");
-  const [currentProgress, setCurrentProgress] = useState(0);
 
   // Responsive device check
   useEffect(() => {
@@ -46,13 +45,18 @@ export function Scroll3DDeviceFrame({
     restDelta: 0.001,
   });
 
-  // Keep track of numeric progress for UI telemetry badges
+  const angleRef = useRef<HTMLSpanElement | null>(null);
+
+  // Update live numeric badge directly without triggering React re-renders on every scroll pixel
   useEffect(() => {
     const unsubscribe = smoothProgress.on("change", (latest) => {
-      setCurrentProgress(latest);
+      if (angleRef.current && manualOverride === "auto") {
+        const deg = Math.round(Math.max(0, Math.min(24, (1 - Math.min(1, Math.max(0, (latest - 0.02) / 0.34))) * (isMobile ? 14 : 24))));
+        angleRef.current.textContent = `${deg}°`;
+      }
     });
     return () => unsubscribe();
-  }, [smoothProgress]);
+  }, [smoothProgress, manualOverride, isMobile]);
 
   // Transform mappings for scroll down & reverse on scroll up
   // Reacts immediately as user begins scrolling down
@@ -112,15 +116,6 @@ export function Scroll3DDeviceFrame({
   const activeScale = manualOverride === "flat" ? 1 : manualOverride === "tilted" ? (isMobile ? 0.93 : 0.88) : scrollScale;
   const activeTranslateY = manualOverride === "flat" ? 0 : manualOverride === "tilted" ? 40 : scrollTranslateY;
 
-  // Approximate tilt degrees for live UI telemetry
-  const calculatedAngle = Math.round(
-    manualOverride === "flat"
-      ? 0
-      : manualOverride === "tilted"
-      ? (isMobile ? 14 : 24)
-      : Math.max(0, Math.min(24, (1 - Math.min(1, Math.max(0, (currentProgress - 0.02) / 0.34))) * 24))
-  );
-
   return (
     <div
       ref={containerRef}
@@ -149,7 +144,9 @@ export function Scroll3DDeviceFrame({
           <div className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-jet-surface/70 border border-jet-border text-white/60">
             <Sparkles className="w-3.5 h-3.5 text-neon-rose" />
             <span>Tilt:</span>
-            <span className="font-bold text-white font-mono">{calculatedAngle}°</span>
+            <span ref={angleRef} className="font-bold text-white font-mono">
+              {manualOverride === "flat" ? "0°" : manualOverride === "tilted" ? (isMobile ? "14°" : "24°") : "24°"}
+            </span>
           </div>
 
           <button

@@ -23,6 +23,7 @@ export function Card3D({
   onClick,
 }: Card3DProps) {
   const cardRef = useRef<HTMLDivElement | null>(null);
+  const rafRef = useRef<number | null>(null);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
   const [glarePos, setGlarePos] = useState({ x: 50, y: 50, opacity: 0 });
@@ -39,16 +40,20 @@ export function Card3D({
     const rotX = -((y - centerY) / centerY) * maxTilt;
     const rotY = ((x - centerX) / centerX) * maxTilt;
 
-    setRotateX(rotX);
-    setRotateY(rotY);
-    setGlarePos({
-      x: (x / rect.width) * 100,
-      y: (y / rect.height) * 100,
-      opacity: 0.65,
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    rafRef.current = requestAnimationFrame(() => {
+      setRotateX(rotX);
+      setRotateY(rotY);
+      setGlarePos({
+        x: (x / rect.width) * 100,
+        y: (y / rect.height) * 100,
+        opacity: 0.65,
+      });
     });
   };
 
   const handleMouseLeave = () => {
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
     setRotateX(0);
     setRotateY(0);
     setGlarePos((prev) => ({ ...prev, opacity: 0 }));
@@ -85,9 +90,9 @@ export function Card3D({
       className={`relative preserve-3d cursor-pointer rounded-xl overflow-hidden transition-colors ${className}`}
       style={{
         transformStyle: "preserve-3d",
-        background: "rgba(17, 18, 21, 0.78)",
+        background: "rgba(17, 18, 21, 0.90)",
         border: `1px solid ${glarePos.opacity > 0 ? borderHoverStyle : "rgba(255, 255, 255, 0.08)"}`,
-        backdropFilter: "blur(20px)",
+        willChange: glarePos.opacity > 0 ? "transform" : "auto",
         ...style,
       }}
     >

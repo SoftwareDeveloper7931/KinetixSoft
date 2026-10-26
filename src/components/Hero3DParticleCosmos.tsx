@@ -55,8 +55,8 @@ export function Hero3DParticleCosmos() {
     window.addEventListener("resize", handleResize);
     canvas.addEventListener("mousemove", handleMouseMove);
 
-    // Generate 3D particle sculpture (Spherical core + Orbital celestial rings like Pin 1)
-    const particleCount = 850;
+    // Optimized 3D particle sculpture (Crisp core + Orbital celestial rings)
+    const particleCount = 160;
     const particles: Particle3D[] = [];
 
     const cerulean = "#00A3DE";
@@ -64,7 +64,7 @@ export function Hero3DParticleCosmos() {
     const white = "#FFFFFF";
 
     for (let i = 0; i < particleCount; i++) {
-      const isRing = i > particleCount * 0.6;
+      const isRing = i > particleCount * 0.55;
       let x = 0, y = 0, z = 0;
 
       if (!isRing) {
@@ -80,7 +80,7 @@ export function Hero3DParticleCosmos() {
       } else {
         const angle = Math.random() * Math.PI * 2;
         const ringRadius = 180 + Math.random() * 60;
-        const ringTilt = 0.5; // Angled celestial orbit
+        const ringTilt = 0.5;
         x = Math.cos(angle) * ringRadius;
         y = Math.sin(angle) * ringRadius * ringTilt + (Math.random() - 0.5) * 25;
         z = Math.sin(angle) * ringRadius * (1 - ringTilt * 0.5);
@@ -92,19 +92,35 @@ export function Hero3DParticleCosmos() {
       particles.push({
         x, y, z,
         baseX: x, baseY: y, baseZ: z,
-        size: isWhite ? 2.5 : Math.random() * 2 + 1,
+        size: isWhite ? 2.4 : Math.random() * 1.8 + 1,
         color: isWhite ? white : isRose ? neonRose : cerulean,
-        glow: isRose ? "rgba(255, 45, 149, 0.6)" : "rgba(0, 163, 222, 0.6)",
+        glow: isRose ? "rgba(255, 45, 149, 0.3)" : "rgba(0, 163, 222, 0.3)",
         speed: 0.008 + Math.random() * 0.012,
         phase: Math.random() * Math.PI * 2,
       });
     }
 
     let time = 0;
+    let isVisible = true;
+
+    // Pause rendering loop when offscreen
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          cancelAnimationFrame(animId);
+          animId = requestAnimationFrame(render);
+        }
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(canvas);
 
     const render = () => {
+      if (!isVisible) return;
+
       time += 0.012;
-      rotY += (targetRotY - rotY) * 0.05 + 0.004; // Smooth continuous rotation
+      rotY += (targetRotY - rotY) * 0.05 + 0.004;
       rotX += (targetRotX - rotX) * 0.05;
 
       ctx.clearRect(0, 0, width, height);
@@ -118,18 +134,16 @@ export function Hero3DParticleCosmos() {
       const cosX = Math.cos(rotX);
       const sinX = Math.sin(rotX);
 
-      // Sort particles by depth for correct 3D perspective
+      // Project particles in 3D
       const projected = particles.map((p) => {
         const pulse = Math.sin(time * p.speed * 8 + p.phase) * 6;
         const curX = p.baseX + pulse;
         const curY = p.baseY + pulse * 0.5;
         const curZ = p.baseZ;
 
-        // Y-axis rotation
         const x1 = curX * cosY - curZ * sinY;
         const z1 = curZ * cosY + curX * sinY;
 
-        // X-axis rotation
         const y2 = curY * cosX - z1 * sinX;
         const z2 = z1 * cosX + curY * sinX;
 
@@ -151,19 +165,17 @@ export function Hero3DParticleCosmos() {
         };
       });
 
-      projected.sort((a, b) => a.z - b.z);
-
-      // Draw faint constellation filaments between close core particles
+      // Draw faint constellation filaments between nearby core nodes
       ctx.lineWidth = 0.6;
-      for (let i = 0; i < projected.length; i += 6) {
+      for (let i = 0; i < projected.length; i += 4) {
         const p1 = projected[i];
-        for (let j = i + 1; j < Math.min(i + 12, projected.length); j++) {
+        for (let j = i + 1; j < Math.min(i + 8, projected.length); j++) {
           const p2 = projected[j];
           const dx = p1.px - p2.px;
           const dy = p1.py - p2.py;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 42) {
-            ctx.strokeStyle = `rgba(0, 163, 222, ${(1 - dist / 42) * 0.22 * p1.alpha})`;
+          if (dist < 46) {
+            ctx.strokeStyle = `rgba(0, 163, 222, ${(1 - dist / 46) * 0.25 * p1.alpha})`;
             ctx.beginPath();
             ctx.moveTo(p1.px, p1.py);
             ctx.lineTo(p2.px, p2.py);
@@ -172,22 +184,26 @@ export function Hero3DParticleCosmos() {
         }
       }
 
-      // Draw glowing 3D particle nodes
+      // Draw fast hardware-accelerated 3D particle nodes (no CPU shadowBlur fallback)
       for (let i = 0; i < projected.length; i++) {
         const p = projected[i];
+        
+        // Soft outer ambient halo
+        ctx.fillStyle = p.glow;
+        ctx.globalAlpha = p.alpha * 0.45;
+        ctx.beginPath();
+        ctx.arc(p.px, p.py, p.size * 2.2, 0, Math.PI * 2);
+        ctx.fill();
+
+        // High-contrast bright core
         ctx.fillStyle = p.color;
         ctx.globalAlpha = p.alpha;
-        ctx.shadowColor = p.glow;
-        ctx.shadowBlur = p.size > 2 ? 8 : 4;
-
         ctx.beginPath();
         ctx.arc(p.px, p.py, Math.max(p.size, 0.8), 0, Math.PI * 2);
         ctx.fill();
       }
 
       ctx.globalAlpha = 1;
-      ctx.shadowBlur = 0;
-
       animId = requestAnimationFrame(render);
     };
 
@@ -195,6 +211,7 @@ export function Hero3DParticleCosmos() {
 
     return () => {
       cancelAnimationFrame(animId);
+      observer.disconnect();
       window.removeEventListener("resize", handleResize);
       canvas.removeEventListener("mousemove", handleMouseMove);
     };
