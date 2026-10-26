@@ -1,0 +1,459 @@
+---
+title: "FlutterFlow Login & Signup UI + Backend (2026) | KinetixSoft"
+description: "Build a responsive login and signup UI with a complete Firebase Auth backend in FlutterFlow. Master form validation, user collections, and password toggles."
+primaryKeyword: "flutterflow login and signup ui"
+secondaryKeywords: ["flutterflow authentication tutorial","flutterflow login page design","flutterflow signup page","flutterflow firebase login backend","flutterflow user collection","flutterflow auth backend","flutterflow social login"]
+category: "Authentication"
+author: "KinetixSoft Team"
+datePublished: "2026-10-25"
+dateModified: "2026-10-25"
+readingTime: "22 min read"
+difficulty: "Intermediate"
+isPillar: false
+ogImage: "/images/og-default.png"
+keyTakeaways:
+  - "Design a production-grade responsive authentication UI with tabbed Login/Signup switcher."
+  - "Implement real-time form validation regex for email formatting and password strength."
+  - "Set up Firebase Authentication and synchronize profile metadata to a Firestore `users` collection."
+  - "Configure seamless Google Sign-In and handle auth error states with friendly alerts."
+faqs:
+  - question: "How does this tutorial differ from Article 10 (Beginner Auth Guide)?"
+    answer: "Article 10 covers foundational Firebase Auth concepts and password reset basics. This guide is a complete, enterprise-grade build covering responsive dual-layout UI design, client-side validation regex, component-scoped password visibility toggles, Firestore `users` collection synchronization, and social OAuth."
+  - question: "How do you toggle password visibility without rebuilding the whole page?"
+    answer: "Use component-level local state (`isPasswordVisible: Boolean`) tied to an icon button toggle action, avoiding expensive whole-screen rebuilds."
+  - question: "Why should you create a `users` Firestore collection on signup?"
+    answer: "Firebase Auth only stores basic credentials (email, uid). Storing extended fields (display name, created date, subscription status, avatar) in Firestore enables rich user profiles and relational queries."
+  - question: "How do you handle auth errors like `email-already-in-use`?"
+    answer: "In the Create Account action flow, add an error branch that inspects the exception message and displays a localized, user-friendly SnackBar or Alert dialog."
+relatedArticles:
+  - "flutterflow-signup-login-forgot-password-beginners-guide"
+  - "supabase-authentication-crud-pagination-flutterflow"
+  - "firebase-custom-claims-admin-role-flutterflow"
+  - "security-implementation-supabase-flutterflow"
+  - "introduction-to-low-code-flutterflow-overview"
+---
+
+# FlutterFlow Login & Signup UI + Backend (2026)
+
+Mastering **flutterflow login and signup ui** is essential for building production-ready mobile and web applications with FlutterFlow. In this comprehensive 2026 guide, you will learn the exact architectural principles, step-by-step implementation workflows, and battle-tested best practices developed by KinetixSoft engineers.
+
+
+*Before diving into this tutorial, make sure you understand the core visual development workflow in our pillar guide: [Intro to Low-Code Development: FlutterFlow Overview](/introduction-to-low-code-flutterflow-overview/).*
+
+## Designing a Responsive Login & Signup UI
+
+**in FlutterFlow**
+
+*A beginner-friendly, click-by-click guide to building a split-screen authentication layout — design only, no backend.*
+
+**Written by Hassan Butt**
+
+Tutorial #2 — FlutterFlow Training Series
+
+June 2026
+
+## Introduction
+
+**What You Will Build**
+
+In this tutorial you will build two polished, production-looking pages — a **Signup page** and a **Login page** — each using a split-screen layout: a full-height photo on the left, a form on the right. This is the layout pattern used by countless modern web applications, and it looks great on both desktop and mobile.
+
+**Why This Layout Is Worth Learning**
+
+You could build two separate page designs — one for desktop, one for mobile — and switch between them based on screen size. Most beginners do exactly that, and it creates a maintenance headache: every design change has to be made twice, in two places, and kept in sync.
+
+This tutorial shows a better approach: **one layout that adapts itself**. You design a single Row with two children — image on the left, form on the right — and use three properties to make it work everywhere:
+
+- **Expansion (flex):** divides the Row width into an exact 50/50 split, automatically, at any screen size.
+- **Responsive Visibility:** hides the image on phones with one toggle. The form automatically stretches to fill the space the image left.
+- **Padding:** keeps the form content breathing on any screen without hardcoded margins.
+
+The result is that you design once, and FlutterFlow handles every screen size. That principle — one layout, not many — is what separates a scalable FlutterFlow project from a fragile one.
+
+Most importantly, before you build anything you will learn **the one layout rule that explains all of this** — *constraints go down, sizes go up, the parent sets the position*. Once that rule clicks, flex, overflow stripes, and why the 50/50 split works all stop being mysterious. It is the difference between fighting FlutterFlow's layout engine and working with it.
+
+**Prerequisites**
+
+- A free FlutterFlow account — sign up at flutterflow.io if you do not have one.
+- Any FlutterFlow project. A brand-new blank project is perfect for following along.
+- **Optional:** one good vertical or landscape photo for the side image. Unsplash (unsplash.com) has free high-quality options, or use FlutterFlow's built-in placeholder image.
+- No coding knowledge required. Every step is click-by-click in the FlutterFlow editor.
+
+**Widgets & Properties at a Glance**
+
+| **Widget / Property** | **What it does in this tutorial** |
+| --- | --- |
+| Row | Splits the screen into left (image) and right (form) — we wrap the default Column in it |
+| Column | The page's default widget; becomes the form's right half after wrapping |
+| Image | The full-height hero photo on the left half |
+| Text | Headings and helper text |
+| RichText | The footer link — one line with two styles (plain text + colored link) via TextSpans |
+| TextField | Name, email, and password inputs |
+| Button | The Sign Up / Log In action |
+| Expansion (Expanded, flex) | Makes each Row child take an exact share of the width |
+| Padding | Breathing room inside the form column |
+| Responsive Visibility | Hides the image on phones automatically |
+
+## Part 1 — Understand the Layout Before You Build
+
+### STEP 1   ·   How the Split-Screen Layout Works
+
+Before touching FlutterFlow, spend two minutes understanding the structure. Everything you build in Parts 2–5 follows directly from this mental model.
+
+**The Row widget** lays its children side-by-side. By default each child takes only as much width as its content needs — which is not what we want. We need each half to take exactly 50 % of the screen.
+
+**Expansion: Expanded** tells a child widget "take all the leftover space in the Row." When both children are Expanded with Flex 1, the available space is split equally: a perfect 50/50. If you set one child to Flex 2 and the other to Flex 1, you get a ⅔ / ⅓ split. For a login page 1:1 is the right choice.
+
+**Responsive Visibility** is a per-widget on/off switch for each screen-size breakpoint. By hiding the Image on the phone breakpoint the form's Expanded widget automatically stretches to fill the entire Row — no second layout, no duplication.
+
+| **Layout diagram**┌────────────────────────────────────────────┐│ Row (Main Axis Size: Max)                     ││ ┌───────────────────┐ ┌──────────────────┐ ││ │      IMAGE         │ │      FORM          │ ││ │  Expanded, flex 1  │ │  Expanded, flex 1  │ ││ │  (hidden on phone) │ │  (fills the row    │ ││ │                    │ │   alone on phone)  │ ││ └───────────────────┘ └──────────────────┘ │└────────────────────────────────────────────┘ |
+| --- |
+
+| **TIP**This 'one layout, hide a child on small screens' technique is the most efficient way to build a responsive page in FlutterFlow — you design once and let flex handle the adaptation. |
+| --- |
+
+### STEP 2   ·   The #1 Rule of FlutterFlow Layouts
+
+FlutterFlow is built on Flutter, and Flutter has one foundational rule that explains almost every layout behaviour — including why the Expanded trick above works and why the dreaded yellow-and-black overflow stripes appear. If you remember one thing from this tutorial, remember this:
+
+| **The #1 rule**Constraints go down.Sizes go up.The parent sets the position. |
+| --- |
+
+Read in plain language, that means:
+
+**1. Constraints go down.** A parent widget (a Row, Column, or Container) tells each child the space it is allowed to occupy — a minimum and maximum width and height. The child cannot break out of those limits.
+
+**2. Sizes go up.** Each child then chooses its own size within the limits it was given, and reports that size back up to the parent.
+
+**3. The parent sets the position.** Finally the parent decides where to place each child inside itself (left, centre, spaced out, and so on).
+
+**Why this rule matters for our split-screen layout**
+
+By default a **Row gives its children an unbounded width** on the horizontal (main) axis — it effectively says "be as wide as your content needs." That is exactly why a plain Image and a plain Column do NOT split the screen 50/50: each one only takes the width of its own content. It is also why a child that wants more width than the screen has triggers a **RenderFlex overflow** (the yellow-and-black stripes).
+
+**Expanded** changes the contract. It forces a **tight constraint** on the child — "you MUST be exactly this share of the leftover space, no more, no less." That is how two Expanded children produce a clean 50/50 split, and why the overflow disappears: the child can no longer ask for more room than exists.
+
+**Expanded vs Flexible (a common point of confusion)**
+
+**Expanded** = the child must fill its share of the space (a tight fit). **Flexible** = the child may take up to its share but is allowed to be smaller (a loose fit). For two equal halves we want **Expanded** on both children. Reach for Flexible only when a child should shrink to its content if it is small but never grow past its share.
+
+**The flex factor** decides how the space is divided: a child's share equals its flex value divided by the total flex of all expanded children. Two children at flex 1 each get 1 ÷ 2 = half. Set the image to flex 2 and the form to flex 1 and the image would take two-thirds.
+
+**Main Axis Size: Max vs Min** on the Row itself matters too. **Max** (the default we want) makes the Row take all the width its parent offers, leaving room for Expanded to divide. **Min** would shrink the Row to its children and leave nothing for Expanded to share — so always keep the outer Row at Main Axis Size: Max.
+
+| **TIP**Whenever a layout looks wrong in FlutterFlow, ask the three questions in order: What constraint did the parent give this widget? What size did the widget choose? Where did the parent place it? Nine out of ten layout bugs — overflows, widgets that won't centre, halves that won't split — are answered by walking the #1 rule top to bottom. |
+| --- |
+
+## Part 2 — Create the Project
+
+### STEP 3   ·   Create a New FlutterFlow Project
+
+1. Go to **flutterflow.io** and log in. On the Projects dashboard click the **+ New Project** button in the top-right corner.
+2. In the **Create New Project** dialog, type your project name in the name field (e.g. **authProject**). Then click **Start Building** — you do not need to choose a template; the default blank project is exactly what we need.
+
+| **NOTE**Your project opens on the HomePage by default. FlutterFlow creates a Scaffold with an AppBar and a Column already on the page — we will work with these in the next step rather than deleting and rebuilding from scratch. |
+| --- |
+
+## Part 3 — Build the Signup Page
+
+This is the main build section. Work through Steps 4–16 in order. Everything you set up here will be reused for the Login page in Part 5.
+
+### STEP 4   ·   Open the Widget Tree and Prepare the Canvas
+
+1. In the left sidebar click the **Widget Tree icon** (the branching-tree icon, second from top in the left toolbar). This switches from the widget palette to the tree view so you can see and select widgets by name.
+2. In the top toolbar click the **Desktop canvas icon** (the monitor icon next to the pixel dimensions). The canvas changes from the default phone size (393 × 852) to desktop width (1440 × 900). We design at desktop width first because that is where the split-screen layout is visible.
+3. In the widget tree you will see the default structure: **HomePage → AppBar → Column**. Right-click **AppBar** → **Delete**. We do not need a top navigation bar on this page.
+
+**Why switch to Desktop first?** A split-screen layout only exists when there is horizontal room for two halves side-by-side. At the default phone width (393 px) there is not enough width, so FlutterFlow stacks the Row's children vertically and you cannot see the 50/50 split you are trying to build. Designing at desktop width (1440 px) lets you set the layout correctly, and Step 17 then hides the image on phones so the same design still works small.
+
+**Why delete the AppBar?** The AppBar is the grey bar with a title that FlutterFlow adds to every new page. An authentication screen has no need for it — and more importantly, it eats vertical space at the top of the Scaffold. Removing it lets our Row fill the entire page height, which is what makes the left-hand image run edge to edge.
+
+| **IMPORTANT**Make sure you switch to Desktop canvas BEFORE building the layout. If you design at phone width (393 px) the Row will stack vertically and the 50/50 split will not be visible until you switch — which makes it easy to mis-set properties. |
+| --- |
+
+### STEP 5   ·   Wrap the Column in a Row
+
+The page already has a **Column** widget (FlutterFlow puts one there by default). Instead of deleting it and starting over, we wrap it inside a Row using the **Wrap Widget** shortcut. This is faster and keeps any existing settings on the Column.
+
+1. In the widget tree click **Column** to select it.
+2. Press **Ctrl + B** (Windows) or **Cmd + B** (Mac). A **Wrap Widget** dialog appears showing a grid of parent widgets.
+3. Click **Row**. The Column is now nested inside a new Row: the tree reads **HomePage → Row → Column**.
+
+**Why a Row, and why wrap instead of rebuild?** A **Row arranges its children horizontally** — left to right — which is exactly what a split-screen needs: image on the left, form on the right. (A Column would stack them top-to-bottom instead.) We **wrap** the existing Column rather than deleting it and dragging in a fresh Row because wrapping preserves everything already on the Column and takes a single keystroke. The existing Column becomes the right-hand half of our layout; in the next step we add the image as the left-hand half.
+
+| **TIP**Wrap Widget (Ctrl+B) is one of the most useful shortcuts in FlutterFlow. You can wrap any widget in a Row, Column, Container, Stack, and more — without losing the widget's existing properties. |
+| --- |
+
+### STEP 6   ·   Add the Image to the Left of the Row
+
+1. In the widget tree select the **Row**. Click the **add child widget icon** (the + icon that appears when you hover the Row in the tree, or the icon in the top-left of the widget tree toolbar). A widget search panel opens.
+2. Type **ima** in the search box and select **Image** from the results. The Image is added as a child of the Row.
+3. The Image is currently on the right of the Column. Press **Shift + Left Arrow** to move it to the left position. The tree now reads **Row → [Image, Column]**.
+4. With the Image selected, go to the Properties panel on the right. Click the **percent icon** next to the Height field and set the value to **100**. This makes the image fill 100% of the Row's height. Leave Width — it will be set by Expansion flex in the next step.
+
+**Why does the order in the tree decide left vs right?** Inside a Row, children are laid out in the order they appear in the widget tree — the first child sits on the far left, the next to its right, and so on. When you add the Image it lands **after** the Column (on the right). Pressing **Shift + Left Arrow** moves the Image above the Column in the tree, which moves it to the left on the canvas. So reordering in the tree is the same as repositioning on screen.
+
+**Why height in percent (%) instead of a fixed pixel value?** This is the #1 rule in action. A fixed height like 400 px would lock the image to one size and leave a gap (or an overflow) on taller or shorter screens. Setting height to **100%** tells the image to take whatever height its parent — the Row — hands down to it. The image now stretches to the full page height automatically on any screen. We deliberately leave the **width** alone here because the next step hands width-control to Expansion flex, which is the cleaner way to size along a Row's horizontal axis.
+
+| **TIP**Using percent (%) for the image height rather than a fixed pixel value means the image always fills the full height of the Row, regardless of the screen size. |
+| --- |
+
+### STEP 7   ·   Set Expansion Flex on Both the Image and the Column
+
+This is the single most important step, and it is the #1 rule from Step 2 made concrete. Expansion flex is what creates the 50/50 split. Both the Image and the Column must be set to Expanded.
+
+1. Select the **Image** in the widget tree. In the Properties panel find the **Expansion** section. Click the **Expanded** option (the icon that shows the widget filling the available space). Leave **Flex = 1**.
+2. Now select the **Column** in the widget tree. Do the same: **Expansion → Expanded**, **Flex = 1**. The canvas should now show a perfect 50/50 split — image on the left, white form area on the right.
+
+**Why do we need flex at all — why not just set each half to 50% width?** Remember the #1 rule: constraints come down from the parent. Without Expanded, the Row hands each child an **unbounded** width constraint ("be as wide as your content"), so the Image takes only its natural width and the Column only as wide as its widest field — they do not fill the screen, and the split is uneven and fragile. A hard-coded 50% would also break the moment you change the window size or hide the image on phones.
+
+**What Expanded actually does.** Expanded replaces that loose constraint with a **tight** one: "take exactly your share of the leftover space." With **both** children Expanded at **Flex = 1**, the Row divides its width by the total flex (1 + 1 = 2) and gives each child one part — a precise, self-adjusting 50/50. Because the rule is relative (a share, not a fixed number), the split survives any screen size, and when the image is hidden on phones the form's flex automatically claims the whole Row. This is also why **overflow stripes disappear**: a child constrained to its exact share can never demand more room than the Row has.
+
+| **IMPORTANT**If only one child is set to Expanded, that child takes all the leftover space and the other shrinks to its content size. Both must be Expanded with Flex 1 for the equal split. (Want a different ratio? Set the image to Flex 2 and the form to Flex 1 for a two-thirds / one-third layout — the maths is each child's flex divided by the total.) |
+| --- |
+
+### STEP 8   ·   Style the Form Column — Alignment, Spacing, Padding
+
+Before adding any content, configure the outer Column so every child you drop in later is automatically centred and evenly spaced. One setup here saves you touching each child individually.
+
+1. Select the form **Column** (right-hand child of the Row) in the widget tree.
+2. Set **Main Axis Alignment → Center**. The main axis of a Column is vertical, so this centres everything top-to-bottom within the page height.
+3. Set **Cross Axis Alignment → Center** so children are centred horizontally inside the column.
+4. In the **Padding** section, set **32 on all four sides** (use the linked toggle to set all at once). This is the breathing room between the column edge and its contents.
+
+**Items Spacing vs Padding — use the right tool**
+
+These two are easy to confuse:
+
+**Items Spacing** (a Row/Column property) controls the **gaps between child widgets**. Set it once on the parent and every child is spaced evenly — no need to touch individual widgets.
+
+**Padding** (on any single widget) controls the **inset around that one widget** — space between its own edge and the parent's edge or neighbouring widgets.
+
+The rule of thumb — and FlutterFlow's own recommendation — is: to separate items in a list, use the **parent's Items Spacing**, not padding on each child. The official docs put it plainly: "Prefer 'Items Spacing' set on the parent row or column instead of padding on individual elements. This ensures consistency."
+
+| **TIP**If you ever see children touching or unevenly spaced, don't add padding to individual widgets — go to the parent Column and adjust Items Spacing. One change fixes every child at once. |
+| --- |
+
+| **NOTE**From here on, everything goes INSIDE this Column. Always check the widget tree after adding a widget — it is easy to accidentally drop into the Row instead of the Column. |
+| --- |
+
+### STEP 9   ·   Add a Heading Container with Text Widgets
+
+Rather than dropping Text widgets directly into the outer Column, we wrap the heading section in a **Container** first. This gives us a clean, independently-sized block for the heading area — with its own min height so it stays visible even before you add content — and keeps the tree organised as the form grows.
+
+1. With the **Column** selected, add a child **Container**. FlutterFlow will name it **ContainerHeading** by default (you can rename it in the Properties panel for clarity).
+2. In Container Properties, **remove the fill color** (set it to transparent / no color). We do not want a background box — the container is purely for layout grouping.
+3. Set **Width → infinity (∞)**. This stretches the container to fill the full width of the Column.
+4. **Remove the fixed Height** value. Switch to **Min Height** instead and give it a small value (e.g. 50 px). Why? A fixed height locks the container to one size — if content grows it will overflow. Min Height says "be at least this tall, but grow as needed." This keeps the container visible on the canvas while empty and lets it expand naturally as you add Text widgets.
+
+| **NOTE**Why not just put Text directly in the outer Column? You could — but wrapping in a Container gives you an easy handle to set a background colour, border radius, or shadow on the heading area later without restructuring the whole tree. |
+| --- |
+
+Now add the heading texts inside the ContainerHeading:
+
+1. With **ContainerHeading** selected, add a child **Column** (the inner Column). This Column will hold the two Text widgets.
+2. On the **inner Column**, set **Items Spacing → 4** (a small gap between the heading and its subtitle is enough).
+3. Add a **Text** widget inside the inner Column. Set the text to **Create Account**, font size ~32, bold, dark color.
+4. Add a second **Text** below it. Set the text to **Sign up to continue**. Use a smaller font size (~14), gray color. Do **not** add padding — the inner Column's **Items Spacing** handles the gap.
+
+| **TIP**Set Items Spacing on the **inner** Column (the one holding your Text widgets), not the outer Column. The outer Column's Items Spacing controls the gap between the ContainerHeading and whatever comes next (the form). The inner Column's Items Spacing controls the gap between the heading and subtitle. |
+| --- |
+
+### STEP 10   ·   Add the Form Container and Form Widget
+
+The form area mirrors the heading area: a Container for grouping, with the actual content inside it. So we add a second Container next to ContainerHeading, then place FlutterFlow's built-in **Form** widget inside it. The Form widget groups fields together and enables built-in validation — empty checks, email-format checks, and so on — with almost no extra work.
+
+1. Select the outer **Column** (not ContainerHeading). Add a child **Container** and rename it **ContainerForm**. Give it the same treatment as ContainerHeading: **remove the fill color** (transparent), **Width → infinity (∞)**, and a **Min Height** instead of a fixed height.
+2. Select **ContainerForm** and click **+ Add Widget**. In the search panel, search for **Form** and select the **Form Validation** widget (listed under Base Elements). It is added inside ContainerForm.
+3. Your tree now reads: **Row → Column → [ContainerHeading, ContainerForm → Form]**.
+
+| **NOTE**The Form widget is a layout container — on the canvas it looks like an invisible box. The fields go inside it in the next steps. The widget handles grouping and validation state; you style the individual TextFields as normal. |
+| --- |
+
+| **TIP**Using a Form widget from the start means you can add a **Validate Form** action to your Sign Up button later with one click, rather than writing custom validation logic for each field. |
+| --- |
+
+### STEP 11   ·   Build the First Name Field
+
+Inside the Form, we build each input as a small reusable unit: a **Container → Column → [Text label, TextField]**. We build the First Name field completely, style it once, then duplicate it for Last Name in the next step. Because first and last name sit side by side, they live in their own Row.
+
+1. Select the **Form** in the widget tree and add a child **Row**. Rename it **RowName** — it will hold the first-name and last-name fields side by side.
+2. Inside **RowName**, add a **Container** and rename it **ContainerFirstName**. In its **Expansion** section, set it to **Expanded** so it takes an equal share of the row width (the last-name duplicate will take the other half).
+3. Inside **ContainerFirstName**, add a **Column** (the inner field column). Set its **Cross Axis Alignment → Start** so the label sits flush-left above the input, and give it a small **Items Spacing** (≈ 4) for the gap between label and field.
+4. Inside that Column, add a **Text** widget and set it to **First Name** (this is the field label). Below it, add a **TextField**.
+
+Now style the TextField so the copy inherits everything:
+
+1. Select the **TextField**. In **Hint Properties**, set the **Hint Text** to **First Name** — the placeholder shown inside the empty field.
+2. Open **Input Decoration Properties**. Turn **Filled off** (or set the fill color transparent) so the field background matches the form. Set the **Border** style, choose a **Border Color** and a **Focus Border Color** (your brand color, shown when the field is active), and set a **Border Radius** (≈ 8) for rounded corners.
+
+| **TIP**Build and style ONE field perfectly before duplicating. Every choice you make now — borders, radius, colors, spacing — is inherited by the copy, so you only do the styling work once. |
+| --- |
+
+### STEP 12   ·   Duplicate for the Last Name Field and Gap the Row
+
+1. In the widget tree, **right-click ContainerFirstName → Duplicate**. An identical copy appears beside it inside RowName. Rename the copy **ContainerLastName**.
+2. In the duplicate, change the **Text label** to **Last Name** and the TextField's **Hint Text** to **Last Name**. All the border and fill styling carries over automatically — you change only the words.
+3. Select **RowName** and set its **Items Spacing** (≈ 16) to add a gap between the two name containers. Same principle as Step 8: the gap lives on the parent Row, not as padding on each container.
+
+| **NOTE**Because both containers are Expanded, they split RowName's width evenly — a clean 50/50 first-name / last-name row that stays even at any screen width. This Container → Column → [label, field] unit is the pattern you will reuse for the email and password fields. |
+| --- |
+
+### STEP 13   ·   Add the Email Field
+
+The first and last name fields sit side by side inside RowName. The email, password, and confirm-password fields each take a full line of their own, so they go directly into the **Form's Column** — the Column that FlutterFlow's Form widget keeps its fields in (it already holds RowName) — stacked one below another. We reuse the exact field unit from Step 11, so there is almost no new styling to do.
+
+1. In the widget tree, **right-click ContainerFirstName** (inside RowName) → **Duplicate**. The copy appears inside RowName.
+2. Drag the duplicate **out of RowName** so it becomes a direct child of the Form's **Column**, sitting just below RowName.
+3. With the duplicate container selected, go to **Container Properties** and set **Width → ∞** (infinity). This stretches it to fill the full width of the Column — the same ∞ you used on ContainerHeading and ContainerForm in Steps 9 and 10. You can optionally rename it **ContainerEmail** for clarity.
+4. Change the **Text label** to **Email** and the TextField's **Hint Text** to an email placeholder (e.g. someone@email.com). The borders, radius, and colors all carry over from the original field.
+5. With the email **TextField** selected, open **Additional Properties** and set **Keyboard Type → Email Address**.
+
+**Width ∞ vs Expanded — when to use each.** Inside a **Row**, you use **Expanded** because the Row distributes leftover space horizontally and Expanded claims a share of it. Inside a **Column**, space is distributed vertically and width is handled differently: setting the container's **Width → ∞** tells it to fill the full width of its parent Column — the simpler, more direct option here. Expanded would also work, but ∞ width on a Container is the pattern you have already used on ContainerHeading and ContainerForm, so it keeps the tree consistent.
+
+**Why set the Keyboard Type?** Keyboard Type tells the device which on-screen keyboard to show when the user taps the field. **Email Address** surfaces the `@` and `.com` keys directly on the mobile keyboard and de-emphasises the spacebar — a small touch that makes the form noticeably faster to fill on a phone. It does not validate the address (that is the Form widget's job); it only optimises the typing experience.
+
+| **NOTE**The email field is a sibling of RowName inside the Form's Column — not inside RowName. The Column's Items Spacing keeps an even vertical gap between the name row, the email field, and everything below it: the same spacing principle as Step 8, applied on the vertical axis. |
+| --- |
+
+### STEP 14   ·   Add the Password and Confirm Password Fields
+
+Passwords use the same field unit, plus one switch that turns a normal TextField into a masked password input.
+
+1. **Duplicate** the email field (right-click → Duplicate) so the copy lands directly below it in the Form's Column. Change its **Text label** to **Password** and its **Hint Text** to **Enter Password**.
+2. With the password **TextField** selected, open **Additional Properties** and turn **Password Field** ON. The field now masks typed characters as dots and reveals a **Toggle Hide Password Icon** (the eye) so users can show or hide what they typed.
+3. **Duplicate the password field** to make the confirmation field below it. Change its **Text label** to **Confirm Password** and its **Hint Text** to **Confirm Password**. Because it is a copy of the password field, **Password Field is already ON**, so it masks input too.
+
+**Why a dedicated Password Field toggle instead of just hiding the text yourself?** Turning on **Password Field** does three jobs at once: it obscures the characters (the dots), it adds the show/hide eye icon, and it flags the input to the operating system as a secure field — so the OS skips autocorrect, keyboard suggestions, and including it in screenshots. Wiring that by hand would mean managing an obscure-text state and a separate icon button; the toggle gives you all of it in one click.
+
+| **IMPORTANT**If typed passwords ever show as plain text, the **Password Field** toggle was left off on that field. The Password and Confirm Password fields each need it on — it only carries over automatically when you duplicate a field that already had it enabled. |
+| --- |
+
+### STEP 15   ·   Add the Sign Up Button
+
+With all four inputs in place, add the action button at the bottom of the Form's Column.
+
+1. In the widget tree select the **Column inside the Form** (the parent of RowName and the field containers). Click its **add child widget icon** — the small icon on the right of that row in the tree.
+2. In the widget search panel type **button** and select **Button** from the Top Results. It is added as the last child of the Column, below Confirm Password.
+
+Now style the button:
+
+1. With the **Button** selected, find **Button Text** in the Properties panel and set it to **Sign up**.
+2. In **Button Default Style**, set the **Fill Color → Primary** (your project's primary theme color) so the button matches your brand, and set **Height → 40**. The label is already Primary Family, Semi Bold, 16 px, white — adjust only if you want to.
+
+**Why bind the Fill Color to Primary instead of picking a hex value?** Choosing **Primary** links the button to your project's color theme rather than hard-coding a color. Change the primary color once in Theme Settings later and every button using it updates automatically — the same set-it-in-one-place reasoning behind Items Spacing over per-widget padding.
+
+| **TIP**The button defaults to its content width — just wide enough for "Sign up". If you want a full-width button (common on signup forms), set its **Width → ∞** so it stretches across the padded column. |
+| --- |
+
+### STEP 16   ·   Add the Footer Link with a RichText Widget
+
+A short line under the button lets users who already have an account jump to the Login page. The trick is that this one line has **two different styles** in it: plain gray text ("Already have an account?") followed by a colored, tappable link ("Log In"). A single Text widget can only carry one style, so instead of a Text we use a **RichText** widget — it lets you split one line into multiple styled pieces called **TextSpans**.
+
+1. Select the form area (below the Sign Up button) and add a **RichText** widget. Search **richText** in the widget panel and pick it from the Top Results.
+2. FlutterFlow seeds every new RichText with a long example made of **seven TextSpans** (bold, italics, underline, and so on). We only need two. In the **Rich Text Content** panel, **delete TextSpans 3–7** (the trash icon on each row), leaving just **TextSpan 1** and **TextSpan 2**.
+3. Set **TextSpan 1** to the plain part — **Already have an account?** — and leave it in the default body style/gray.
+4. Set **TextSpan 2** to the link part — **Log In**. Click its **edit TextSpan properties** icon (the "A" on that span's row) to open its own Text Style panel.
+5. Style the link span: **Font Weight → Bold (700)**, **Font Size → 14**, and most importantly **Text Color → Primary** so it reads as a tappable link in your brand color.
+
+**Alignment — a property here, but a *widget* in Flutter**
+
+1. With the **RichText** selected, find its **Alignment** control — an X / Y pad where each axis runs from **−1 to +1** (X: −1 = left, 0 = center, +1 = right; Y: −1 = top, +1 = bottom). Set **X → −1** to pin the footer to the **left** edge so it lines up under the form fields.
+
+In FlutterFlow alignment looks like just another property — that X/Y pair you just set. But under the hood **Flutter has no "alignment" property on a bare widget; alignment is its own widget**, called **`Align`**. FlutterFlow's −1…+1 pair maps one-to-one onto Flutter's `Alignment(x, y)` constructor (the exact same coordinate space). And the everyday **`Center`** widget you reach for is simply `Align` with its alignment hard-coded to the middle — `Center` literally wraps `Align(alignment: Alignment.center)`. So every time you nudge that Alignment pad, FlutterFlow is really wrapping your content in an **Align** widget in the generated code. That is also why **Center** (Step 8) and this Alignment pad feel like cousins: they are the same widget, one with a fixed setting and one you can dial in by hand.
+
+| **NOTE**The captured screenshots show the link span styled with placeholder text "Sign Up". On the **Signup** page this footer link should read **Log In** and navigate to the Login page; on the **Login** page you build later (Step 19) the reciprocal footer reads **Sign Up** and navigates back here. You wire both tap actions in Step 20. |
+| --- |
+
+**Tidy Up the Widget Tree**
+
+When you build fields by duplicating (Steps 12–14), FlutterFlow gives each copy the **same name as its source** — so the Last Name and Email containers can both end up still called **ContainerFirstName**, and every inner input still called **TextField**. The layout works regardless, but a tree full of identical names is hard to navigate later.
+
+1. Click the expand arrows in the widget tree to open each container and check its name. Rename the misnamed **containers** to match what they hold — e.g. the email container from **ContainerFirstName** to **ContainerEmail** (double-click the name in the tree, or rename it in the Properties panel).
+2. Do the same for the **TextField** inside each one, so they read **TextFieldName**, **TextFieldLastName**, **TextFieldEmail**, **TextFieldPassword**, and **TextFieldConfirmPassword**. These names are what you will see when you wire validation or actions, so descriptive names save you real time later.
+
+| **TIP**Naming widgets for what they contain (ContainerEmail, ContainerPassword) pays off the moment you wire actions or validation: you select fields by name, and a self-describing tree means you never click the wrong one. |
+| --- |
+
+## Part 4 — Make It Responsive
+
+### STEP 17   ·   Hide the Image on Phones
+
+1. Click the **Image** widget in the widget tree (left panel) to select it.
+2. In the Properties panel find the **Visibility** section.
+3. In the **Responsive** row you will see four device icons: **phone (mobile)**, tablet (portrait), tablet (landscape), and desktop. **Unselect the phone (mobile) icon** so it shows a slash through it — that hides the image on mobile widths. Leave the other three active so the image still shows on tablet and desktop. Optionally unselect the tablet (portrait) icon too if you want the image hidden on smaller tablets.
+
+| **IMPORTANT**Toggle the Responsive Visibility on the IMAGE widget, not on the Row or the Container. Hiding the Row would hide the form too, leaving a blank page on phones. |
+| --- |
+
+| **NOTE**Responsive Visibility is width-based. FlutterFlow's default breakpoints are: Mobile < 479 px, Tablet 479–767 px, Tablet Landscape 768–991 px, Desktop > 991 px. These can be customised under Theme Settings → Design System → Breakpoints. The canvas may still show the image ghosted in the editor — Step 18 shows how to preview each breakpoint. |
+| --- |
+
+### STEP 18   ·   Preview at Each Breakpoint
+
+1. Look at the **canvas size selector** in the top toolbar — the row of phone, tablet, and desktop icons next to the pixel dimensions (for example 1440 × 900).
+2. Click the **desktop** icon. You should see the photo on the left and the form on the right in a 50/50 split.
+3. Click the **phone** icon. The image disappears and the form stretches to fill the full width — automatically, because the form Column's Expanded now owns the entire Row.
+
+## Part 5 — Build the Login Page & Link the Pages
+
+### STEP 19   ·   Build the Login Page the Fast Way
+
+Rather than rebuilding from scratch, duplicate the entire Signup page. This copies every widget — the Row, the image with its flex and responsive visibility, all the containers and fields — in one action.
+
+1. In the **Pages panel** on the left sidebar, find **HomePage**. Right-click it and choose **Duplicate Page**. A copy appears directly below it in the panel.
+2. Right-click the duplicate → **Rename Page** → type **LoginPage** (or your preferred name) → confirm.
+
+Now trim and edit the Login page. Open it by clicking it in the Pages panel.
+
+1. In the widget tree, find **RowName** (the row holding ContainerFirstName and ContainerLastName). Right-click it → **Delete**. This removes both name fields at once.
+2. Find **ContainerConfirmPassword** and delete it too. The form now has Email and Password only.
+3. Change the **three text items** that differ from Signup:
+
+- **Heading** (inside ContainerHeading): "Create Account" → **"Welcome Back"**
+
+- **Subtitle**: "Sign up to get started" → **"Log in to your account"**
+
+- **Button** text: "Sign up" → **"Login"**
+
+- **Footer RichText** plain span: "Already have an account?" → **"Don't have an account?"** (the link span "Sign Up" is already the right word for this page)
+
+| **TIP**Duplicating the Page (not just the Row widget) is faster and safer — the image's responsive visibility, the flex settings, and every renamed TextField all travel with it. The Login page takes about two minutes to clean up from the duplicate. |
+| --- |
+
+## Part 6 — Troubleshooting
+
+If something does not look right, check the table below. Most issues come from one of three root causes: a widget not set to Expanded, the responsive visibility toggled on the wrong widget, or the Password Field checkbox left unchecked.
+
+| **Problem** | **Likely cause & fix** |
+| --- | --- |
+| Ctrl+B opens Wrap Widget but nothing happens when I click Row. | Make sure you have the Column selected in the widget tree first (it should be highlighted blue). Click it once in the tree, then press Ctrl+B. |
+| After wrapping, the Image ends up on the right instead of the left. | Use Shift+Left Arrow to move the Image to the left position in the Row. Alternatively right-click the Image in the widget tree → Move Up. |
+| The image and form are not a 50/50 split — one side shrink-wraps. | One or both Row children is not set to Expansion: Expanded. Select each child in the widget tree and check the Expansion section. Both the Image and the Column need Expanded with Flex 1. |
+| The image does not fill its half — bars appear above and below. | Make sure Image Height is set to 100% (use the percent icon, not a fixed px value). If bars still appear, also check that the Row itself is not height-constrained. |
+| The page is completely blank on phones. | The Responsive Visibility toggle was applied to the Row instead of the Image — that hides the form too. Remove the toggle from the Row and apply it to the Image only. |
+| Typed passwords are visible as plain text. | The Password Field checkbox was not enabled. Select each password TextField → check the Password Field checkbox in its Input Decoration / Properties panel. |
+| Yellow and black overflow stripes appear at small screen heights. | The form Column is taller than a short screen. Select the Column and enable its Scrollable property, or reduce Padding and Items Spacing. |
+| The Login page image shows on phones even though it was hidden on Signup. | Responsive Visibility is per-widget, not per-project. When you duplicated the page it copied the Image widget with its visibility settings — check the Image on LoginPage specifically and unselect the mobile icon in its Responsive row (Step 17). |
+
+## Summary
+
+You built two production-looking authentication pages using a single flexible layout — Row → two Expanded halves — and made them respond to different screen sizes with one visibility toggle on the Image widget. You did it without deleting the default page structure: the Wrap Widget shortcut (Ctrl+B) turned the existing Column into the right half of a split-screen layout in seconds. No duplicated layouts, no separate mobile pages. And you built the Login page in minutes by duplicating the Signup page and changing only what differed. The same patterns — one adaptive layout, Duplicate Page for related screens — apply to dashboards, landing pages, and any two-pane screen you design in FlutterFlow.
+
+
+> For foundational platform features, review the official [FlutterFlow Documentation](https://docs.flutterflow.io) and [Flutter Framework Docs](https://flutter.dev/docs).
+
+
+
+### Related FlutterFlow Tutorials
+
+Expand your engineering skills with these related guides:
+- [FlutterFlow Login, Sign Up & Reset Guide](/flutterflow-signup-login-forgot-password-beginners-guide/)
+- [Supabase Auth, CRUD & Pagination in FlutterFlow](/supabase-authentication-crud-pagination-flutterflow/)
+- [Firebase Custom Claims & Admin Role in FlutterFlow](/firebase-custom-claims-admin-role-flutterflow/)
+- [Supabase RLS & Security for FlutterFlow](/security-implementation-supabase-flutterflow/)
+
+
+---
+
+> **Need a FlutterFlow app built?** [Talk to KinetixSoft](/contact/) — our senior FlutterFlow engineers design, build, and deploy production-grade mobile and web applications with bulletproof architecture.

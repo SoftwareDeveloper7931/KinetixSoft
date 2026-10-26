@@ -1,0 +1,305 @@
+---
+title: "Build an OpenAI Chatbot in FlutterFlow (2026 Guide) | KinetixSoft"
+description: "Build a conversational AI chatbot in FlutterFlow using the OpenAI API. Learn prompt handling, chat UI state, and API call configuration step by step."
+primaryKeyword: "flutterflow chatbot"
+secondaryKeywords: ["flutterflow openai","flutterflow chatgpt integration","flutterflow AI app","build chatbot flutterflow","openai api flutterflow"]
+category: "AI Integrations"
+author: "Jahanzaib Waris"
+datePublished: "2026-09-02"
+dateModified: "2026-10-24"
+readingTime: "16 min read"
+difficulty: "Intermediate"
+isPillar: false
+ogImage: "/images/og-default.png"
+keyTakeaways:
+  - "Configure the OpenAI Chat Completions API endpoint with bearer token authentication."
+  - "Maintain conversation context by storing message history in an App State list of JSON objects."
+  - "Design a conversational messaging UI with speech bubbles, timestamp formatting, and typing indicators."
+  - "Protect OpenAI API keys from client-side reverse engineering using backend proxy functions."
+faqs:
+  - question: "How do you preserve conversation history in a FlutterFlow chatbot?"
+    answer: "Store an array of message objects in App State containing \"role\" (system, user, assistant) and \"content\". Append each new user prompt and AI response to this array before sending subsequent API calls."
+  - question: "How do you prevent users from stealing your OpenAI API key in FlutterFlow?"
+    answer: "Never embed raw OpenAI keys in client-side FlutterFlow API calls. Call a secure Firebase Cloud Function or Supabase Edge Function that injects the key on the server before forwarding to OpenAI."
+  - question: "Can you stream OpenAI responses word-by-word in FlutterFlow?"
+    answer: "Standard FlutterFlow API calls wait for full completion. For streaming token responses, you can use a Custom Dart Action wrapping an SSE (Server-Sent Events) HTTP client."
+  - question: "What is the best way to handle OpenAI API rate limits in mobile apps?"
+    answer: "Implement exponential backoff retry logic, display clear user notifications when rate limits occur, and enforce per-user request limits on your backend."
+relatedArticles:
+  - "openai-integration-with-flutterflow"
+  - "custom-dart-actions-in-flutterflow"
+  - "introduction-to-low-code-flutterflow-overview"
+  - "flutterflow-ui-widgets-explained"
+---
+
+# Build an OpenAI Chatbot in FlutterFlow (2026 Guide)
+
+Mastering **flutterflow chatbot** is essential for building production-ready mobile and web applications with FlutterFlow. In this comprehensive 2026 guide, you will learn the exact architectural principles, step-by-step implementation workflows, and battle-tested best practices developed by KinetixSoft engineers.
+
+
+*Before diving into this tutorial, make sure you understand the core visual development workflow in our pillar guide: [Intro to Low-Code Development: FlutterFlow Overview](/introduction-to-low-code-flutterflow-overview/).*
+
+*FlutterFlow Learning Series*
+
+**How to Build a Conversational Chatbot**
+
+**in FlutterFlow Using the OpenAI API**
+
+*A beginner-friendly guide using in-session chat history and a full conversational UI — no code or CLI needed*
+
+## **What You Will Build**
+
+By the end of this post, you will have a fully working conversational AI chatbot inside a FlutterFlow app. Here is what makes it special:
+
+- The AI remembers your entire conversation — each new message includes the full chat history so the AI has context, just like ChatGPT.
+- The conversation lives in memory only — it resets every time the user closes and reopens the app. No database needed.
+- No Flutter code is written — everything is done inside FlutterFlow.
+
+## **Why Build This?**
+
+Adding a conversational AI feature used to mean standing up a backend, writing API integration code, and managing your own server. With FlutterFlow and the OpenAI API, you can build a real, context-aware chatbot directly inside your app — no server, no Flutter code, and no AI training required.
+
+- Context is everything — a chatbot that forgets what you just said feels broken. Learning how to send the full conversation history is the difference between a toy demo and an experience that feels like ChatGPT.
+- No backend needed — FlutterFlow's API Calls feature talks directly to OpenAI, so there is no server, Cloud Function, or custom code to maintain.
+- A reusable pattern — the combination of API Call, App State, and a dynamic UI you build here is the same foundation used for almost any AI feature: support bots, tutors, content generators, and more.
+- A great first AI project — this is one of the most approachable ways to get hands-on with LLM APIs, state management, and dynamic lists in FlutterFlow, all in a single build.
+
+This same setup can power a range of real app features. A support chatbot can answer user questions about your app or product and handle follow-up questions naturally. A learning chatbot can explain concepts, quiz the user, and adjust based on their responses within the session. A personal assistant or planner chatbot can help users think through tasks, draft text, or work out ideas conversationally. In each case, the core mechanic is the same: a growing list of messages that gives the AI enough context to feel like a real conversation.
+
+By the end of this post you will not just have a working chatbot — you will understand the pattern well enough to add similar AI features anywhere else in your app.
+
+## **Why OpenAI? And What Are the Alternatives?**
+
+This guide uses the OpenAI Chat Completions API, and the choice is deliberate. OpenAI’s API is the most widely documented conversational AI API available, which means more tutorials, more community answers, and a lower chance of hitting a wall when something does not work as expected. The request format — a JSON body with a model name and a messages array — is straightforward enough to configure directly in FlutterFlow’s API Calls panel without any custom code. The GPT-3.5 Turbo model used in this guide is also one of the most forgiving for a first build: it is fast, inexpensive, and reliable for conversational tasks. If you later want to upgrade to GPT-4o mini for better quality at a lower price, it is a single line change in the request body.
+
+That said, OpenAI is not the only option. Google’s Gemini API and Anthropic’s Claude API are both capable alternatives with their own strengths — larger context windows, different pricing, and in Gemini’s case, a free tier that is useful for prototyping. The table below compares all three so you can make an informed choice before you start building. Gemini can be swapped in with minimal changes to the setup in this guide. Claude requires more rework due to a different API format.
+
+| **Model** | **Pricing (per 1M tokens)** | **Context window** | **Free tier** | **FlutterFlow setup effort** | **Best suited for** |
+| --- | --- | --- | --- | --- | --- |
+| **GPT-4o mini**OpenAI | $0.15 input / $0.60 outputRecommended over GPT-3.5 Turbo. More capable at a lower price. | 128K tokens | $5 credit (new accounts) | No changes needed. Same request format as this guide. Swap model name only. | General-purpose chat, support bots, learning assistants |
+| **GPT-3.5 Turbo**OpenAI | $0.50 input / $1.50 outputStill available but more expensive and less capable than GPT-4o mini. | 16K tokens | $5 credit (new accounts) | No changes needed. The exact model used in this guide. | Simple chat where cost is the primary concern |
+| **Gemini 2.5 Flash**Google | $0.30 input / $2.50 outputThinking mode billed separately at $3.50/1M output tokens. | 1M tokens | Yes — via Google AI Studio | Minor changes. OpenAI-compatible endpoint — change base URL, API key, and model name only. | Long conversations, document-grounded bots, free prototyping |
+| **Claude Haiku 4.5**Anthropic | $1.00 input / $5.00 outputUp to 90% savings with prompt caching; 50% with batch API. | 200K tokens | No | Significant rework. Different request format — body, response structure, and auth header all differ from this guide. | High-quality responses where instruction-following and safety behaviour matter |
+
+*Prices sourced from official documentation — June 2026. Verify before building as pricing may change.*
+
+## **How This Works — The Big Picture**
+
+Before touching any tool, let us understand what happens when a user sends a message.
+
+| **🔑 Key Concept: Why Pass the Full History?**OpenAI has no memory between requests — every API call is independent.To make the AI feel conversational, you send the entire conversation with each new message.OpenAI reads all of it and replies in context. This is the same pattern ChatGPT uses. |
+| --- |
+
+## **Prerequisites**
+
+Make sure you have these ready before starting:
+
+- A FlutterFlow account (free tier works for building)
+- An OpenAI account with an API key — get one at platform.openai.com
+
+## **Part 1: Creating the API Call in FlutterFlow**
+
+We start by setting up the API call that will send the conversation history to OpenAI. This is done entirely inside FlutterFlow — no external tools needed.
+
+## **Step 1.1 — Open API Calls**
+
+In FlutterFlow, click on the API Calls tab in the left sidebar (the plug/lightning bolt icon). Then click + Add in the top left, and select Create API Call from the dropdown.
+
+## **Step 1.2 — Configure the Basic Settings**
+
+Fill in the following fields on the API call creation screen:
+
+| **Field** | **Value** |
+| --- | --- |
+| **API Call Name** | AskOpenAI |
+| **Method Type** | POST |
+| **API URL** | https://api.openai.com/v1/chat/completions |
+
+## **Step 1.3 — Add the Authorization Header**
+
+OpenAI requires an API key to be sent with every request. Rather than hardcoding it directly into the header, the screenshots use a FlutterFlow Environment Variable to store the key securely. To set this up first, go to the Settings icon in the left sidebar, then navigate to Project Setup > Dev Environments. Click + Add Value, set the Name to OpenAIKey and the Data Type to String, then click Create. Back in the Production row, paste your actual OpenAI API key into the Value field for OpenAIKey.
+
+Once the environment variable is set, go back to your API call. In the Variables tab, add a variable named API_Key with Type set to String. Set its Default Value by clicking the variable picker and selecting Environment Values > OpenAIKey. Then switch to the Headers tab, click + Add Header, and set the header value to: Authorization: Bearer [API_Key] — referencing the variable you just created.
+
+## **Step 1.4 — Add the Request Body**
+
+Go to the Body section and select JSON as the body type. Enter the following:
+
+| \{  "model": "gpt-3.5-turbo",  "messages": `<messages>`,  "max_tokens": 500\} |
+| --- |
+
+Now define the messages body variable by clicking the placeholder:
+
+- Name: messages
+- Type: JSON
+
+This is the key part — instead of sending a single message, you are sending the full conversation history as a JSON. Each item in the list looks like this:
+
+| \{ "role": "user",      "content": "What is Flutter?" \}\{ "role": "assistant", "content": "Flutter is a UI framework by Google..." \} |
+| --- |
+
+| **💡 Why This Format?**This is exactly the format the OpenAI Chat Completions API expects.The role field tells OpenAI whether it was the user or the AI who said each line.By including every previous turn, OpenAI can read the full conversation and reply in context. |
+| --- |
+
+## **Step 1.**5** — Map the Response JSON Path**
+
+Now tell FlutterFlow where to find the reply text inside OpenAI's response. Go to the Response section and add a JSON path:
+
+- Name: replyText
+- JSON Path: $.choices[:].message
+
+This navigates OpenAI's response structure to extract just the reply text from the first choice returned.
+
+## **Step 1.**6** — Test the API Call**
+
+Before wiring anything to the UI, test the API call directly inside FlutterFlow. Click Test API Call and provide a test value for messages:
+
+| **Test value for messages**[\{"role": "user", "content": "What is the capital of France?"\}] |
+| --- |
+
+Click Send. If everything is configured correctly, you will see a 200 response and the replyText field will contain OpenAI's answer.
+
+## **Part 2: Setting Up App State**
+
+The conversation history needs to survive page navigations but reset when the app is closed. App State is the right tool for this.
+
+| **💡 **App State vs Page State vs FirebasePage State: resets every time you leave the page — too temporary for a growing chat list.Firebase / Firestore: persists to a database and survives app restarts — too permanent, we want it to reset on close.App State: lives in memory for the entire app session. Resets automatically when the app closes. Perfect for this. |
+| --- |
+
+## **Step 2.1 — Create the chatHistory App State Variable**
+
+1. Click the App Values icon in the left sidebar and open App State.
+2. Click + Add App State Variable.
+3. Name: chatHistory, Type: List of JSON, Default Value: empty list.
+
+## **Part 3: Building the Chatbot UI**
+
+## **Step 3.1 — Create a New Page**
+
+In the Pages panel, create a new page and name it anything you want.
+
+## **Step 3.2 — Build the Layout**
+
+Here is the target layout:
+
+In FlutterFlow's canvas, build this widget tree:
+
+- ScaffoldColumn (fills the screen)
+- Expanded > ListView — takes all space above the input bar
+- Column with 2 Row widgets each containing Text wrapped in Container.
+- Row at the bottom
+- TextField
+- IconButton
+
+## **Step 3.3 — Configure the ListView with Dynamic Children**
+
+The ListView will generate one chat bubble per message in chatHistory. In FlutterFlow, this uses the Generate Dynamic Children feature.
+
+1. Click the ListView.
+2. In properties, enable Generate Dynamic Children.
+3. Set the source to App State > chatHistory.
+4. Inside the ListView, add a Container widget for one bubble.
+5. Style it and add a Text widget inside, bound to currentItem > content.
+
+To show AI and User messages, set the Row visibility conditionally:
+
+- If currentItem.role == 'user' → show user message container
+- If currentItem.role == 'assistant' → show AI message container
+
+Perform similar steps for the user message row and set the role value to “user”
+
+## **Part 4: Wiring Up the Send Button**
+
+The Send button runs five actions in sequence. Here is what needs to happen on every tap:
+
+1. Add the user's message to chatHistory as role: user.
+2. Call AskOpenAI with the full chatHistory.
+3. Add the AI's reply to chatHistory as role: assistant.
+4. Clear the TextField.
+5. Scroll the ListView to the bottom so the latest message is visible.
+
+## **Step 4.1 — Open the Action Flow Editor**
+
+Click the IconButton (the send arrow) in the canvas or Widget Tree, then in the right panel click the Actions tab and select Open next to Action Flow Editor. When prompted, select On Tap as the trigger type.
+
+## **Step 4.2 — Action 1: Add User Message to chatHistory**
+
+Click + Add Action and choose State Management > Update App State.
+
+- Field: chatHistory
+- Operation: Set Value
+
+## **Step 4.3 — Action 2: Clear the TextField**
+
+Click + Add Action and choose State Management > Reset Form Fields. Select the TextField as the target. This clears the input immediately after the user sends a message.
+
+## **Step 4.4 — Action 3: Call the OpenAI API**
+
+Click + Add Action and choose Backend/Database > API Call.
+
+Select AskOpenAI as the API call. Under Variables, set the messages variable value to App State > chatHistory.
+
+| **⚠️ Troubleshooting Checklist**AI replies but ignores earlier context → confirm chatHistory is App State (not Page State) and the full list is bound to the API call.API call fails with 401 → your OpenAI API key is incorrect or has no credits. Double-check it in the Authorization header.Bubbles are not showing → confirm ListView has Generate Dynamic Children enabled and source is App State > chatHistory.Send button does nothing → check all 5 actions are under On Tap, not a different trigger.Chat does not reset on app close → this is expected and correct. App State clears automatically when the app process ends. |
+| --- |
+
+## **What You Just Learned**
+
+Here is a summary of every FlutterFlow and development concept used in this post:
+
+| **Concept** | **Where You Used It** |
+| --- | --- |
+| **API Call Body Variables** | Defined chatHistory as a `List<JSON>` variable passed in the POST body |
+| **JSON Path mapping** | Extracted the reply text using $.choices[:].message |
+| **App State (`List<JSON>`)** | Stored the growing chatHistory — session-only, resets on app close, survives page navigation |
+| **Generate Dynamic Children** | Rendered one chat bubble per message from the chatHistory list |
+| **TextField** | Read the user's typed message and cleared it after sending |
+| **Action Flow (5 steps)** | Chained: add user msg > call API > add AI reply > clear field > scroll to bottom |
+| **System message** | Hidden instruction at the top of each request that controls the AI's personality |
+| **OpenAI Chat Completions** | Processed the full conversation history and returned a context-aware reply |
+
+## **Going Further**
+
+Now that your conversational chatbot is working, here are ideas to extend it:
+
+- Add a loading indicator — show a spinner or 'AI is typing...' bubble while waiting for the API response.
+- Add a Clear Chat button — an action that sets chatHistory back to an empty list, starting a fresh conversation.
+- Customize the system prompt — change the system message in the API body to control the AI’s personality, role, and boundaries without touching any other part of the setup.
+
+The system message is a hidden instruction sent at the top of every request, before any user messages. The AI reads it first and uses it to shape every reply it gives. To add one, go back to your API call body in FlutterFlow and prepend a system entry to the messages array, like this:
+
+\{ "role": "system", "content": "You are a helpful support assistant for Acme App. Only answer questions related to the app. Keep your responses concise and friendly." \}
+
+This entry sits outside of the chatHistory App State variable — it is hardcoded directly in the request body so it is always sent first, invisible to the user, and never added to the conversation list. You can use the system message to give the AI a specific role, set the tone, restrict what topics it will engage with, or even paste in a short reference document for it to draw answers from. That last technique is particularly useful for support or FAQ bots, where you want the AI to stay grounded in your own content rather than answering from general knowledge.
+
+- Handle errors gracefully — if the API call fails, add an error message as an assistant bubble so the user sees feedback inline.
+- Style the chat bubbles — add sender labels, timestamps, and avatar icons for a polished look.
+
+## **Summary**
+
+In this post you built a fully functional conversational AI chatbot in FlutterFlow by:
+
+1. Creating a POST API call to OpenAI's Chat Completions endpoint directly in FlutterFlow.
+2. Configuring the request body to send a full chatHistory list that OpenAI reads as a real conversation.
+3. Using App State to hold chatHistory in memory — session-only, no database needed.
+4. Building a dynamic chat UI where each message is rendered from the chatHistory list.
+5. Wiring a 5-step action chain that builds conversation context with every message sent.
+
+The key insight is that conversational AI is simply a growing list of messages passed with every request.
+
+
+> Explore API endpoints directly on the [OpenAI Platform Documentation](https://platform.openai.com/docs) and [FlutterFlow API Calls Guide](https://docs.flutterflow.io/integrations/apis/).
+
+
+
+### Related FlutterFlow Tutorials
+
+Expand your engineering skills with these related guides:
+- [OpenAI Integration in FlutterFlow](/openai-integration-with-flutterflow/)
+- [Custom Dart Actions in FlutterFlow](/custom-dart-actions-in-flutterflow/)
+- [FlutterFlow Tutorial for Beginners](/introduction-to-low-code-flutterflow-overview/)
+- [FlutterFlow UI Widgets Explained](/flutterflow-ui-widgets-explained/)
+
+
+---
+
+> **Need a FlutterFlow app built?** [Talk to KinetixSoft](/contact/) — our senior FlutterFlow engineers design, build, and deploy production-grade mobile and web applications with bulletproof architecture.

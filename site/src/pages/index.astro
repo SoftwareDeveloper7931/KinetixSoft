@@ -1,0 +1,305 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { categories } from '../data/categories';
+import CallToAction from '../components/CallToAction.astro';
+
+const allTutorials = await getCollection('tutorials');
+
+// Find pillar article and featured articles
+const pillarArticle = allTutorials.find((t) => t.data.isPillar) || allTutorials[0];
+const featuredArticles = allTutorials.filter((t) => t.slug !== pillarArticle.slug).slice(0, 3);
+const latestArticles = allTutorials.slice(0, 6);
+
+// Count tutorials per category
+const categoryCounts: Record<string, number> = {};
+for (const t of allTutorials) {
+  categoryCounts[t.data.category] = (categoryCounts[t.data.category] || 0) + 1;
+}
+
+const categoryList = Object.values(categories);
+---
+
+<BaseLayout
+  title="FlutterFlow Tutorials & Production Guides (2026) | KinetixSoft"
+  description="Master FlutterFlow app development with 31+ step-by-step engineering tutorials on Firebase, Supabase, Stripe, AI chatbots, and custom Dart code."
+  canonicalUrl="https://kinetixsoft.com/"
+>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-28 border-b border-slate-200 dark:border-slate-800">
+    <!-- Gradient background blurs -->
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-tr from-brand-500/20 via-sky-400/20 to-indigo-500/10 blur-[100px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 dark:bg-brand-950/60 border border-brand-200 dark:border-brand-800/80 text-brand-700 dark:text-brand-300 text-xs font-semibold mb-6 shadow-sm">
+        <span class="flex h-2 w-2 rounded-full bg-brand-500 animate-pulse"></span>
+        <span>2026 FlutterFlow Engineering Hub • By KinetixSoft</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight max-w-4xl mx-auto">
+        Build Production-Grade Apps with <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-sky-500 to-indigo-600">FlutterFlow</span>
+      </h1>
+
+      <p class="mt-6 text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        Deep-dive technical tutorials, scalable backend architectures, and practical Dart code examples written by senior FlutterFlow architects.
+      </p>
+
+      <!-- Instant Search Form -->
+      <div class="mt-10 max-w-xl mx-auto">
+        <form action="/tutorials/" method="get" class="relative flex items-center shadow-lg rounded-2xl">
+          <div class="absolute left-4 text-slate-400 pointer-events-none">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </div>
+          <input
+            type="search"
+            name="q"
+            placeholder="Search 31+ tutorials (e.g., Stripe, Supabase, Brevo, Custom Dart)..."
+            class="w-full pl-12 pr-32 py-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 shadow-sm text-slate-900 dark:text-white placeholder:text-slate-400"
+          />
+          <button
+            type="submit"
+            class="absolute right-2 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs transition-transform hover:scale-105 active:scale-95 shadow-sm shadow-brand-600/30"
+          >
+            Search
+          </button>
+        </form>
+
+        <!-- Quick Tags -->
+        <div class="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+          <span class="font-medium">Popular:</span>
+          <a href="/tutorials/?q=firebase" class="hover:text-brand-600 dark:hover:text-brand-400 underline decoration-slate-300">Firebase CRUD</a>
+          <span>•</span>
+          <a href="/tutorials/?q=supabase" class="hover:text-brand-600 dark:hover:text-brand-400 underline decoration-slate-300">Supabase RLS</a>
+          <span>•</span>
+          <a href="/tutorials/?q=stripe" class="hover:text-brand-600 dark:hover:text-brand-400 underline decoration-slate-300">Stripe Payments</a>
+          <span>•</span>
+          <a href="/tutorials/?q=openai" class="hover:text-brand-600 dark:hover:text-brand-400 underline decoration-slate-300">AI Chatbot</a>
+          <span>•</span>
+          <a href="/tutorials/?q=brevo" class="hover:text-brand-600 dark:hover:text-brand-400 underline decoration-slate-300">Brevo Emails</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Pillar & Highlights -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+      <div>
+        <span class="text-xs uppercase font-bold tracking-wider text-brand-600 dark:text-brand-400">Featured Blueprint</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-1">Start Here: Foundational FlutterFlow Guide</h2>
+      </div>
+      <a href="/tutorials/" class="text-sm font-semibold text-brand-600 dark:text-brand-400 hover:underline inline-flex items-center gap-1">
+        Explore all 31 guides <span>→</span>
+      </a>
+    </div>
+
+    <!-- Pillar Card -->
+    <div class="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-8 sm:p-10 shadow-sm hover:shadow-md transition-all mb-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-8 space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
+              ⭐ Core Pillar Article
+            </span>
+            <span class="text-xs text-slate-500 dark:text-slate-400">{pillarArticle.data.readingTime}</span>
+          </div>
+          <h3 class="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
+            <a href={`/${pillarArticle.slug}/`} class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+              {pillarArticle.data.title.split(' | ')[0]}
+            </a>
+          </h3>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+            {pillarArticle.data.description}
+          </p>
+          <div class="flex items-center gap-4 pt-2">
+            <a
+              href={`/${pillarArticle.slug}/`}
+              class="px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs transition-transform hover:scale-105 active:scale-95 shadow-sm inline-flex items-center gap-2"
+            >
+              <span>Read Complete Pillar Guide</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+            <span class="text-xs text-slate-500">By {pillarArticle.data.author}</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-4 bg-gradient-to-br from-brand-50 to-sky-100 dark:from-brand-950/40 dark:to-slate-800/60 rounded-2xl p-6 border border-brand-100 dark:border-slate-800 space-y-3">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-brand-700 dark:text-brand-300">What You'll Learn:</h4>
+          <ul class="space-y-2 text-xs text-slate-700 dark:text-slate-300">
+            {pillarArticle.data.keyTakeaways.slice(0, 3).map((takeaway) => (
+              <li class="flex items-start gap-2">
+                <span class="text-brand-600 dark:text-brand-400 font-bold">✓</span>
+                <span>{takeaway}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Sub-grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {featuredArticles.map((art) => (
+        <a
+          href={`/${art.slug}/`}
+          class="group flex flex-col rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-6 shadow-sm hover:shadow-md hover:border-brand-500/50 transition-all"
+        >
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-brand-50 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800/60">
+              {art.data.category}
+            </span>
+            <span class="text-[11px] text-slate-400">{art.data.readingTime}</span>
+          </div>
+          <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors line-clamp-2 mb-2">
+            {art.data.title.split(' (2026')[0].split(' | ')[0]}
+          </h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 line-clamp-3 leading-relaxed mb-4 flex-grow">
+            {art.data.description}
+          </p>
+          <div class="text-xs font-semibold text-brand-600 dark:text-brand-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+            Read Tutorial <span>→</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Category Hubs Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-slate-200 dark:border-slate-800">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="text-xs uppercase font-bold tracking-wider text-brand-600 dark:text-brand-400">Structured Learning</span>
+      <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mt-1">Explore Topic Clusters</h2>
+      <p class="text-sm text-slate-600 dark:text-slate-400 mt-2">
+        Browse curated hubs covering backend architecture, custom code, security policies, and monetization.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {categoryList.map((cat) => {
+        const count = categoryCounts[cat.name] || 0;
+        return (
+          <a
+            href={`/category/${cat.slug}/`}
+            class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-6 shadow-sm hover:shadow-md hover:border-brand-500/50 transition-all flex flex-col justify-between"
+          >
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                {cat.icon}
+              </div>
+              <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                {cat.name}
+              </h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+                {cat.description}
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500">
+              <span>{count} {count === 1 ? 'Tutorial' : 'Tutorials'}</span>
+              <span class="font-semibold text-brand-600 dark:text-brand-400 group-hover:translate-x-1 transition-transform">Explore →</span>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+
+  <!-- Latest Tutorials Grid -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-slate-200 dark:border-slate-800">
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <span class="text-xs uppercase font-bold tracking-wider text-brand-600 dark:text-brand-400">Fresh Technical Content</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-1">Latest Engineering Guides</h2>
+      </div>
+      <a href="/tutorials/" class="text-xs sm:text-sm font-semibold text-brand-600 dark:text-brand-400 hover:underline">
+        View all articles →
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {latestArticles.map((art) => (
+        <a
+          href={`/${art.slug}/`}
+          class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-6 shadow-sm hover:shadow-md hover:border-brand-500/50 transition-all flex flex-col justify-between"
+        >
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                {art.data.category}
+              </span>
+              <span class="text-[11px] text-slate-400">{art.data.readingTime}</span>
+            </div>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors line-clamp-2 mb-2">
+              {art.data.title.split(' (2026')[0].split(' | ')[0]}
+            </h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 line-clamp-3 leading-relaxed mb-4">
+              {art.data.description}
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500">
+            <span>By {art.data.author}</span>
+            <span class="font-semibold text-brand-600 dark:text-brand-400 group-hover:translate-x-1 transition-transform">Read →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Value Proposition: Why KinetixSoft -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-slate-200 dark:border-slate-800">
+    <div class="rounded-3xl bg-slate-900 text-white p-8 sm:p-12 shadow-xl border border-slate-800">
+      <div class="max-w-3xl mb-10">
+        <span class="text-xs uppercase font-bold tracking-wider text-brand-400">Engineering Excellence</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mt-1">Why Fast-Growing Companies Build With KinetixSoft</h2>
+        <p class="text-sm text-slate-300 mt-3 leading-relaxed">
+          We combine the velocity of FlutterFlow with the software engineering rigor of senior full-stack developers. Here is how our architecture stands apart:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-5 rounded-2xl bg-slate-800/60 border border-slate-700/60 space-y-2">
+          <div class="text-2xl">⚡</div>
+          <h4 class="font-bold text-sm text-white">60 FPS Native Performance</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Eliminate widget rebuild cascades, memory leaks, and render freezes with audited state architecture.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-800/60 border border-slate-700/60 space-y-2">
+          <div class="text-2xl">🛡️</div>
+          <h4 class="font-bold text-sm text-white">Enterprise Security &amp; RBAC</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Cryptographic custom claims, serverless token validation, and strict Row-Level Security policies.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-800/60 border border-slate-700/60 space-y-2">
+          <div class="text-2xl">💳</div>
+          <h4 class="font-bold text-sm text-white">Verified Monetization</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Turnkey RevenueCat subscriptions and Stripe checkouts with automated webhook fulfillment.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-800/60 border border-slate-700/60 space-y-2">
+          <div class="text-2xl">🚀</div>
+          <h4 class="font-bold text-sm text-white">Zero Vendor Lock-In</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Clean, modular, exportable Dart code ready for custom CI/CD pipelines and native App Store releases.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Big Call to Action -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <CallToAction
+      headline="Need a FlutterFlow app built? Talk to KinetixSoft"
+      subtext="Partner with senior FlutterFlow architects who build fast, secure, production-grade applications on schedule and within budget."
+    />
+  </section>
+</BaseLayout>

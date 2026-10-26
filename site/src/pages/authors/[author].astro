@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { authors, type Author } from '../../data/authors';
+
+export async function getStaticPaths() {
+  return Object.values(authors).map((author) => ({
+    params: { author: author.slug },
+    props: { authorData: author },
+  }));
+}
+
+export interface Props {
+  authorData: Author;
+}
+
+const { authorData } = Astro.props;
+
+const allTutorials = await getCollection('tutorials');
+const authorTutorials = allTutorials.filter((t) => {
+  const norm = t.data.author.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  return norm === authorData.slug;
+});
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://kinetixsoft.com/' },
+  { name: 'Authors', url: 'https://kinetixsoft.com/about/' },
+  { name: authorData.name, url: `https://kinetixsoft.com/authors/${authorData.slug}/` }
+];
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: authorData.name,
+  jobTitle: authorData.role,
+  description: authorData.bio,
+  image: `https://kinetixsoft.com${authorData.avatar}`,
+  worksFor: {
+    '@type': 'Organization',
+    name: 'KinetixSoft',
+    url: 'https://kinetixsoft.com'
+  },
+  sameAs: authorData.socials ? Object.values(authorData.socials).filter(Boolean) : []
+};
+---
+
+<BaseLayout
+  title={`${authorData.name} - FlutterFlow Author Profile | KinetixSoft`}
+  description={`Read FlutterFlow tutorials and architecture guides authored by ${authorData.name}, ${authorData.role} at KinetixSoft.`}
+  canonicalUrl={`https://kinetixsoft.com/authors/${authorData.slug}/`}
+  breadcrumbs={breadcrumbs}
+>
+  <!-- Injected Person Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="mb-6">
+      <ol class="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+        <li><a href="/" class="hover:text-brand-600 dark:hover:text-brand-400">Home</a></li>
+        <li><span>/</span></li>
+        <li><a href="/about/" class="hover:text-brand-600 dark:hover:text-brand-400">Authors</a></li>
+        <li><span>/</span></li>
+        <li class="font-medium text-slate-900 dark:text-slate-200">{authorData.name}</li>
+      </ol>
+    </nav>
+
+    <!-- Author Profile Card -->
+    <header class="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-8 sm:p-10 shadow-sm mb-12">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-6">
+        <img
+          src={authorData.avatar}
+          alt={authorData.name}
+          class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover border-2 border-brand-500 shadow-md"
+          width="112"
+          height="112"
+        />
+        <div class="space-y-2">
+          <span class="text-xs uppercase font-bold tracking-wider text-brand-600 dark:text-brand-400">KinetixSoft Contributor</span>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            {authorData.name}
+          </h1>
+          <p class="text-sm font-semibold text-slate-700 dark:text-slate-300">
+            {authorData.role}
+          </p>
+          <p class="text-sm text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed pt-1">
+            {authorData.bio}
+          </p>
+
+          {authorData.socials && (
+            <div class="flex items-center gap-4 pt-2 text-xs font-semibold text-brand-600 dark:text-brand-400">
+              {authorData.socials.linkedin && (
+                <a href={authorData.socials.linkedin} target="_blank" rel="noopener noreferrer" class="hover:underline">LinkedIn ↗</a>
+              )}
+              {authorData.socials.github && (
+                <a href={authorData.socials.github} target="_blank" rel="noopener noreferrer" class="hover:underline">GitHub ↗</a>
+              )}
+              {authorData.socials.twitter && (
+                <a href={authorData.socials.twitter} target="_blank" rel="noopener noreferrer" class="hover:underline">Twitter ↗</a>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    </header>
+
+    <!-- Author Tutorials Grid -->
+    <div>
+      <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">
+        Articles Authored by {authorData.name} ({authorTutorials.length})
+      </h2>
+
+      {authorTutorials.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {authorTutorials.map((t) => (
+            <article class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-6 shadow-sm hover:shadow-md hover:border-brand-500/50 transition-all flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                    {t.data.category}
+                  </span>
+                  <span class="text-[11px] text-slate-400">{t.data.readingTime}</span>
+                </div>
+
+                <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors line-clamp-2 mb-2">
+                  <a href={`/${t.slug}/`}>
+                    {t.data.title.split(' (2026')[0].split(' | ')[0]}
+                  </a>
+                </h3>
+
+                <p class="text-xs text-slate-600 dark:text-slate-400 line-clamp-3 leading-relaxed mb-4">
+                  {t.data.description}
+                </p>
+              </div>
+
+              <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500">
+                <span>{t.data.difficulty}</span>
+                <a href={`/${t.slug}/`} class="font-semibold text-brand-600 dark:text-brand-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                  Read <span>→</span>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p class="text-sm text-slate-500">No tutorials found for this author profile.</p>
+      )}
+    </div>
+  </div>
+</BaseLayout>

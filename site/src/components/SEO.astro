@@ -1,0 +1,167 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  articleData?: {
+    publishedTime: string;
+    modifiedTime: string;
+    authorName: string;
+    category: string;
+    tags: string[];
+    isHowTo?: boolean;
+    keyTakeaways?: string[];
+  };
+  faqs?: Array<{ question: string; answer: string }>;
+  breadcrumbs?: Array<{ name: string; url: string }>;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl = Astro.url.href,
+  ogImage = '/images/og-default.png',
+  articleData,
+  faqs = [],
+  breadcrumbs = [{ name: 'Home', url: 'https://kinetixsoft.com/' }],
+} = Astro.props;
+
+const siteUrl = 'https://kinetixsoft.com';
+const fullCanonical = canonicalUrl.startsWith('http') ? canonicalUrl : `${siteUrl}${canonicalUrl}`;
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+
+// Structured Data Schemas
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'KinetixSoft',
+  url: siteUrl,
+  logo: `${siteUrl}/favicon.svg`,
+  sameAs: [
+    'https://twitter.com/kinetixsoft',
+    'https://linkedin.com/company/kinetixsoft',
+    'https://github.com/kinetixsoft'
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'contact@kinetixsoft.com',
+    contactType: 'customer support'
+  }
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'KinetixSoft',
+  url: siteUrl,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: `${siteUrl}/tutorials/?q={search_term_string}`,
+    'query-input': 'required name=search_term_string'
+  }
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((crumb, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: crumb.name,
+    item: crumb.url.startsWith('http') ? crumb.url : `${siteUrl}${crumb.url}`
+  }))
+};
+
+let articleSchema: any = null;
+if (articleData) {
+  articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: title,
+    description: description,
+    image: fullOgImage,
+    datePublished: articleData.publishedTime,
+    dateModified: articleData.modifiedTime,
+    author: {
+      '@type': 'Person',
+      name: articleData.authorName,
+      url: `${siteUrl}/authors/${articleData.authorName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}/`
+    },
+    publisher: orgSchema,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': fullCanonical
+    },
+    keywords: articleData.tags.join(', ')
+  };
+}
+
+let faqSchema: any = null;
+if (faqs && faqs.length > 0) {
+  faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer
+      }
+    }))
+  };
+}
+
+let howToSchema: any = null;
+if (articleData && articleData.isHowTo && articleData.keyTakeaways && articleData.keyTakeaways.length > 0) {
+  howToSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: title,
+    description: description,
+    step: articleData.keyTakeaways.map((step, idx) => ({
+      '@type': 'HowToStep',
+      position: idx + 1,
+      name: `Step ${idx + 1}`,
+      text: step
+    }))
+  };
+}
+---
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<link rel="canonical" href={fullCanonical} />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={articleData ? "article" : "website"} />
+<meta property="og:url" content={fullCanonical} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullOgImage} />
+<meta property="og:site_name" content="KinetixSoft" />
+{articleData && (
+  <meta property="article:published_time" content={articleData.publishedTime} />
+  <meta property="article:modified_time" content={articleData.modifiedTime} />
+  <meta property="article:section" content={articleData.category} />
+)}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@kinetixsoft" />
+<meta name="twitter:creator" content="@kinetixsoft" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullOgImage} />
+
+<!-- Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+{articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
+{faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+{howToSchema && <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />}

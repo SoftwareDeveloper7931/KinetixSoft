@@ -1,0 +1,278 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import ReadingProgress from '../components/ReadingProgress.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import KeyTakeaways from '../components/KeyTakeaways.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import CallToAction from '../components/CallToAction.astro';
+import { getAuthorByName } from '../data/authors';
+import { getCategoryByName } from '../data/categories';
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  entry: CollectionEntry<'tutorials'>;
+  headings: Array<{ depth: number; slug: string; text: string }>;
+  relatedEntries?: Array<CollectionEntry<'tutorials'>>;
+}
+
+const { entry, headings, relatedEntries = [] } = Astro.props;
+const data = entry.data;
+
+const author = getAuthorByName(data.author);
+const categoryMeta = getCategoryByName(data.category);
+
+const breadcrumbs = [
+  { name: 'Home', url: 'https://kinetixsoft.com/' },
+  { name: 'Tutorials', url: 'https://kinetixsoft.com/tutorials/' },
+  { name: data.category, url: categoryMeta ? `https://kinetixsoft.com/category/${categoryMeta.slug}/` : 'https://kinetixsoft.com/tutorials/' },
+  { name: data.title, url: `https://kinetixsoft.com/${entry.slug}/` }
+];
+---
+
+<BaseLayout
+  title={data.title}
+  description={data.description}
+  canonicalUrl={`https://kinetixsoft.com/${entry.slug}/`}
+  ogImage={data.ogImage || '/images/og-default.png'}
+  articleData={{
+    publishedTime: data.datePublished,
+    modifiedTime: data.dateModified,
+    authorName: data.author,
+    category: data.category,
+    tags: [data.primaryKeyword, ...data.secondaryKeywords],
+    isHowTo: true,
+    keyTakeaways: data.keyTakeaways
+  }}
+  faqs={data.faqs}
+  breadcrumbs={breadcrumbs}
+>
+  <ReadingProgress />
+
+  <article class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-14">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="mb-6">
+      <ol class="flex items-center flex-wrap gap-2 text-xs text-slate-500 dark:text-slate-400">
+        <li><a href="/" class="hover:text-brand-600 dark:hover:text-brand-400">Home</a></li>
+        <li><span>/</span></li>
+        <li><a href="/tutorials/" class="hover:text-brand-600 dark:hover:text-brand-400">Tutorials</a></li>
+        <li><span>/</span></li>
+        {categoryMeta && (
+          <>
+            <li><a href={`/category/${categoryMeta.slug}/`} class="hover:text-brand-600 dark:hover:text-brand-400">{data.category}</a></li>
+            <li><span>/</span></li>
+          </>
+        )}
+        <li class="font-medium text-slate-900 dark:text-slate-200 truncate max-w-xs sm:max-w-md">{data.title.split(' (2026')[0].split(' | ')[0]}</li>
+      </ol>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="max-w-4xl mb-10 space-y-4">
+      <div class="flex flex-wrap items-center gap-2.5">
+        {categoryMeta && (
+          <a
+            href={`/category/${categoryMeta.slug}/`}
+            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-50 text-brand-700 dark:bg-brand-950/60 dark:text-brand-300 border border-brand-200 dark:border-brand-800/60 hover:bg-brand-100 transition-colors"
+          >
+            <span>{categoryMeta.icon}</span>
+            <span>{data.category}</span>
+          </a>
+        )}
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300">
+          {data.difficulty}
+        </span>
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300">
+          ⏱️ {data.readingTime}
+        </span>
+        {data.isPillar && (
+          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300 border border-amber-300 dark:border-amber-700">
+            ⭐ Pillar Guide
+          </span>
+        )}
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
+        {data.title.split(' | ')[0]}
+      </h1>
+
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+        {data.description}
+      </p>
+
+      <!-- Author Bar -->
+      <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-4">
+        <a href={`/authors/${author.slug}/`} class="flex items-center gap-3 group">
+          <img
+            src={author.avatar}
+            alt={author.name}
+            class="w-11 h-11 rounded-full object-cover border border-slate-200 dark:border-slate-700 group-hover:ring-2 group-hover:ring-brand-500 transition-all"
+            width="44"
+            height="44"
+            loading="lazy"
+          />
+          <div>
+            <p class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors m-0">
+              {author.name}
+            </p>
+            <p class="text-xs text-slate-500 dark:text-slate-400 m-0">
+              {author.role}
+            </p>
+          </div>
+        </a>
+
+        <div class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-4">
+          <div>
+            <span class="block">Published</span>
+            <time datetime={data.datePublished} class="font-medium text-slate-700 dark:text-slate-300">{data.datePublished}</time>
+          </div>
+          <div class="border-l border-slate-200 dark:border-slate-800 pl-4">
+            <span class="block">Last Updated</span>
+            <time datetime={data.dateModified} class="font-medium text-slate-700 dark:text-slate-300">{data.dateModified}</time>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content & Sidebar Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+      <!-- Article Body (8 cols) -->
+      <div class="lg:col-span-8 min-w-0">
+        <!-- Key Takeaways Box -->
+        <KeyTakeaways takeaways={data.keyTakeaways} />
+
+        <!-- Rendered MDX Content -->
+        <div class="prose prose-slate dark:prose-invert max-w-none prose-headings:scroll-mt-24 prose-headings:tracking-tight prose-img:rounded-xl prose-img:shadow-md prose-pre:rounded-xl">
+          <slot />
+        </div>
+
+        <!-- FAQ Accordion -->
+        <FAQAccordion faqs={data.faqs} />
+
+        <!-- Soft Call to Action -->
+        <CallToAction
+          headline="Need a FlutterFlow app built? Talk to KinetixSoft"
+          subtext="From complex Firebase & Supabase backends to RevenueCat in-app subscriptions and custom Dart actions, our engineering team brings high-velocity, production-grade quality to your mobile vision."
+        />
+      </div>
+
+      <!-- Sticky Sidebar (4 cols) -->
+      <aside class="hidden lg:block lg:col-span-4">
+        <div class="sticky top-24 space-y-8">
+          <!-- Table of Contents -->
+          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-5 shadow-sm">
+            <TableOfContents headings={headings} />
+          </div>
+
+          <!-- Author Mini Card -->
+          <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-5 shadow-sm space-y-3">
+            <div class="flex items-center gap-3">
+              <img
+                src={author.avatar}
+                alt={author.name}
+                class="w-12 h-12 rounded-full object-cover border border-slate-200 dark:border-slate-700"
+                width="48"
+                height="48"
+              />
+              <div>
+                <a href={`/authors/${author.slug}/`} class="text-sm font-bold text-slate-900 dark:text-white hover:text-brand-600 dark:hover:text-brand-400">
+                  {author.name}
+                </a>
+                <p class="text-xs text-slate-500 dark:text-slate-400">{author.role}</p>
+              </div>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+              {author.bio}
+            </p>
+            <a href={`/authors/${author.slug}/`} class="inline-flex items-center text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline">
+              View all articles by {author.name} →
+            </a>
+          </div>
+
+          <!-- Hire KinetixSoft Widget -->
+          <div class="rounded-2xl bg-gradient-to-br from-brand-600 to-indigo-700 p-6 text-white shadow-lg space-y-3">
+            <span class="text-[10px] font-bold uppercase tracking-wider text-brand-200">Work With Us</span>
+            <h4 class="text-lg font-bold text-white tracking-tight leading-snug">
+              Looking for expert FlutterFlow developers?
+            </h4>
+            <p class="text-xs text-brand-100 leading-relaxed">
+              KinetixSoft builds production mobile &amp; web apps with clean architecture, high performance, and enterprise scalability.
+            </p>
+            <a
+              href="/contact/"
+              class="block text-center py-2.5 px-4 rounded-xl bg-white text-brand-700 hover:bg-brand-50 text-xs font-bold transition-transform hover:scale-[1.02] active:scale-95 shadow-sm"
+            >
+              Book a Free Strategy Call
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Related Articles Grid -->
+    {relatedEntries && relatedEntries.length > 0 && (
+      <section class="mt-16 pt-12 border-t border-slate-200 dark:border-slate-800">
+        <div class="flex items-center justify-between mb-8">
+          <div>
+            <span class="text-xs uppercase font-bold tracking-wider text-brand-600 dark:text-brand-400">Continue Learning</span>
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white mt-1">Recommended Related Guides</h2>
+          </div>
+          <a href="/tutorials/" class="text-xs font-semibold text-brand-600 dark:text-brand-400 hover:underline">
+            View all 31 tutorials →
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {relatedEntries.map((rel) => {
+            const relCat = getCategoryByName(rel.data.category);
+            return (
+              <a
+                href={`/${rel.slug}/`}
+                class="group flex flex-col rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-5 shadow-sm hover:shadow-md hover:border-brand-500/50 transition-all"
+              >
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <span class="text-xs font-medium px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                    {rel.data.category}
+                  </span>
+                  <span class="text-[11px] text-slate-400">{rel.data.readingTime}</span>
+                </div>
+                <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors line-clamp-2 mb-2">
+                  {rel.data.title.split(' (2026')[0].split(' | ')[0]}
+                </h3>
+                <p class="text-xs text-slate-600 dark:text-slate-400 line-clamp-3 leading-relaxed mb-4 flex-grow">
+                  {rel.data.description}
+                </p>
+                <div class="text-xs font-semibold text-brand-600 dark:text-brand-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                  Read Guide <span>→</span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </section>
+    )}
+  </article>
+
+  <!-- Code Block Copy Button Script -->
+  <script is:inline>
+    document.querySelectorAll('pre').forEach((pre) => {
+      const button = document.createElement('button');
+      button.className = 'copy-code-btn absolute top-3 right-3 text-xs px-2 py-1 rounded bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition-colors';
+      button.innerText = 'Copy';
+      button.type = 'button';
+
+      pre.style.position = 'relative';
+      pre.appendChild(button);
+
+      button.addEventListener('click', async () => {
+        const code = pre.querySelector('code')?.innerText || pre.innerText;
+        try {
+          await navigator.clipboard.writeText(code);
+          button.innerText = 'Copied!';
+          setTimeout(() => (button.innerText = 'Copy'), 2000);
+        } catch (err) {
+          button.innerText = 'Failed';
+        }
+      });
+    });
+  </script>
+</BaseLayout>

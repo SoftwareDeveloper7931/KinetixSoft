@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact KinetixSoft | Hire FlutterFlow App Developers"
+  description="Talk to KinetixSoft for custom FlutterFlow mobile and web app development, backend architecture, security audits, and enterprise migrations."
+  canonicalUrl="https://kinetixsoft.com/contact/"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <!-- Left Column: Value Prop & Contact Info -->
+      <div class="lg:col-span-5 space-y-6">
+        <div>
+          <span class="text-xs uppercase font-bold tracking-wider text-brand-600 dark:text-brand-400">Let's Build Together</span>
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1">
+            Talk to KinetixSoft
+          </h1>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 mt-4 leading-relaxed">
+            Need a production-grade FlutterFlow app built, an existing build audited, or complex backend architecture designed? Our senior engineering team is ready to help.
+          </p>
+        </div>
+
+        <!-- Highlight Box -->
+        <div class="rounded-2xl bg-gradient-to-br from-brand-50 to-sky-50 dark:from-brand-950/40 dark:to-slate-900 border border-brand-200/80 dark:border-brand-800/40 p-6 space-y-3">
+          <h4 class="text-sm font-bold text-slate-900 dark:text-white">What happens next?</h4>
+          <ol class="space-y-2 text-xs text-slate-700 dark:text-slate-300">
+            <li class="flex items-start gap-2">
+              <span class="w-4 h-4 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">1</span>
+              <span>We review your requirements and respond within 24 hours.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-4 h-4 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">2</span>
+              <span>We schedule a 30-minute technical discovery call with a senior architect.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="w-4 h-4 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">3</span>
+              <span>You receive a transparent scope, architecture plan, and fixed quote.</span>
+            </li>
+          </ol>
+        </div>
+
+        <!-- Contact Methods -->
+        <div class="space-y-3 pt-2 text-xs text-slate-600 dark:text-slate-400">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-sm">✉️</div>
+            <div>
+              <span class="block font-medium text-slate-900 dark:text-white">Direct Email</span>
+              <a href="mailto:contact@kinetixsoft.com" class="text-brand-600 dark:text-brand-400 hover:underline">contact@kinetixsoft.com</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-sm">🌐</div>
+            <div>
+              <span class="block font-medium text-slate-900 dark:text-white">Agency Website</span>
+              <a href="https://kinetixsoft.com" class="text-brand-600 dark:text-brand-400 hover:underline">kinetixsoft.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive Inquiry Form -->
+      <div class="lg:col-span-7">
+        <div class="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-8 sm:p-10 shadow-sm">
+          <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-6">
+            Tell Us About Your Project
+          </h2>
+
+          <form id="contact-form" class="space-y-5" onsubmit="event.preventDefault(); document.getElementById('form-success').classList.remove('hidden'); this.classList.add('hidden');">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="name" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Your Name *</label>
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  placeholder="e.g. Sarah Jenkins"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 text-slate-900 dark:text-white"
+                />
+              </div>
+              <div>
+                <label for="email" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Work Email *</label>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  placeholder="sarah@company.com"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 text-slate-900 dark:text-white"
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="project-type" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Project Type</label>
+                <select
+                  id="project-type"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 text-slate-900 dark:text-white"
+                >
+                  <option value="new-mvp">Build New FlutterFlow App (MVP)</option>
+                  <option value="backend-audit">Backend, Security &amp; Performance Audit</option>
+                  <option value="custom-integration">Custom API / Stripe / AI Integration</option>
+                  <option value="enterprise-migration">Enterprise App Migration</option>
+                  <option value="team-extension">Dedicated FlutterFlow Developers</option>
+                </select>
+              </div>
+              <div>
+                <label for="budget" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Estimated Budget</label>
+                <select
+                  id="budget"
+                  class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 text-slate-900 dark:text-white"
+                >
+                  <option value="5k-10k">$5,000 – $10,000</option>
+                  <option value="10k-25k">$10,000 – $25,000</option>
+                  <option value="25k-50k">$25,000 – $50,000</option>
+                  <option value="50k+">$50,000+</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="message" class="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Project Scope &amp; Details *</label>
+              <textarea
+                id="message"
+                rows="4"
+                required
+                placeholder="Describe your app concept, target platforms (iOS/Android/Web), required backend (Firebase/Supabase), and timeline..."
+                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 text-slate-900 dark:text-white"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full py-3.5 px-6 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm shadow-md shadow-brand-600/30 transition-transform hover:scale-[1.01] active:scale-98"
+            >
+              Submit Project Inquiry →
+            </button>
+          </form>
+
+          <!-- Success Alert -->
+          <div id="form-success" class="hidden text-center py-12 space-y-3">
+            <div class="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-950/60 dark:text-emerald-400 mx-auto flex items-center justify-center text-xl font-bold">
+              ✓
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Inquiry Received!</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 max-w-sm mx-auto leading-relaxed">
+              Thank you for reaching out to KinetixSoft. A senior FlutterFlow architect will review your project details and get back to you within 24 hours.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

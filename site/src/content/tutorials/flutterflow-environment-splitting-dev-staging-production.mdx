@@ -1,0 +1,263 @@
+---
+title: "FlutterFlow Environment Splitting: Dev & Prod | KinetixSoft"
+description: "Learn how to split FlutterFlow environments into dev, staging, and production safely. Avoid corrupted production data with this step-by-step 2026 guide."
+primaryKeyword: "flutterflow environments"
+secondaryKeywords: ["flutterflow dev and prod","flutterflow environment setup","flutterflow staging environment","flutterflow config splitting"]
+category: "Workflow & Teams"
+author: "Afaq Mehmood"
+datePublished: "2026-08-15"
+dateModified: "2026-10-22"
+readingTime: "12 min read"
+difficulty: "Intermediate"
+isPillar: false
+ogImage: "/images/og-default.png"
+keyTakeaways:
+  - "Separate dev, staging, and production databases to prevent test data from corrupting live customer records."
+  - "Configure environment variables in FlutterFlow for dynamic API endpoints and third-party secret management."
+  - "Establish a safe promotion pipeline: develop in Dev, conduct QA in Staging, and deploy tested code to Production."
+  - "Ensure third-party payment gateways and auth providers utilize test keys in dev and live keys in production."
+faqs:
+  - question: "Why should you split environments in FlutterFlow?"
+    answer: "Splitting environments isolates untested features, database migrations, and experimental code from live production users. It guarantees customer data remains clean and eliminates accidental service disruptions."
+  - question: "Can FlutterFlow connect to multiple Firebase projects for dev and prod?"
+    answer: "Yes. You can configure separate Firebase projects or use FlutterFlow’s native Flavors/Environments feature to switch project credentials between Development, Staging, and Production builds."
+  - question: "How do you handle API keys across different environments?"
+    answer: "FlutterFlow supports Project-level Environment Variables. You assign different key values per environment (e.g. Stripe test keys vs live keys), and FlutterFlow automatically injects the appropriate key at build time."
+  - question: "How do teams manage database schema migrations between environments?"
+    answer: "Schemas should be created and tested first in the development database. Once validated through testing, identical schema definitions and security rules are applied to staging and production environments."
+relatedArticles:
+  - "team-collaboration-in-flutterflow"
+  - "flutterflow-branching-system"
+  - "introduction-to-low-code-flutterflow-overview"
+  - "security-rules-implementation-in-flutterflow"
+---
+
+# FlutterFlow Environment Splitting: Dev & Prod
+
+Mastering **flutterflow environments** is essential for building production-ready mobile and web applications with FlutterFlow. In this comprehensive 2026 guide, you will learn the exact architectural principles, step-by-step implementation workflows, and battle-tested best practices developed by KinetixSoft engineers.
+
+
+*Before diving into this tutorial, make sure you understand the core visual development workflow in our pillar guide: [Intro to Low-Code Development: FlutterFlow Overview](/introduction-to-low-code-flutterflow-overview/).*
+
+**FlutterFlow Training Guide**
+
+**Environment Splitting**
+
+for Beginners
+
+*How to safely separate your Development and Production environments in FlutterFlow — step by step, with screenshots.*
+
+| **What you will learn:** - What environment splitting is and why it matters - How to create a second Firebase project for development (named yourapp-dev) - How to add that dev project as a new Environment inside FlutterFlow - How to use Environment Variables for different API keys per environment - The safe daily workflow: build in Dev, test in Staging, deploy to Production |
+| --- |
+
+## What is Environment Splitting?
+
+Environment splitting means running two (or more) completely separate copies of your app's backend, each for a different purpose. In FlutterFlow, your backend is Firebase. So "splitting environments" means having more than one Firebase project — one that real users use, and one that you use for testing and building new features.
+
+**The simple analogy: **Think of a restaurant. The kitchen (Development) is where chefs experiment and sometimes burn things. The manager's tasting table (Staging) is where the dish is checked before serving. The customer's plate (Production) is what your real users experience. You never run experiments on the customer's plate.
+
+### The Three Environments
+
+| **Development** | **Staging** | **Production** |
+| --- | --- | --- |
+| Active feature building | QA & client review | Live, real users |
+| Uses fake test data | Mirrors production data | Real data & payments |
+| Errors are OK here | No real transactions | Zero tolerance for errors |
+| Only developers see it | Team + client access | Locked — deploy only |
+| Rebuilt frequently | Stable, tested build | Never test here |
+
+**Important: **In FlutterFlow specifically, you do NOT create three separate FlutterFlow projects. You have one FlutterFlow project and create different Firebase backend projects for each environment. Then you connect them inside FlutterFlow's settings.
+
+## Why Does This Matter?
+
+FlutterFlow connects directly to your Firebase database. If you only have one Firebase project, every time you test a new feature, you are testing it on the same database your real users are using. This causes real problems:
+
+| **Without Splitting** | **With Splitting** | **Risk Level** |
+| --- | --- | --- |
+| Test data mixes with real user data | Dev Firebase is completely separate | HIGH |
+| Broken features go live by mistake | Changes only deploy when approved | HIGH |
+| Test notifications reach real users | Test notifies only go to dev devices | MEDIUM |
+| Test payments charge real cards | Dev uses Stripe test keys | CRITICAL |
+| No rollback possible | Production untouched until stable | Solved |
+
+| **Real example of what can go wrong**Imagine you are testing a new feature that deletes all records from a Firestore collection. Without environment splitting, this test runs on your LIVE database. Your real users lose their data permanently. This is not hypothetical — it happens to developers who skip this setup. |
+| --- |
+
+## Step 1 — Create a Dev Firebase Project
+
+Your FlutterFlow project already has one Firebase project connected to it. That is your Production backend — the one your real users use. Now you will create a second Firebase project specifically for development. It will be named exactly like your existing project but with "-dev" added at the end.
+
+| **Key concept before you start**You are NOT creating a second FlutterFlow project. You are creating a second Firebase project (the backend/database). Then, in Step 2, you will tell FlutterFlow to use that second Firebase project when you are in Development mode. |
+| --- |
+
+### How to do it — step by step
+
+| **1** | **Open Firebase Console in your browser**Open Google Chrome (or any browser) on your Windows PC. Go to: console.firebase.google.com — Sign in with the same Google account you used for your existing Firebase project. |
+| --- | --- |
+
+| **2** | **Click the "+ Add project" button**On the Firebase dashboard you will see a card for your existing production project (e.g. "myapp"). Next to it, there is a card with a "+" icon that says "Add project". Click that card. |
+| --- | --- |
+
+*📸  Firebase Console (Windows) — your existing production project is on the left. Click "+ Add project" to create the dev project.*
+
+| **3** | **Name it: your-project-name + "-dev"**In the "Project name" field, type your existing app name followed by "-dev". Example: if your production Firebase project is called "myapp", name this one "myapp-dev". Firebase will also auto-generate a Project ID below — you will need this ID later. |
+| --- | --- |
+
+*📸  Type your project name with -dev at the end. Firebase auto-generates the Project ID below the field.*
+
+| **4** | **Click Continue and finish the setup**Click "Continue" through the next two screens. You can turn off Google Analytics for the dev project if you want — it is not needed. Then click "Create project". Wait about 20 seconds for Firebase to finish. |
+| --- | --- |
+
+| **5** | **Enable the same services as your production project**Inside your new myapp-dev project, enable the same Firebase services you use in production. Go to the left sidebar and enable: Firestore Database, Authentication, and Storage. This makes sure your dev environment works the same way as production. |
+| --- | --- |
+
+| **6** | **Copy the Project ID — you will need it in the next step**Click the gear icon (⚙) at the top of the left sidebar → "Project settings". On the General tab, find "Project ID" and click the Copy button next to it. Keep it ready — you will paste it into FlutterFlow in Step 2. |
+| --- | --- |
+
+*📸  Firebase Project Settings → General tab — find the Project ID and click Copy. You will paste this into FlutterFlow next.*
+
+| **✅  Your Firebase setup is done**You now have two Firebase projects: "myapp" (production, untouched) and "myapp-dev" (development, safe to test in). In the next step you will connect myapp-dev to FlutterFlow. |
+| --- |
+
+## Step 2 — Add the Dev Environment in FlutterFlow
+
+Now you will open your FlutterFlow project and tell it about the new Firebase dev project you just created. FlutterFlow calls this adding a new "Environment". Once set up, you can switch between Production and Development with one click.
+
+### How to do it — step by step
+
+| **1** | **Open your FlutterFlow project**Go to app.flutterflow.io in your browser and open the project you want to set up environments for. You will see the main FlutterFlow builder with the page canvas in the middle. |
+| --- | --- |
+
+| **2** | **Click the Settings (gear) icon in the left sidebar, then click "Firebase"**Look at the very left edge of the FlutterFlow screen. There is a narrow column of icons. At the bottom of that column, click the gear icon ⚙ (Settings). A settings panel will open on the left. In that panel, click "Firebase". |
+| --- | --- |
+
+*📸  FlutterFlow — click the ⚙ Settings icon at the bottom of the left sidebar (Step 1), then click "Firebase" in the settings menu (Step 2).*
+
+| **3** | **Click "Dev Environments"**In the Firebase settings panel you will see your existing production Firebase project listed. Look for a button or section that says "Dev Environments". Click it to expand the environment settings. |
+| --- | --- |
+
+| **4** | **Fill in the new environment details**A form will appear with two fields. In the "Environment Name" field, type "Development". In the "Firebase Project ID" field, paste the Project ID you copied from Firebase Console in Step 1 (it looks like "myapp-dev-3c8f2a"). Then click the "Add Environment" button. |
+| --- | --- |
+
+*📸  FlutterFlow — Add Environment form: type "Development" as the name, paste the Firebase Project ID you copied, then click "Add Environment".*
+
+| **What just happened?**FlutterFlow now knows about two Firebase projects. When you switch to the "Development" environment, all your app's data reads and writes go to the myapp-dev Firebase database. Your production database is completely untouched. When you are ready to launch a real update, you switch back to "Production". |
+| --- |
+
+| **5** | **Switch to the Development environment**After adding the environment, you will see both "Production" and "Development" listed. Click the "Development" environment to make it active. You will see a confirmation that Development is now the active environment. From this point on, all your testing goes to the dev Firebase project. |
+| --- | --- |
+
+*📸  FlutterFlow environment switcher — click "Development" to make it active while building. Only switch to "Production" when deploying a tested, approved release.*
+
+| **Very important rule**Always check which environment is active before you start working. If you accidentally test with Production active, your test data will go into the real user database. Make it a habit to verify the active environment every time you open FlutterFlow. |
+| --- |
+
+## Step 3 — Set Up Environment Variables
+
+Environment Variables are pieces of information (like API keys, website URLs, or settings) that can have different values for each environment. For example, if your app takes payments with Stripe, you want to use Stripe's TEST key when in Development and Stripe's LIVE key when in Production. Environment Variables make this automatic.
+
+| **ℹ️  Do you need this right now?**Environment Variables are available on the FlutterFlow Pro plan and above. If you are on the free plan, you can still do environment splitting using separate Firebase projects (Steps 1 and 2). Environment Variables just make switching API keys and URLs easier. Come back to this step when you upgrade. |
+| --- |
+
+### Common things you store as Environment Variables
+
+- API_BASE_URL — the website address of your backend API (different for dev and production)
+- STRIPE_KEY — your payment key (test key for dev, live key for production)
+- APP_ENV — a label like "development" or "production" so your app knows which mode it is in
+
+### How to add Environment Variables in FlutterFlow
+
+| **1** | **Go to Settings → Dev Environment **In FlutterFlow, click the gear icon ⚙ (Settings) → then click "Environment Values" in the settings menu. This is different from the Firebase settings you used in Step 2. |
+| --- | --- |
+
+| **2** | **Click "+ Add Value"**You will see a table with columns for the variable name and its value for each environment. Click the "+ Add Environment Value" button to add a new row. |
+| --- | --- |
+
+| **3** | **Fill in the variable name and Datatype**Type a name for your variable (e.g. STRIPE_KEY). Then fill in the value for each environment. For Development, paste your Stripe TEST key. For Production, paste your Stripe LIVE key. The right key will be used automatically depending on which environment is active. |
+| --- | --- |
+
+| **4** | **Mark sensitive values as Private**For API keys and passwords, turn on the "Private" toggle button when adding them. Private values are stored encrypted and will not appear as plain text in your exported code. Always use this for anything you would not want to share publicly. |
+| --- | --- |
+
+| **5** | **Use the variable in your app**To use an environment variable: select any widget → open its properties panel → click the orange variable icon next to any value field → choose "Environment Values" from the list → select your variable. FlutterFlow will automatically use the correct value for whichever environment is active. |
+| --- | --- |
+
+## Step 4 — Your Safe Daily Workflow
+
+Now that everything is set up, here is the exact process you should follow every day when building features. Following this process means you can never accidentally break your live app.
+
+### Building a new feature
+
+| **1** | **Open FlutterFlow and confirm Development is the active environment**Before doing anything else, check the active environment indicator. It should say "Development". If it says "Production", switch it to Development first. |
+| --- | --- |
+
+| **2** | **Build and test your feature**Do all your work — adding pages, widgets, actions, and logic — while in Development mode. Test everything in Run Mode. It is OK to make mistakes here. All test data goes to your myapp-dev Firebase, not to your real users. |
+| --- | --- |
+
+| **3** | **Show the feature to your client or QA tester (Staging)**When the feature looks good to you, share it with your tester or client. If you have a Staging environment set up (a third Firebase project named myapp-staging), switch to Staging. If not, you can use Development for this review. The goal is to get approval before touching Production. |
+| --- | --- |
+
+| **4** | **Get approval — then deploy to Production**Only after someone has reviewed and approved the feature, switch the active environment to "Production" and deploy your app. Never skip this approval step. |
+| --- | --- |
+
+### Quick rules to remember
+
+- Always build and test with Development active
+- Never test with Production active
+- Always get the feature approved before switching to Production
+- After deploying, immediately switch back to Development
+- Before any major changes, clone your FlutterFlow project as a backup
+
+| **✅  Summary: the full flow in one sentence**Build in Development → Test in Development → Get approval in Staging → Deploy to Production → Switch back to Development immediately. |
+| --- |
+
+## Final Checklist
+
+Use this checklist to make sure you have completed every step correctly.
+
+### One-time Setup Checklist
+
+1. Created a second Firebase project named yourapp-dev at console.firebase.google.com
+2. Enabled Firestore, Authentication, and Storage in the myapp-dev Firebase project
+3. Copied the Project ID from myapp-dev Project Settings → General tab
+4. Opened FlutterFlow → Settings → Firebase → Manage Environments
+5. Added "Development" environment and pasted the myapp-dev Project ID
+6. Switched the active environment to Development
+7. Confirmed that test data appears in the dev Firebase project, not production
+
+### Before Every Work Session
+
+1. Check: is the active environment set to Development?
+2. If not — switch it to Development before touching anything
+
+### Before Every Production Deployment
+
+1. Feature has been fully tested in Development
+2. Feature has been approved by QA or client
+3. Cloned the current FlutterFlow project as a backup (name it: myapp-backup-YYYY-MM-DD)
+4. Switched active environment to Production
+5. Deployed the build
+6. Switched active environment back to Development immediately after deploying
+
+| **You are now building like a professional**Teams that use environment splitting ship features faster, make fewer mistakes, and never accidentally break their live apps. It takes about 30 minutes to set up and saves you from hours of painful debugging and data recovery later. Every serious app in production uses this exact approach. |
+| --- |
+
+For further details go to Flutterflow Dev Environment
+
+
+> For foundational platform features, review the official [FlutterFlow Documentation](https://docs.flutterflow.io) and [Flutter Framework Docs](https://flutter.dev/docs).
+
+
+
+### Related FlutterFlow Tutorials
+
+Expand your engineering skills with these related guides:
+- [Team Collaboration in FlutterFlow](/team-collaboration-in-flutterflow/)
+- [FlutterFlow Branching System Guide](/flutterflow-branching-system/)
+- [FlutterFlow Tutorial for Beginners](/introduction-to-low-code-flutterflow-overview/)
+- [Security Rules in FlutterFlow](/security-rules-implementation-in-flutterflow/)
+
+
+---
+
+> **Need a FlutterFlow app built?** [Talk to KinetixSoft](/contact/) — our senior FlutterFlow engineers design, build, and deploy production-grade mobile and web applications with bulletproof architecture.

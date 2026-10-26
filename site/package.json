@@ -1,0 +1,27 @@
+{
+  "name": "kinetixsoft-flutterflow-tutorials",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^3.1.9",
+    "@astrojs/rss": "^4.0.11",
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/tailwind": "^5.1.5",
+    "@rollup/wasm-node": "^4.65.1",
+    "@tailwindcss/typography": "^0.5.16",
+    "astro": "^4.16.18",
+    "fuse.js": "^7.0.0",
+    "reading-time": "^1.5.0",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}

@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { authors } from '../data/authors';
+import CallToAction from '../components/CallToAction.astro';
+
+const authorList = Object.values(authors);
+---
+
+<BaseLayout
+  title="About KinetixSoft | FlutterFlow Development Company"
+  description="KinetixSoft is a premier FlutterFlow agency building production-grade mobile and web applications with bulletproof backend architecture."
+  canonicalUrl="https://kinetixsoft.com/about/"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <!-- Header -->
+    <div class="max-w-3xl mb-12">
+      <span class="text-xs uppercase font-bold tracking-wider text-brand-600 dark:text-brand-400">Our Story &amp; Standards</span>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1">
+        About KinetixSoft
+      </h1>
+      <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 mt-4 leading-relaxed">
+        We bridge the gap between rapid visual low-code development and enterprise-grade software engineering. We build FlutterFlow applications that look world-class, run at 60 FPS, and scale seamlessly to hundreds of thousands of active users.
+      </p>
+    </div>
+
+    <!-- Core Values Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-6 shadow-sm space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-lg">
+          ⚡
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 dark:text-white">High Velocity Without Compromise</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+          FlutterFlow enables us to ship polished mobile and web applications 4x faster than traditional manual coding, while retaining complete code ownership and zero platform lock-in.
+        </p>
+      </div>
+
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-6 shadow-sm space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-lg">
+          🛡️
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Airtight Backend Security</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+          We treat security as non-negotiable. Every project features hardened Firestore Security Rules, Supabase Row-Level Security (RLS), and server-side Custom Claims to prevent unauthorized access.
+        </p>
+      </div>
+
+      <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-6 shadow-sm space-y-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-50 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center font-bold text-lg">
+          💻
+        </div>
+        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Custom Dart Code Mastery</h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+          Whenever visual builders hit boundaries, our senior Dart engineers write bespoke Custom Actions, Custom Functions, and Custom Widgets from pub.dev to handle specialized requirements.
+        </p>
+      </div>
+    </div>
+
+    <!-- Meet Our Specialists -->
+    <div class="mb-16">
+      <div class="max-w-2xl mb-8">
+        <span class="text-xs uppercase font-bold tracking-wider text-brand-600 dark:text-brand-400">Our Experts</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mt-1">
+          Meet Our FlutterFlow Architects &amp; Authors
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2">
+          The practitioners and engineers authoring our technical tutorial series:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {authorList.map((a) => (
+          <a
+            href={`/authors/${a.slug}/`}
+            class="group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-5 shadow-sm hover:shadow-md hover:border-brand-500/50 transition-all text-center flex flex-col items-center"
+          >
+            <img
+              src={a.avatar}
+              alt={a.name}
+              class="w-16 h-16 rounded-full object-cover border border-slate-200 dark:border-slate-700 mb-3 group-hover:scale-105 transition-transform"
+              width="64"
+              height="64"
+            />
+            <h3 class="text-sm font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+              {a.name}
+            </h3>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5">
+              {a.role}
+            </p>
+            <span class="mt-3 text-[11px] font-semibold text-brand-600 dark:text-brand-400 group-hover:underline">
+              View Profile &amp; Guides →
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <CallToAction
+      headline="Ready to build your FlutterFlow app with KinetixSoft?"
+      subtext="Schedule an architectural review with our engineering leads to discuss your scope, backend choices, timeline, and deliverables."
+    />
+  </div>
+</BaseLayout>

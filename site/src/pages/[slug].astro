@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import ArticleLayout from '../layouts/ArticleLayout.astro';
+
+export async function getStaticPaths() {
+  const tutorials = await getCollection('tutorials');
+  return tutorials.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await entry.render();
+
+// Get related articles
+const allTutorials = await getCollection('tutorials');
+const relatedSlugs = entry.data.relatedArticles || [];
+let relatedEntries = allTutorials.filter((t) => relatedSlugs.includes(t.slug));
+
+if (relatedEntries.length < 3) {
+  // Fallback to same category
+  const sameCat = allTutorials.filter(
+    (t) => t.slug !== entry.slug && t.data.category === entry.data.category && !relatedEntries.some((r) => r.slug === t.slug)
+  );
+  relatedEntries = [...relatedEntries, ...sameCat].slice(0, 3);
+}
+---
+
+<ArticleLayout entry={entry} headings={headings} relatedEntries={relatedEntries}>
+  <Content />
+</ArticleLayout>

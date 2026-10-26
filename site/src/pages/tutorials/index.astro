@@ -1,0 +1,286 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { categories } from '../../data/categories';
+
+const allTutorials = await getCollection('tutorials');
+
+// Prepare searchable JSON data for Fuse.js client search
+const searchData = allTutorials.map((t) => ({
+  slug: t.slug,
+  title: t.data.title.split(' | ')[0],
+  description: t.data.description,
+  category: t.data.category,
+  difficulty: t.data.difficulty,
+  readingTime: t.data.readingTime,
+  author: t.data.author,
+  primaryKeyword: t.data.primaryKeyword,
+  secondaryKeywords: t.data.secondaryKeywords,
+  isPillar: t.data.isPillar
+}));
+
+const categoryList = Object.values(categories);
+---
+
+<BaseLayout
+  title="All FlutterFlow Tutorials & Guides (2026) | KinetixSoft"
+  description="Explore all 31+ FlutterFlow engineering tutorials covering Firebase, Supabase, Stripe, AI chatbots, responsive design, custom Dart code, and performance optimization."
+  canonicalUrl="https://kinetixsoft.com/tutorials/"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <!-- Header -->
+    <div class="max-w-3xl mb-10">
+      <span class="text-xs uppercase font-bold tracking-wider text-brand-600 dark:text-brand-400">Library of Guides</span>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mt-1">
+        FlutterFlow Tutorials Directory
+      </h1>
+      <p class="text-base text-slate-600 dark:text-slate-400 mt-3 leading-relaxed">
+        Search and filter 31+ step-by-step tutorials authored by KinetixSoft engineers. From backend integrations to custom Dart actions and app store deployment.
+      </p>
+    </div>
+
+    <!-- Interactive Search & Filter Controls -->
+    <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-6 shadow-sm mb-10 space-y-6">
+      <!-- Search Input -->
+      <div class="relative">
+        <div class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+        <input
+          id="search-input"
+          type="search"
+          placeholder="Filter by title, keywords, backend, or concepts (e.g. Stripe, RLS, Brevo, pagination)..."
+          class="w-full pl-12 pr-4 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 text-slate-900 dark:text-white placeholder:text-slate-400"
+        />
+      </div>
+
+      <!-- Filters Row -->
+      <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+        <!-- Category Filter Pills -->
+        <div class="flex flex-wrap items-center gap-1.5" id="category-filters">
+          <button
+            data-cat="all"
+            class="filter-pill active px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-600 text-white transition-colors"
+          >
+            All Categories ({allTutorials.length})
+          </button>
+          {categoryList.map((c) => (
+            <button
+              data-cat={c.name}
+              class="filter-pill px-3 py-1.5 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+            >
+              {c.name}
+            </button>
+          ))}
+        </div>
+
+        <!-- Difficulty Dropdown -->
+        <div class="flex items-center gap-2">
+          <label for="difficulty-select" class="text-xs text-slate-500 font-medium">Difficulty:</label>
+          <select
+            id="difficulty-select"
+            class="text-xs py-1.5 px-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500"
+          >
+            <option value="all">All Difficulties</option>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Counter -->
+    <div class="flex items-center justify-between mb-6">
+      <p id="results-count" class="text-xs text-slate-500 font-medium">
+        Showing all {allTutorials.length} tutorials
+      </p>
+      <button id="reset-filters" class="hidden text-xs text-brand-600 dark:text-brand-400 font-semibold hover:underline">
+        Reset filters
+      </button>
+    </div>
+
+    <!-- Tutorials Grid -->
+    <div id="tutorials-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {allTutorials.map((t) => (
+        <article
+          data-slug={t.slug}
+          data-category={t.data.category}
+          data-difficulty={t.data.difficulty}
+          class="tutorial-card group rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-6 shadow-sm hover:shadow-md hover:border-brand-500/50 transition-all flex flex-col justify-between"
+        >
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-brand-50 dark:bg-brand-950/60 text-brand-700 dark:text-brand-300 border border-brand-200 dark:border-brand-800/60">
+                {t.data.category}
+              </span>
+              <div class="flex items-center gap-2 text-[11px] text-slate-400">
+                <span>{t.data.difficulty}</span>
+                <span>•</span>
+                <span>{t.data.readingTime}</span>
+              </div>
+            </div>
+
+            <h2 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors line-clamp-2 mb-2">
+              <a href={`/${t.slug}/`}>
+                {t.data.title.split(' (2026')[0].split(' | ')[0]}
+              </a>
+            </h2>
+
+            <p class="text-xs text-slate-600 dark:text-slate-400 line-clamp-3 leading-relaxed mb-4">
+              {t.data.description}
+            </p>
+          </div>
+
+          <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500">
+            <span>By {t.data.author}</span>
+            <a href={`/${t.slug}/`} class="font-semibold text-brand-600 dark:text-brand-400 group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+              Read <span>→</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Empty State -->
+    <div id="no-results" class="hidden text-center py-16 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-8 space-y-3">
+      <div class="text-3xl">🔍</div>
+      <h3 class="text-lg font-bold text-slate-900 dark:text-white">No tutorials found matching your search</h3>
+      <p class="text-xs text-slate-500 max-w-sm mx-auto">
+        Try adjusting your keywords, selecting "All Categories", or checking out our foundational pillar guide.
+      </p>
+      <button
+        id="empty-reset-btn"
+        class="mt-2 px-4 py-2 rounded-xl bg-brand-600 text-white text-xs font-semibold hover:bg-brand-700 transition-colors"
+      >
+        Clear Search &amp; Filters
+      </button>
+    </div>
+  </div>
+
+  <!-- Client-side Fuse.js Search Script -->
+  <script is:inline src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+  <script is:inline define:vars={{ searchData }}>
+    const fuse = new Fuse(searchData, {
+      keys: ['title', 'description', 'primaryKeyword', 'secondaryKeywords', 'category'],
+      threshold: 0.35,
+    });
+
+    const searchInput = document.getElementById('search-input');
+    const categoryButtons = document.querySelectorAll('.filter-pill');
+    const difficultySelect = document.getElementById('difficulty-select');
+    const resultsCount = document.getElementById('results-count');
+    const resetFiltersBtn = document.getElementById('reset-filters');
+    const emptyResetBtn = document.getElementById('empty-reset-btn');
+    const noResults = document.getElementById('no-results');
+    const tutorialCards = document.querySelectorAll('.tutorial-card');
+
+    let currentCategory = 'all';
+    let currentDifficulty = 'all';
+    let currentQuery = '';
+
+    // Check URL param 'q' on load
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialQuery = urlParams.get('q');
+    if (initialQuery && searchInput) {
+      searchInput.value = initialQuery;
+      currentQuery = initialQuery;
+    }
+
+    function filterTutorials() {
+      let matchedSlugs = null;
+
+      if (currentQuery.trim() !== '') {
+        const results = fuse.search(currentQuery.trim());
+        matchedSlugs = new Set(results.map((r) => r.item.slug));
+      }
+
+      let visibleCount = 0;
+
+      tutorialCards.forEach((card) => {
+        const slug = card.getAttribute('data-slug');
+        const category = card.getAttribute('data-category');
+        const difficulty = card.getAttribute('data-difficulty');
+
+        const matchesSearch = matchedSlugs === null || matchedSlugs.has(slug);
+        const matchesCategory = currentCategory === 'all' || category === currentCategory;
+        const matchesDifficulty = currentDifficulty === 'all' || difficulty === currentDifficulty;
+
+        if (matchesSearch && matchesCategory && matchesDifficulty) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      resultsCount.innerText = `Showing ${visibleCount} of ${tutorialCards.length} tutorials`;
+
+      if (visibleCount === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+      }
+
+      if (currentQuery || currentCategory !== 'all' || currentDifficulty !== 'all') {
+        resetFiltersBtn?.classList.remove('hidden');
+      } else {
+        resetFiltersBtn?.classList.add('hidden');
+      }
+    }
+
+    searchInput?.addEventListener('input', (e) => {
+      currentQuery = e.target.value;
+      filterTutorials();
+    });
+
+    categoryButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        categoryButtons.forEach((b) => {
+          b.classList.remove('bg-brand-600', 'text-white', 'active');
+          b.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+        });
+        btn.classList.add('bg-brand-600', 'text-white', 'active');
+        btn.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+
+        currentCategory = btn.getAttribute('data-cat') || 'all';
+        filterTutorials();
+      });
+    });
+
+    difficultySelect?.addEventListener('change', (e) => {
+      currentDifficulty = e.target.value;
+      filterTutorials();
+    });
+
+    function resetAll() {
+      if (searchInput) searchInput.value = '';
+      currentQuery = '';
+      currentCategory = 'all';
+      currentDifficulty = 'all';
+      if (difficultySelect) difficultySelect.value = 'all';
+
+      categoryButtons.forEach((b) => {
+        if (b.getAttribute('data-cat') === 'all') {
+          b.classList.add('bg-brand-600', 'text-white', 'active');
+          b.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+        } else {
+          b.classList.remove('bg-brand-600', 'text-white', 'active');
+          b.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+        }
+      });
+
+      filterTutorials();
+    }
+
+    resetFiltersBtn?.addEventListener('click', resetAll);
+    emptyResetBtn?.addEventListener('click', resetAll);
+
+    // Initial filter run if query was present in URL
+    if (currentQuery) {
+      filterTutorials();
+    }
+  </script>
+</BaseLayout>
