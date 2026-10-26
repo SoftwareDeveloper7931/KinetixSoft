@@ -41,18 +41,18 @@ const HOTSPOTS: Hotspot[] = [
     id: "synthesis",
     title: "The Synthesis Horizon",
     badge: "Continuous Synergy",
-    tagline: "Zero-Friction Intent-to-Execution Bridge",
-    desc: "Where human specifications seamlessly ignite autonomous multi-agent pipelines with zero translation loss and instant verification loops.",
+    tagline: "Crafted by Humans, Accelerated by AI",
+    desc: "Where human specifications ignite modern development tooling with clear requirements, fast turnaround, and instant verification loops.",
     color: "duo",
     position: { top: "48%", left: "50%" },
     icon: <Sparkles className="w-4 h-4 text-neon-rose" />,
   },
   {
     id: "ai",
-    title: "Autonomous AI Swarm",
-    badge: "Silicon Velocity",
-    tagline: "Quantum Multi-Agent Tool Calling",
-    desc: "Claude-3.5 and LangGraph worker swarms synthesizing robust TypeScript/Dart, generating test fixtures, and self-healing deployment errors.",
+    title: "AI Development Engine",
+    badge: "Engineering Velocity",
+    tagline: "High-Velocity Code Generation & Testing",
+    desc: "Modern AI tooling and LLM workflows generating boilerplate TypeScript/Dart, automated test suites, and API connectors in minutes.",
     color: "cerulean",
     position: { top: "52%", left: "82%" },
     icon: <Cpu className="w-4 h-4 text-[#00A3DE]" />,
@@ -347,11 +347,11 @@ export function HumanAISynergy3D({
 
           {/* Bottom Center: Synthesis Telemetry Pill */}
           <div
-            className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 px-4 py-1.5 rounded-full bg-black/80 border border-white/20 backdrop-blur-xl shadow-xl text-xs font-mono"
+            className="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-black/85 border border-white/20 backdrop-blur-xl shadow-xl text-[10px] sm:text-xs font-mono whitespace-nowrap"
             style={{ transform: "translateZ(45px)" }}
           >
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            <span className="text-white font-semibold">SYNTHESIS: OPERATIONAL</span>
+            <span className="text-white font-semibold">HUMAN CRAFT + AI VELOCITY</span>
             <span className="text-white/30">|</span>
             <span className="text-neon-rose font-bold">100% Synergy</span>
           </div>

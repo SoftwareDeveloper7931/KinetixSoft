@@ -119,12 +119,12 @@ export function MobileAppArchitectureStage() {
       {/* Main 3D Orbital & Floating Card Stage: Seamless Canvas (No Weird Container Edges) */}
       <div className="relative py-4">
         
-        {/* Holographic Glowing Orbit Ring Behind Phone */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[680px] h-[500px] sm:h-[680px] rounded-full border border-cerulean/20 pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] sm:w-[520px] h-[380px] sm:h-[520px] rounded-full border border-neon-rose/25 animate-spin-slow pointer-events-none" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cerulean/15 blur-[130px] pointer-events-none" />
+        {/* Holographic Glowing Orbit Ring Behind Phone (Responsive Dimensions) */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[270px] sm:w-[500px] md:w-[680px] h-[270px] sm:h-[500px] md:h-[680px] rounded-full border border-cerulean/20 pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] sm:w-[380px] md:w-[520px] h-[220px] sm:h-[380px] md:h-[520px] rounded-full border border-neon-rose/25 animate-spin-slow pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 sm:w-96 h-64 sm:h-96 bg-cerulean/15 blur-[100px] sm:blur-[130px] pointer-events-none" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center relative z-10">
           
           {/* LEFT COLUMN: Architectural Capability Cards (Nodes 0, 1, 2) */}
           <div className="lg:col-span-4 space-y-4">
@@ -163,7 +163,7 @@ export function MobileAppArchitectureStage() {
           </div>
 
           {/* CENTER COLUMN: Hyper-Realistic Flagship Smartphone with Live Layer Visual (Pin 4 & Pin 2) */}
-          <div className="lg:col-span-4 flex flex-col items-center justify-center relative">
+          <div className="lg:col-span-4 flex flex-col items-center justify-center relative order-first lg:order-none mb-6 lg:mb-0">
             
             {/* Realistic Flagship Smartphone Hardware Frame */}
             <motion.div

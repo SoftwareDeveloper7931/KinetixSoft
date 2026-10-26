@@ -198,8 +198,10 @@ export function Agency3DStage() {
     const size = 520;
     canvas.width = size * 2;
     canvas.height = size * 2;
-    canvas.style.width = `${size}px`;
-    canvas.style.height = `${size}px`;
+    canvas.style.width = "100%";
+    canvas.style.maxWidth = `${size}px`;
+    canvas.style.height = "auto";
+    canvas.style.aspectRatio = "1 / 1";
     ctx.scale(2, 2);
 
     let angleX = 0.25;
@@ -483,37 +485,37 @@ export function Agency3DStage() {
               </div>
 
               {/* Live Architectural Metrics */}
-              <div className="grid grid-cols-3 gap-3 p-4 rounded-xl bg-jet border border-jet-border mb-6">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 p-3 sm:p-4 rounded-xl bg-jet border border-jet-border mb-6">
                 {activeCapability.metrics.map((m, i) => (
                   <div key={i} className="text-center">
                     <div
-                      className="text-lg sm:text-xl font-bold font-mono"
+                      className="text-base sm:text-lg lg:text-xl font-bold font-mono"
                       style={{
                         color: activeCapability.glow === "neon-rose" ? "#FF5CAE" : "#00A3DE",
                       }}
                     >
                       {m.value}
                     </div>
-                    <div className="text-[11px] font-mono text-white/50 uppercase">{m.label}</div>
+                    <div className="text-[10px] sm:text-[11px] font-mono text-white/50 uppercase">{m.label}</div>
                   </div>
                 ))}
               </div>
 
               {/* Actions */}
-              <div className="flex flex-wrap items-center gap-4">
-                <Link href={activeCapability.link} className="group inline-flex">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+                <Link href={activeCapability.link} className="group inline-flex w-full sm:w-auto">
                   <button
                     className={`${
                       activeCapability.glow === "neon-rose" ? "btn-neon-rose" : "btn-cerulean"
-                    } group`}
+                    } group w-full sm:w-auto justify-center`}
                   >
                     <span>{activeCapability.linkText}</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
                   </button>
                 </Link>
 
-                <Link href="/contact" className="inline-flex">
-                  <button className="btn-ghost-cyber">
+                <Link href="/contact" className="inline-flex w-full sm:w-auto">
+                  <button className="btn-ghost-cyber w-full sm:w-auto justify-center">
                     <span>Scope This Build</span>
                   </button>
                 </Link>

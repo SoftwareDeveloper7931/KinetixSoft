@@ -141,7 +141,7 @@ export function AutonomousAutomationShowcase() {
       <div className="relative py-4">
         
         {/* Ambient Backlight Radiance */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-radial-gradient from-cerulean/15 via-neon-rose/10 to-transparent blur-[120px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[500px] lg:w-[600px] h-[280px] sm:h-[500px] lg:h-[600px] bg-radial-gradient from-cerulean/15 via-neon-rose/10 to-transparent blur-[90px] sm:blur-[120px] pointer-events-none" />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center relative z-10">
           
@@ -215,8 +215,8 @@ export function AutonomousAutomationShowcase() {
           <div className="lg:col-span-6 flex flex-col items-center justify-center relative">
             
             {/* Glowing Halo Rings */}
-            <div className="absolute w-72 h-72 sm:w-80 sm:h-80 rounded-full border border-cerulean/30 animate-pulse pointer-events-none" />
-            <div className="absolute w-88 h-88 sm:w-96 sm:h-96 rounded-full border border-neon-rose/20 animate-spin-slow pointer-events-none" />
+            <div className="absolute w-64 h-64 sm:w-80 sm:h-80 rounded-full border border-cerulean/30 animate-pulse pointer-events-none" />
+            <div className="absolute w-72 h-72 sm:w-96 sm:h-96 rounded-full border border-neon-rose/20 animate-spin-slow pointer-events-none" />
 
             {/* Hyper-Realistic Flagship Smartphone Frame */}
             <div className="w-full max-w-[320px] flex justify-center">

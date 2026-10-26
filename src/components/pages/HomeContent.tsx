@@ -8,7 +8,7 @@ import {
   Phone, Mail, MapPin, Code2, DollarSign, Layers, Users,
   GraduationCap, Home as HomeIcon, ShoppingBag, HeartPulse, Truck,
   Sparkles, CheckCircle2, Shield, ArrowUpRight, Cpu, Smartphone,
-  Globe, Database, Rocket, Terminal, Check
+  Globe, Database, Rocket, Terminal, Check, MessageSquare, HeartHandshake
 } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { Card3D } from "@/components/Card3D";
@@ -115,12 +115,12 @@ const platforms = [
 ];
 
 const comparisonMatrix = [
-  { feature: "Engineering Engine", us: "Autonomous Multi-Agent Swarms + Senior Architect", agency: "Manual Devs & Broken Hand-offs", freelancer: "Single Person Bottleneck" },
-  { feature: "Typical Delivery Speed", us: "4 to 10 Weeks (Self-Verifying PRs)", agency: "6 to 12 Months of Meetings", freelancer: "Unpredictable & Ghost-prone" },
-  { feature: "AI & Vector Capabilities", us: "Production Swarms, pgvector & Tool-Calling", agency: "Basic Bolt-on ChatGPT Wrapper", freelancer: "Superficial API Calls" },
-  { feature: "Code Quality & Healing", us: "Autonomous Synthesizers & Sentinel Verification", agency: "Manual QA & Delayed Patch Cycles", freelancer: "Fragile Hacks & Technical Debt" },
-  { feature: "Code & Model Ownership", us: "100% Client Owned (Weights, Schemas & Repos)", agency: "Often Proprietary Lock-in", freelancer: "Varies & Ambiguous" },
-  { feature: "Scale Readiness", us: "Built for 100k+ Users & Low Latency Day 1", agency: "Billed as Phase 2 Milestone", freelancer: "Hits Immediate Wall" },
+  { feature: "Team Composition", us: "Senior Founding Engineers & Architects (No Junior Hand-offs)", agency: "Junior Devs & Project Managers Playing Telephone", freelancer: "Solo Bottleneck With Broad Skill Gaps" },
+  { feature: "Delivery Pace", us: "4 to 8 Weeks · Weekly Working TestFlight Builds", agency: "6 to 12 Months of Scope Meetings & Delays", freelancer: "Unpredictable, Ghost-prone Timelines" },
+  { feature: "Client Collaboration", us: "Direct Shared Slack Channel With Your Actual Builders", agency: "Filtered Through Account Managers & JIRA Queues", freelancer: "Occasional Unanswered WhatsApp Messages" },
+  { feature: "Architecture & Code Quality", us: "Modular Clean Code, Automated CI/CD & Full Unit Tests", agency: "Legacy Spaghetti Code Billed by the Hour", freelancer: "Fragile Hacks With Zero Documentation" },
+  { feature: "IP & Code Ownership", us: "100% Yours on Your GitHub From Day 1 (Zero Lock-in)", agency: "Held Hostage Under Proprietary Retainers", freelancer: "Ambiguous Local Files & Missing Credentials" },
+  { feature: "Post-Launch Warranty", us: "30-Day Bug Warranty & Dedicated Ongoing SLA Support", agency: "Expensive Change Requests for Minor Fixes", freelancer: "Vanishes Once Final Invoice is Paid" },
 ];
 
 export default function HomeContent() {
@@ -168,11 +168,11 @@ export default function HomeContent() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-jet-surface/90 border border-cerulean/40 mb-6 shadow-[0_0_25px_rgba(0,123,167,0.3)]"
+              className="inline-flex items-center gap-2.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-jet-surface/90 border border-cerulean/40 mb-5 sm:mb-6 shadow-[0_0_25px_rgba(0,123,167,0.3)]"
             >
               <span className="w-2.5 h-2.5 rounded-full bg-neon-rose animate-ping" />
-              <span className="text-xs font-mono uppercase tracking-widest text-[#00A3DE] font-bold">
-                Autonomous Agentic AI · Global Studio
+              <span className="text-[11px] sm:text-xs font-mono uppercase tracking-widest text-[#00A3DE] font-bold">
+                Senior Engineering Studio · Direct Founder Collaboration
               </span>
             </motion.div>
 
@@ -180,22 +180,21 @@ export default function HomeContent() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-extrabold tracking-tight mb-4 leading-[1.12] text-white"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[46px] font-extrabold tracking-tight mb-4 leading-[1.14] text-white"
             >
-              AUTONOMOUS <br />
+              Software Built By Senior Engineers. <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean via-sky-400 to-neon-rose">
-                AGENTIC AI.
-              </span> <br />
-              ENGINEERED FOR ANY VISION.
+                Accelerated By Modern AI Velocity.
+              </span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-sm sm:text-base text-white/75 mb-6 max-w-lg leading-relaxed font-normal"
+              className="text-sm sm:text-base text-white/75 mb-6 max-w-xl leading-relaxed font-normal"
             >
-              Tell us what you want built. From autonomous <strong className="text-white font-semibold">AI Agent Swarms</strong> and scalable <strong className="text-white font-semibold">SaaS Platforms</strong> to high-velocity <strong className="text-white font-semibold">Mobile Apps</strong> and enterprise <strong className="text-white font-semibold">Self-Healing CRMs</strong>. We turn visionary requirements into production reality with zero technical debt.
+              We partner directly with founders to architect and ship production-ready mobile apps, scalable SaaS, and automated workflows in weeks — not quarters. You work directly with the senior engineers writing your code, test weekly builds on your phone, and retain 100% IP ownership from day one.
             </motion.p>
 
             {/* Quick Capability Tags */}
@@ -205,17 +204,17 @@ export default function HomeContent() {
               transition={{ duration: 0.6, delay: 0.25 }}
               className="flex flex-wrap items-center gap-2 sm:gap-2.5 mb-8 text-xs font-mono"
             >
-              <span className="px-3 py-1.5 rounded-full bg-neon-rose/15 border border-neon-rose/40 text-neon-rose font-semibold flex items-center gap-1.5 hover:bg-neon-rose/25 transition-colors">
-                <Cpu className="w-3.5 h-3.5" /> Agent Swarms (Claude 3.5 & GPT-4o)
-              </span>
               <span className="px-3 py-1.5 rounded-full bg-cerulean/15 border border-cerulean/40 text-[#00A3DE] font-semibold flex items-center gap-1.5 hover:bg-cerulean/25 transition-colors">
-                <Smartphone className="w-3.5 h-3.5" /> AI Mobile (Flutter 120 FPS)
+                <CheckCircle2 className="w-3.5 h-3.5" /> Senior Architect-Led Sprints
               </span>
               <span className="px-3 py-1.5 rounded-full bg-neon-rose/15 border border-neon-rose/40 text-neon-rose font-semibold flex items-center gap-1.5 hover:bg-neon-rose/25 transition-colors">
-                <Globe className="w-3.5 h-3.5" /> Web & SaaS (pgvector)
+                <Smartphone className="w-3.5 h-3.5" /> Native Mobile (Flutter 120 FPS)
               </span>
               <span className="px-3 py-1.5 rounded-full bg-cerulean/15 border border-cerulean/40 text-[#00A3DE] font-semibold flex items-center gap-1.5 hover:bg-cerulean/25 transition-colors">
-                <Database className="w-3.5 h-3.5" /> Self-Healing CRMs (Podio & GlobiFlow)
+                <Globe className="w-3.5 h-3.5" /> Scalable Web & SaaS (Postgres & Stripe)
+              </span>
+              <span className="px-3 py-1.5 rounded-full bg-neon-rose/15 border border-neon-rose/40 text-neon-rose font-semibold flex items-center gap-1.5 hover:bg-neon-rose/25 transition-colors">
+                <Database className="w-3.5 h-3.5" /> Custom Internal CRMs & Workflows
               </span>
             </motion.div>
 
@@ -224,25 +223,25 @@ export default function HomeContent() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap items-center gap-4 mb-8"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-8 w-full sm:w-auto"
             >
-              <Link href="/contact" className="group">
+              <Link href="/contact" className="group w-full sm:w-auto">
                 <button
                   data-testid="button-hero-get-in-touch"
-                  className="btn-duo px-8 py-4 text-base font-bold shadow-[0_0_35px_rgba(255,45,149,0.4)]"
+                  className="btn-duo px-7 py-3.5 sm:px-8 sm:py-4 text-sm sm:text-base font-bold shadow-[0_0_35px_rgba(255,45,149,0.4)] w-full sm:w-auto justify-center"
                 >
                   <span>Start Your Project</span>
                   <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
                 </button>
               </Link>
 
-              <Link href="/services">
+              <Link href="/services" className="w-full sm:w-auto">
                 <button
                   data-testid="button-hero-view-services"
-                  className="btn-ghost-cyber px-8 py-4 text-base font-semibold"
+                  className="btn-ghost-cyber px-7 py-3.5 sm:px-8 sm:py-4 text-sm sm:text-base font-semibold w-full sm:w-auto justify-center"
                 >
                   <Sparkles className="w-4 h-4 text-cerulean" />
-                  <span>Explore All Stacks</span>
+                  <span>Explore Our Services</span>
                 </button>
               </Link>
             </motion.div>
@@ -252,23 +251,23 @@ export default function HomeContent() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.45, duration: 0.8 }}
-              className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-white/70 font-mono"
+              className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-3 sm:gap-6 text-xs text-white/70 font-mono"
             >
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-cerulean" />
-                <span>100% Founder-Led</span>
+                <CheckCircle2 className="w-4 h-4 text-cerulean shrink-0" />
+                <span>Direct Slack Channel</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-neon-rose" />
-                <span>Impeller 120 FPS</span>
+                <CheckCircle2 className="w-4 h-4 text-neon-rose shrink-0" />
+                <span>Weekly TestFlight</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-cerulean" />
-                <span>Zero-Leak Security</span>
+                <CheckCircle2 className="w-4 h-4 text-cerulean shrink-0" />
+                <span>100% Code & IP Ownership</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-neon-rose" />
-                <span>100% IP & Code Ownership</span>
+                <CheckCircle2 className="w-4 h-4 text-neon-rose shrink-0" />
+                <span>30-Day Bug Warranty</span>
               </div>
             </motion.div>
           </div>
@@ -510,6 +509,79 @@ export default function HomeContent() {
         </div>
       </section>
 
+      {/* CRAFT MEETS SPEED: THE STUDIO PROMISE (AUTHENTIC HUMAN TOUCH) */}
+      <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
+        <div className="max-w-3xl mb-14 text-left">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase text-[#00A3DE] bg-cerulean/10 border border-cerulean/30 mb-4 shadow-sm">
+            <HeartHandshake className="w-3.5 h-3.5 text-neon-rose" /> Authentic Human Partnership
+          </div>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-white">
+            The Studio Promise: <span className="text-gradient-duo">Craft, Clarity & Zero Fluff</span>
+          </h2>
+          <p className="text-sm sm:text-base text-white/70 leading-relaxed">
+            We founded KinetixSoft because we hated the traditional agency model as much as you do.
+            Here is our non-negotiable commitment to every founder and engineering leader who builds with us:
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          {[
+            {
+              num: "01",
+              title: "Direct Slack Line",
+              sub: "Talk Directly With Your Builders",
+              desc: "No account reps, no ticket queues, no junior telephone game. You share a dedicated Slack channel directly with the senior engineers writing your code every day.",
+              icon: <MessageSquare className="w-5 h-5 text-cerulean" />,
+              glow: "cerulean" as const,
+            },
+            {
+              num: "02",
+              title: "Weekly TestFlight",
+              sub: "Test On Your Real Phone",
+              desc: "Every Friday, install a new working build directly on your iPhone or Android. You test features in the real world as they are created, giving instant feedback.",
+              icon: <Smartphone className="w-5 h-5 text-neon-rose" />,
+              glow: "rose" as const,
+            },
+            {
+              num: "03",
+              title: "100% IP Ownership",
+              sub: "Committed To Your GitHub",
+              desc: "Every line of code lives in your private repository from Day 1. Your API keys, your cloud accounts, your database schemas. Zero proprietary vendor lock-in.",
+              icon: <Shield className="w-5 h-5 text-cerulean" />,
+              glow: "cerulean" as const,
+            },
+            {
+              num: "04",
+              title: "30-Day Launch Warranty",
+              sub: "We Stand Behind Our Work",
+              desc: "When your product goes live to real users, we don't disappear. We include 30 days of complimentary bug fixes, performance tuning, and launch support.",
+              icon: <CheckCircle2 className="w-5 h-5 text-neon-rose" />,
+              glow: "rose" as const,
+            },
+          ].map((item, idx) => (
+            <Card3D key={idx} glowColor={item.glow} className="p-6 sm:p-7 h-full flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                    {item.icon}
+                  </div>
+                  <span className="text-xs font-mono font-bold text-white/30">
+                    {item.num}
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold text-white mb-1">{item.title}</h3>
+                <div className="text-xs font-mono text-cerulean mb-3 font-semibold">{item.sub}</div>
+                <p className="text-xs sm:text-sm text-white/65 leading-relaxed">{item.desc}</p>
+              </div>
+              <div className="mt-5 pt-3 border-t border-white/5 flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 font-semibold">
+                <Check className="w-3.5 h-3.5" />
+                <span>Standard In Every Sprint</span>
+              </div>
+            </Card3D>
+          ))}
+        </div>
+      </section>
+
       {/* WHY THIS WORKS: COMPARISON MATRIX */}
       <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="max-w-3xl mb-14 text-left">
@@ -524,9 +596,15 @@ export default function HomeContent() {
           </p>
         </div>
 
+        {/* Mobile Horizontal Swipe Indicator */}
+        <div className="sm:hidden text-center text-xs text-white/60 mb-3 flex items-center justify-center gap-2 py-2 px-4 rounded-xl bg-white/5 border border-white/10 font-mono">
+          <ArrowRight className="w-3.5 h-3.5 text-cerulean animate-pulse" />
+          <span>Swipe table sideways to compare all 3 models</span>
+        </div>
+
         <div className="rounded-3xl overflow-hidden border border-jet-border bg-jet-surface/90 shadow-2xl backdrop-blur-xl">
           <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse text-xs sm:text-sm">
+            <table className="w-full min-w-[620px] text-left border-collapse text-xs sm:text-sm">
               <thead>
                 <tr className="border-b border-jet-border bg-jet">
                   <th className="p-4 sm:p-6 text-white/60 font-mono uppercase text-xs">Dimension</th>
@@ -648,23 +726,23 @@ export default function HomeContent() {
               <div className="absolute inset-0 bg-gradient-to-t from-jet via-transparent to-black/30 pointer-events-none" />
 
               {/* Floating Live Telemetry Badge */}
-              <div className="absolute top-5 left-5 px-3.5 py-2 rounded-xl bg-jet-surface/85 border border-white/20 backdrop-blur-xl flex items-center gap-2.5 shadow-xl">
+              <div className="absolute top-3 left-3 sm:top-5 sm:left-5 px-3 py-1.5 sm:px-3.5 sm:py-2 rounded-xl bg-jet-surface/90 border border-white/20 backdrop-blur-xl flex items-center gap-2 shadow-xl">
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
                 <span className="text-xs font-mono font-bold text-white">Engineering Studio HQ</span>
                 <span className="text-[10px] font-mono text-emerald-400 bg-emerald-400/10 px-2 py-0.5 rounded-full border border-emerald-400/30">Live Lab</span>
               </div>
 
               {/* Floating Bottom Card */}
-              <div className="absolute bottom-5 left-5 right-5 p-4 sm:p-5 rounded-2xl bg-jet-surface/85 border border-white/20 backdrop-blur-2xl flex flex-wrap items-center justify-between gap-4 shadow-2xl">
+              <div className="absolute bottom-3 left-3 right-3 sm:bottom-5 sm:left-5 sm:right-5 p-3 sm:p-5 rounded-2xl bg-jet-surface/90 border border-white/20 backdrop-blur-2xl flex flex-wrap items-center justify-between gap-3 sm:gap-4 shadow-2xl">
                 <div>
-                  <div className="text-sm font-bold text-white flex items-center gap-2">
-                    <span>100% In-House Senior Builders & AI Swarm Directors</span>
+                  <div className="text-xs sm:text-sm font-bold text-white flex items-center gap-2">
+                    <span>In-House Senior Engineers & Systems Architects</span>
                   </div>
-                  <div className="text-xs text-white/70 font-mono mt-0.5">
-                    Open Collaborative Lofts • Direct Slack Channels • 0% Middlemen
+                  <div className="text-[11px] sm:text-xs text-white/70 font-mono mt-0.5">
+                    Collaborative Studio • Direct Slack Channels • 0% Middlemen
                   </div>
                 </div>
-                <span className="text-xs font-mono px-3 py-1 rounded-full bg-cerulean/20 text-cerulean border border-cerulean/40 font-bold">
+                <span className="text-[10px] sm:text-xs font-mono px-2.5 sm:px-3 py-1 rounded-full bg-cerulean/20 text-cerulean border border-cerulean/40 font-bold">
                   Physical Hub
                 </span>
               </div>

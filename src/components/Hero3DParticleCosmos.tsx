@@ -218,17 +218,17 @@ export function Hero3DParticleCosmos() {
   }, []);
 
   return (
-    <div className="relative w-full h-[400px] sm:h-[480px] lg:h-[540px] flex items-center justify-center select-none group">
+    <div className="relative w-full h-[300px] sm:h-[420px] lg:h-[500px] flex items-center justify-center select-none group">
       {/* Ambient background glow behind particle sculpture */}
-      <div className="absolute w-72 h-72 sm:w-88 sm:h-88 rounded-full bg-cerulean/25 blur-[100px] pointer-events-none" />
-      <div className="absolute w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-neon-rose/25 blur-[110px] pointer-events-none" />
-      <div className="absolute w-52 h-52 sm:w-64 sm:h-64 rounded-full bg-amber-500/15 blur-[80px] pointer-events-none" />
+      <div className="absolute w-56 h-56 sm:w-80 sm:h-80 rounded-full bg-cerulean/25 blur-[90px] sm:blur-[110px] pointer-events-none" />
+      <div className="absolute w-48 h-48 sm:w-72 sm:h-72 rounded-full bg-neon-rose/25 blur-[90px] sm:blur-[110px] pointer-events-none" />
+      <div className="absolute w-40 h-40 sm:w-60 sm:h-60 rounded-full bg-amber-500/15 blur-[70px] sm:blur-[90px] pointer-events-none" />
 
       {/* 3D CORE DISC: PHOTOREALISTIC HUMAN SYNAPSE + AI SILICON MATRIX */}
       <motion.div
         animate={{ scale: [0.98, 1.02, 0.98] }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute w-[200px] sm:w-[250px] lg:w-[280px] aspect-square rounded-full overflow-hidden border-2 border-white/25 shadow-[0_0_80px_rgba(0,123,167,0.5),0_0_50px_rgba(255,45,149,0.35)] z-0 pointer-events-none"
+        className="absolute w-[165px] sm:w-[220px] lg:w-[260px] aspect-square rounded-full overflow-hidden border-2 border-white/25 shadow-[0_0_60px_rgba(0,123,167,0.45),0_0_40px_rgba(255,45,149,0.3)] z-0 pointer-events-none"
       >
         <img
           src="/ai-human-synergy-3d.jpg"
@@ -247,29 +247,29 @@ export function Hero3DParticleCosmos() {
         title="Interactive 3D Kinetic Agentic Cosmos (Move cursor to orbit)"
       />
 
-      {/* Floating Telemetry Chips Around the Sculpture (Non-blocking) */}
+      {/* Floating Telemetry Chips Around the Sculpture (Non-blocking, compact on mobile) */}
       {/* Bottom Left: Human Architecture Telemetry */}
       <motion.div
-        animate={{ y: [-5, 5, -5] }}
+        animate={{ y: [-4, 4, -4] }}
         transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-4 left-4 sm:left-8 px-3.5 py-2 rounded-xl bg-jet-surface/85 border border-amber-500/40 backdrop-blur-xl shadow-[0_0_25px_rgba(245,158,11,0.25)] z-20 flex items-center gap-2.5 text-xs font-mono"
+        className="absolute bottom-2 left-2 sm:bottom-4 sm:left-6 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-jet-surface/90 border border-amber-500/40 backdrop-blur-xl shadow-[0_0_20px_rgba(245,158,11,0.2)] z-20 flex items-center gap-2 text-[10px] sm:text-xs font-mono"
       >
-        <Brain className="w-3.5 h-3.5 text-amber-400" />
+        <Brain className="w-3.5 h-3.5 text-amber-400 shrink-0" />
         <div>
-          <div className="text-[9px] text-amber-300/80 uppercase">Human Layer</div>
+          <div className="text-[8px] sm:text-[9px] text-amber-300/80 uppercase">Human Layer</div>
           <span className="text-white font-semibold">100% Senior Architect Led</span>
         </div>
       </motion.div>
 
-      {/* Top Right: Autonomous AI Swarm Telemetry */}
+      {/* Top Right: AI Swarm Velocity Telemetry */}
       <motion.div
-        animate={{ y: [5, -5, 5] }}
+        animate={{ y: [4, -4, 4] }}
         transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-        className="absolute top-4 right-4 sm:right-8 px-3.5 py-2 rounded-xl bg-jet-surface/85 border border-cerulean/40 backdrop-blur-xl shadow-[0_0_25px_rgba(0,123,167,0.3)] z-20 flex items-center gap-2 text-xs font-mono"
+        className="absolute top-2 right-2 sm:top-4 sm:right-6 px-2.5 sm:px-3.5 py-1.5 sm:py-2 rounded-xl bg-jet-surface/90 border border-cerulean/40 backdrop-blur-xl shadow-[0_0_20px_rgba(0,123,167,0.25)] z-20 flex items-center gap-2 text-[10px] sm:text-xs font-mono"
       >
-        <Cpu className="w-3.5 h-3.5 text-cerulean" />
+        <Cpu className="w-3.5 h-3.5 text-cerulean shrink-0" />
         <div>
-          <div className="text-[9px] text-cerulean/80 uppercase">Autonomous AI</div>
+          <div className="text-[8px] sm:text-[9px] text-cerulean/80 uppercase">AI Velocity</div>
           <span className="text-white font-semibold">Claude-3.5 Swarm Core</span>
         </div>
       </motion.div>
@@ -277,7 +277,7 @@ export function Hero3DParticleCosmos() {
       {/* Center Bottom: Synergy Status Pill */}
       <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 z-20 hidden sm:flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/85 border border-white/20 backdrop-blur-xl shadow-xl text-[10px] font-mono text-white">
         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-        <span>HUMAN + AI SYNERGY: ACTIVE</span>
+        <span>HUMAN CRAFT + AI VELOCITY: ACTIVE</span>
       </div>
     </div>
   );

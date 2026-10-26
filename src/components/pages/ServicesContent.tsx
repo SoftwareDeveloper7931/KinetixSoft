@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, CheckCircle, Sparkles, Layers, Cpu, ShieldCheck, Zap, GitBranch, Bot, Terminal } from "lucide-react";
+import { ArrowRight, CheckCircle, Sparkles, Layers, Cpu, ShieldCheck, Zap, GitBranch, Bot, Terminal, HeartHandshake, Smartphone, MessageSquare } from "lucide-react";
 import { SiFlutter, SiReplit, SiRetool } from "react-icons/si";
 import { Card3D } from "@/components/Card3D";
 import { Hero3DVisual } from "@/components/Hero3DVisual";
@@ -230,19 +230,19 @@ export default function ServicesContent() {
       {/* HERO */}
       <section className="pt-36 pb-16 px-4 md:px-6 max-w-7xl mx-auto relative z-10 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-mono uppercase tracking-widest mb-6 rounded-full border border-cerulean/30 bg-cerulean/10 text-[#00A3DE] shadow-sm shadow-cerulean/20">
-            <Cpu className="w-3.5 h-3.5 text-neon-rose" /> Autonomous Agentic AI & Custom Software
+          <span className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 text-xs font-mono uppercase tracking-widest mb-6 rounded-full border border-cerulean/30 bg-cerulean/10 text-[#00A3DE] shadow-sm shadow-cerulean/20">
+            <Sparkles className="w-3.5 h-3.5 text-neon-rose" /> Full-Lifecycle Engineering Studio · Direct Architect Access
           </span>
         </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-extrabold tracking-tight leading-[1.15] mb-4"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[46px] font-extrabold tracking-tight leading-[1.15] mb-4"
         >
-          Autonomous Agentic Stacks.{" "}
+          Software Built For Real Users.{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cerulean via-sky-400 to-neon-rose">
-            Engineered For Pure Velocity.
+            Senior Craft Powered By Modern Stacks.
           </span>
         </motion.h1>
         <motion.p
@@ -251,7 +251,7 @@ export default function ServicesContent() {
           transition={{ delay: 0.2 }}
           className="text-sm sm:text-base md:text-[17px] max-w-2xl mx-auto text-white/70 leading-relaxed"
         >
-          From multi-agent LLM swarms orchestrating complex business processes to high-velocity mobile frontends and self-healing CRMs. We architect intelligent, high-throughput digital ecosystems for founders who refuse to settle.
+          We architect and ship production-ready applications across Flutter mobile, full-stack web platforms, and automated workflow engines. High velocity, zero fluff, and direct collaboration with senior engineers who care about your launch.
         </motion.p>
 
         {/* 3D INTERACTIVE AI + HUMAN SYNERGY FLAGSHIP STAGE */}
@@ -279,13 +279,13 @@ export default function ServicesContent() {
               <div className="rounded-2xl bg-jet-surface/60 border border-white/10 overflow-hidden backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.6)]">
                 <div className="grid grid-cols-1 lg:grid-cols-3">
                   {/* Visual mockup panel */}
-                  <div className="p-8 flex items-center justify-center min-h-[220px] bg-jet/60 border-b lg:border-b-0 lg:border-r border-white/10 relative overflow-hidden">
+                  <div className="p-6 sm:p-8 flex items-center justify-center min-h-[180px] sm:min-h-[220px] bg-jet/60 border-b lg:border-b-0 lg:border-r border-white/10 relative overflow-hidden">
                     <div className="absolute inset-0 bg-radial-gradient from-cerulean/10 to-transparent pointer-events-none" />
                     {svc.mockup}
                   </div>
 
                   {/* Content panel */}
-                  <div className="p-8 lg:p-10 lg:col-span-2 flex flex-col justify-center">
+                  <div className="p-6 sm:p-8 lg:p-10 lg:col-span-2 flex flex-col justify-center">
                     <div className="flex items-center gap-4 mb-4">
                       {svc.logo}
                       <div>
@@ -314,10 +314,10 @@ export default function ServicesContent() {
                       ))}
                     </div>
 
-                    <Link href={svc.href} className="w-fit inline-flex group">
+                    <Link href={svc.href} className="w-full sm:w-fit inline-flex group">
                       <button
                         data-testid={`button-service-${svc.name.toLowerCase().replace(/[^a-z0-9]/g, "-")}`}
-                        className={`${svc.glowColor === "neon-rose" ? "btn-neon-rose" : "btn-cerulean"} group`}
+                        className={`${svc.glowColor === "neon-rose" ? "btn-neon-rose" : "btn-cerulean"} group w-full sm:w-auto justify-center`}
                       >
                         <span>Explore {svc.name} Services</span>
                         <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
@@ -331,17 +331,17 @@ export default function ServicesContent() {
         ))}
       </section>
 
-      {/* HOW OUR AGENTIC PIPELINE OPERATES */}
+      {/* HOW WE BUILD TOGETHER (COLLABORATIVE STUDIO MODEL) */}
       <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
         <div className="max-w-3xl mb-14 text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono uppercase text-[#00A3DE] bg-cerulean/10 border border-cerulean/30 mb-4">
-            <GitBranch className="w-3.5 h-3.5 text-neon-rose" /> Autonomous Execution Cycle
+            <HeartHandshake className="w-3.5 h-3.5 text-neon-rose" /> High-Touch Client Delivery
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-white">
-            The Agentic <span className="text-gradient-duo">Execution Loop</span>
+            How We Build <span className="text-gradient-duo">Together</span>
           </h2>
           <p className="text-sm sm:text-base text-white/70 leading-relaxed">
-            Every build is orchestrated through collaborative multi-agent swarms combined with senior human oversight.
+            Every engagement pairs direct human communication with modern development workflows to ship faster without compromising architecture or security.
           </p>
         </div>
 
@@ -349,29 +349,29 @@ export default function ServicesContent() {
           {[
             {
               step: "01",
-              title: "Ingest & Intent Parsing",
-              desc: "Multi-modal schema extraction, webhook listeners, user intent analysis, and functional spec generation.",
+              title: "Discovery & Blueprint",
+              desc: "We dive deep into your requirements, map out database models, user flows, and select the exact stack for your budget and growth.",
               icon: <Terminal className="w-5 h-5 text-cerulean" />,
               glow: "cerulean" as const,
             },
             {
               step: "02",
-              title: "Multi-Agent Reasoning",
-              desc: "Architect Agent plans decomposition, while specialized coding agents develop in parallel sprints.",
+              title: "Rapid Sprints & Slack",
+              desc: "Senior engineers build your core features in focused sprints, pairing human craft with modern AI tools for exceptional speed.",
               icon: <Bot className="w-5 h-5 text-neon-rose" />,
               glow: "rose" as const,
             },
             {
               step: "03",
-              title: "Sentinel Verification",
-              desc: "Automated unit tests, edge-case probes, zero-hallucination guardrails, and cryptographic audits.",
-              icon: <ShieldCheck className="w-5 h-5 text-cerulean" />,
+              title: "Weekly TestFlight",
+              desc: "Every single week, you get a hands-on build. You test features in the real world on your phone as they are created, giving instant feedback.",
+              icon: <Smartphone className="w-5 h-5 text-cerulean" />,
               glow: "cerulean" as const,
             },
             {
               step: "04",
-              title: "Zero-Downtime Deploy",
-              desc: "Autonomous staging PR verification, blue-green deployment, and live edge monitoring with self-healing SLA.",
+              title: "Store Launch & Handover",
+              desc: "We manage App Store and Google Play submissions, cloud deployment, and hand over 100% of your private GitHub repo, keys, and docs.",
               icon: <Zap className="w-5 h-5 text-neon-rose" />,
               glow: "rose" as const,
             },
