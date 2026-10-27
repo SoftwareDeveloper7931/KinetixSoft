@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     { url: base, lastModified: latestRelease, changeFrequency: "weekly", priority: 1.0 },
     { url: `${base}/flutterflow`, lastModified: latestRelease, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/flutterflow/tutorials`, lastModified: latestRelease, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/bubble`, lastModified: latestRelease, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/podio`, lastModified: latestRelease, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/lovable`, lastModified: latestRelease, changeFrequency: "monthly", priority: 0.9 },

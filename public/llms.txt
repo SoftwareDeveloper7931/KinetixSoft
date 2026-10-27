@@ -1,0 +1,32 @@
+# KinetixSoft
+> Autonomous Agentic AI, FlutterFlow, Bubble & Full-Stack Engineering Studio.
+
+## Overview
+KinetixSoft (https://kinetixsoft.com) is a founder-led engineering studio based in Lahore, Pakistan, that architects and builds production-grade mobile applications, full-stack web platforms, bespoke enterprise CRMs, and autonomous agentic AI systems for startups and scaling businesses worldwide.
+
+## Core Engineering Capabilities
+- **FlutterFlow Development**: Native iOS and Android mobile applications compiling directly into clean Google Flutter (Dart) source code. Executing at 60–120 FPS natively on the GPU via Google's Impeller rendering engine. Specializations include Stripe (One-time, Recurring SaaS, Connect Marketplace, Pre-auth holds), RevenueCat subscriptions, Supabase/Firebase backends, PostGIS geolocation routing, and offline sync.
+- **Bubble Development**: Complex relational web applications, multi-tier SaaS platforms, and two-sided marketplaces with zero code lock-in.
+- **Lovable Development**: AI-accelerated web applications and interactive MVPs shipped with high velocity.
+- **Retool & Internal Tools**: High-density operational dashboards, CRM data bridges, customer support consoles, and inventory dispatch managers.
+- **Podio & Workflow Automation**: Enterprise CRM architectures, GlobiFlow workflow orchestrations, lead routing engines, and third-party webhook integrations.
+- **Replit Full-Stack & Autonomous Agents**: Autonomous agent pipelines, cognitive AI workflows, Python/FastAPI microservices, and background queue workers.
+
+## Engineering Philosophy & Engagement Model
+- Direct Senior Architect Access: No account managers playing telephone; founders collaborate directly with the senior engineers writing their code.
+- Fast Turnaround: MVP and growth sprints delivered in 4 to 10 weeks with weekly working demo builds.
+- 100% IP & Code Ownership: Client owns all GitHub repositories, database schemas, API keys, and store credentials from day one.
+- Zero-Trust Security: Secrets are never exposed on client devices; third-party APIs are routed through secure serverless proxies.
+
+## Key URLs & Documentation
+- Home: https://kinetixsoft.com
+- FlutterFlow Development Services: https://kinetixsoft.com/flutterflow
+- FlutterFlow Tutorials & Knowledge Base: https://kinetixsoft.com/flutterflow/tutorials
+- Bubble Agency Services: https://kinetixsoft.com/bubble
+- Lovable Development: https://kinetixsoft.com/lovable
+- Retool Internal Tools: https://kinetixsoft.com/retool
+- Podio Consulting: https://kinetixsoft.com/podio
+- Replit Platform Engineering: https://kinetixsoft.com/replit-platform
+- Case Studies (Cashnix): https://kinetixsoft.com/case-studies/cashnix
+- Engineering Blog: https://kinetixsoft.com/blog
+- Contact & Scoping: https://kinetixsoft.com/contact
