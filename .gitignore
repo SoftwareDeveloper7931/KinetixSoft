@@ -16,4 +16,5 @@ out
 Thumbs.db
 *.tar.gz
 .next-build/
+*.tsbuildinfo
 scratch/
