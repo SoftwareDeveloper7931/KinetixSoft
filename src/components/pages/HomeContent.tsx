@@ -106,12 +106,60 @@ const industries = [
 ];
 
 const platforms = [
-  { name: "FlutterFlow", description: "Native iOS, Android & Web apps with Google Flutter Impeller engine", href: "/flutterflow", glow: "cerulean" as const, logo: <div className="w-12 h-12 rounded-xl bg-cerulean/20 border border-cerulean/40 flex items-center justify-center shadow-[0_4px_16px_rgba(0,123,167,0.35)]"><SiFlutter className="w-7 h-7 text-cerulean" /></div> },
-  { name: "Lovable", description: "AI-native full-stack web applications and scalable SaaS systems", href: "/lovable", glow: "rose" as const, logo: <LovableLogo /> },
-  { name: "Retool", description: "High-density enterprise dashboards, CRM bridges & internal operations", href: "/retool", glow: "cerulean" as const, logo: <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shadow-[0_4px_16px_rgba(245,158,11,0.25)]"><SiRetool className="w-7 h-7 text-amber-400" /></div> },
-  { name: "Podio", description: "Bespoke CRM workspaces, automated pipeline tracking & task routing", href: "/podio", glow: "cerulean" as const, logo: <PodioLogo /> },
-  { name: "Replit", description: "Full-stack Python/Node applications, background microservices & AI agents", href: "/replit-platform", glow: "rose" as const, logo: <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center shadow-[0_4px_16px_rgba(249,115,22,0.25)]"><SiReplit className="w-7 h-7 text-orange-400" /></div> },
-  { name: "Bubble", description: "Production no-code web portals, complex relational logic & payment flows", href: "/bubble", glow: "cerulean" as const, logo: <BubbleLogo /> },
+  {
+    name: "FlutterFlow",
+    tagline: "Native iOS & Android Mobile Apps",
+    description: "Compiles directly to clean Google Flutter (Dart) source code running at 60–120 FPS natively on the GPU via Google's Impeller engine. Built with offline SQLite caching, custom Dart actions, Firebase Custom Claims RBAC, and zero-leak Stripe payments.",
+    bestFor: "High-Performance Mobile & App Store Launches",
+    href: "/flutterflow",
+    glow: "cerulean" as const,
+    logo: <div className="w-12 h-12 rounded-xl bg-cerulean/20 border border-cerulean/40 flex items-center justify-center shadow-[0_4px_16px_rgba(0,123,167,0.35)]"><SiFlutter className="w-7 h-7 text-cerulean" /></div>
+  },
+  {
+    name: "Bubble",
+    tagline: "Full-Stack Relational Web Apps & SaaS",
+    description: "The gold standard for database-heavy web applications, multi-vendor marketplaces, and complex B2B SaaS. We engineer clean relational schemas, fine-grained database privacy rules, Stripe Connect split payouts, and automated workflow triggers.",
+    bestFor: "Complex Web Portals & Two-Sided Marketplaces",
+    href: "/bubble",
+    glow: "cerulean" as const,
+    logo: <BubbleLogo />
+  },
+  {
+    name: "Lovable",
+    tagline: "AI-Native Web Applications & Fast MVPs",
+    description: "Modern full-stack web products built with React, Vite, Tailwind CSS, and Supabase. Includes pgvector semantic search, autonomous AI copilots, Stripe subscription billing, and instant edge deployments with zero technical debt.",
+    bestFor: "AI-First Web Platforms & Rapid Commercial MVPs",
+    href: "/lovable",
+    glow: "rose" as const,
+    logo: <LovableLogo />
+  },
+  {
+    name: "Retool",
+    tagline: "Enterprise Operations & Internal Tools",
+    description: "Purpose-built operational dashboards, inventory dispatch consoles, and customer support consoles. Securely connects directly to PostgreSQL, MongoDB, Snowflake, REST, and GraphQL endpoints with granular RBAC and audit logging.",
+    bestFor: "Operations Consoles & Database Management GUIs",
+    href: "/retool",
+    glow: "cerulean" as const,
+    logo: <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shadow-[0_4px_16px_rgba(245,158,11,0.25)]"><SiRetool className="w-7 h-7 text-amber-400" /></div>
+  },
+  {
+    name: "Podio",
+    tagline: "Automated CRM & Enterprise Workspaces",
+    description: "Custom-architected Podio CRM ecosystems paired with GlobiFlow, Make, and webhook microservices. Replaces messy spreadsheets with automated lead routing, deal pipeline tracking, contract generation, and multi-department task routing.",
+    bestFor: "Real Estate, Professional Services & Automated CRM Pipelines",
+    href: "/podio",
+    glow: "cerulean" as const,
+    logo: <PodioLogo />
+  },
+  {
+    name: "Replit",
+    tagline: "Full-Stack Python/Node & Autonomous AI Agents",
+    description: "Autonomous multi-agent swarms, LLM reasoning pipelines, custom FastAPI/Node microservices, and persistent cloud workers. Built with LangGraph, CrewAI, and Claude 3.5 / GPT-4o tool-calling for automated web research, data enrichment, and background automation.",
+    bestFor: "Autonomous AI Agents, Custom APIs & Python Backends",
+    href: "/replit-platform",
+    glow: "rose" as const,
+    logo: <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center shadow-[0_4px_16px_rgba(249,115,22,0.25)]"><SiReplit className="w-7 h-7 text-orange-400" /></div>
+  },
 ];
 
 const comparisonMatrix = [
@@ -327,22 +375,27 @@ export default function HomeContent() {
 
       {/* PICK YOUR PLATFORM (3D TILT CARDS) */}
       <section className="py-24 px-4 md:px-6 max-w-7xl mx-auto relative z-10">
-        <div className="max-w-2xl mb-14 text-left">
+        <div className="max-w-3xl mb-14 text-left">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono uppercase text-cerulean bg-cerulean/10 border border-cerulean/30 mb-4">
             <Cpu className="w-3.5 h-3.5" /> High-Performance Stacks
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-white">
             Pick Your <span className="text-gradient-duo">Platform</span>
           </h2>
-          <p className="text-sm sm:text-base text-white/70">
-            We build on whichever framework actually fits your business model — not a rigid one-size-fits-all default.
+          <p className="text-sm sm:text-base text-white/75 leading-relaxed mb-4">
+            Selecting the right software foundation dictates your product's speed, scalability, running costs, and user retention. Whether you require GPU-accelerated native mobile performance (FlutterFlow), complex relational web SaaS (Bubble), AI-native copilot web apps (Lovable), enterprise internal ops panels (Retool), automated CRM workflows (Podio), or autonomous agent swarms (Replit) — our senior architects build production systems tailored strictly to your technical and business requirements.
           </p>
+          <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-[#00A3DE]">
+            <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-neon-rose" /> 100% Code &amp; IP Ownership</span>
+            <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-neon-rose" /> Zero Proprietary Lock-In</span>
+            <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-neon-rose" /> Serverless Scalable Backends</span>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {platforms.map((p, i) => (
-            <Link key={i} href={p.href} className="group">
-              <Card3D glowColor={p.glow} className="p-7 h-full flex flex-col justify-between">
+            <Link key={i} href={p.href} className="group flex">
+              <Card3D glowColor={p.glow} className="p-7 h-full flex flex-col justify-between w-full">
                 <div>
                   <div className="mb-5 flex items-center justify-between">
                     {p.logo}
@@ -350,17 +403,25 @@ export default function HomeContent() {
                       <ArrowUpRight className="w-4 h-4" />
                     </div>
                   </div>
+                  <div className="text-xs font-mono uppercase tracking-wider mb-1 font-semibold text-cerulean">
+                    {p.tagline}
+                  </div>
                   <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cerulean transition-colors">
                     {p.name}
                   </h3>
-                  <p className="text-sm text-white/65 leading-relaxed">
+                  <p className="text-sm text-white/65 leading-relaxed mb-4">
                     {p.description}
                   </p>
                 </div>
 
-                <div className="flex items-center gap-1.5 mt-6 text-xs font-semibold uppercase tracking-wider" style={{ color: p.glow === "rose" ? "#FF5CAE" : "#00A3DE" }}>
-                  <span>Explore Architecture</span>
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1.5" />
+                <div>
+                  <div className="text-[11px] font-mono px-2.5 py-1 rounded bg-white/5 border border-white/10 text-white/70 mb-4 inline-block">
+                    {p.bestFor}
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider" style={{ color: p.glow === "rose" ? "#FF5CAE" : "#00A3DE" }}>
+                    <span>Explore Architecture</span>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1.5" />
+                  </div>
                 </div>
               </Card3D>
             </Link>

@@ -55,9 +55,54 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: [
-    { "@type": "Question", name: "Which platform should I choose for my project?", acceptedAnswer: { "@type": "Answer", text: "It depends on what you're building: FlutterFlow for mobile apps, Lovable for web apps and SaaS, Retool for internal tools, Podio for CRM and workflow automation, and Replit for full-stack apps and AI agents. Contact us and we'll recommend the right platform for your specific use case." } },
-    { "@type": "Question", name: "Can KinetixSoft work across multiple platforms for one project?", acceptedAnswer: { "@type": "Answer", text: "Yes — many projects combine platforms. A common setup is a FlutterFlow customer app connected to a Retool admin panel and a Podio CRM, all tied together with custom API integrations. We handle multi-platform builds as a single project." } },
-    { "@type": "Question", name: "Do you offer ongoing support after launch?", acceptedAnswer: { "@type": "Answer", text: "Yes — we offer post-launch support and maintenance packages. Most clients continue working with us after launch for feature additions, bug fixes, and platform updates." } },
+    {
+      "@type": "Question",
+      name: "What services does KinetixSoft provide for startups and enterprises?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We engineer full-lifecycle software solutions across six production stacks: native mobile apps (FlutterFlow with Google Impeller 120 FPS), complex relational web SaaS and marketplaces (Bubble), AI-native web products (Lovable with Supabase pgvector), enterprise command centers (Retool), automated CRM pipelines (Podio with GlobiFlow), and autonomous AI agent swarms (Replit with LangGraph and FastAPI)."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "How do you ensure low-code applications scale without performance bottlenecks?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "We engineer low-code frontends with enterprise backend architectures. For FlutterFlow, code compiles to native ARM binary using Google Impeller GPU acceleration with local SQLite caching. For databases, we configure indexed Supabase Postgres schemas, serverless Firebase Cloud Functions for heavy compute, and cryptographic Row-Level Security (RLS) to ensure sub-100ms response times at scale."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Which framework should I choose: FlutterFlow, Bubble, or Lovable?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Choose FlutterFlow for native iOS & Android apps needing GPU performance, offline sync, and App Store distribution. Choose Bubble for database-heavy web platforms, directories, and multi-sided marketplaces. Choose Lovable for rapid, AI-first web applications and MVPs built on clean React and Supabase."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Can you integrate custom backend APIs without exposing confidential API keys?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes — zero-trust security is our foundational standard. We never expose API keys on client devices. In FlutterFlow, we configure Private API Groups routed through serverless Firebase Cloud Functions that inject secrets server-side. In Bubble and Lovable, all third-party integrations communicate through secure backend API connectors."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "Do I own 100% of my private GitHub repository, database, and source code?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, absolutely. You retain 100% ownership of your GitHub repositories, database schemas, API accounts, and app store credentials from Day 1. There is zero proprietary lock-in and zero ongoing platform royalty fees owed to KinetixSoft."
+      }
+    },
+    {
+      "@type": "Question",
+      name: "How long does a typical production build take from kickoff to App Store launch?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Most commercial MVPs and client applications ship in 4 to 10 weeks, depending on integration depth and payment complexity. We deliver weekly working builds (TestFlight / staging web URLs) with direct Slack collaboration so you can test features continuously."
+      }
+    }
   ],
 };
 

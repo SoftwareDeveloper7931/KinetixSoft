@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, CheckCircle, Sparkles, Layers, Cpu, ShieldCheck, Zap, GitBranch, Bot, Terminal, HeartHandshake, Smartphone, MessageSquare } from "lucide-react";
+import { ArrowRight, CheckCircle, Sparkles, Layers, Cpu, ShieldCheck, Zap, GitBranch, Bot, Terminal, HeartHandshake, Smartphone, MessageSquare, ChevronDown } from "lucide-react";
 import { SiFlutter, SiReplit, SiRetool } from "react-icons/si";
 import { Card3D } from "@/components/Card3D";
 import { Hero3DVisual } from "@/components/Hero3DVisual";
@@ -34,45 +35,23 @@ function LovableLogo() {
 
 const services = [
   {
-    href: "/replit-platform",
-    badge: "Autonomous Agent Swarms",
-    logo: (
-      <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center shadow-[0_4px_16px_rgba(249,115,22,0.3)]">
-        <SiReplit className="w-6 h-6 text-orange-400" />
-      </div>
-    ),
-    name: "Replit & Agent Swarms",
-    headline: "Multi-Agent LLM Orchestration & Autonomous Microservices",
-    body: "Autonomous agent swarms powered by Claude 3.5 Sonnet, GPT-4o, and LangGraph. We build self-directed scraping workers, tool-calling pipelines, and FastAPI background engines hosted with zero DevOps friction.",
-    bullets: ["Autonomous multi-agent swarms & tool calling", "FastAPI / Node.js backend microservices", "LangGraph & CrewAI cognitive graphs", "Instant edge deployment & self-healing runs"],
-    glowColor: "cerulean" as const,
-    mockup: (
-      <div className="font-mono text-[11px] space-y-1.5 p-3 rounded-lg bg-jet border border-jet-border w-full max-w-[260px]">
-        <div className="text-white/40 flex items-center gap-1.5">
-          <Terminal className="w-3.5 h-3.5 text-cerulean" /> agent_swarm.py
-        </div>
-        <div className="text-cerulean">{">"} Claude-3.5 Reasoning: 98.4%</div>
-        <div className="text-neon-rose">{">"} ToolCall: DB_MUTATE [OK]</div>
-        <div className="text-emerald-400 flex items-center gap-1">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-          Autonomous Loop Active ✓
-        </div>
-      </div>
-    ),
-  },
-  {
     href: "/flutterflow",
-    badge: "AI-Native Mobile & Web",
+    badge: "Native iOS & Android Mobile Engineering",
     logo: (
       <div className="w-12 h-12 rounded-xl bg-cerulean/10 border border-cerulean/30 flex items-center justify-center shadow-[0_4px_16px_rgba(0,123,167,0.3)]">
         <SiFlutter className="w-6 h-6 text-cerulean" />
       </div>
     ),
     name: "FlutterFlow",
-    headline: "Edge AI Mobile Apps with 120 FPS Fluidity",
-    body: "Cross-platform iOS and Android mobile apps engineered with Google Flutter Impeller engine, integrated with on-device vector search, local LLM interfaces, and real-time Supabase / Firebase streaming backends.",
-    bullets: ["App Store & Play Store certified launch", "On-device & edge AI vector search", "Custom Flutter Dart actions & Supabase Auth", "Ultra-fluid 120 FPS Impeller renderer"],
-    glowColor: "neon-rose" as const,
+    headline: "120 FPS Native Mobile Apps with Google Impeller Engine & Serverless Architecture",
+    body: "We engineer cross-platform iOS and Android mobile applications compiling directly into clean Google Flutter (Dart) source code. Utilizing Google's next-generation Impeller GPU rendering engine, your app runs fluidly at 60–120 FPS with zero dropped frames. Our production setups include offline SQLite caching, custom Dart Actions/Widgets, Firebase Custom Claims (O(1) RBAC), zero-leak Stripe payment flows (Apple Pay, Google Pay, recurring subscriptions, and Connect splits), and automated App Store & Google Play deployments.",
+    bullets: [
+      "Native Google Flutter (Dart) compilation with Impeller GPU acceleration",
+      "Zero-leak serverless API proxies (private Firebase Cloud Functions)",
+      "Enterprise RBAC via cryptographic Firebase Custom Claims & Supabase RLS",
+      "Offline-first SQLite local sync, push notifications & biometrics"
+    ],
+    glowColor: "cerulean" as const,
     mockup: (
       <div className="flex justify-center gap-3">
         <div className="w-[85px] h-[160px] rounded-[18px] border border-cerulean/40 bg-jet p-2 flex flex-col justify-between shadow-lg shadow-cerulean/20">
@@ -99,13 +78,57 @@ const services = [
     ),
   },
   {
+    href: "/bubble",
+    badge: "Full-Stack Relational Web Platforms",
+    logo: <BubbleLogo />,
+    name: "Bubble",
+    headline: "Complex Relational Databases, Multi-Vendor Marketplaces & B2B SaaS",
+    body: "The undisputed industry standard for database-heavy web platforms, directories, and multi-tenant SaaS products. We engineer scalable relational data models, optimized search indexing, Stripe Connect marketplace split payouts, and automated background workflows that handle high transaction volumes with zero frontend/backend disconnect.",
+    bullets: [
+      "Complex relational database schemas & optimized query indexing",
+      "Two-sided marketplaces with Stripe Connect automated vendor payouts",
+      "Multi-tenant B2B SaaS portals with role-based privacy rules",
+      "Full capacity audits, server-side workflows & zero technical debt"
+    ],
+    glowColor: "neon-rose" as const,
+    mockup: (
+      <div className="space-y-2.5 w-full max-w-[260px]">
+        <div className="grid grid-cols-2 gap-2">
+          {[{ l: "Active Portals", v: "24" }, { l: "AI Requests / d", v: "280k" }].map((s, i) => (
+            <div key={i} className="p-2 text-center bg-jet border border-jet-border rounded-lg">
+              <div className="text-xs font-bold text-cerulean">{s.v}</div>
+              <div className="text-[10px] text-white/50">{s.l}</div>
+            </div>
+          ))}
+        </div>
+        <div className="h-10 flex items-end gap-1.5 px-2 bg-jet rounded-lg border border-jet-border">
+          {[40, 60, 50, 70, 65, 92].map((h, i) => (
+            <div
+              key={i}
+              className="flex-1 rounded-sm"
+              style={{
+                height: `${h}%`,
+                background: i === 5 ? "var(--cerulean)" : "rgba(0, 123, 167, 0.3)",
+              }}
+            />
+          ))}
+        </div>
+      </div>
+    ),
+  },
+  {
     href: "/lovable",
-    badge: "Agentic Web & SaaS",
+    badge: "AI-Native Web Applications & Fast MVPs",
     logo: <LovableLogo />,
     name: "Lovable",
-    headline: "AI-Native SaaS Platforms & Relational Stacks",
-    body: "Rapidly engineered modern web products built on Lovable with Supabase pgvector semantic search, autonomous agentic copilot features, Stripe billing subscriptions, and responsive Tailwind UI.",
-    bullets: ["SaaS web app architecture & multi-tenancy", "Supabase authentication, RLS & pgvector", "Stripe subscription billing & webhooks", "Production CI/CD deployment with zero debt"],
+    headline: "AI-First Web Platforms with React, Vite & Supabase pgvector",
+    body: "Ship production-ready web products and SaaS applications at breakthrough velocity. We build on Lovable utilizing clean React, Vite, and Tailwind CSS code bases paired with Supabase. Backends are equipped with pgvector semantic vector search, conversational AI copilots, Stripe subscription billing, and instant edge deployments with full source code export.",
+    bullets: [
+      "Full-stack React, Vite & Tailwind CSS with zero proprietary lock-in",
+      "Supabase authentication, Row Level Security (RLS) & pgvector search",
+      "Stripe automated subscription billing & lifecycle webhooks",
+      "Rapid commercial MVP launches delivered in 2 to 4 weeks"
+    ],
     glowColor: "neon-rose" as const,
     mockup: (
       <div className="w-full max-w-[260px] space-y-3">
@@ -133,37 +156,22 @@ const services = [
     ),
   },
   {
-    href: "/podio",
-    badge: "Autonomous CRM & Ops Architecture",
-    logo: <PodioLogo />,
-    name: "Podio",
-    headline: "Self-Healing CRM & Autonomous Workflow Systems",
-    body: "Custom Podio workspaces, high-velocity CRM pipelines, and GlobiFlow/Make automated agent workflows engineered for operations teams outgrowing spreadsheets. Handles thousands of records with zero human intervention.",
-    bullets: ["Self-healing workspace architecture", "Autonomous GlobiFlow & trigger agents", "High-throughput data sync & ETL pipelines", "Multi-platform webhook & agentic integrations"],
-    glowColor: "cerulean" as const,
-    mockup: (
-      <div className="space-y-2.5 w-full max-w-[260px]">
-        {["Lead Ingested (AI Filter)", "Discovery Scheduled", "Proposal Generated", "Self-Healing Sync [OK]"].map((s, i) => (
-          <div key={i} className="flex items-center gap-3 px-3 py-2 bg-jet/90 rounded-lg border border-jet-border text-xs">
-            <div className={`w-2 h-2 rounded-full ${i === 3 ? "bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" : i === 2 ? "bg-neon-rose" : "bg-cerulean"}`} />
-            <span className="text-white/80 font-mono">{s}</span>
-          </div>
-        ))}
-      </div>
-    ),
-  },
-  {
     href: "/retool",
-    badge: "AI Copilot Internal Ops",
+    badge: "Enterprise Operations & Internal Tools",
     logo: (
       <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center shadow-[0_4px_16px_rgba(245,158,11,0.25)]">
         <SiRetool className="w-6 h-6 text-amber-400" />
       </div>
     ),
     name: "Retool",
-    headline: "Admin Dashboards & Agentic Command Centers",
-    body: "Purpose-built operational command centers, customer support admin interfaces, and real-time database CRUD viewers with autonomous agent action buttons and strict enterprise cryptographic permission controls.",
-    bullets: ["Direct Postgres, pgvector & MongoDB queries", "Autonomous action triggers & agent workflows", "Multi-step approval flows with human-in-the-loop", "Cryptographic audit trails & enterprise RBAC"],
+    headline: "High-Density Admin Panels, Dispatch Hubs & Database Management Consoles",
+    body: "Eliminate manual spreadsheet operations and fragmented internal workflows. We design custom enterprise command centers, customer support consoles, inventory dispatchers, and database CRUD viewers connecting securely to PostgreSQL, MongoDB, Snowflake, REST, and GraphQL endpoints with fine-grained RBAC and audit logging.",
+    bullets: [
+      "Direct SQL, MongoDB, Snowflake, REST & GraphQL enterprise connections",
+      "Granular Role-Based Access Control (RBAC) & cryptographic audit trails",
+      "Multi-step approval flows with human-in-the-loop validation",
+      "Automated data ETL pipelines, webhook alerts & self-healing sync"
+    ],
     glowColor: "cerulean" as const,
     mockup: (
       <div className="w-full max-w-[260px] space-y-2.5">
@@ -189,40 +197,122 @@ const services = [
     ),
   },
   {
-    href: "/bubble",
-    badge: "Enterprise No-Code Web Systems",
-    logo: <BubbleLogo />,
-    name: "Bubble",
-    headline: "Complex Relational Portals & AI Automation",
-    body: "Complex multi-tenant web applications, marketplace platforms, and user portals built with battle-tested database schemas, external LLM endpoints, and Stripe payment logic on Bubble.",
-    bullets: ["Multi-tenant portals & marketplaces", "Complex database schema & indexing", "AI API connectors & tool-calling webhooks", "Full performance optimization & capacity audits"],
-    glowColor: "neon-rose" as const,
+    href: "/podio",
+    badge: "Automated Enterprise CRM Workspaces",
+    logo: <PodioLogo />,
+    name: "Podio",
+    headline: "Bespoke Workspace Architectures & GlobiFlow Trigger Engines",
+    body: "Custom-architected Podio CRM ecosystems engineered for high-volume deal pipelines, real estate acquisitions, and multi-department service firms. Powered by advanced GlobiFlow triggers, Make/Zapier webhooks, and automated document generation that processes thousands of records with zero human error.",
+    bullets: [
+      "Custom workspace hierarchies & relational app relationship modeling",
+      "Autonomous GlobiFlow calculations, automated triggers & task routing",
+      "Automated PDF document contracts & DocuSign/DocuSeal integration",
+      "Zero-downtime data migration from legacy spreadsheets and Salesforce"
+    ],
+    glowColor: "cerulean" as const,
     mockup: (
       <div className="space-y-2.5 w-full max-w-[260px]">
-        <div className="grid grid-cols-2 gap-2">
-          {[{ l: "Active Portals", v: "24" }, { l: "AI Requests / d", v: "280k" }].map((s, i) => (
-            <div key={i} className="p-2 text-center bg-jet border border-jet-border rounded-lg">
-              <div className="text-xs font-bold text-cerulean">{s.v}</div>
-              <div className="text-[10px] text-white/50">{s.l}</div>
-            </div>
-          ))}
+        {["Lead Ingested (AI Filter)", "Discovery Scheduled", "Proposal Generated", "Self-Healing Sync [OK]"].map((s, i) => (
+          <div key={i} className="flex items-center gap-3 px-3 py-2 bg-jet/90 rounded-lg border border-jet-border text-xs">
+            <div className={`w-2 h-2 rounded-full ${i === 3 ? "bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" : i === 2 ? "bg-neon-rose" : "bg-cerulean"}`} />
+            <span className="text-white/80 font-mono">{s}</span>
+          </div>
+        ))}
+      </div>
+    ),
+  },
+  {
+    href: "/replit-platform",
+    badge: "Autonomous Multi-Agent AI Systems",
+    logo: (
+      <div className="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center shadow-[0_4px_16px_rgba(249,115,22,0.3)]">
+        <SiReplit className="w-6 h-6 text-orange-400" />
+      </div>
+    ),
+    name: "Replit & Agent Swarms",
+    headline: "Cognitive LLM Swarms, Tool-Calling Pipelines & Python Microservices",
+    body: "Autonomous multi-agent swarms engineered with Claude 3.5 Sonnet, GPT-4o, and LangGraph/CrewAI cognitive graphs. We deploy self-directed research workers, database mutation tools, automated code runners, and FastAPI/Node backend microservices running on zero-DevOps cloud infrastructure.",
+    bullets: [
+      "Autonomous multi-agent swarms with LangGraph & CrewAI graphs",
+      "FastAPI & Node.js backend microservices with persistent WebSocket queues",
+      "Tool-calling agents for automated scraping, data enrichment & DB mutations",
+      "Instant cloud deployment with automated error recovery & self-healing runs"
+    ],
+    glowColor: "neon-rose" as const,
+    mockup: (
+      <div className="font-mono text-[11px] space-y-1.5 p-3 rounded-lg bg-jet border border-jet-border w-full max-w-[260px]">
+        <div className="text-white/40 flex items-center gap-1.5">
+          <Terminal className="w-3.5 h-3.5 text-cerulean" /> agent_swarm.py
         </div>
-        <div className="h-10 flex items-end gap-1.5 px-2 bg-jet rounded-lg border border-jet-border">
-          {[40, 60, 50, 70, 65, 92].map((h, i) => (
-            <div
-              key={i}
-              className="flex-1 rounded-sm"
-              style={{
-                height: `${h}%`,
-                background: i === 5 ? "var(--cerulean)" : "rgba(0, 123, 167, 0.3)",
-              }}
-            />
-          ))}
+        <div className="text-cerulean">{">"} Claude-3.5 Reasoning: 98.4%</div>
+        <div className="text-neon-rose">{">"} ToolCall: DB_MUTATE [OK]</div>
+        <div className="text-emerald-400 flex items-center gap-1">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+          Autonomous Loop Active ✓
         </div>
       </div>
     ),
   },
 ];
+
+const serviceFaqs = [
+  {
+    q: "What services does KinetixSoft provide for startups and enterprises?",
+    a: "We engineer full-lifecycle software solutions across six production stacks: native mobile apps (FlutterFlow with Google Impeller 120 FPS), complex relational web SaaS and marketplaces (Bubble), AI-native web products (Lovable with Supabase pgvector), enterprise command centers (Retool), automated CRM pipelines (Podio with GlobiFlow), and autonomous AI agent swarms (Replit with LangGraph and FastAPI)."
+  },
+  {
+    q: "How do you ensure low-code applications scale without performance bottlenecks?",
+    a: "We engineer low-code frontends with enterprise backend architectures. For FlutterFlow, code compiles to native ARM binary using Google Impeller GPU acceleration with local SQLite caching. For databases, we configure indexed Supabase Postgres schemas, serverless Firebase Cloud Functions for heavy compute, and cryptographic Row-Level Security (RLS) to ensure sub-100ms response times at scale."
+  },
+  {
+    q: "Which framework should I choose: FlutterFlow, Bubble, or Lovable?",
+    a: "Choose FlutterFlow for native iOS & Android apps needing GPU performance, offline sync, and App Store distribution. Choose Bubble for database-heavy web platforms, directories, and multi-sided marketplaces. Choose Lovable for rapid, AI-first web applications and MVPs built on clean React and Supabase."
+  },
+  {
+    q: "Can you integrate custom backend APIs without exposing confidential API keys?",
+    a: "Yes — zero-trust security is our foundational standard. We never expose API keys on client devices. In FlutterFlow, we configure Private API Groups routed through serverless Firebase Cloud Functions that inject secrets server-side. In Bubble and Lovable, all third-party integrations communicate through secure backend API connectors."
+  },
+  {
+    q: "Do I own 100% of my private GitHub repository, database, and source code?",
+    a: "Yes, absolutely. You retain 100% ownership of your GitHub repositories, database schemas, API accounts, and app store credentials from Day 1. There is zero proprietary lock-in and zero ongoing platform royalty fees owed to KinetixSoft."
+  },
+  {
+    q: "How long does a typical production build take from kickoff to App Store launch?",
+    a: "Most commercial MVPs and client applications ship in 4 to 10 weeks, depending on integration depth and payment complexity. We deliver weekly working builds (TestFlight / staging web URLs) with direct Slack collaboration so you can test features continuously."
+  }
+];
+
+function ServiceFAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="rounded-2xl overflow-hidden bg-jet-surface/80 border border-jet-border transition-all duration-300 hover:border-cerulean/40">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between px-6 py-5 text-left font-semibold text-white transition-colors hover:text-cerulean cursor-pointer"
+      >
+        <span className="text-base sm:text-lg pr-4">{q}</span>
+        <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-all ${open ? "bg-neon-rose/20 text-neon-rose" : "bg-white/5 text-cerulean"}`}>
+          <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${open ? "rotate-180" : ""}`} />
+        </div>
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <p className="px-6 pb-6 text-sm text-white/70 leading-relaxed border-t border-jet-border pt-4">
+              {a}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default function ServicesContent() {
   return (
@@ -386,6 +476,26 @@ export default function ServicesContent() {
               <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
               <p className="text-xs text-white/65 leading-relaxed">{item.desc}</p>
             </Card3D>
+          ))}
+        </div>
+      </section>
+
+      {/* SERVICE FAQS (TARGETING USER QUESTION REGEX QUERIES) */}
+      <section className="py-20 px-4 md:px-6 max-w-4xl mx-auto relative z-10">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono uppercase text-cerulean bg-cerulean/10 border border-cerulean/30 mb-4">
+            <MessageSquare className="w-3.5 h-3.5" /> Architecture & Delivery
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2 text-white">
+            Frequently Asked <span className="text-gradient-cerulean">Questions</span>
+          </h2>
+          <p className="text-white/60 text-xs sm:text-sm">
+            Everything you need to know about our engineering services, security standards, and delivery process.
+          </p>
+        </div>
+        <div className="space-y-3.5">
+          {serviceFaqs.map((f, i) => (
+            <ServiceFAQItem key={i} q={f.q} a={f.a} />
           ))}
         </div>
       </section>
