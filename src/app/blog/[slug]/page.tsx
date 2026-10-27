@@ -5,6 +5,8 @@ import { Calendar, Clock, ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
 import JsonLd from "@/components/JsonLd";
 import { ALL_POSTS, getPostBySlug } from "@/data/blog-posts";
 
+import { Top5FlutterFlowShowcase } from "@/components/Top5FlutterFlowShowcase";
+
 export async function generateStaticParams() {
   return ALL_POSTS.map((post) => ({ slug: post.slug }));
 }
@@ -111,12 +113,36 @@ export default async function BlogPostPage({
     ],
   };
 
+  const isRegionalRanking = post.slug.startsWith("best-flutterflow-app-development-company-");
+  const isFlagshipRanking = post.slug === "best-flutterflow-app-development-companies-2026";
+
+  const splitMarker = "<h2>Top 5 FlutterFlow App Development Companies in 2026";
+  const endMarker = "Top 5 Best FlutterFlow App Development Companies in 2026 (Ranked &amp; Reviewed)</a>.</p>";
+
+  let showShowcase = false;
+  let contentBefore = "";
+  let contentAfter = "";
+
+  if (isRegionalRanking && post.content.includes(splitMarker)) {
+    const parts = post.content.split(splitMarker);
+    contentBefore = parts[0];
+    const endIdx = parts[1].indexOf(endMarker);
+    if (endIdx !== -1) {
+      contentAfter = parts[1].slice(endIdx + endMarker.length);
+      showShowcase = true;
+    }
+  }
+
+  const region = isRegionalRanking
+    ? post.slug.replace("best-flutterflow-app-development-company-", "").toUpperCase()
+    : "Global";
+
   return (
     <div className="min-h-screen bg-jet text-white">
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={articleSchema} />
 
-      <article className="pt-36 pb-24 px-4 md:px-6 max-w-3xl mx-auto relative z-10">
+      <article className="pt-36 pb-24 px-4 md:px-6 max-w-4xl mx-auto relative z-10">
         <Link
           href="/blog"
           className="inline-flex items-center gap-2 text-sm mb-10 transition-colors text-white/50 hover:text-cerulean"
@@ -157,10 +183,32 @@ export default async function BlogPostPage({
         )}
 
         {/* Post Content */}
-        <div
-          className="prose prose-invert prose-lg max-w-none prose-headings:font-bold prose-headings:text-white prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4 prose-p:text-white/70 prose-p:leading-relaxed prose-p:mb-5 prose-strong:text-white prose-a:text-cerulean prose-a:underline hover:prose-a:text-neon-rose prose-ul:text-white/70 prose-li:my-1.5 prose-code:text-cerulean prose-code:bg-jet-surface prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:border prose-code:border-jet-border"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
+        {showShowcase ? (
+          <>
+            <div
+              className="prose prose-invert prose-lg max-w-none prose-headings:font-bold prose-headings:text-white prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4 prose-p:text-white/70 prose-p:leading-relaxed prose-p:mb-5 prose-strong:text-white prose-a:text-cerulean prose-a:underline hover:prose-a:text-neon-rose prose-ul:text-white/70 prose-li:my-1.5 prose-code:text-cerulean prose-code:bg-jet-surface prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:border prose-code:border-jet-border"
+              dangerouslySetInnerHTML={{ __html: contentBefore }}
+            />
+            <Top5FlutterFlowShowcase currentRegion={region} />
+            <div
+              className="prose prose-invert prose-lg max-w-none prose-headings:font-bold prose-headings:text-white prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4 prose-p:text-white/70 prose-p:leading-relaxed prose-p:mb-5 prose-strong:text-white prose-a:text-cerulean prose-a:underline hover:prose-a:text-neon-rose prose-ul:text-white/70 prose-li:my-1.5 prose-code:text-cerulean prose-code:bg-jet-surface prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:border prose-code:border-jet-border"
+              dangerouslySetInnerHTML={{ __html: contentAfter }}
+            />
+          </>
+        ) : isFlagshipRanking ? (
+          <>
+            <Top5FlutterFlowShowcase currentRegion="Global" />
+            <div
+              className="prose prose-invert prose-lg max-w-none prose-headings:font-bold prose-headings:text-white prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4 prose-p:text-white/70 prose-p:leading-relaxed prose-p:mb-5 prose-strong:text-white prose-a:text-cerulean prose-a:underline hover:prose-a:text-neon-rose prose-ul:text-white/70 prose-li:my-1.5 prose-code:text-cerulean prose-code:bg-jet-surface prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:border prose-code:border-jet-border"
+              dangerouslySetInnerHTML={{ __html: post.content }}
+            />
+          </>
+        ) : (
+          <div
+            className="prose prose-invert prose-lg max-w-none prose-headings:font-bold prose-headings:text-white prose-h2:text-2xl md:prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4 prose-p:text-white/70 prose-p:leading-relaxed prose-p:mb-5 prose-strong:text-white prose-a:text-cerulean prose-a:underline hover:prose-a:text-neon-rose prose-ul:text-white/70 prose-li:my-1.5 prose-code:text-cerulean prose-code:bg-jet-surface prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:border prose-code:border-jet-border"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
+        )}
 
         {/* In-Article Conversion Card */}
         <div className="my-14 p-8 rounded-2xl bg-jet-surface/90 border border-jet-border relative overflow-hidden backdrop-blur-xl shadow-2xl">

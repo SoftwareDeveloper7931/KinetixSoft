@@ -391,3 +391,161 @@ input:focus, textarea:focus, select:focus {
 ::-webkit-scrollbar-thumb:hover { 
   background: #007BA7; 
 }
+
+/* =========================================================================
+   PUBLICATION & BLOG SHOWCASE COMPONENTS (INCEPTMVP-STYLE & BEYOND)
+   ========================================================================= */
+
+.ff-table-wrapper {
+  overflow-x: auto;
+  margin: 28px 0;
+  border-radius: 16px;
+  border: 1px solid #222630;
+  background: #111215;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.ff-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: 14px;
+  min-width: 680px;
+}
+
+.ff-table th {
+  background: #16181D;
+  color: #00A3DE;
+  text-align: left;
+  padding: 16px 18px;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid #222630;
+}
+
+.ff-table td {
+  padding: 16px 18px;
+  border-bottom: 1px solid #1E232E;
+  color: #CBD5E1;
+  vertical-align: middle;
+}
+
+.ff-table tr:last-child td {
+  border-bottom: none;
+}
+
+.ff-table tr:hover {
+  background: rgba(0, 123, 167, 0.07);
+}
+
+.rating {
+  color: #f59e0b;
+  font-size: 15px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+/* Company Showcase Cards */
+.company-card {
+  margin: 32px 0;
+  padding: 28px;
+  border-radius: 20px;
+  border: 1px solid #222630;
+  background: #111215;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.company-card:hover {
+  border-color: rgba(0, 123, 167, 0.45);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6);
+}
+
+.company-card.featured-winner {
+  border: 1.5px solid rgba(0, 163, 222, 0.55);
+  background: linear-gradient(180deg, rgba(0, 123, 167, 0.12) 0%, #111215 100%);
+  box-shadow: 0 0 35px rgba(0, 123, 167, 0.25), 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.company-card.featured-runnerup {
+  border: 1.5px solid rgba(255, 45, 149, 0.45);
+  background: linear-gradient(180deg, rgba(255, 45, 149, 0.09) 0%, #111215 100%);
+  box-shadow: 0 0 30px rgba(255, 45, 149, 0.2), 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.company-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+  font-family: var(--font-mono);
+}
+
+.badge-winner {
+  background: rgba(0, 163, 222, 0.18);
+  border: 1px solid rgba(0, 163, 222, 0.5);
+  color: #00A3DE;
+}
+
+.badge-runnerup {
+  background: rgba(255, 45, 149, 0.18);
+  border: 1px solid rgba(255, 45, 149, 0.5);
+  color: #FF5CAE;
+}
+
+.badge-standard {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #94A3B8;
+}
+
+.tag-pill {
+  display: inline-block;
+  padding: 4px 11px;
+  border-radius: 8px;
+  font-size: 12px;
+  background: #181B22;
+  border: 1px solid #282D37;
+  color: #E2E8F0;
+  margin-right: 6px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.callout-box {
+  margin: 22px 0;
+  padding: 20px 22px;
+  border-radius: 14px;
+  background: #14171E;
+  border-left: 4px solid #00A3DE;
+  color: #CBD5E1;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.callout-box.rose-left {
+  border-left-color: #FF2D95;
+  background: #17131A;
+}
+
+.quote-faq-box {
+  margin: 16px 0;
+  padding: 18px 22px;
+  border-radius: 12px;
+  background: #13151A;
+  border: 1px solid #222630;
+  border-left: 4px solid #00A3DE;
+  color: #CBD5E1;
+  font-size: 14px;
+  line-height: 1.6;
+}
