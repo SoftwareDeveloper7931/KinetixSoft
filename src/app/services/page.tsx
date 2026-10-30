@@ -3,12 +3,17 @@ import ServicesContent from "@/components/pages/ServicesContent";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "App Development Services — FlutterFlow, Lovable, Retool, Podio, Replit & Bubble | KinetixSoft",
+  title: "Low-Code & No-Code Development Agency — FlutterFlow, Bubble & Custom Code | KinetixSoft",
   description:
-    "KinetixSoft offers app development services across six platforms: FlutterFlow (mobile apps), Lovable (web apps/SaaS), Retool (internal tools), Podio (CRM), Replit (full-stack/AI), and Bubble (no-code web apps). Find the right platform for your project.",
+    "KinetixSoft is a premier low-code and no-code development agency and custom code studio. We engineer scalable mobile apps, web SaaS, and internal tools on FlutterFlow, Bubble, Retool, Lovable, Podio, and Replit with bespoke custom code and APIs.",
   alternates: { canonical: "https://kinetixsoft.com/services" },
   keywords: [
-    "app development services",
+    "low code no code agency",
+    "low code development agency",
+    "no code development agency",
+    "agency for custom code",
+    "custom code agency",
+    "FlutterFlow agency",
     "FlutterFlow development",
     "Lovable app development",
     "Retool internal tools",
@@ -17,10 +22,12 @@ export const metadata: Metadata = {
     "Bubble app development",
     "no-code development services",
     "low-code agency services",
+    "custom dart code development",
+    "custom API integration agency",
   ],
   openGraph: {
-    title: "Services — KinetixSoft",
-    description: "Six platforms. One studio. FlutterFlow, Lovable, Retool, Podio, Replit, and Bubble development services.",
+    title: "Low-Code & No-Code Development Agency — KinetixSoft",
+    description: "Premier low-code and no-code development agency. Production-ready mobile and web apps built with FlutterFlow, Bubble, Retool, and bespoke custom code.",
     url: "https://kinetixsoft.com/services",
   },
 };

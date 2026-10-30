@@ -3,15 +3,19 @@ import FlutterFlowContent from "@/components/pages/FlutterFlowContent";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "FlutterFlow Development Agency — Mobile & Web Apps | KinetixSoft",
+  title: "FlutterFlow Development Agency — Custom Code, Mobile & Web Apps | KinetixSoft",
   description:
-    "KinetixSoft is a FlutterFlow development agency building production-ready mobile and web apps. Custom UI, Firebase/Supabase integration, API connections, App Store deployment, and post-launch support.",
+    "KinetixSoft is a premier FlutterFlow development agency building production-ready mobile and web apps. Custom Dart code, bespoke UI, Firebase & Supabase architecture, custom APIs, and App Store deployment.",
   alternates: { canonical: "https://kinetixsoft.com/flutterflow" },
   keywords: [
     "FlutterFlow agency",
+    "FlutterFlow development agency",
     "FlutterFlow developer",
-    "FlutterFlow app development",
     "hire FlutterFlow developer",
+    "FlutterFlow custom code",
+    "agency for custom code",
+    "custom Dart code FlutterFlow",
+    "FlutterFlow app development",
     "FlutterFlow Firebase integration",
     "FlutterFlow Supabase",
     "FlutterFlow mobile app",
@@ -20,9 +24,9 @@ export const metadata: Metadata = {
     "cross-platform app development",
   ],
   openGraph: {
-    title: "FlutterFlow Development Agency — KinetixSoft",
+    title: "FlutterFlow Development Agency — Custom Code & Apps | KinetixSoft",
     description:
-      "Production-ready mobile and web apps built on FlutterFlow. Custom UI, Firebase, API integrations, and ongoing support.",
+      "Production-ready mobile and web apps built on FlutterFlow. Custom Dart code, Firebase, API integrations, and ongoing support.",
     url: "https://kinetixsoft.com/flutterflow",
   },
 };

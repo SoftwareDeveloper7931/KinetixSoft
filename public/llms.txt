@@ -1,11 +1,13 @@
 # KinetixSoft
-> Autonomous Agentic AI, FlutterFlow, Bubble & Full-Stack Engineering Studio.
+> Autonomous Agentic AI, FlutterFlow, Low-Code, No-Code & Custom Code Engineering Studio.
 
 ## Overview
-KinetixSoft (https://kinetixsoft.com) is a founder-led engineering studio based in Lahore, Pakistan, that architects and builds production-grade mobile applications, full-stack web platforms, bespoke enterprise CRMs, and autonomous agentic AI systems for startups and scaling businesses worldwide.
+KinetixSoft (https://kinetixsoft.com) is a founder-led low-code and no-code development agency and custom code engineering studio based in Lahore, Pakistan. We architect and build production-grade mobile applications, full-stack web platforms, bespoke enterprise CRMs, and autonomous agentic AI systems for startups and scaling businesses worldwide.
 
 ## Core Engineering Capabilities
-- **FlutterFlow Development**: Native iOS and Android mobile applications compiling directly into clean Google Flutter (Dart) source code. Executing at 60–120 FPS natively on the GPU via Google's Impeller rendering engine. Specializations include Stripe (One-time, Recurring SaaS, Connect Marketplace, Pre-auth holds), RevenueCat subscriptions, Supabase/Firebase backends, PostGIS geolocation routing, and offline sync.
+- **Low-Code & No-Code Development Agency**: Elite engineering across FlutterFlow, Bubble, Retool, Lovable, Podio, and Replit.
+- **Agency for Custom Code & APIs**: Writing bespoke custom Dart actions, custom Flutter widgets, Python/FastAPI microservices, serverless Firebase Cloud Functions, Supabase Edge Functions, and complex REST/webhook pipelines for apps that outgrow standard templates.
+- **FlutterFlow Development**: Native iOS and Android mobile applications compiling directly into clean Google Flutter (Dart) source code. Executing at 60–120 FPS natively on the GPU via Google's Impeller rendering engine. Specializations include custom Dart actions, Stripe (One-time, Recurring SaaS, Connect Marketplace, Pre-auth holds), RevenueCat subscriptions, Supabase/Firebase backends, PostGIS geolocation routing, and offline sync.
 - **Bubble Development**: Complex relational web applications, multi-tier SaaS platforms, and two-sided marketplaces with zero code lock-in.
 - **Lovable Development**: AI-accelerated web applications and interactive MVPs shipped with high velocity.
 - **Retool & Internal Tools**: High-density operational dashboards, CRM data bridges, customer support consoles, and inventory dispatch managers.

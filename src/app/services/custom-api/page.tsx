@@ -3,15 +3,21 @@ import CustomApiContent from "@/components/pages/CustomApiContent";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Custom API Integration Services — Connect Your Apps & Tools | KinetixSoft",
+  title: "Agency for Custom Code & API Integrations — FlutterFlow, Low-Code & APIs | KinetixSoft",
   description:
-    "KinetixSoft builds custom API integrations that connect your apps, tools, and databases. REST APIs, webhooks, third-party service connections, and automation pipelines for FlutterFlow, Retool, Podio, and standalone apps.",
+    "KinetixSoft is an engineering agency for custom code and API integrations. We extend FlutterFlow, Retool, Bubble, and Podio with bespoke custom Dart actions, Python microservices, REST APIs, and automated data pipelines.",
   alternates: { canonical: "https://kinetixsoft.com/services/custom-api" },
   keywords: [
+    "agency for custom code",
+    "custom code agency",
+    "FlutterFlow custom code",
+    "custom Dart code",
+    "custom API integration agency",
     "custom API integration",
     "REST API development",
     "webhook integration",
     "third-party API connection",
+    "low code custom code",
     "API consultant",
     "API integration developer",
     "Stripe integration developer",
@@ -20,8 +26,8 @@ export const metadata: Metadata = {
     "data sync integration",
   ],
   openGraph: {
-    title: "Custom API Integration Services — KinetixSoft",
-    description: "Connect your apps and data with custom API integrations. REST APIs, webhooks, and automation pipelines built by KinetixSoft.",
+    title: "Agency for Custom Code & API Integration Services — KinetixSoft",
+    description: "Custom code agency extending low-code platforms with custom Dart actions, REST APIs, webhooks, and secure microservices.",
     url: "https://kinetixsoft.com/services/custom-api",
   },
 };
