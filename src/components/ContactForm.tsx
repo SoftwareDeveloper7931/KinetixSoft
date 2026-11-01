@@ -79,7 +79,7 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
       });
     } catch (err: any) {
       setStatus("error");
-      setErrorMsg(err.message ?? "Something went wrong. Please reach us at info@kinetixsoft.com.");
+      setErrorMsg(err.message ?? "Could not transmit form. Please message us on WhatsApp or email info@kinetixsoft.com.");
     }
   };
 
@@ -91,14 +91,32 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
           <CheckCircle className="w-8 h-8" />
         </div>
         <h3 className="text-xl font-bold text-white mb-2">Message Received!</h3>
-        <p className="text-sm text-muted-foreground max-w-md mx-auto mb-6">
-          Thank you for reaching out. A senior engineer from our team will review your requirements and respond within one business day.
+        <p className="text-sm text-gray-300 max-w-md mx-auto mb-5 leading-relaxed">
+          Thank you for reaching out. A senior engineer from our team will review your requirements and respond within 24 hours.
         </p>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-6">
+          <a
+            href="https://wa.me/923079575055?text=Hi%20KinetixSoft%2C%20I%20just%20submitted%20a%20project%20brief."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs font-semibold bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/25 transition-all"
+          >
+            <span>💬 Chat on WhatsApp (+92 307 9575055)</span>
+          </a>
+          <a
+            href="mailto:info@kinetixsoft.com"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-xs font-semibold bg-white/5 border border-white/10 text-white/90 hover:bg-white/10 transition-all"
+          >
+            <span>✉️ info@kinetixsoft.com</span>
+          </a>
+        </div>
+
         <button
           onClick={() => setStatus("idle")}
-          className="px-6 py-2 rounded-lg text-sm font-semibold bg-[#111215] border border-white/10 hover:border-[#007BA7] text-white transition-colors"
+          className="px-6 py-2 rounded-lg text-xs font-semibold text-gray-400 hover:text-white transition-colors"
         >
-          Send Another Message
+          ← Send Another Message
         </button>
       </div>
     );
@@ -107,8 +125,11 @@ export function ContactForm({ defaultService }: { defaultService?: string }) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       {errorMsg && (
-        <div className="p-3.5 rounded-lg bg-red-950/40 border border-red-500/30 text-red-300 text-xs font-medium">
-          {errorMsg}
+        <div className="p-3.5 rounded-lg bg-red-950/40 border border-red-500/30 text-red-300 text-xs font-medium space-y-1.5">
+          <div>{errorMsg}</div>
+          <div className="text-[11px] text-gray-400">
+            Direct channels: <a href="https://wa.me/923079575055" target="_blank" rel="noopener noreferrer" className="text-emerald-400 underline">WhatsApp (+92 307 9575055)</a> or <a href="mailto:info@kinetixsoft.com" className="text-cerulean underline">info@kinetixsoft.com</a>
+          </div>
         </div>
       )}
 
